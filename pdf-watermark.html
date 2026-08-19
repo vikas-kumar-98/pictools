@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croply — Nav & Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- PDF.js from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <!-- pdf-lib from multiple CDN sources with fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  
+
+<style>
+  :root{
+    --ink:#12151b;
+    --ink-soft:#1b202a;
+    --paper:#f6f5f1;
+    --paper-dim:#e8e6df;
+    --aqua:#3ed6c4;
+    --clay:#ff6b4a;
+    --muted:#8a93a6;
+    --line: rgba(246,245,241,0.10);
+    --line-soft: rgba(18,21,27,0.10);
+    --radius: 10px;
+    --font-display: 'Sora', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --maxw: 1280px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none; margin:0; padding:0;}
+  button{font:inherit; background:none; border:none; cursor:pointer; color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============ Crop-mark signature ============ */
+  .crop-mark{ position:relative; }
+  .crop-mark::before, .crop-mark::after{
+    content:"";
+    position:absolute;
+    width:9px; height:9px;
+    border: 1.5px solid var(--aqua);
+    opacity:0;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  .crop-mark::before{ top:-6px; left:-6px; border-right:none; border-bottom:none; transform: translate(4px,4px); }
+  .crop-mark::after{ bottom:-6px; right:-6px; border-left:none; border-top:none; transform: translate(-4px,-4px); }
+  .crop-mark:hover::before, .crop-mark:focus-visible::before,
+  .crop-mark:hover::after, .crop-mark:focus-visible::after,
+  .crop-mark[aria-expanded="true"]::before, .crop-mark[aria-expanded="true"]::after{
+    opacity:1;
+    transform: translate(0,0);
+  }
+
+  /* ============================================================
+     NAVBAR
+  ============================================================ */
+  .site-header{
+    position: sticky;
+    top:0;
+    z-index: 200;
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 16px;
+    height: 68px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size:19px;
+    letter-spacing: -0.01em;
+    flex-shrink:0;
+  }
+  .brand-mark{
+    width: 30px; height:30px;
+    border-radius: 7px;
+    background: linear-gradient(135deg, var(--aqua), #22a597);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .brand-mark svg{ width:16px; height:16px; }
+  .brand .ext{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--aqua);
+    font-weight:600;
+    background: rgba(62,214,196,0.12);
+    border:1px solid rgba(62,214,196,0.3);
+    padding: 2px 6px;
+    border-radius: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Primary link row (desktop) */
+  .nav-primary{
+    display:flex;
+    align-items:center;
+    gap: 2px;
+    flex:1;
+  }
+  .nav-item{ position:relative; }
+  .nav-link{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight:500;
+    border-radius: 8px;
+    color: rgba(246,245,241,0.85);
+    transition: color .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .nav-link:hover, .nav-link:focus-visible{
+    color: var(--paper);
+    background: rgba(246,245,241,0.06);
+  }
+  .nav-link .chev{
+    width:10px; height:10px;
+    transition: transform .2s ease;
+    flex-shrink:0;
+  }
+  .nav-item[data-open="true"] .chev{ transform: rotate(180deg); }
+
+  /* Actions */
+  .nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+  }
+  .btn{
+    font-size:14px;
+    font-weight:600;
+    padding: 9px 16px;
+    border-radius: 8px;
+    transition: transform .15s ease, background .15s ease, opacity .15s ease;
+  }
+  .btn-ghost{
+    color: rgba(246,245,241,0.85);
+  }
+  .btn-ghost:hover{ color:var(--paper); background: rgba(246,245,241,0.06); }
+  .btn-solid{
+    background: var(--aqua);
+    color: #062521;
+  }
+  .btn-solid:hover{ transform: translateY(-1px); opacity:0.92; }
+
+  .hamburger{
+    display:none;
+    width: 38px; height:38px;
+    border-radius:8px;
+    align-items:center; justify-content:center;
+    color: var(--paper);
+  }
+  .hamburger:hover{ background: rgba(246,245,241,0.08); }
+  .hamburger svg{ width:20px; height:20px; }
+
+  /* ---------- Mega menu (desktop dropdown) ---------- */
+  .mega{
+    position:absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    min-width: 560px;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 12px;
+    border: 1px solid var(--line-soft);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.28);
+    padding: 20px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition: opacity .16s ease, transform .16s ease, visibility .16s;
+    z-index: 50;
+  }
+  .nav-item[data-open="true"] .mega{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .mega-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 8px;
+  }
+  .mega-col-title{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 10px 8px;
+  }
+  .mega-link{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: background .12s ease;
+  }
+  .mega-link:hover, .mega-link:focus-visible{ background: var(--paper-dim); }
+  .mega-icon{
+    width: 30px; height:30px;
+    border-radius:7px;
+    background: var(--ink);
+    color: var(--aqua);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .mega-icon svg{ width:15px; height:15px; }
+  .mega-text strong{
+    display:block;
+    font-size: 13.5px;
+    font-weight:600;
+  }
+  .mega-text span{
+    display:block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+  .tag-new{
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    background: var(--aqua);
+    color:#062521;
+    padding: 1px 5px;
+    border-radius:4px;
+    margin-left:6px;
+    vertical-align: 1px;
+    font-weight:700;
+    display:inline-block;
+  }
+  .mega-foot{
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line-soft);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .mega-foot a{ color: var(--ink); font-weight:600; }
+  .mega-foot a:hover{ color: var(--clay); }
+
+  /* ---------- Mobile drawer ---------- */
+  .drawer-overlay{
+    position:fixed; inset:0;
+    background: rgba(18,21,27,0.5);
+    opacity:0; visibility:hidden;
+    transition: opacity .2s ease, visibility .2s;
+    z-index: 199;
+  }
+  .drawer-overlay.active{ opacity:1; visibility:visible; }
+
+  .drawer{
+    position:fixed;
+    top:0; right:0;
+    height:100dvh;
+    width: min(340px, 86vw);
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateX(100%);
+    transition: transform .26s ease;
+    z-index: 210;
+    display:flex;
+    flex-direction:column;
+    box-shadow: -12px 0 30px rgba(0,0,0,0.3);
+  }
+  .drawer.active{ transform: translateX(0); }
+  .drawer-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 18px;
+    border-bottom: 1px solid var(--line);
+    flex-shrink:0;
+  }
+  .drawer-close{
+    width:34px; height:34px;
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .drawer-close:hover{ background: rgba(246,245,241,0.08); }
+  .drawer-close svg{ width:18px; height:18px; }
+  .drawer-body{
+    padding: 8px 10px;
+    overflow-y:auto;
+    flex:1;
+  }
+  .acc{ border-bottom: 1px solid var(--line); }
+  .acc-trigger{
+    width:100%;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 15px 10px;
+    font-size:15px;
+    font-weight:600;
+  }
+  .acc-trigger .chev{ width:11px; height:11px; transition: transform .2s ease; flex-shrink:0; }
+  .acc[data-open="true"] .chev{ transform: rotate(180deg); }
+  .acc-panel{
+    max-height:0;
+    overflow:hidden;
+    transition: max-height .22s ease;
+  }
+  .acc-panel-inner{ padding: 2px 10px 14px; display:flex; flex-direction:column; gap:2px;}
+  .acc-panel-inner a{
+    padding: 9px 10px;
+    border-radius:7px;
+    font-size:14px;
+    color: rgba(246,245,241,0.75);
+    display:flex; align-items:center;
+  }
+  .acc-panel-inner a:hover{ background: rgba(246,245,241,0.06); color:var(--paper); }
+  .drawer-simple-link{
+    display:block;
+    padding: 15px 10px;
+    font-size:15px;
+    font-weight:600;
+    border-bottom: 1px solid var(--line);
+  }
+  .drawer-foot{
+    padding: 16px 18px 22px;
+    border-top: 1px solid var(--line);
+    display:flex; flex-direction:column; gap:10px;
+    flex-shrink:0;
+  }
+  .drawer-foot .btn{ text-align:center; }
+
+  @media (max-width: 980px){
+    .nav-primary, .nav-actions .btn{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  .site-footer{
+    background: var(--ink);
+    color: rgba(246,245,241,0.72);
+    margin-top: 40px;
+  }
+  .footer-top{
+    padding: 56px 10px 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.3fr repeat(5, 1fr);
+    gap: 28px;
+  }
+  .footer-brand-col .brand{ color: var(--paper); margin-bottom:14px; }
+  .footer-brand-col p{
+    font-size: 13.5px;
+    line-height:1.6;
+    max-width: 240px;
+    color: rgba(246,245,241,0.55);
+    margin: 0 0 18px;
+  }
+  .format-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .format-badge{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color: var(--aqua);
+    background: rgba(62,214,196,0.1);
+    border:1px solid rgba(62,214,196,0.28);
+    padding: 4px 8px;
+    border-radius:5px;
+  }
+  .format-badge.clay{
+    color: var(--clay);
+    background: rgba(255,107,74,0.1);
+    border-color: rgba(255,107,74,0.28);
+  }
+
+  .footer-col h4{
+    font-family: var(--font-display);
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--paper);
+    margin: 0 0 16px;
+    display:flex; align-items:center; gap:8px;
+    white-space:nowrap;
+  }
+  .footer-col h4::before{
+    content:"";
+    width:6px; height:6px;
+    background: var(--clay);
+    border-radius:1px;
+    display:inline-block;
+    transform: rotate(45deg);
+    flex-shrink:0;
+  }
+  .footer-col ul{ display:flex; flex-direction:column; gap:11px; }
+  .footer-col a{
+    font-size:13px;
+    color: rgba(246,245,241,0.62);
+    transition: color .15s ease;
+    display:flex; align-items:center; flex-wrap:wrap;
+  }
+  .footer-col a:hover{ color: var(--aqua); }
+  .footer-col .tag-new{ margin-left:6px; }
+
+  .footer-more{
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px dashed var(--line);
+  }
+  .footer-more-head{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .footer-more-head h4{
+    font-family: var(--font-display);
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color: var(--paper);
+    margin:0;
+  }
+  .footer-more-head a{
+    font-size:12.5px;
+    font-weight:600;
+    color: var(--aqua);
+  }
+  .footer-more-head a:hover{ color: var(--clay); }
+  .footer-more-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .footer-more-list a{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: rgba(246,245,241,0.65);
+    background: rgba(246,245,241,0.05);
+    border: 1px solid var(--line);
+    padding: 6px 11px;
+    border-radius: 999px;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .footer-more-list a:hover{
+    color: var(--aqua);
+    border-color: rgba(62,214,196,0.35);
+    background: rgba(62,214,196,0.08);
+  }
+
+  .footer-newsletter{
+    padding: 34px 10px;
+    border-bottom: 1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .footer-newsletter h5{
+    font-family: var(--font-display);
+    font-size:17px;
+    color: var(--paper);
+    margin:0 0 4px;
+  }
+  .footer-newsletter p{ margin:0; font-size:13px; color: rgba(246,245,241,0.5); }
+  .news-form{
+    display:flex;
+    gap:8px;
+    flex:1;
+    max-width:380px;
+    min-width:260px;
+  }
+  .news-form input{
+    flex:1;
+    background: rgba(246,245,241,0.06);
+    border: 1px solid var(--line);
+    border-radius:8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-size:13.5px;
+    font-family: inherit;
+  }
+  .news-form input::placeholder{ color: rgba(246,245,241,0.35); }
+  .news-form input:focus{ outline:2px solid var(--aqua); outline-offset:1px; }
+
+  .footer-bottom{
+    padding: 22px 0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    font-size:12.5px;
+    color: rgba(246,245,241,0.42);
+  }
+  .footer-legal{ display:flex; gap:18px; flex-wrap:wrap; }
+  .footer-legal a:hover{ color: rgba(246,245,241,0.8); }
+  .socials{ display:flex; gap:8px; }
+  .social-btn{
+    width:32px; height:32px;
+    border-radius:7px;
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .social-btn:hover{ background: rgba(246,245,241,0.06); border-color: rgba(246,245,241,0.2); }
+  .social-btn svg{ width:14px; height:14px; }
+
+  @media (max-width: 980px){
+    .footer-grid{ grid-template-columns: 1fr 1fr 1fr; }
+    .footer-brand-col{ grid-column: 1 / -1; }
+    .footer-brand-col p{ max-width:420px; }
+  }
+  @media (max-width: 620px){
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+    .footer-newsletter{ flex-direction:column; align-items:flex-start; }
+    .news-form{ max-width:none; width:100%; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  }
+  @media (max-width: 380px){
+    .footer-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* Demo page filler (not part of the component) */
+  .demo-hero{ padding: 40px 0; text-align:center; }
+  .demo-hero h1{ font-family:var(--font-display); font-size: clamp(28px,4vw,42px); margin:0 0 12px; }
+  .demo-hero p{ color:#5b6272; font-size:15px; max-width:520px; margin:0 auto; }
+  .sr-only{
+    position:absolute; width:1px;height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  /*Page style goes here....................*/
+
+    .app { max-width: 1440px; width: 100%; background: white; border-radius: 2rem; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2); padding: 1.5rem; transition: all 0.2s; }
+    /* NO HEADER, NO NAV, NO FOOTER */
+    .row { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    .preview-col { flex: 1 1 55%; min-width: 300px; }
+    .controls-col { flex: 1 1 40%; min-width: 280px; background: #f8fafc; border-radius: 1.5rem; padding: 1.25rem; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03); max-height: 80vh; overflow-y: auto; }
+    /* upload area */
+    .drop-zone { border: 2px dashed #b9c8e0; border-radius: 1.5rem; padding: 1.5rem 1rem; text-align: center; background: #fafcff; transition: 0.2s; cursor: pointer; }
+    .drop-zone.dragover { border-color: #2563eb; background: #eef4ff; }
+    .drop-zone p { font-weight: 500; color: #475569; }
+    .file-info { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; padding: 0.5rem 0; font-size: 0.9rem; }
+    .file-info .badge { background: #e2e8f0; padding: 0.2rem 0.8rem; border-radius: 30px; }
+    .btn { background: #eef2f6; border: none; padding: 0.4rem 1rem; border-radius: 40px; font-weight: 500; cursor: pointer; transition: 0.15s; }
+    .btn-primary { background: #2563eb; color: white; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-outline { background: transparent; border: 1px solid #cbd5e1; }
+    .btn-danger { background: #ef4444; color: white; }
+    .btn-sm { font-size: 0.8rem; padding: 0.2rem 0.8rem; }
+    .preview-container { position: relative; background: #e9edf3; border-radius: 1.5rem; overflow: hidden; margin-top: 1rem; }
+    #pdfCanvas { width: 100%; height: auto; display: block; }
+    .watermark-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+    .watermark-overlay.draggable { pointer-events: auto; cursor: grab; }
+    .wm-text { position: absolute; transform-origin: center; white-space: nowrap; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,0.1); user-select: none; }
+    .wm-image { position: absolute; transform-origin: center; pointer-events: none; }
+    .preview-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0.75rem 0; align-items: center; background: white; border-radius: 2rem; }
+    .preview-controls button, .preview-controls input { background: #f1f5f9; border: none; border-radius: 30px; padding: 0.3rem 0.8rem; font-size: 0.85rem; }
+    .preview-controls input[type="number"] { width: 55px; }
+    .section-title { font-weight: 600; font-size: 0.9rem; margin: 1rem 0 0.5rem; letter-spacing: 0.02em; color: #334155; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.3rem; }
+    .control-group { display: flex; flex-wrap: wrap; gap: 0.5rem 0.8rem; align-items: center; margin-bottom: 0.6rem; }
+    .control-group label { font-size: 0.8rem; font-weight: 500; color: #475569; min-width: 60px; }
+    .control-group input, .control-group select { background: white; border: 1px solid #d1d9e6; border-radius: 30px; padding: 0.3rem 0.8rem; font-size: 0.85rem; flex: 1; min-width: 70px; }
+    .control-group input[type="range"] { flex: 2; min-width: 80px; padding: 0; }
+    .control-group input[type="color"] { width: 40px; height: 40px; padding: 2px; border-radius: 40px; }
+    .preset-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .preset-btn { background: #eef2f6; border: none; border-radius: 30px; padding: 0.2rem 1rem; font-size: 0.75rem; font-weight: 500; cursor: pointer; }
+    .preset-btn.active { background: #2563eb; color: white; }
+    .progress-bar { background: #e2e8f0; border-radius: 40px; height: 10px; margin: 0.5rem 0; overflow: hidden; width: 100%; }
+    .progress-fill { height: 100%; width: 0%; background: #2563eb; transition: width 0.2s; }
+    .result-box { background: #f0f7fe; border-radius: 1.5rem; padding: 1rem; margin-top: 1rem; }
+    .flex { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .gap-1 { gap: 0.5rem; }
+    .mt-1 { margin-top: 0.5rem; }
+    .mb-1 { margin-bottom: 0.5rem; }
+    .text-muted { color: #64748b; font-size: 0.85rem; }
+    .hidden { display: none !important; }
+    .loading-indicator { color: #2563eb; font-weight: 500; padding: 0.5rem; text-align: center; }
+    /* mobile */
+    @media (max-width: 640px) {
+      .app { padding: 0.75rem; }
+      .controls-col { max-height: 70vh; }
+    }
+
+  /* End Page style goes here....................*/
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / NAV
+============================================================ -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v14a2 2 0 0 0 2 2h12" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/><path d="M17 21V7a2 2 0 0 0-2-2H3" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </span>
+      Croply <span class="ext">.io</span>
+    </a>
+
+    <nav class="nav-primary" aria-label="Primary">
+      <!-- TOOLS MEGA MENU -->
+      <div class="nav-item" data-menu="tools">
+        <button class="nav-link crop-mark" aria-haspopup="true" aria-expanded="false">
+          Tools
+          <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mega" role="menu">
+          <div class="mega-grid">
+            <div class="mega-col-title">Edit</div>
+            <div class="mega-col-title">Enhance</div>
+
+            <a href="crop-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Crop Image</strong><span>Trim to exact size or ratio</span></span>
+            </a>
+            <a href="remove-background.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4" opacity="0.35"/></svg></span>
+              <span class="mega-text"><strong>Remove Background</strong> <span class="tag-new">NEW</span><span>AI cutout in one click</span></span>
+            </a>
+
+            <a href="compress-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/></svg></span>
+              <span class="mega-text"><strong>Compress Image</strong><span>Shrink file size, keep quality</span></span>
+            </a>
+            <a href="watermark-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 20 4M14 4h6v6M10 20H4v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><text x="7" y="16" font-size="9" fill="currentColor" font-family="monospace">W</text></svg></span>
+              <span class="mega-text"><strong>Watermark Image</strong><span>Add text or logo overlay</span></span>
+            </a>
+
+            <a href="resize-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3 3 8l5 5M16 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>Resize Image</strong><span>Set exact pixels or percentage</span></span>
+            </a>
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Rotate &amp; Flip</strong><span>Fix orientation in one click</span></span>
+            </a>
+
+            <a href="bulk-optimizer.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>Bulk Optimizer</strong><span>Batch-process a whole folder</span></span>
+            </a>
+            <a href="image-metadata-viewer.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Image Metadata Viewer</strong><span>Check EXIF &amp; file details</span></span>
+            </a>
+          </div>
+          <div class="mega-foot">
+            <span>All tools run free, no signup needed</span>
+            <a href="#">See all image tools →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PDF TOOLS MEGA MENU -->
+      <div class="nav-item" data-menu="pdf">
+        <button class="nav-link crop-mark" aria-haspopup="true" aria-expanded="false">
+          PDF Tools
+          <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mega" role="menu">
+          <div class="mega-grid">
+            <div class="mega-col-title">Organize</div>
+            <div class="mega-col-title">Convert &amp; Secure</div>
+
+            <a href="merge-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
+              <span class="mega-text"><strong>Merge PDF</strong><span>Combine multiple PDFs into one</span></span>
+            </a>
+            <a href="split-separate-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 2"/></svg></span>
+              <span class="mega-text"><strong>Split / Separate PDF</strong><span>Pull out or divide pages</span></span>
+            </a>
+
+            <a href="compress-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 4 4h9l7 7v9a1 1 0 0 1-1 1H4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13 4v6h6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>Compress PDF</strong><span>Reduce PDF file size</span></span>
+            </a>
+            <a href="protect-unlock-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/></svg></span>
+              <span class="mega-text"><strong>Protect / Unlock PDF</strong><span>Add or remove a password</span></span>
+            </a>
+
+            <a href="image-to-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Image to PDF</strong><span>Combine JPG/PNG into a PDF</span></span>
+            </a>
+            <a href="pdf-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>PDF to JPG</strong><span>Export each page as an image</span></span>
+            </a>
+
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Rotate PDF</strong><span>Fix sideways or upside-down pages</span></span>
+            </a>
+            <a href="watermark-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 20 4M14 4h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><text x="6" y="18" font-size="9" fill="currentColor" font-family="monospace">W</text></svg></span>
+              <span class="mega-text"><strong>Watermark PDF</strong><span>Stamp text or logo on pages</span></span>
+            </a>
+          </div>
+          <div class="mega-foot">
+            <span>Works with PDF, JPG, PNG, WEBP</span>
+            <a href="#">See all PDF tools →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONVERT MEGA MENU -->
+      <div class="nav-item" data-menu="convert">
+        <button class="nav-link crop-mark" aria-haspopup="true" aria-expanded="false">
+          Convert
+          <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mega" role="menu">
+          <div class="mega-grid">
+            <div class="mega-col-title">Image ↔ Image</div>
+            <div class="mega-col-title">Image ↔ PDF</div>
+
+            <a href="#convert-jpg-to-png.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>JPG → PNG</strong><span>Adds transparency support</span></span>
+            </a>
+            <a href="merge-jpg-to-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Image → PDF</strong> <span class="tag-new">NEW</span><span>Merge JPG/PNG into a PDF</span></span>
+            </a>
+
+            <a href="convert-png-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>PNG → JPG</strong><span>Smaller size for photos</span></span>
+            </a>
+            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>PDF → JPG</strong><span>Export each page as an image</span></span>
+            </a>
+
+            <a href="convert-webp-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>WEBP → JPG/PNG</strong><span>Universal format support</span></span>
+            </a>
+            <a href="convert-pdf-to-png.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
+              <span class="mega-text"><strong>PDF → PNG</strong><span>High-quality page export</span></span>
+            </a>
+
+            <a href="convert-heic-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2"/><path d="M4 15l4-4 4 4 4-6 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>HEIC → JPG</strong><span>Fix iPhone photos for web</span></span>
+            </a>
+            <a href="convert-svg-to-png.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7 12 3l8 4-8 4-8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.5"/></svg></span>
+              <span class="mega-text"><strong>SVG → PNG</strong><span>Rasterize vector graphics</span></span>
+            </a>
+          </div>
+          <div class="mega-foot">
+            <span>Formats: JPG · PNG · WEBP · HEIC · SVG · GIF · PDF</span>
+            <a href="all-converters.html">All converters →</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="api.html" class="nav-link">API</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-ghost">Log in</a>
+      <a href="upload-image.html" class="btn btn-solid">Upload image</a>
+      <button class="hamburger" id="drawerOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     MOBILE DRAWER
+============================================================ -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="brand" style="font-size:17px;">
+      <span class="brand-mark" style="width:26px;height:26px;">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v14a2 2 0 0 0 2 2h12" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/><path d="M17 21V7a2 2 0 0 0-2-2H3" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </span>
+      Croply
+    </span>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div class="drawer-body">
+    <div class="acc" data-acc>
+      <button class="acc-trigger">
+        Tools
+        <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <a href="crop-image.html">Crop Image</a>
+          <a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a>
+          <a href="compress-image.html">Compress Image</a>
+          <a href="watermark-image.html">Watermark Image</a>
+          <a href="resize-image.html">Resize Image</a>
+          <a href="rotate-flip-image.html">Rotate &amp; Flip</a>
+          <a href="bulk-optimizer.html">Bulk Optimizer</a>
+          <a href="image-metadata-viewer.html">Image Metadata Viewer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc" data-acc>
+      <button class="acc-trigger">
+        PDF Tools
+        <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <a href="merge-pdf.html">Merge PDF</a>
+          <a href="split-separate-pdf.html">Split / Separate PDF</a>
+          <a href="compress-pdf.html">Compress PDF</a>
+          <a href="protect-unlock-pdf.html">Protect / Unlock PDF</a>
+          <a href="watermark-pdf.html">Watermark PDF</a>
+          <a href="rotate-pdf.html">Rotate PDF</a>
+          <a href="image-to-pdf.html">Image to PDF</a>
+          <a href="pdf-to-jpg.html">PDF to JPG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc" data-acc>
+      <button class="acc-trigger">
+        Convert
+        <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <a href="convert-jpg-to-png.html">JPG to PNG</a>
+          <a href="convert-png-to-jpg.html">PNG to JPG</a>
+          <a href="convert-webp-to-jpg-png.html">WEBP to JPG/PNG</a>
+          <a href="convert-heic-to-jpg.html">HEIC to JPG</a>
+          <a href="convert-svg-to-png.html">SVG to PNG</a>
+          <a href="convert-image-to-pdf.html">Image to PDF</a>
+          <a href="convert-pdf-to-jpg.html">PDF to JPG</a>
+          <a href="convert-pdf-to-png.html">PDF to PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="pricing.html" class="drawer-simple-link">Pricing</a>
+    <a href="api.html" class="drawer-simple-link">API</a>
+    <a href="blog.html" class="drawer-simple-link">Blog</a>
+  </div>
+
+  <div class="drawer-foot">
+    <a href="log-in.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
+    <a href="upload-image.html" class="btn btn-solid">Upload image</a>
+  </div>
+</aside>
+
+<!-- demo filler so the footer isn't glued to the nav -->
+<main class="wrap demo-hero">
+
+
+  <div class="app" id="app">
+  <div class="row">
+    <!-- LEFT: Preview -->
+    <div class="preview-col">
+      <div class="drop-zone" id="dropZone">
+        <p>📄 Drag & drop PDF here, or click to browse</p>
+        <input type="file" id="fileInput" accept=".pdf" style="display:none">
+        <div id="fileInfo" class="file-info hidden">
+          <span id="fileName" class="badge">document.pdf</span>
+          <span id="fileSize" class="badge">0 MB</span>
+          <span id="pageCount" class="badge">0 pages</span>
+          <button class="btn btn-danger btn-sm" id="removePdfBtn">✕ remove</button>
+          <button class="btn btn-outline btn-sm" id="replacePdfBtn">↻ replace</button>
+        </div>
+      </div>
+      <div class="preview-container" id="previewContainer">
+        <canvas id="pdfCanvas"></canvas>
+        <div class="watermark-overlay draggable" id="watermarkOverlay"></div>
+      </div>
+      <div class="preview-controls" id="previewControls">
+        <button id="prevPage">◀</button>
+        <span>Page <input type="number" id="pageInput" value="1" min="1"> / <span id="totalPages">0</span></span>
+        <button id="nextPage">▶</button>
+        <button id="zoomOut">−</button>
+        <span id="zoomLevel">100%</span>
+        <button id="zoomIn">+</button>
+        <button id="fitWidth">↔</button>
+        <button id="fitScreen">⛶</button>
+      </div>
+    </div>
+    <!-- RIGHT: Controls -->
+    <div class="controls-col" id="controlsCol">
+      <div id="libraryStatus" class="loading-indicator">Loading PDF libraries...</div>
+      <!-- watermark type -->
+      <div class="control-group">
+        <label>Type</label>
+        <select id="watermarkType"><option value="text">Text</option><option value="image">Image</option></select>
+      </div>
+      <!-- text controls -->
+      <div id="textControls">
+        <div class="control-group"><label>Text</label><input type="text" id="wmText" value="CONFIDENTIAL"></div>
+        <div class="control-group"><label>Font</label>
+          <select id="wmFont"><option value="Helvetica">Helvetica</option><option value="TimesRoman">Times</option><option value="Courier">Courier</option><option value="Helvetica-Bold">Helvetica Bold</option></select>
+        </div>
+        <div class="control-group"><label>Size</label><input type="number" id="wmFontSize" value="48" min="8" max="200"></div>
+        <div class="control-group"><label>Style</label>
+          <button class="btn btn-sm" id="boldBtn">B</button>
+          <button class="btn btn-sm" id="italicBtn">I</button>
+          <button class="btn btn-sm" id="underlineBtn">U</button>
+        </div>
+        <div class="control-group"><label>Color</label><input type="color" id="wmColor" value="#cc0000"></div>
+      </div>
+      <!-- image controls -->
+      <div id="imageControls" class="hidden">
+        <div class="control-group"><label>Image</label><input type="file" id="imageInput" accept="image/png,image/jpeg,image/webp"></div>
+        <div class="control-group"><label>Width</label><input type="number" id="imgWidth" value="120" min="10"></div>
+        <div class="control-group"><label>Height</label><input type="number" id="imgHeight" value="60" min="10"></div>
+      </div>
+      <!-- common -->
+      <div class="control-group"><label>Opacity</label><input type="range" id="wmOpacity" min="0" max="100" value="30"><span id="opacityVal">30%</span></div>
+      <div class="control-group"><label>Rotation</label><input type="range" id="wmRotation" min="-180" max="180" value="0"><span id="rotationVal">0°</span></div>
+      <div class="control-group"><label>Position</label>
+        <select id="posPreset">
+          <option value="custom">Custom</option>
+          <option value="top-left">Top Left</option><option value="top-center">Top Center</option><option value="top-right">Top Right</option>
+          <option value="center-left">Center Left</option><option value="center">Center</option><option value="center-right">Center Right</option>
+          <option value="bottom-left">Bottom Left</option><option value="bottom-center">Bottom Center</option><option value="bottom-right">Bottom Right</option>
+        </select>
+      </div>
+      <div class="control-group"><label>X</label><input type="number" id="posX" value="50" step="1"><label>Y</label><input type="number" id="posY" value="50" step="1"></div>
+      <!-- tiled -->
+      <div class="control-group"><label>Tile</label><input type="checkbox" id="tileCheck"><span class="text-muted">(diagonal)</span></div>
+      <div class="control-group" id="tileSpacing" style="display:none"><label>Spacing</label><input type="range" id="tileSpacingX" min="20" max="300" value="120"><span id="tileSpacingVal">120</span></div>
+      <!-- page selection -->
+      <div class="section-title">Page selection</div>
+      <div class="control-group"><label>Apply to</label>
+        <select id="pageScope"><option value="all">All pages</option><option value="current">Current page</option><option value="first">First page</option><option value="last">Last page</option><option value="odd">Odd pages</option><option value="even">Even pages</option><option value="custom">Custom range</option></select>
+      </div>
+      <div id="customRangeInput" class="hidden"><input type="text" id="customPages" placeholder="1-5, 8, 10-12" style="width:100%"></div>
+      <!-- presets -->
+      <div class="section-title">Presets</div>
+      <div class="preset-grid">
+        <button class="preset-btn" data-preset="confidential">Confidential</button>
+        <button class="preset-btn" data-preset="draft">Draft</button>
+        <button class="preset-btn" data-preset="sample">Sample</button>
+        <button class="preset-btn" data-preset="copyright">Copyright</button>
+        <button class="preset-btn active" data-preset="custom">Custom</button>
+      </div>
+      <!-- action -->
+      <div class="flex mt-1"><button class="btn btn-primary" id="applyBtn" style="flex:1;padding:0.7rem">Apply Watermark</button></div>
+      <div id="progressArea" class="hidden"><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div><span id="progressText">Processing...</span></div>
+      <!-- result -->
+      <div id="resultArea" class="result-box hidden">
+        <p><strong>✅ Watermarked successfully</strong></p>
+        <div id="resultMeta" class="text-muted"></div>
+        <div class="flex"><button class="btn btn-primary" id="downloadBtn">⬇ Download PDF</button><input type="text" id="downloadFilename" value="document_watermarked.pdf" style="flex:1"><button class="btn btn-outline" id="startOverBtn">↺ Start Over</button></div>
+      </div>
+      <div id="errorMsg" class="text-muted" style="color:#b91c1c;margin-top:0.5rem"></div>
+    </div>
+  </div>
+</div>  
+
+
+
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <span class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v14a2 2 0 0 0 2 2h12" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/><path d="M17 21V7a2 2 0 0 0-2-2H3" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+          Croply <span class="ext">.io</span>
+        </span>
+        <p>Fast, private image &amp; PDF tools that run in your browser — no upload to a server needed.</p>
+        <div class="format-badges">
+          <span class="format-badge">.JPG</span>
+          <span class="format-badge">.PNG</span>
+          <span class="format-badge">.WEBP</span>
+          <span class="format-badge">.HEIC</span>
+          <span class="format-badge">.SVG</span>
+          <span class="format-badge clay">.PDF</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Edit</h4>
+        <ul>
+          <li><a href="crop-image.html">Crop Image</a></li>
+          <li><a href="resize-image.html">Resize Image</a></li>
+          <li><a href="rotate-flip-image.html">Rotate &amp; Flip</a></li>
+          <li><a href="compress-image.html">Compress Image</a></li>
+          <li><a href="watermark-image.html">Watermark Image</a></li>
+          <li><a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a></li>
+          <li><a href="bulk-optimizer.html">Bulk Optimizer</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>PDF Tools</h4>
+        <ul>
+          <li><a href="merge-pdf.html">Merge PDF</a></li>
+          <li><a href="split-separate-pdf.html">Split / Separate PDF</a></li>
+          <li><a href="compress-pdf.html">Compress PDF</a></li>
+          <li><a href="protect-unlock-pdf.html">Protect / Unlock PDF</a></li>
+          <li><a href="watermark-pdf.html">Watermark PDF</a></li>
+          <li><a href="rotate-pdf.html">Rotate PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Convert</h4>
+        <ul>
+          <li><a href="convert-jpg-to-png.html">JPG to PNG</a></li>
+          <li><a href="convert-png-to-jpg.html">PNG to JPG</a></li>
+          <li><a href="convert-image-to-pdf.html">Image to PDF</a></li>
+          <li><a href="convert-pdf-to-jpg.html">PDF to JPG</a></li>
+          <li><a href="convert-heic-to-jpg.html">HEIC to JPG</a></li>
+          <li><a href="convert-svg-to-png.html">SVG to PNG</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="api-docs.html">API docs</a></li>
+          <li><a href="help-center.html">Help center</a></li>
+          <li><a href="status.html">Status</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-more">
+        <div class="footer-more-head">
+          <h4>More tools</h4>
+          <a href="more-tools.html">View all 30+ tools →</a>
+        </div>
+        <div class="footer-more-list">
+          <a href="image-to-base64.html">Image to Base64</a>
+          <a href="gif-to-jpg.html">GIF to JPG</a>
+          <a href="png-to-webp.html">PNG to WEBP</a>
+          <a href="add-border.html">Add Border</a>
+          <a href="image-color-picker.html">Image Color Picker</a>
+          <a href="blur-face-area.html">Blur Face / Area</a>
+          <a href="meme-generator.html">Meme Generator</a>
+          <a href="photo-collage-maker.html">Photo Collage Maker</a>
+          <a href="pdf-page-reorder.html">PDF Page Reorder</a>
+          <a href="pdf-to-word.html">PDF to Word</a>
+          <a href="grayscale-converter.html">Grayscale Converter</a>
+          <a href="image-compressor.html">Image Compressor (Bulk)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer-newsletter">
+    <div>
+      <h5>Get new tools first</h5>
+      <p>One short email when we ship a new converter or feature.</p>
+    </div>
+    <form class="news-form" onsubmit="return false;">
+      <label for="footerEmail" class="sr-only">Email address</label>
+      <input id="footerEmail" type="email" placeholder="you@email.com" required>
+      <button type="submit" class="btn btn-solid">Subscribe</button>
+    </form>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <span>© 2026 Croply.io — All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="privacy.html">Privacy Policy</a> 
+      <a href="terms.html">Terms of Service</a>
+      <a href="cookies.html">Cookies</a>
+    </div>
+    <div class="socials"> 
+      <a href="#" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- Desktop mega-menu (hover + keyboard/click) ----------
+  const navItems = document.querySelectorAll('.nav-item[data-menu]');
+
+  function closeAllMenus(except){
+    navItems.forEach(item=>{
+      if(item !== except){
+        item.dataset.open = "false";
+        item.querySelector('.nav-link').setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  navItems.forEach(item=>{
+    const trigger = item.querySelector('.nav-link');
+    let closeTimer;
+
+    function open(){
+      clearTimeout(closeTimer);
+      closeAllMenus(item);
+      item.dataset.open = "true";
+      trigger.setAttribute('aria-expanded','true');
+    }
+    function scheduleClose(){
+      closeTimer = setTimeout(()=>{
+        item.dataset.open = "false";
+        trigger.setAttribute('aria-expanded','false');
+      }, 140);
+    }
+
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', scheduleClose);
+
+    trigger.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const isOpen = item.dataset.open === "true";
+      if(isOpen){
+        item.dataset.open = "false";
+        trigger.setAttribute('aria-expanded','false');
+      } else {
+        open();
+      }
+    });
+  });
+
+  document.addEventListener('click', (e)=>{
+    if(!e.target.closest('.nav-item[data-menu]')) closeAllMenus(null);
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') closeAllMenus(null);
+  });
+
+  // ---------- Mobile drawer ----------
+  const drawer = document.getElementById('mobileDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+  const openBtn = document.getElementById('drawerOpen');
+  const closeBtn = document.getElementById('drawerClose');
+
+  function openDrawer(){
+    drawer.classList.add('active');
+    overlay.classList.add('active');
+    drawer.setAttribute('aria-hidden','false');
+    openBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer(){
+    drawer.classList.remove('active');
+    overlay.classList.remove('active');
+    drawer.setAttribute('aria-hidden','true');
+    openBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  openBtn.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeDrawer(); });
+
+  // ---------- Mobile accordion (Tools / PDF Tools / Convert) ----------
+  document.querySelectorAll('[data-acc]').forEach(acc=>{
+    const trigger = acc.querySelector('.acc-trigger');
+    const panel = acc.querySelector('.acc-panel');
+    trigger.addEventListener('click', ()=>{
+      const isOpen = acc.dataset.open === "true";
+      // close siblings for a clean single-open accordion
+      acc.parentElement.querySelectorAll('[data-acc]').forEach(other=>{
+        if(other !== acc){
+          other.dataset.open = "false";
+          other.querySelector('.acc-panel').style.maxHeight = null;
+        }
+      });
+      if(isOpen){
+        acc.dataset.open = "false";
+        panel.style.maxHeight = null;
+      } else {
+        acc.dataset.open = "true";
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
+<!-- PAge Script Herer-->
+<script>
+  (function(){
+    // ---- globals ----
+    const pdfjsLib = window.pdfjsLib;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    let pdfDoc = null, pdfPages = [], currentPage = 1, totalPages = 0, scale = 1.0;
+    let fileData = null; // ArrayBuffer
+    let fileName = '', fileSize = 0;
+    let watermarkImageData = null; // image data for pdf-lib (Uint8Array)
+    let pdfLibLoaded = false;
+
+    // watermark state
+    let wmState = {
+      type: 'text',
+      text: 'CONFIDENTIAL',
+      font: 'Helvetica',
+      fontSize: 48,
+      bold: false, italic: false, underline: false,
+      color: '#cc0000',
+      opacity: 0.3,
+      rotation: 0,
+      posX: 50, posY: 50,
+      tile: false,
+      tileSpacing: 120,
+      imgWidth: 120, imgHeight: 60,
+      imageData: null, // raw bytes
+    };
+
+    // DOM refs
+    const $ = id => document.getElementById(id);
+    const dropZone = $('dropZone'), fileInput = $('fileInput'), fileInfo = $('fileInfo');
+    const fileNameEl = $('fileName'), fileSizeEl = $('fileSize'), pageCountEl = $('pageCount');
+    const removePdfBtn = $('removePdfBtn'), replacePdfBtn = $('replacePdfBtn');
+    const canvas = $('pdfCanvas'), overlay = $('watermarkOverlay');
+    const prevPage = $('prevPage'), nextPage = $('nextPage'), pageInput = $('pageInput'), totalPagesEl = $('totalPages');
+    const zoomIn = $('zoomIn'), zoomOut = $('zoomOut'), fitWidth = $('fitWidth'), fitScreen = $('fitScreen'), zoomLevel = $('zoomLevel');
+    const wmType = $('watermarkType'), textControls = $('textControls'), imageControls = $('imageControls');
+    const wmText = $('wmText'), wmFont = $('wmFont'), wmFontSize = $('wmFontSize');
+    const boldBtn = $('boldBtn'), italicBtn = $('italicBtn'), underlineBtn = $('underlineBtn');
+    const wmColor = $('wmColor'), wmOpacity = $('wmOpacity'), opacityVal = $('opacityVal');
+    const wmRotation = $('wmRotation'), rotationVal = $('rotationVal');
+    const posPreset = $('posPreset'), posX = $('posX'), posY = $('posY');
+    const tileCheck = $('tileCheck'), tileSpacing = $('tileSpacing'), tileSpacingX = $('tileSpacingX'), tileSpacingVal = $('tileSpacingVal');
+    const pageScope = $('pageScope'), customRangeInput = $('customRangeInput'), customPages = $('customPages');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+    const applyBtn = $('applyBtn'), progressArea = $('progressArea'), progressFill = $('progressFill'), progressText = $('progressText');
+    const resultArea = $('resultArea'), resultMeta = $('resultMeta'), downloadBtn = $('downloadBtn'), downloadFilename = $('downloadFilename'), startOverBtn = $('startOverBtn');
+    const errorMsg = $('errorMsg');
+    const imageInput = $('imageInput'), imgWidth = $('imgWidth'), imgHeight = $('imgHeight');
+    const libraryStatus = $('libraryStatus');
+
+    // Check if pdf-lib is loaded
+    function checkPdfLib() {
+      if (typeof window.pdfLib !== 'undefined' && window.pdfLib.PDFDocument) {
+        pdfLibLoaded = true;
+        libraryStatus.textContent = '✅ Libraries loaded';
+        libraryStatus.style.color = '#16a34a';
+        return true;
+      }
+      
+      // Try loading from alternative CDN
+      if (!document.querySelector('script[src*="pdf-lib"][data-fallback]')) {
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js';
+        script.dataset.fallback = 'true';
+        script.onload = function() {
+          if (typeof window.pdfLib !== 'undefined') {
+            pdfLibLoaded = true;
+            libraryStatus.textContent = '✅ Libraries loaded';
+            libraryStatus.style.color = '#16a34a';
+          }
+        };
+        script.onerror = function() {
+          libraryStatus.textContent = '⚠️ PDF library failed to load. Please check your internet connection.';
+          libraryStatus.style.color = '#dc2626';
+        };
+        document.head.appendChild(script);
+      }
+      
+      return false;
+    }
+
+    // Initial check
+    setTimeout(checkPdfLib, 1000);
+
+    // ---- helpers ----
+    function showError(msg) { errorMsg.textContent = msg; }
+    function hideError() { errorMsg.textContent = ''; }
+
+    function updatePreview() { renderWatermarkOverlay(); }
+    function renderWatermarkOverlay() {
+      if (!pdfDoc) { overlay.innerHTML = ''; return; }
+      const rect = canvas.getBoundingClientRect();
+      const cw = canvas.width, ch = canvas.height;
+      // clear
+      overlay.innerHTML = '';
+      const wmDiv = document.createElement('div');
+      wmDiv.style.position = 'absolute';
+      wmDiv.style.left = '0'; wmDiv.style.top = '0'; wmDiv.style.width = '100%'; wmDiv.style.height = '100%';
+      wmDiv.style.pointerEvents = 'none';
+      overlay.style.pointerEvents = 'auto';
+      overlay.appendChild(wmDiv);
+
+      const scaleX = cw / rect.width, scaleY = ch / rect.height;
+      // compute position from percent (0-100) to pixel
+      function posToPx(xPercent, yPercent) {
+        const px = (xPercent / 100) * cw;
+        const py = (yPercent / 100) * ch;
+        return { px, py };
+      }
+      let { px, py } = posToPx(wmState.posX, wmState.posY);
+      const rot = wmState.rotation || 0;
+      const opacity = wmState.opacity || 0.3;
+
+      if (wmState.type === 'text') {
+        const el = document.createElement('div');
+        el.className = 'wm-text';
+        el.textContent = wmState.text || ' ';
+        el.style.color = wmState.color;
+        el.style.fontSize = (wmState.fontSize * 0.8) + 'px';
+        el.style.fontFamily = wmState.font;
+        el.style.fontWeight = wmState.bold ? 'bold' : 'normal';
+        el.style.fontStyle = wmState.italic ? 'italic' : 'normal';
+        el.style.textDecoration = wmState.underline ? 'underline' : 'none';
+        el.style.opacity = opacity;
+        el.style.transform = `translate(-50%, -50%) rotate(${rot}deg)`;
+        el.style.left = px + 'px';
+        el.style.top = py + 'px';
+        el.style.pointerEvents = 'none';
+        el.style.whiteSpace = 'nowrap';
+        wmDiv.appendChild(el);
+      } else if (wmState.type === 'image' && watermarkImageData) {
+        const img = document.createElement('img');
+        img.className = 'wm-image';
+        const url = URL.createObjectURL(new Blob([watermarkImageData], {type: 'image/png'}));
+        img.src = url;
+        img.style.width = (wmState.imgWidth || 120) + 'px';
+        img.style.height = (wmState.imgHeight || 60) + 'px';
+        img.style.opacity = opacity;
+        img.style.transform = `translate(-50%, -50%) rotate(${rot}deg)`;
+        img.style.left = px + 'px';
+        img.style.top = py + 'px';
+        img.style.pointerEvents = 'none';
+        wmDiv.appendChild(img);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+      // if tile
+      if (wmState.tile && pdfDoc) {
+        const spacing = wmState.tileSpacing || 120;
+        const tileDiv = document.createElement('div');
+        tileDiv.style.position = 'absolute'; tileDiv.style.top='0'; tileDiv.style.left='0'; tileDiv.style.width='100%'; tileDiv.style.height='100%'; tileDiv.style.pointerEvents='none'; tileDiv.style.overflow='hidden';
+        const countX = Math.ceil(cw / spacing)+2, countY = Math.ceil(ch / spacing)+2;
+        for (let i=0; i<countX; i++) {
+          for (let j=0; j<countY; j++) {
+            const el = document.createElement('div');
+            el.className = 'wm-text';
+            el.textContent = wmState.text || ' ';
+            el.style.color = wmState.color;
+            el.style.fontSize = (wmState.fontSize * 0.5) + 'px';
+            el.style.fontFamily = wmState.font;
+            el.style.fontWeight = wmState.bold ? 'bold' : 'normal';
+            el.style.fontStyle = wmState.italic ? 'italic' : 'normal';
+            el.style.opacity = opacity * 0.6;
+            el.style.transform = `translate(-50%, -50%) rotate(${rot+30}deg)`;
+            el.style.left = (i*spacing + j*15) + 'px';
+            el.style.top = (j*spacing + i*10) + 'px';
+            el.style.pointerEvents = 'none';
+            tileDiv.appendChild(el);
+          }
+        }
+        wmDiv.appendChild(tileDiv);
+      }
+    }
+
+    // ---- pdf rendering ----
+    async function renderPage(pageNum) {
+      if (!pdfDoc) return;
+      const page = await pdfDoc.getPage(pageNum);
+      const viewport = page.getViewport({ scale: scale });
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext('2d');
+      const renderContext = { canvasContext: ctx, viewport: viewport };
+      await page.render(renderContext).promise;
+      currentPage = pageNum;
+      pageInput.value = pageNum;
+      totalPagesEl.textContent = pdfDoc.numPages;
+      renderWatermarkOverlay();
+    }
+
+    // ---- load pdf ----
+    async function loadPDF(arrayBuffer, name, size) {
+      try {
+        const data = new Uint8Array(arrayBuffer);
+        pdfDoc = await pdfjsLib.getDocument({ data }).promise;
+        totalPages = pdfDoc.numPages;
+        pageCountEl.textContent = totalPages + ' pages';
+        fileNameEl.textContent = name;
+        fileSizeEl.textContent = (size / 1024 / 1024).toFixed(1) + ' MB';
+        fileInfo.classList.remove('hidden');
+        await renderPage(1);
+        updatePreview();
+        hideError();
+      } catch (e) {
+        showError('Unable to load PDF: ' + e.message);
+        pdfDoc = null;
+      }
+    }
+
+    // ---- upload handler ----
+    function handleFile(file) {
+      if (!file || file.type !== 'application/pdf') { showError('Please select a PDF file.'); return; }
+      if (file.size > 100 * 1024 * 1024) { showError('File too large (max 100MB)'); return; }
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        try {
+          fileData = e.target.result;
+          fileName = file.name;
+          fileSize = file.size;
+          await loadPDF(fileData, fileName, fileSize);
+        } catch (err) { showError('Error reading PDF: ' + err.message); }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    // ---- drag & drop ----
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => { if (e.target.files.length) handleFile(e.target.files[0]); });
+
+    removePdfBtn.addEventListener('click', () => { pdfDoc = null; fileData = null; fileInfo.classList.add('hidden'); canvas.width=0; canvas.height=0; overlay.innerHTML=''; totalPagesEl.textContent='0'; pageInput.value=1; });
+    replacePdfBtn.addEventListener('click', () => fileInput.click());
+
+    // preview controls
+    prevPage.addEventListener('click', async () => { if (pdfDoc && currentPage>1) await renderPage(currentPage-1); });
+    nextPage.addEventListener('click', async () => { if (pdfDoc && currentPage<totalPages) await renderPage(currentPage+1); });
+    pageInput.addEventListener('change', async () => { let p = parseInt(pageInput.value); if (pdfDoc && p>=1 && p<=totalPages) await renderPage(p); });
+    zoomIn.addEventListener('click', () => { scale = Math.min(3, scale*1.2); if (pdfDoc) renderPage(currentPage); zoomLevel.textContent=Math.round(scale*100)+'%'; });
+    zoomOut.addEventListener('click', () => { scale = Math.max(0.3, scale/1.2); if (pdfDoc) renderPage(currentPage); zoomLevel.textContent=Math.round(scale*100)+'%'; });
+    fitWidth.addEventListener('click', () => { if (!pdfDoc) return; const container = document.getElementById('previewContainer'); scale = (container.clientWidth-20) / (canvas.width || 600); if (pdfDoc) renderPage(currentPage); zoomLevel.textContent=Math.round(scale*100)+'%'; });
+    fitScreen.addEventListener('click', () => { if (!pdfDoc) return; const container = document.getElementById('previewContainer'); scale = (container.clientHeight-80) / (canvas.height || 800); if (pdfDoc) renderPage(currentPage); zoomLevel.textContent=Math.round(scale*100)+'%'; });
+
+    // ---- watermark controls ----
+    function syncState() {
+      wmState.text = wmText.value;
+      wmState.font = wmFont.value;
+      wmState.fontSize = parseInt(wmFontSize.value) || 48;
+      wmState.color = wmColor.value;
+      wmState.opacity = parseInt(wmOpacity.value)/100;
+      opacityVal.textContent = wmOpacity.value + '%';
+      wmState.rotation = parseInt(wmRotation.value);
+      rotationVal.textContent = wmRotation.value + '°';
+      wmState.posX = parseFloat(posX.value) || 50;
+      wmState.posY = parseFloat(posY.value) || 50;
+      wmState.tile = tileCheck.checked;
+      wmState.tileSpacing = parseInt(tileSpacingX.value) || 120;
+      tileSpacingVal.textContent = wmState.tileSpacing;
+      if (wmState.type === 'image') {
+        wmState.imgWidth = parseInt(imgWidth.value) || 120;
+        wmState.imgHeight = parseInt(imgHeight.value) || 60;
+      }
+      updatePreview();
+    }
+
+    wmText.addEventListener('input', syncState);
+    wmFont.addEventListener('change', syncState);
+    wmFontSize.addEventListener('input', syncState);
+    wmColor.addEventListener('input', syncState);
+    wmOpacity.addEventListener('input', syncState);
+    wmRotation.addEventListener('input', syncState);
+    posX.addEventListener('input', syncState);
+    posY.addEventListener('input', syncState);
+    tileCheck.addEventListener('change', () => { tileSpacing.style.display = tileCheck.checked ? 'flex' : 'none'; syncState(); });
+    tileSpacingX.addEventListener('input', syncState);
+    wmType.addEventListener('change', (e) => {
+      wmState.type = e.target.value;
+      textControls.classList.toggle('hidden', wmState.type !== 'text');
+      imageControls.classList.toggle('hidden', wmState.type !== 'image');
+      syncState();
+    });
+    // bold/italic/underline
+    boldBtn.addEventListener('click', () => { wmState.bold = !wmState.bold; boldBtn.style.fontWeight = wmState.bold ? 'bold' : 'normal'; syncState(); });
+    italicBtn.addEventListener('click', () => { wmState.italic = !wmState.italic; italicBtn.style.fontStyle = wmState.italic ? 'italic' : 'normal'; syncState(); });
+    underlineBtn.addEventListener('click', () => { wmState.underline = !wmState.underline; underlineBtn.style.textDecoration = wmState.underline ? 'underline' : 'none'; syncState(); });
+    // image upload
+    imageInput.addEventListener('change', (e) => {
+      if (e.target.files.length) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          watermarkImageData = new Uint8Array(ev.target.result);
+          wmState.imageData = watermarkImageData;
+          syncState();
+        };
+        reader.readAsArrayBuffer(e.target.files[0]);
+      }
+    });
+    imgWidth.addEventListener('input', syncState);
+    imgHeight.addEventListener('input', syncState);
+
+    // presets
+    presetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        presetBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const preset = btn.dataset.preset;
+        if (preset === 'confidential') { wmText.value='CONFIDENTIAL'; wmFont.value='Helvetica-Bold'; wmFontSize.value=64; wmColor.value='#b91c1c'; wmOpacity.value=25; wmRotation.value=-30; posPreset.value='center'; posX.value=50; posY.value=50; }
+        else if (preset === 'draft') { wmText.value='DRAFT'; wmFont.value='Helvetica'; wmFontSize.value=72; wmColor.value='#64748b'; wmOpacity.value=15; wmRotation.value=0; posPreset.value='center'; posX.value=50; posY.value=50; }
+        else if (preset === 'sample') { wmText.value='SAMPLE'; wmFont.value='TimesRoman'; wmFontSize.value=80; wmColor.value='#2563eb'; wmOpacity.value=20; wmRotation.value=0; posPreset.value='center'; posX.value=50; posY.value=50; }
+        else if (preset === 'copyright') { wmText.value='© 2026 Company'; wmFont.value='Helvetica'; wmFontSize.value=20; wmColor.value='#1e293b'; wmOpacity.value=50; wmRotation.value=0; posPreset.value='bottom-right'; posX.value=90; posY.value=90; }
+        else { /* custom */ }
+        syncState();
+      });
+    });
+
+    // position preset
+    posPreset.addEventListener('change', () => {
+      const v = posPreset.value;
+      if (v === 'top-left') { posX.value=15; posY.value=15; }
+      else if (v === 'top-center') { posX.value=50; posY.value=15; }
+      else if (v === 'top-right') { posX.value=85; posY.value=15; }
+      else if (v === 'center-left') { posX.value=15; posY.value=50; }
+      else if (v === 'center') { posX.value=50; posY.value=50; }
+      else if (v === 'center-right') { posX.value=85; posY.value=50; }
+      else if (v === 'bottom-left') { posX.value=15; posY.value=85; }
+      else if (v === 'bottom-center') { posX.value=50; posY.value=85; }
+      else if (v === 'bottom-right') { posX.value=85; posY.value=85; }
+      syncState();
+    });
+
+    // page scope
+    pageScope.addEventListener('change', () => {
+      customRangeInput.classList.toggle('hidden', pageScope.value !== 'custom');
+    });
+
+    // ---- APPLY WATERMARK ----
+    applyBtn.addEventListener('click', async () => {
+      hideError();
+      
+      // Check if pdf-lib is loaded
+      if (!pdfLibLoaded && typeof window.pdfLib === 'undefined') {
+        showError('PDF library is still loading. Please wait a moment and try again.');
+        // Try loading again
+        checkPdfLib();
+        return;
+      }
+      
+      // Double check
+      if (typeof window.pdfLib === 'undefined' || !window.pdfLib.PDFDocument) {
+        showError('PDF library not available. Please refresh the page and try again.');
+        return;
+      }
+
+      if (!pdfDoc || !fileData) { showError('Please upload a PDF first.'); return; }
+      if (wmState.type === 'text' && (!wmState.text || wmState.text.trim()==='')) { showError('Enter watermark text.'); return; }
+      if (wmState.type === 'image' && !watermarkImageData) { showError('Upload an image watermark.'); return; }
+
+      progressArea.classList.remove('hidden');
+      progressFill.style.width = '0%';
+      progressText.textContent = 'Preparing...';
+
+      try {
+        // determine pages
+        let pagesToApply = [];
+        const scope = pageScope.value;
+        if (scope === 'all') { for (let i=1; i<=totalPages; i++) pagesToApply.push(i); }
+        else if (scope === 'current') pagesToApply.push(currentPage);
+        else if (scope === 'first') pagesToApply.push(1);
+        else if (scope === 'last') pagesToApply.push(totalPages);
+        else if (scope === 'odd') { for (let i=1; i<=totalPages; i+=2) pagesToApply.push(i); }
+        else if (scope === 'even') { for (let i=2; i<=totalPages; i+=2) pagesToApply.push(i); }
+        else if (scope === 'custom') {
+          const raw = customPages.value.trim();
+          if (!raw) { showError('Enter custom page range.'); return; }
+          const ranges = raw.split(',').map(s => s.trim());
+          const set = new Set();
+          for (let r of ranges) {
+            if (r.includes('-')) {
+              const [a,b] = r.split('-').map(Number);
+              for (let i=Math.min(a,b); i<=Math.max(a,b); i++) if (i>=1 && i<=totalPages) set.add(i);
+            } else {
+              const n = Number(r);
+              if (n>=1 && n<=totalPages) set.add(n);
+            }
+          }
+          pagesToApply = Array.from(set).sort((a,b)=>a-b);
+          if (pagesToApply.length === 0) { showError('No valid pages in range.'); return; }
+        }
+
+        progressFill.style.width = '20%';
+        progressText.textContent = 'Loading PDF...';
+
+        const pdfLib = window.pdfLib;
+        const pdfBytes = new Uint8Array(fileData);
+        const pdfDocLib = await pdfLib.PDFDocument.load(pdfBytes);
+        progressFill.style.width = '40%';
+        progressText.textContent = 'Applying watermark...';
+
+        const { type, text, font, fontSize, bold, italic, underline, color, opacity, rotation, posX, posY, tile, tileSpacing, imgWidth, imgHeight } = wmState;
+        const hexToRgb = (hex) => { const c = hex.replace('#',''); return { r: parseInt(c.substring(0,2),16)/255, g: parseInt(c.substring(2,4),16)/255, b: parseInt(c.substring(4,6),16)/255 }; };
+        const rgb = hexToRgb(color);
+
+        for (let pageNum of pagesToApply) {
+          const page = pdfDocLib.getPage(pageNum-1);
+          const { width, height } = page.getSize();
+          const x = (posX/100) * width;
+          const y = (posY/100) * height;
+          const rot = rotation * Math.PI/180;
+
+          if (type === 'text') {
+            let fontObj;
+            if (font === 'Helvetica') fontObj = await pdfDocLib.embedFont(pdfLib.StandardFonts.Helvetica);
+            else if (font === 'Helvetica-Bold') fontObj = await pdfDocLib.embedFont(pdfLib.StandardFonts.HelveticaBold);
+            else if (font === 'TimesRoman') fontObj = await pdfDocLib.embedFont(pdfLib.StandardFonts.TimesRoman);
+            else fontObj = await pdfDocLib.embedFont(pdfLib.StandardFonts.Courier);
+            page.drawText(text, {
+              x, y, size: fontSize, font: fontObj, color: pdfLib.rgb(rgb.r, rgb.g, rgb.b),
+              opacity: opacity, rotate: pdfLib.degrees(rotation),
+            });
+          } else if (type === 'image' && watermarkImageData) {
+            const image = await pdfDocLib.embedPng(watermarkImageData);
+            page.drawImage(image, {
+              x: x - imgWidth/2, y: y - imgHeight/2,
+              width: imgWidth, height: imgHeight,
+              opacity: opacity,
+              rotate: pdfLib.degrees(rotation),
+            });
+          }
+        }
+
+        progressFill.style.width = '80%';
+        progressText.textContent = 'Generating PDF...';
+
+        const pdfBytesOut = await pdfDocLib.save();
+        progressFill.style.width = '100%';
+        progressText.textContent = 'Done!';
+
+        // show result
+        resultArea.classList.remove('hidden');
+        const outSize = (pdfBytesOut.length / 1024 / 1024).toFixed(1);
+        resultMeta.innerHTML = `
+          Original: ${fileName} (${(fileSize/1024/1024).toFixed(1)} MB) · ${totalPages} pages<br>
+          Watermarked: ${pagesToApply.length} pages · Output: ${outSize} MB
+        `;
+        downloadBtn.onclick = () => {
+          const blob = new Blob([pdfBytesOut], { type: 'application/pdf' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = downloadFilename.value || 'watermarked.pdf';
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(url), 5000);
+        };
+        progressArea.classList.add('hidden');
+      } catch (e) {
+        showError('Processing failed: ' + e.message);
+        progressArea.classList.add('hidden');
+        console.error(e);
+      }
+    });
+
+    // Start Over
+    startOverBtn.addEventListener('click', () => {
+      pdfDoc = null; fileData = null; watermarkImageData = null;
+      fileInfo.classList.add('hidden'); resultArea.classList.add('hidden'); progressArea.classList.add('hidden');
+      canvas.width=0; canvas.height=0; overlay.innerHTML=''; totalPagesEl.textContent='0'; pageInput.value=1;
+      wmText.value='CONFIDENTIAL'; wmColor.value='#cc0000'; wmOpacity.value=30; wmRotation.value=0;
+      posX.value=50; posY.value=50; tileCheck.checked=false; tileSpacing.style.display='none';
+      errorMsg.textContent='';
+      imageInput.value='';
+      downloadFilename.value='document_watermarked.pdf';
+      updatePreview();
+    });
+
+    // initial sync
+    syncState();
+  })();
+</script>
+
+<!--End page script-->
+
+</body>
+</html>
