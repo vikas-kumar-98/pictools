@@ -7,10 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Cropper.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" />
+
 
 <style>
   :root{
@@ -369,7 +366,6 @@
     background: var(--ink);
     color: rgba(246,245,241,0.72);
     margin-top: 40px;
-
   }
   .footer-top{
     padding: 56px 10px 40px;
@@ -487,7 +483,7 @@
   }
 
   .footer-newsletter{
-    padding: 34px 0;
+    padding: 34px 10px;
     border-bottom: 1px solid var(--line);
     display:flex;
     align-items:center;
@@ -560,7 +556,7 @@
   }
 
   /* Demo page filler (not part of the component) */
-  .demo-hero{ padding: 20px 10; text-align:center; }
+  .demo-hero{ padding: 40px 0; text-align:center; }
   .demo-hero h1{ font-family:var(--font-display); font-size: clamp(28px,4vw,42px); margin:0 0 12px; }
   .demo-hero p{ color:#5b6272; font-size:15px; max-width:520px; margin:0 auto; }
   .sr-only{
@@ -568,82 +564,419 @@
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
 
+  /*Page style goes here....................*/
+    body.dark {
+      background: #10131c;
+      color: #e8edf5;
+    }
 
-
-
-
-/* Main section styles */
-    .app {
-      max-width: 1400px;
+    .app-card {
+      max-width: 1440px;
       width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.06), 0 8px 28px -8px rgba(0, 0, 0, 0.03);
+      padding: 2rem 2.2rem;
+      transition: background 0.2s, box-shadow 0.2s;
     }
 
-    /* ----- TOOL GRID (cards) ----- */
-    .tool-section {
-      margin: 1rem 0 1.5rem;
+    body.dark .app-card {
+      background: #1a1e2b;
+      box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.5);
     }
-    .tool-section h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #0b1a2f;
-      border-left: 6px solid #2b5b8a;
-      padding-left: 0.8rem;
-      margin-bottom: 1.2rem;
-    }
-    .tool-grid {
+
+    .grid-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.2rem;
+      margin-top: 0.25rem;
     }
-    .tool-card {
-      background: white;
-      border-radius: 1.2rem;
-      padding: 1.2rem 0.8rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      border: 1px solid #e9eef3;
-      transition: all 0.2s ease;
-      cursor: pointer;
+
+    /* left panel */
+    .input-panel {
       display: flex;
       flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .panel-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0b1e33;
+      display: flex;
       align-items: center;
       gap: 0.4rem;
-      text-decoration: none;
-      color: inherit;
+      margin-bottom: 0.2rem;
     }
-    .tool-card:hover {
-      transform: translateY(-6px);
-      border-color: #aac2db;
-      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
+
+    body.dark .panel-title { color: #eef2f8; }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
     }
-    .tool-card i {
-      font-size: 2.2rem;
-      color: #1e3a5f;
+
+    .input-group label {
+      font-weight: 550;
+      font-size: 0.85rem;
+      color: #1f2a44;
+      letter-spacing: 0.01em;
     }
-    .tool-card span {
+
+    body.dark .input-group label { color: #c9d2e3; }
+
+    .input-group input, .input-group textarea {
+      padding: 0.7rem 1rem;
+      border-radius: 18px;
+      border: 1.5px solid #e4e9f2;
+      background: #ffffff;
+      font-size: 0.95rem;
+      transition: border 0.15s, box-shadow 0.15s;
+      width: 100%;
+      outline: none;
+      color: #0f1a2e;
+    }
+
+    body.dark .input-group input, body.dark .input-group textarea {
+      background: #262d3d;
+      border-color: #3a435b;
+      color: #f0f4fd;
+    }
+
+    .input-group input:focus, .input-group textarea:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+    }
+
+    .input-group textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .char-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: #4b5b79;
+      margin-top: 0.15rem;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    body.dark .char-meta { color: #9aa8c7; }
+
+    .status-badge {
+      padding: 0.1rem 0.6rem;
+      border-radius: 40px;
       font-weight: 500;
+      background: #f0f3fa;
+      color: #1f2a44;
+    }
+
+    body.dark .status-badge { background: #2f384b; color: #d3def0; }
+    .status-badge.good { background: #dcfce7; color: #166534; }
+    .status-badge.warn { background: #fef9c3; color: #854d0e; }
+    .status-badge.danger { background: #fee2e2; color: #991b1b; }
+    body.dark .status-badge.good { background: #134e2b; color: #bcf0c0; }
+    body.dark .status-badge.warn { background: #5f4a0e; color: #fde68a; }
+    body.dark .status-badge.danger { background: #621b1b; color: #fca5a5; }
+
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: #e4e9f2;
+      border-radius: 10px;
+      margin-top: 0.2rem;
+      overflow: hidden;
+    }
+
+    body.dark .progress-bar { background: #313a4f; }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 10px;
+      background: #3b82f6;
+      transition: width 0.15s;
+    }
+
+    .url-breadcrumb {
+      font-size: 0.8rem;
+      color: #2d4a6b;
+      background: #f0f4fd;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 0.15rem;
+      word-break: break-all;
+    }
+
+    body.dark .url-breadcrumb { background: #262e42; color: #b7c6e0; }
+
+    .analysis-card {
+      background: #f8faff;
+      border-radius: 24px;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #e9eef6;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem 1.8rem;
+      margin-top: 0.2rem;
+    }
+
+    body.dark .analysis-card { background: #1e2536; border-color: #2e374b; }
+
+    .analysis-item .label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5a6d8c;
+    }
+
+    body.dark .analysis-item .label { color: #8e9fc0; }
+    .analysis-item .value {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #0b1e33;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    body.dark .analysis-item .value { color: #e8edf8; }
+
+    .score-ring {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .ring {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: conic-gradient(#3b82f6 var(--score-deg, 0deg), #e4e9f2 var(--score-deg, 0deg));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #0b1e33;
+    }
+
+    body.dark .ring { background: conic-gradient(#3b82f6 var(--score-deg, 0deg), #313a4f var(--score-deg, 0deg)); color: white; }
+    .ring-inner {
+      background: white;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body.dark .ring-inner { background: #1a1e2b; }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+      align-items: center;
+    }
+
+    .btn {
+      background: #f1f5fb;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #1f2a44;
+      cursor: pointer;
+      transition: background 0.1s, transform 0.05s;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      min-height: 44px;
+    }
+
+    body.dark .btn { background: #2d364b; color: #dce5f2; }
+    .btn-primary { background: #1a263b; color: white; }
+    body.dark .btn-primary { background: #3b82f6; color: white; }
+    .btn-primary:hover { background: #0f1a2e; }
+    body.dark .btn-primary:hover { background: #2563eb; }
+    .btn-outline { background: transparent; border-color: #d0d9e8; }
+    body.dark .btn-outline { border-color: #3f4a62; }
+    .btn-ghost { background: transparent; }
+    .btn-ghost:hover { background: #eef4fc; }
+    body.dark .btn-ghost:hover { background: #2b3447; }
+
+    .toast {
+      background: #1a263b;
+      color: white;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    body.dark .toast { background: #2f3a53; }
+    .toast.show { opacity: 1; }
+
+    /* Right panel: preview */
+    .preview-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .preview-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toggle-group {
+      display: flex;
+      background: #edf2f9;
+      border-radius: 40px;
+      padding: 0.15rem;
+    }
+
+    body.dark .toggle-group { background: #252e42; }
+    .toggle-btn {
+      background: transparent;
+      border: none;
+      padding: 0.35rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #3f5270;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+
+    body.dark .toggle-btn { color: #abb8d4; }
+    .toggle-btn.active {
+      background: white;
+      color: #0b1e33;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    body.dark .toggle-btn.active { background: #303a52; color: white; }
+
+    .preview-box {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.02), 0 0 0 1px #edf2f8;
+      transition: all 0.1s;
+      min-height: 180px;
+      border: 1px solid #eef2f8;
+    }
+
+    body.dark .preview-box { background: #1a1f2e; border-color: #2a3348; }
+
+    .google-preview {
+      font-family: 'Inter', Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .preview-mobile .google-preview {
+      max-width: 340px;
+    }
+
+    .gp-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #1a0dab;
+      line-height: 1.4;
+      cursor: default;
+      word-break: break-word;
+    }
+
+    body.dark .gp-title { color: #7b9aff; }
+    .gp-url {
+      font-size: 0.8rem;
+      color: #006621;
+      margin: 0.2rem 0 0.2rem 0;
+      word-break: break-all;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.2rem 0.4rem;
+    }
+
+    body.dark .gp-url { color: #6f9e7a; }
+    .gp-url .domain { font-weight: 400; }
+    .gp-url .path { color: #4d5156; }
+    body.dark .gp-url .path { color: #9aabc4; }
+    .gp-desc {
       font-size: 0.9rem;
-      color: #1e2f44;
+      color: #4d5156;
+      line-height: 1.5;
+      margin-top: 0.2rem;
+      word-break: break-word;
     }
 
+    body.dark .gp-desc { color: #bcc9e0; }
 
-
-    /* responsive */
-    @media (max-width: 600px) {
-      .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-     
-    }
-    @media (min-width: 900px) {
-      .tool-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    .truncation-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: #3f5270;
     }
 
-    
+    body.dark .truncation-toggle { color: #9aabc4; }
+    .disclaimer {
+      font-size: 0.7rem;
+      color: #6f84a8;
+      border-top: 1px solid #e9eef6;
+      padding-top: 0.8rem;
+      margin-top: 0.2rem;
+      text-align: center;
+    }
 
-/* End of main */
+    body.dark .disclaimer { color: #6f7f9e; border-color: #2d364b; }
+
+    @media (max-width: 1024px) {
+      .app-card { padding: 1.5rem; }
+      .grid-layout { gap: 1.8rem; }
+    }
+
+    @media (max-width: 820px) {
+      .grid-layout { grid-template-columns: 1fr; }
+      .preview-box { padding: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 0.6rem; }
+      .app-card { padding: 0.8rem; border-radius: 24px; }
+      .analysis-card { grid-template-columns: 1fr 1fr; }
+      .action-row .btn { font-size: 0.75rem; padding: 0.4rem 0.9rem; }
+    }
+
+    @media (max-width: 380px) {
+      .analysis-card { grid-template-columns: 1fr; }
+      .gp-title { font-size: 1rem; }
+    }
+
+    .hidden { display: none; }
+    .flex { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .mt-1 { margin-top: 0.3rem; }
+    .w-full { width: 100%; }
+
+
+  /* End Page style goes here....................*/
 </style>
 </head>
 <body>
@@ -730,7 +1063,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>Merge PDF</strong><span>Combine multiple PDFs into one</span></span>
             </a>
-            <a href="split-pdf.html" class="mega-link" role="menuitem">
+            <a href="split-separate-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 2"/></svg></span>
               <span class="mega-text"><strong>Split / Separate PDF</strong><span>Pull out or divide pages</span></span>
             </a>
@@ -753,7 +1086,7 @@
               <span class="mega-text"><strong>PDF to JPG</strong><span>Export each page as an image</span></span>
             </a>
 
-            <a href="rotate-flip-pdf.html" class="mega-link" role="menuitem">
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Rotate PDF</strong><span>Fix sideways or upside-down pages</span></span>
             </a>
@@ -780,11 +1113,11 @@
             <div class="mega-col-title">Image ↔ Image</div>
             <div class="mega-col-title">Image ↔ PDF</div>
 
-            <a href="convert-jpg-to-png.html" class="mega-link" role="menuitem">
+            <a href="#convert-jpg-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>JPG → PNG</strong><span>Adds transparency support</span></span>
             </a>
-            <a href="image-to-pdf.html" class="mega-link" role="menuitem">
+            <a href="merge-jpg-to-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Image → PDF</strong> <span class="tag-new">NEW</span><span>Merge JPG/PNG into a PDF</span></span>
             </a>
@@ -793,7 +1126,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>PNG → JPG</strong><span>Smaller size for photos</span></span>
             </a>
-            <a href="pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>PDF → JPG</strong><span>Export each page as an image</span></span>
             </a>
@@ -802,7 +1135,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>WEBP → JPG/PNG</strong><span>Universal format support</span></span>
             </a>
-            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>PDF → PNG</strong><span>High-quality page export</span></span>
             </a>
@@ -818,20 +1151,18 @@
           </div>
           <div class="mega-foot">
             <span>Formats: JPG · PNG · WEBP · HEIC · SVG · GIF · PDF</span>
-            <a href="#">All converters →</a>
+            <a href="all-converters.html">All converters →</a>
           </div>
         </div>
       </div>
 
-      <a href="qr-code-generator.html" class="nav-link">QR Code Generator</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
-
       <a href="api.html" class="nav-link">API</a>
       <a href="blog.html" class="nav-link">Blog</a>
     </nav>
 
     <div class="nav-actions">
-      <a href="log-in.html" class="btn btn-ghost">Log in</a>
+      <a href="login.html" class="btn btn-ghost">Log in</a>
       <a href="upload-image.html" class="btn btn-solid">Upload image</a>
       <button class="hamburger" id="drawerOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -915,123 +1246,93 @@
       </div>
     </div>
 
-    
-    <a href="qr-code-generator.html" class="drawer-simple-link">QR Code Generator</a>
     <a href="pricing.html" class="drawer-simple-link">Pricing</a>
     <a href="api.html" class="drawer-simple-link">API</a>
     <a href="blog.html" class="drawer-simple-link">Blog</a>
   </div>
 
   <div class="drawer-foot">
-    <a href="login.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
-    <a href="upload.html" class="btn btn-solid">Upload image</a>
+    <a href="log-in.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
+    <a href="upload-image.html" class="btn btn-solid">Upload image</a>
   </div>
 </aside>
 
 <!-- demo filler so the footer isn't glued to the nav -->
-
-
-
-
 <main class="wrap demo-hero">
 
 
-  <div class="app">
-    <!-- ===== MAIN TOOLS SECTION ===== -->
-    <div class="main-tools">
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image Tools</h2>
-        <div class="tool-grid">
-          <a href="crop-image.html" class="tool-card"><i class="fas fa-crop-alt"></i><span>Crop Image</span></a>
-          <a href="compress-image.html" class="tool-card"><i class="fas fa-compress-alt"></i><span>Compress</span></a>
-          <a href="resize-image.html" class="tool-card"><i class="fas fa-arrows-alt"></i><span>Resize</span></a>
-          <a href="convert-image.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Convert</span></a>
-          <a href="rotate-image.html" class="tool-card"><i class="fas fa-undo-alt"></i><span>Rotate</span></a>
-          <a href="flip-image.html" class="tool-card"><i class="fas fa-arrows-alt-h"></i><span>Flip</span></a>
-          <a href="watermark-image.html" class="tool-card"><i class="fas fa-water"></i><span>Watermark</span></a>
-         <!-- 
-          <a href="remove-background.html" class="tool-card"><i class="fas fa-magic"></i><span>Remove BG</span></a>
-        -->
-        <a href="social-media-image-resizer.html" class="tool-card"><i class="fa-solid fa-crop-simple"></i><span>Social Media Image Resizer</span></a>
-        <a href="qr-code-generator.html" class="tool-card"><i class="fa-solid fa-qrcode"></i><span>QR Code Generator</span></a>   
-        <a href="metadata.html" class="tool-card"><i class="fas fa-info-circle"></i><span>Metadata</span></a>
-        <a href="enhance-image.html" class="tool-card"><i class="fas fa-sliders-h"></i><span>Enhance</span></a>         
-        <a href="url-shortener.html" class="tool-card"><i class="fas fa-link"></i><span>URL Shortener</span></a>
-        <a href="google-serp-preview-tool.html" class="tool-card"><i class="fab fa-google"></i><span>Google SERP Preview</span></a>
-        </div>
+    
+<div class="app-card" id="appCard">
+  <div class="grid-layout">
+    <!-- LEFT -->
+    <div class="input-panel">
+      <div class="panel-title">🔎 SEO Snippet Editor</div>
+
+      <div class="input-group">
+        <label for="seoTitle">SEO Title</label>
+        <input type="text" id="seoTitle" placeholder="Enter your page title..." value="Free Online Image, PDF & Developer Tools">
+        <div class="char-meta"><span id="titleCounter">0 / 60</span><span id="titleStatus" class="status-badge">—</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="titleProgress"></div></div>
       </div>
 
-            <!-- PDF Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-file-pdf" style="margin-right:10px;"></i>PDF Tools</h2>
-        <div class="tool-grid">
-          <a href="images-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>Images to PDF</span></a>
-          <a href="jpg-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>JPG to PDF</span></a>
-          <a href="png-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>PNG to PDF</span></a>
-          <a href="pdf-to-image.html" class="tool-card"><i class="fas fa-file-pdf"></i><span>PDF to Image</span></a>
-          <a href="merge-pdf.html" class="tool-card"><i class="fas fa-object-group"></i><span>Merge PDF</span></a>
-          <a href="split-pdf.html" class="tool-card"><i class="fas fa-cut"></i><span>Split PDF</span></a>
-          <a href="compress-pdf.html" class="tool-card"><i class="fas fa-compress"></i><span>Compress PDF</span></a>
-          <a href="extract-pages.html" class="tool-card"><i class="fas fa-file-export"></i><span>Extract Pages</span></a>
-          <a href="rotate-pdf.html" class="tool-card"><i class="fas fa-sync-alt"></i><span>Rotate PDF</span></a>
-          <a href="reorder-pdf.html" class="tool-card"><i class="fas fa-arrows-alt-v"></i><span>Reorder PDF</span></a>
-          <a href="pdf-watermark.html" class="tool-card"><i class="fas fa-water"></i><span>PDF Watermark</span></a>
-          <a href="extract-images.html" class="tool-card"><i class="fas fa-images"></i><span>Extract Images</span></a>
-        </div>
-      </div>
-      
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image convert Tools</h2>
-        <div class="tool-grid">
-          <a href="convert-jpg-to-png.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>Jpg to Png</span></a>
-          <a href="convert-jpg-to-jpeg.html" class="tool-card"><i class="fa-solid fa-arrows-rotate"></i><span>Jpg to jpeg</span></a>
-          <a href="convert-jpg-to-webp.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>Jpg to webp</span></a>
-          <a href="convert-png-to-jpg.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>Png to Jpg</span></a>
-          <a href="convert-png-to-jpeg.html" class="tool-card"><i class="fa-solid fa-arrows-rotate"></i><span>Png to Jpeg</span></a>
-          <a href="convert-png-to-webp.html" class="tool-card"><i class="fa-solid fa-image"></i><span>Png to Webp</span></a>
-          <a href="convert-webp-to-jpg.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>Webp to Jpg</span></a>
-          <a href="convert-webp-to-png.html" class="tool-card"><i class="fa-solid fa-image"></i><span>Webp to Png</span></a>
-          <a href="convert-webp-to-jpeg.html" class="tool-card"><i class="fa-solid fa-arrows-rotate"></i><span>Webp to Jpeg</span></a>
-         
-        </div>
+      <div class="input-group">
+        <label for="seoUrl">Page URL</label>
+        <input type="text" id="seoUrl" placeholder="https://example.com/page" value="https://example.com/tools">
+        <div class="url-breadcrumb" id="urlBreadcrumb">example.com › tools</div>
       </div>
 
-            <!-- Text Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Text Tools</h2>
-        <div class="tool-grid">
-          <a href="word-counter.html" class="tool-card"><i class="fa-solid fa-file-word"></i><span>Word Counter</span></a>
-          <a href="character-counter.html" class="tool-card"><i class="fa-solid fa-font"></i><span>Character Counter</span></a>
-          <a href="case-converter.html" class="tool-card"><i class="fa-solid fa-text-height"></i><span>Case Converter</span></a>
-          <a href="remove-duplicate-lines.html" class="tool-card"><i class="fa-solid fa-layer-group"></i><span>Remove Duplicate Lines</span></a>
-          <a href="remove-extra-spaces.html" class="tool-card"><i class="fa-solid fa-compress"></i><span>Remove Extra Spaces</span></a>
-          <a href="text-sorter.html" class="tool-card"><i class="fa-solid fa-arrow-down-a-z"></i><span>Text Sorter</span></a>
-          <a href="find-and-replace.html" class="tool-card"><i class="fa-solid fa-search"></i><span>Find & Replace</span></a>
-          <a href="text-to-slug.html" class="tool-card"><i class="fa-solid fa-link"></i><span>Text → Slug</span></a>
-          <a href="text-reverser.html" class="tool-card"><i class="fa-solid fa-right-left"></i><span>Text Reverser</span></a>
-          <a href="text-diff-checker.html" class="tool-card"><i class="fa-solid fa-code-compare"></i><span>Text Diff Checker</span></a>
-         
-        </div>
+      <div class="input-group">
+        <label for="seoDesc">Meta Description</label>
+        <textarea id="seoDesc" placeholder="Write a short description of your page...">Use free online tools for image editing, PDF conversion, SEO, developer utilities and more.</textarea>
+        <div class="char-meta"><span id="descCounter">0 / 160</span><span id="descStatus" class="status-badge">—</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="descProgress"></div></div>
       </div>
 
-
-
-      <!-- Other Tools 
-      <div class="tool-section">
-        <h2><i class="fas fa-cog" style="margin-right:10px;"></i>Other Tools</h2>
-        <div class="tool-grid">
-          <a href="batch-processing.html" class="tool-card"><i class="fas fa-layer-group"></i><span>Batch Processing</span></a>
-          <a href="zip-download.html" class="tool-card"><i class="fas fa-file-archive"></i><span>ZIP Download</span></a>
-          <a href="file-info.html" class="tool-card"><i class="fas fa-file-alt"></i><span>File Info</span></a>
-        </div>
+      <div class="action-row">
+        <button class="btn btn-primary" id="copyTitleBtn">📋 Copy Title</button>
+        <button class="btn btn-primary" id="copyDescBtn">📋 Copy Description</button>
+        <button class="btn btn-primary" id="copyUrlBtn">📋 Copy URL</button>
+        <button class="btn btn-outline" id="clearAllBtn">✕ Clear All</button>
+        <span id="toastMessage" class="toast">Copied ✓</span>
       </div>
-      -->
 
+      <!-- analysis -->
+      <div class="analysis-card" id="analysisCard">
+        <div class="analysis-item"><span class="label">Title</span><div class="value"><span id="aTitleLen">0</span> <span id="aTitleStatus" class="status-badge" style="font-size:0.65rem;">—</span></div><div style="font-size:0.7rem;color:#5a6d8c;"><span id="aTitlePx">0</span>px / ~580px</div></div>
+        <div class="analysis-item"><span class="label">Description</span><div class="value"><span id="aDescLen">0</span> <span id="aDescStatus" class="status-badge" style="font-size:0.65rem;">—</span></div><div style="font-size:0.7rem;color:#5a6d8c;"><span id="aDescPx">0</span>px / ~920px</div></div>
+        <div class="analysis-item"><span class="label">URL</span><div class="value"><span id="aUrlStatus" style="font-weight:500;">—</span></div><div style="font-size:0.7rem;color:#5a6d8c;"><span id="aUrlLen">0</span> chars</div></div>
+        <div class="analysis-item score-ring"><span class="label">SEO Score</span><div class="ring" id="scoreRing"><div class="ring-inner" id="scoreInner">92</div></div></div>
+      </div>
+      <div style="font-size:0.8rem;color:#4b5b79;padding:0.2rem 0.2rem 0;" id="recommendationText">✓ Title & description look good.</div>
     </div>
 
+    <!-- RIGHT: preview -->
+    <div class="preview-panel">
+      <div class="preview-header">
+        <span class="panel-title" style="font-size:1rem;">📄 Search Result Preview</span>
+        <div class="flex">
+          <div class="toggle-group">
+            <button class="toggle-btn active" data-view="desktop">Desktop</button>
+            <button class="toggle-btn" data-view="mobile">Mobile</button>
+          </div>
+          <label class="truncation-toggle"><input type="checkbox" id="truncateToggle"> Show truncation</label>
+          <button class="btn btn-ghost" id="themeToggle" style="padding:0.2rem 0.6rem;font-size:0.9rem;">🌓</button>
+        </div>
+      </div>
+
+      <div class="preview-box" id="previewBox">
+        <div class="google-preview" id="googlePreview">
+          <div class="gp-title" id="previewTitle">Free Online Image, PDF & Developer Tools</div>
+          <div class="gp-url"><span class="domain" id="previewDomain">https://example.com</span><span class="path" id="previewPath"> › tools</span></div>
+          <div class="gp-desc" id="previewDesc">Use free online tools for image editing, PDF conversion, SEO, developer utilities and more.</div>
+        </div>
+      </div>
+
+      <div class="disclaimer">⚠️ Preview note: This tool provides an approximate search-result preview. Search engines may rewrite titles, descriptions, URLs, and snippet content depending on the query and page content.</div>
+    </div>
   </div>
+</div>
+
 
 
 
@@ -1066,7 +1367,7 @@
         <ul>
           <li><a href="crop-image.html">Crop Image</a></li>
           <li><a href="resize-image.html">Resize Image</a></li>
-          <li><a href="rotate-flip.html">Rotate &amp; Flip</a></li>
+          <li><a href="rotate-flip-image.html">Rotate &amp; Flip</a></li>
           <li><a href="compress-image.html">Compress Image</a></li>
           <li><a href="watermark-image.html">Watermark Image</a></li>
           <li><a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a></li>
@@ -1081,7 +1382,7 @@
           <li><a href="split-separate-pdf.html">Split / Separate PDF</a></li>
           <li><a href="compress-pdf.html">Compress PDF</a></li>
           <li><a href="protect-unlock-pdf.html">Protect / Unlock PDF</a></li>
-          <li><a href="pdf-watermark.html">Watermark PDF</a></li>
+          <li><a href="watermark-pdf.html">Watermark PDF</a></li>
           <li><a href="rotate-pdf.html">Rotate PDF</a></li>
         </ul>
       </div>
@@ -1115,8 +1416,8 @@
           <li><a href="api-docs.html">API docs</a></li>
           <li><a href="help-center.html">Help center</a></li>
           <li><a href="status.html">Status</a></li>
-          <li><a href="privacy-policy.html">Privacy</a></li>
-          <li><a href="terms-of-service.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
         </ul>
       </div>
 
@@ -1158,13 +1459,17 @@
   <div class="wrap footer-bottom">
     <span>© 2026 Croply.io — All rights reserved.</span>
     <div class="footer-legal">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a> 
+      <a href="terms.html">Terms of Service</a>
       <a href="cookies.html">Cookies</a>
     </div>
-    <div class="socials">
-      <a href="https://twitter.com/croply" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
-     
+    <div class="socials"> 
+      <a href="#" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
+    </div>
+  </div>
+</footer>
 
 <script>
   // ---------- Desktop mega-menu (hover + keyboard/click) ----------
@@ -1266,6 +1571,261 @@
     });
   });
 </script>
+
+<!-- PAge Script Herer-->
+<script>
+  (function() {
+    // DOM refs
+    const titleInput = document.getElementById('seoTitle');
+    const urlInput = document.getElementById('seoUrl');
+    const descInput = document.getElementById('seoDesc');
+
+    const previewTitle = document.getElementById('previewTitle');
+    const previewDomain = document.getElementById('previewDomain');
+    const previewPath = document.getElementById('previewPath');
+    const previewDesc = document.getElementById('previewDesc');
+
+    const titleCounter = document.getElementById('titleCounter');
+    const descCounter = document.getElementById('descCounter');
+    const titleStatus = document.getElementById('titleStatus');
+    const descStatus = document.getElementById('descStatus');
+    const titleProgress = document.getElementById('titleProgress');
+    const descProgress = document.getElementById('descProgress');
+
+    const aTitleLen = document.getElementById('aTitleLen');
+    const aDescLen = document.getElementById('aDescLen');
+    const aTitleStatus = document.getElementById('aTitleStatus');
+    const aDescStatus = document.getElementById('aDescStatus');
+    const aTitlePx = document.getElementById('aTitlePx');
+    const aDescPx = document.getElementById('aDescPx');
+    const aUrlStatus = document.getElementById('aUrlStatus');
+    const aUrlLen = document.getElementById('aUrlLen');
+    const scoreInner = document.getElementById('scoreInner');
+    const scoreRing = document.getElementById('scoreRing');
+    const recommendationText = document.getElementById('recommendationText');
+    const urlBreadcrumb = document.getElementById('urlBreadcrumb');
+
+    const toast = document.getElementById('toastMessage');
+    const truncateToggle = document.getElementById('truncateToggle');
+    const themeToggle = document.getElementById('themeToggle');
+
+    // default sample
+    let titleSample = 'Free Online Image, PDF & Developer Tools';
+    let urlSample = 'https://example.com/tools';
+    let descSample = 'Use free online tools for image editing, PDF conversion, SEO, developer utilities and more.';
+
+    // measure text width (canvas)
+    function measureTextWidth(text, fontSize = 16, fontFamily = 'Inter, Arial, sans-serif') {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.font = `${fontSize}px ${fontFamily}`;
+      return ctx.measureText(text).width;
+    }
+
+    function getTitle() { return titleInput.value.trim() || 'Your SEO Title'; }
+    function getDesc() { return descInput.value.trim() || 'Your meta description will appear here...'; }
+
+    function extractDomainPath(url) {
+      if (!url || url.trim() === '') return { domain: 'https://example.com', path: ' › ' };
+      let clean = url.trim();
+      if (!/^https?:\/\//i.test(clean)) clean = 'https://' + clean;
+      try {
+        const u = new URL(clean);
+        let domain = u.hostname;
+        let protocol = u.protocol;
+        let path = u.pathname || '/';
+        if (path.length > 35) path = path.substring(0, 32) + '…';
+        if (!path.startsWith('/')) path = '/' + path;
+        const breadcrumb = path.split('/').filter(Boolean).join(' › ') || '';
+        return { domain: `${protocol}//${domain}`, path: breadcrumb ? ` › ${breadcrumb}` : ' › ' };
+      } catch (_) {
+        const parts = clean.split('/');
+        if (parts.length >= 3) {
+          let domain = parts[0] + '//' + parts[2];
+          let path = parts.slice(3).join('/');
+          if (path.length > 35) path = path.substring(0, 32) + '…';
+          return { domain, path: path ? ` › ${path}` : ' › ' };
+        }
+        return { domain: 'https://example.com', path: ' › ' };
+      }
+    }
+
+    function updateAll() {
+      const title = getTitle();
+      const desc = getDesc();
+      const rawUrl = urlInput.value.trim();
+
+      // preview
+      previewTitle.textContent = title;
+      previewDesc.textContent = desc;
+
+      const { domain, path } = extractDomainPath(rawUrl);
+      previewDomain.textContent = domain;
+      previewPath.textContent = path;
+      urlBreadcrumb.textContent = (rawUrl ? domain : 'https://example.com') + path;
+
+      // counters
+      const tLen = titleInput.value.length;
+      const dLen = descInput.value.length;
+      titleCounter.textContent = `${tLen} / 60`;
+      descCounter.textContent = `${dLen} / 160`;
+
+      // status & progress
+      let tStatus = 'warn', tLabel = 'Improve';
+      if (tLen === 0) { tStatus = 'warn'; tLabel = 'Empty'; }
+      else if (tLen >= 40 && tLen <= 60) { tStatus = 'good'; tLabel = 'Good'; }
+      else if (tLen > 60) { tStatus = 'danger'; tLabel = 'Too long'; }
+      else if (tLen < 40 && tLen > 0) { tStatus = 'warn'; tLabel = 'Short'; }
+      titleStatus.className = `status-badge ${tStatus}`;
+      titleStatus.textContent = tLabel;
+      titleProgress.style.width = Math.min(100, (tLen / 60) * 100) + '%';
+      if (tLen > 60) titleProgress.style.background = '#ef4444'; else titleProgress.style.background = '#3b82f6';
+
+      let dStatus = 'warn', dLabel = 'Improve';
+      if (dLen === 0) { dStatus = 'warn'; dLabel = 'Empty'; }
+      else if (dLen >= 130 && dLen <= 160) { dStatus = 'good'; dLabel = 'Good'; }
+      else if (dLen > 160) { dStatus = 'danger'; dLabel = 'Too long'; }
+      else if (dLen < 130 && dLen > 0) { dStatus = 'warn'; dLabel = 'Short'; }
+      descStatus.className = `status-badge ${dStatus}`;
+      descStatus.textContent = dLabel;
+      descProgress.style.width = Math.min(100, (dLen / 160) * 100) + '%';
+      if (dLen > 160) descProgress.style.background = '#ef4444'; else descProgress.style.background = '#3b82f6';
+
+      // analysis
+      aTitleLen.textContent = tLen;
+      aDescLen.textContent = dLen;
+      aTitleStatus.className = `status-badge ${tStatus}`;
+      aTitleStatus.textContent = tLabel;
+      aDescStatus.className = `status-badge ${dStatus}`;
+      aDescStatus.textContent = dLabel;
+
+      // pixel width
+      const tPx = Math.round(measureTextWidth(title, 16));
+      const dPx = Math.round(measureTextWidth(desc, 14));
+      aTitlePx.textContent = tPx;
+      aDescPx.textContent = dPx;
+
+      // url status
+      const urlOk = rawUrl !== '' && /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(rawUrl);
+      const isHttps = rawUrl.toLowerCase().startsWith('https://');
+      if (rawUrl === '') { aUrlStatus.textContent = '⚠ Empty'; aUrlStatus.style.color = '#f59e0b'; }
+      else if (urlOk && isHttps) { aUrlStatus.textContent = '✅ Valid HTTPS'; aUrlStatus.style.color = '#16a34a'; }
+      else if (urlOk && !isHttps) { aUrlStatus.textContent = '⚠ HTTP (use HTTPS)'; aUrlStatus.style.color = '#f59e0b'; }
+      else { aUrlStatus.textContent = '❌ Invalid URL'; aUrlStatus.style.color = '#ef4444'; }
+      aUrlLen.textContent = rawUrl.length || 0;
+
+      // score
+      let score = 0;
+      if (tLen > 0) score += 20;
+      if (tLen >= 40 && tLen <= 60) score += 20;
+      else if (tLen > 0 && tLen < 40) score += 10;
+      if (dLen > 0) score += 15;
+      if (dLen >= 130 && dLen <= 160) score += 20;
+      else if (dLen > 0 && dLen < 130) score += 8;
+      if (rawUrl !== '') score += 10;
+      if (urlOk && isHttps) score += 10;
+      if (urlOk && rawUrl.split('/').filter(Boolean).length >= 2) score += 5;
+      score = Math.min(100, score);
+      scoreInner.textContent = score;
+      const deg = (score / 100) * 360;
+      scoreRing.style.setProperty('--score-deg', deg + 'deg');
+
+      // recommendation
+      let rec = '';
+      if (tStatus === 'good' && dStatus === 'good' && urlOk && isHttps) rec = '✅ Great! Title, description & URL look solid.';
+      else if (tStatus === 'danger') rec = '⚠️ Title too long (max 60).';
+      else if (dStatus === 'danger') rec = '⚠️ Description too long (max 160).';
+      else if (tStatus === 'warn' && tLen > 0) rec = '📝 Title could be longer (40-60 chars).';
+      else if (dStatus === 'warn' && dLen > 0) rec = '📝 Description could be longer (130-160).';
+      else if (tLen === 0 && dLen === 0) rec = 'Add title & description.';
+      else if (tLen === 0) rec = 'Add an SEO title.';
+      else if (dLen === 0) rec = 'Add a meta description.';
+      else if (!urlOk && rawUrl !== '') rec = '⚠️ Check URL format.';
+      else rec = '✅ Good foundation.';
+      recommendationText.textContent = rec;
+
+      // truncation simulation
+      if (truncateToggle.checked) {
+        previewTitle.textContent = title.length > 55 ? title.substring(0, 52) + '…' : title;
+        previewDesc.textContent = desc.length > 150 ? desc.substring(0, 147) + '…' : desc;
+      } else {
+        previewTitle.textContent = title;
+        previewDesc.textContent = desc;
+      }
+    }
+
+    // event listeners
+    titleInput.addEventListener('input', updateAll);
+    urlInput.addEventListener('input', updateAll);
+    descInput.addEventListener('input', updateAll);
+    truncateToggle.addEventListener('change', updateAll);
+
+    // preview toggle
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const view = this.dataset.view;
+        const box = document.getElementById('previewBox');
+        if (view === 'mobile') box.classList.add('preview-mobile');
+        else box.classList.remove('preview-mobile');
+      });
+    });
+
+    // copy
+    function copyText(text, msg) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => showToast(msg));
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); showToast(msg); } catch (_) {}
+        document.body.removeChild(ta);
+      }
+    }
+
+    document.getElementById('copyTitleBtn').addEventListener('click', () => copyText(titleInput.value || titleSample, 'Title copied'));
+    document.getElementById('copyDescBtn').addEventListener('click', () => copyText(descInput.value || descSample, 'Description copied'));
+    document.getElementById('copyUrlBtn').addEventListener('click', () => copyText(urlInput.value || urlSample, 'URL copied'));
+
+    document.getElementById('clearAllBtn').addEventListener('click', function() {
+      titleInput.value = '';
+      urlInput.value = '';
+      descInput.value = '';
+      updateAll();
+      showToast('Cleared');
+    });
+
+    function showToast(msg) {
+      toast.textContent = msg + ' ✓';
+      toast.classList.add('show');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    // theme
+    let darkMode = localStorage.getItem('serp-theme') === 'dark';
+    function applyTheme(dark) {
+      document.body.classList.toggle('dark', dark);
+      localStorage.setItem('serp-theme', dark ? 'dark' : 'light');
+    }
+    applyTheme(darkMode);
+    themeToggle.addEventListener('click', function() {
+      darkMode = !darkMode;
+      applyTheme(darkMode);
+    });
+
+    // init
+    updateAll();
+
+    // extra: recalc on resize
+    window.addEventListener('resize', updateAll);
+  })();
+</script>
+
+<!--End page script-->
 
 </body>
 </html>
