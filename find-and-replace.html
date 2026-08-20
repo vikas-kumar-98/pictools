@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croply — Nav & Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+
+
+<style>
+  :root{
+    --ink:#12151b;
+    --ink-soft:#1b202a;
+    --paper:#f6f5f1;
+    --paper-dim:#e8e6df;
+    --aqua:#3ed6c4;
+    --clay:#ff6b4a;
+    --muted:#8a93a6;
+    --line: rgba(246,245,241,0.10);
+    --line-soft: rgba(18,21,27,0.10);
+    --radius: 10px;
+    --font-display: 'Sora', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --maxw: 1280px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none; margin:0; padding:0;}
+  button{font:inherit; background:none; border:none; cursor:pointer; color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============ Crop-mark signature ============ */
+  .crop-mark{ position:relative; }
+  .crop-mark::before, .crop-mark::after{
+    content:"";
+    position:absolute;
+    width:9px; height:9px;
+    border: 1.5px solid var(--aqua);
+    opacity:0;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  .crop-mark::before{ top:-6px; left:-6px; border-right:none; border-bottom:none; transform: translate(4px,4px); }
+  .crop-mark::after{ bottom:-6px; right:-6px; border-left:none; border-top:none; transform: translate(-4px,-4px); }
+  .crop-mark:hover::before, .crop-mark:focus-visible::before,
+  .crop-mark:hover::after, .crop-mark:focus-visible::after,
+  .crop-mark[aria-expanded="true"]::before, .crop-mark[aria-expanded="true"]::after{
+    opacity:1;
+    transform: translate(0,0);
+  }
+
+  /* ============================================================
+     NAVBAR
+  ============================================================ */
+  .site-header{
+    position: sticky;
+    top:0;
+    z-index: 200;
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 16px;
+    height: 68px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size:19px;
+    letter-spacing: -0.01em;
+    flex-shrink:0;
+  }
+  .brand-mark{
+    width: 30px; height:30px;
+    border-radius: 7px;
+    background: linear-gradient(135deg, var(--aqua), #22a597);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .brand-mark svg{ width:16px; height:16px; }
+  .brand .ext{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--aqua);
+    font-weight:600;
+    background: rgba(62,214,196,0.12);
+    border:1px solid rgba(62,214,196,0.3);
+    padding: 2px 6px;
+    border-radius: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Primary link row (desktop) */
+  .nav-primary{
+    display:flex;
+    align-items:center;
+    gap: 2px;
+    flex:1;
+  }
+  .nav-item{ position:relative; }
+  .nav-link{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight:500;
+    border-radius: 8px;
+    color: rgba(246,245,241,0.85);
+    transition: color .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .nav-link:hover, .nav-link:focus-visible{
+    color: var(--paper);
+    background: rgba(246,245,241,0.06);
+  }
+  .nav-link .chev{
+    width:10px; height:10px;
+    transition: transform .2s ease;
+    flex-shrink:0;
+  }
+  .nav-item[data-open="true"] .chev{ transform: rotate(180deg); }
+
+  /* Actions */
+  .nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+  }
+  .btn{
+    font-size:14px;
+    font-weight:600;
+    padding: 9px 16px;
+    border-radius: 8px;
+    transition: transform .15s ease, background .15s ease, opacity .15s ease;
+  }
+  .btn-ghost{
+    color: rgba(246,245,241,0.85);
+  }
+  .btn-ghost:hover{ color:var(--paper); background: rgba(246,245,241,0.06); }
+  .btn-solid{
+    background: var(--aqua);
+    color: #062521;
+  }
+  .btn-solid:hover{ transform: translateY(-1px); opacity:0.92; }
+
+  .hamburger{
+    display:none;
+    width: 38px; height:38px;
+    border-radius:8px;
+    align-items:center; justify-content:center;
+    color: var(--paper);
+  }
+  .hamburger:hover{ background: rgba(246,245,241,0.08); }
+  .hamburger svg{ width:20px; height:20px; }
+
+  /* ---------- Mega menu (desktop dropdown) ---------- */
+  .mega{
+    position:absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    min-width: 560px;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 12px;
+    border: 1px solid var(--line-soft);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.28);
+    padding: 20px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition: opacity .16s ease, transform .16s ease, visibility .16s;
+    z-index: 50;
+  }
+  .nav-item[data-open="true"] .mega{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .mega-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 8px;
+  }
+  .mega-col-title{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 10px 8px;
+  }
+  .mega-link{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: background .12s ease;
+  }
+  .mega-link:hover, .mega-link:focus-visible{ background: var(--paper-dim); }
+  .mega-icon{
+    width: 30px; height:30px;
+    border-radius:7px;
+    background: var(--ink);
+    color: var(--aqua);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .mega-icon svg{ width:15px; height:15px; }
+  .mega-text strong{
+    display:block;
+    font-size: 13.5px;
+    font-weight:600;
+  }
+  .mega-text span{
+    display:block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+  .tag-new{
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    background: var(--aqua);
+    color:#062521;
+    padding: 1px 5px;
+    border-radius:4px;
+    margin-left:6px;
+    vertical-align: 1px;
+    font-weight:700;
+    display:inline-block;
+  }
+  .mega-foot{
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line-soft);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .mega-foot a{ color: var(--ink); font-weight:600; }
+  .mega-foot a:hover{ color: var(--clay); }
+
+  /* ---------- Mobile drawer ---------- */
+  .drawer-overlay{
+    position:fixed; inset:0;
+    background: rgba(18,21,27,0.5);
+    opacity:0; visibility:hidden;
+    transition: opacity .2s ease, visibility .2s;
+    z-index: 199;
+  }
+  .drawer-overlay.active{ opacity:1; visibility:visible; }
+
+  .drawer{
+    position:fixed;
+    top:0; right:0;
+    height:100dvh;
+    width: min(340px, 86vw);
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateX(100%);
+    transition: transform .26s ease;
+    z-index: 210;
+    display:flex;
+    flex-direction:column;
+    box-shadow: -12px 0 30px rgba(0,0,0,0.3);
+  }
+  .drawer.active{ transform: translateX(0); }
+  .drawer-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 18px;
+    border-bottom: 1px solid var(--line);
+    flex-shrink:0;
+  }
+  .drawer-close{
+    width:34px; height:34px;
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .drawer-close:hover{ background: rgba(246,245,241,0.08); }
+  .drawer-close svg{ width:18px; height:18px; }
+  .drawer-body{
+    padding: 8px 10px;
+    overflow-y:auto;
+    flex:1;
+  }
+  .acc{ border-bottom: 1px solid var(--line); }
+  .acc-trigger{
+    width:100%;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 15px 10px;
+    font-size:15px;
+    font-weight:600;
+  }
+  .acc-trigger .chev{ width:11px; height:11px; transition: transform .2s ease; flex-shrink:0; }
+  .acc[data-open="true"] .chev{ transform: rotate(180deg); }
+  .acc-panel{
+    max-height:0;
+    overflow:hidden;
+    transition: max-height .22s ease;
+  }
+  .acc-panel-inner{ padding: 2px 10px 14px; display:flex; flex-direction:column; gap:2px;}
+  .acc-panel-inner a{
+    padding: 9px 10px;
+    border-radius:7px;
+    font-size:14px;
+    color: rgba(246,245,241,0.75);
+    display:flex; align-items:center;
+  }
+  .acc-panel-inner a:hover{ background: rgba(246,245,241,0.06); color:var(--paper); }
+  .drawer-simple-link{
+    display:block;
+    padding: 15px 10px;
+    font-size:15px;
+    font-weight:600;
+    border-bottom: 1px solid var(--line);
+  }
+  .drawer-foot{
+    padding: 16px 18px 22px;
+    border-top: 1px solid var(--line);
+    display:flex; flex-direction:column; gap:10px;
+    flex-shrink:0;
+  }
+  .drawer-foot .btn{ text-align:center; }
+
+  @media (max-width: 980px){
+    .nav-primary, .nav-actions .btn{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  .site-footer{
+    background: var(--ink);
+    color: rgba(246,245,241,0.72);
+    margin-top: 40px;
+  }
+  .footer-top{
+    padding: 56px 10px 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.3fr repeat(5, 1fr);
+    gap: 28px;
+  }
+  .footer-brand-col .brand{ color: var(--paper); margin-bottom:14px; }
+  .footer-brand-col p{
+    font-size: 13.5px;
+    line-height:1.6;
+    max-width: 240px;
+    color: rgba(246,245,241,0.55);
+    margin: 0 0 18px;
+  }
+  .format-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .format-badge{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color: var(--aqua);
+    background: rgba(62,214,196,0.1);
+    border:1px solid rgba(62,214,196,0.28);
+    padding: 4px 8px;
+    border-radius:5px;
+  }
+  .format-badge.clay{
+    color: var(--clay);
+    background: rgba(255,107,74,0.1);
+    border-color: rgba(255,107,74,0.28);
+  }
+
+  .footer-col h4{
+    font-family: var(--font-display);
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--paper);
+    margin: 0 0 16px;
+    display:flex; align-items:center; gap:8px;
+    white-space:nowrap;
+  }
+  .footer-col h4::before{
+    content:"";
+    width:6px; height:6px;
+    background: var(--clay);
+    border-radius:1px;
+    display:inline-block;
+    transform: rotate(45deg);
+    flex-shrink:0;
+  }
+  .footer-col ul{ display:flex; flex-direction:column; gap:11px; }
+  .footer-col a{
+    font-size:13px;
+    color: rgba(246,245,241,0.62);
+    transition: color .15s ease;
+    display:flex; align-items:center; flex-wrap:wrap;
+  }
+  .footer-col a:hover{ color: var(--aqua); }
+  .footer-col .tag-new{ margin-left:6px; }
+
+  .footer-more{
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px dashed var(--line);
+  }
+  .footer-more-head{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .footer-more-head h4{
+    font-family: var(--font-display);
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color: var(--paper);
+    margin:0;
+  }
+  .footer-more-head a{
+    font-size:12.5px;
+    font-weight:600;
+    color: var(--aqua);
+  }
+  .footer-more-head a:hover{ color: var(--clay); }
+  .footer-more-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .footer-more-list a{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: rgba(246,245,241,0.65);
+    background: rgba(246,245,241,0.05);
+    border: 1px solid var(--line);
+    padding: 6px 11px;
+    border-radius: 999px;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .footer-more-list a:hover{
+    color: var(--aqua);
+    border-color: rgba(62,214,196,0.35);
+    background: rgba(62,214,196,0.08);
+  }
+
+  .footer-newsletter{
+    padding: 34px 10px;
+    border-bottom: 1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .footer-newsletter h5{
+    font-family: var(--font-display);
+    font-size:17px;
+    color: var(--paper);
+    margin:0 0 4px;
+  }
+  .footer-newsletter p{ margin:0; font-size:13px; color: rgba(246,245,241,0.5); }
+  .news-form{
+    display:flex;
+    gap:8px;
+    flex:1;
+    max-width:380px;
+    min-width:260px;
+  }
+  .news-form input{
+    flex:1;
+    background: rgba(246,245,241,0.06);
+    border: 1px solid var(--line);
+    border-radius:8px;
+    padding: 11px 14px;
+    color: var(--paper);
+    font-size:13.5px;
+    font-family: inherit;
+  }
+  .news-form input::placeholder{ color: rgba(246,245,241,0.35); }
+  .news-form input:focus{ outline:2px solid var(--aqua); outline-offset:1px; }
+
+  .footer-bottom{
+    padding: 22px 0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    font-size:12.5px;
+    color: rgba(246,245,241,0.42);
+  }
+  .footer-legal{ display:flex; gap:18px; flex-wrap:wrap; }
+  .footer-legal a:hover{ color: rgba(246,245,241,0.8); }
+  .socials{ display:flex; gap:8px; }
+  .social-btn{
+    width:32px; height:32px;
+    border-radius:7px;
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .social-btn:hover{ background: rgba(246,245,241,0.06); border-color: rgba(246,245,241,0.2); }
+  .social-btn svg{ width:14px; height:14px; }
+
+  @media (max-width: 980px){
+    .footer-grid{ grid-template-columns: 1fr 1fr 1fr; }
+    .footer-brand-col{ grid-column: 1 / -1; }
+    .footer-brand-col p{ max-width:420px; }
+  }
+  @media (max-width: 620px){
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+    .footer-newsletter{ flex-direction:column; align-items:flex-start; }
+    .news-form{ max-width:none; width:100%; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  }
+  @media (max-width: 380px){
+    .footer-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* Demo page filler (not part of the component) */
+  .demo-hero{ padding: 40px 0; text-align:center; }
+  .demo-hero h1{ font-family:var(--font-display); font-size: clamp(28px,4vw,42px); margin:0 0 12px; }
+  .demo-hero p{ color:#5b6272; font-size:15px; max-width:520px; margin:0 auto; }
+  .sr-only{
+    position:absolute; width:1px;height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  /*Page style goes here....................*/
+
+        .app {
+            max-width: 1600px;
+            width: 100%;
+        }
+        /* dark mode */
+        body.dark {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+        body.dark .card,
+        body.dark .editor-panel,
+        body.dark .control-group,
+        body.dark .stats-grid,
+        body.dark .history-panel,
+        body.dark .drop-zone {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        body.dark textarea,
+        body.dark input,
+        body.dark select {
+            background: #0f172a;
+            color: #f1f5f9;
+            border-color: #334155;
+        }
+        body.dark .btn-outline {
+            border-color: #475569;
+            color: #cbd5e1;
+        }
+        body.dark .btn-outline:hover {
+            background: #334155;
+        }
+        body.dark .match-highlight {
+            background: #facc15;
+            color: #0f172a;
+        }
+        body.dark .current-match {
+            background: #38bdf8;
+            color: #0f172a;
+            outline: 2px solid #0ea5e9;
+        }
+        body.dark .replaced-highlight {
+            background: #a7f3d0;
+            color: #064e3b;
+        }
+        body.dark .stat-label {
+            color: #94a3b8;
+        }
+
+        /* cards */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02), 0 1px 4px rgba(0,0,0,0.04);
+            border: 1px solid #e9edf2;
+            transition: all 0.15s;
+            margin-bottom: 1rem;
+        }
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1rem;
+            align-items: center;
+        }
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .gap-1 { gap: 0.5rem; }
+        .mt-1 { margin-top: 0.75rem; }
+        .mb-1 { margin-bottom: 0.75rem; }
+        .w-full { width: 100%; }
+
+        /* headings */
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .subtitle {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-top: 0.1rem;
+        }
+        body.dark .subtitle { color: #94a3b8; }
+
+        /* editors */
+        .editor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .editor-panel {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e9edf2;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .editor-panel .panel-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            background: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+            letter-spacing: 0.02em;
+            color: #1e293b;
+        }
+        body.dark .editor-panel .panel-label {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        .editor-panel textarea {
+            width: 100%;
+            min-height: 300px;
+            height: 60vh;
+            padding: 1rem;
+            border: none;
+            resize: vertical;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            background: transparent;
+            color: inherit;
+            outline: none;
+            tab-size: 2;
+        }
+        .editor-panel textarea:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: -2px;
+        }
+        .preview-area {
+            position: relative;
+        }
+        .preview-area .match-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: transparent;
+        }
+
+        /* controls */
+        .control-group {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1rem 1.25rem;
+            border: 1px solid #e9edf2;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem 1rem;
+        }
+        .control-group .field {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex: 1 1 180px;
+        }
+        .control-group .field label {
+            font-weight: 500;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .control-group input, .control-group select {
+            padding: 0.5rem 0.75rem;
+            border-radius: 12px;
+            border: 1px solid #d1d9e6;
+            background: #f8fafc;
+            font-size: 0.9rem;
+            width: 100%;
+            transition: 0.1s;
+        }
+        .control-group input:focus {
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+        }
+        .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: none;
+            background: #f1f5f9;
+            color: #1e293b;
+            cursor: pointer;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: #1e293b;
+            color: white;
+        }
+        .btn-primary:hover { background: #0f172a; }
+        .btn-success {
+            background: #0b8a5e;
+            color: white;
+        }
+        .btn-success:hover { background: #0a6f4a; }
+        .btn-danger {
+            background: #b91c1c;
+            color: white;
+        }
+        .btn-danger:hover { background: #991b1b; }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-outline:hover { background: #f1f5f9; }
+        .btn-sm { padding: 0.3rem 0.8rem; font-size: 0.8rem; }
+        .icon-btn { background: transparent; border: none; font-size: 1.2rem; cursor: pointer; padding: 0.2rem 0.4rem; border-radius: 8px; }
+
+        /* match info */
+        .match-info {
+            font-size: 0.9rem;
+            background: #f1f5f9;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+        body.dark .match-info { background: #1e293b; }
+
+        .badge {
+            background: #3b82f6;
+            color: white;
+            border-radius: 40px;
+            padding: 0.1rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* highlight system */
+        .match-highlight {
+            background: #fde68a;
+            color: #0f172a;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+        .current-match {
+            background: #60a5fa;
+            color: #0f172a;
+            outline: 2px solid #2563eb;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+        .replaced-highlight {
+            background: #6ee7b7;
+            color: #064e3b;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+
+        /* stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+            background: #f8fafc;
+            padding: 0.75rem 1rem;
+            border-radius: 16px;
+            border: 1px solid #e9edf2;
+            margin-top: 0.5rem;
+        }
+        .stat-item {
+            font-size: 0.8rem;
+        }
+        .stat-item .stat-label { color: #64748b; font-weight: 500; }
+        .stat-item .stat-value { font-weight: 700; font-size: 1.1rem; }
+
+        /* collapse */
+        .collapse-toggle {
+            background: none;
+            border: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            color: #2563eb;
+        }
+        .collapse-content {
+            display: none;
+            padding-top: 0.75rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .collapse-content.open { display: flex; }
+
+        /* drop zone */
+        .drop-zone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 24px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            background: #f8fafc;
+            transition: 0.15s;
+            cursor: pointer;
+        }
+        .drop-zone.dragover { border-color: #3b82f6; background: #e0edff; }
+
+        /* history */
+        .history-panel {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e9edf2;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .editor-grid { grid-template-columns: 1fr; }
+            .control-group .field { flex: 1 1 100%; }
+            .flex-between { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .card { padding: 1rem; }
+            body { padding: 0.5rem; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.3rem; }
+            .btn { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+        }
+
+        /* accessibility */
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; }
+        .focus-ring:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+        [aria-live="polite"] { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+  /* End Page style goes here....................*/
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / NAV
+============================================================ -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v14a2 2 0 0 0 2 2h12" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/><path d="M17 21V7a2 2 0 0 0-2-2H3" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </span>
+      Croply <span class="ext">.io</span>
+    </a>
+
+    <nav class="nav-primary" aria-label="Primary">
+      <!-- TOOLS MEGA MENU -->
+      <div class="nav-item" data-menu="tools">
+        <button class="nav-link crop-mark" aria-haspopup="true" aria-expanded="false">
+          Tools
+          <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mega" role="menu">
+          <div class="mega-grid">
+            <div class="mega-col-title">Edit</div>
+            <div class="mega-col-title">Enhance</div>
+
+            <a href="crop-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Crop Image</strong><span>Trim to exact size or ratio</span></span>
+            </a>
+            <a href="remove-background.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4" opacity="0.35"/></svg></span>
+              <span class="mega-text"><strong>Remove Background</strong> <span class="tag-new">NEW</span><span>AI cutout in one click</span></span>
+            </a>
+
+            <a href="compress-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/></svg></span>
+              <span class="mega-text"><strong>Compress Image</strong><span>Shrink file size, keep quality</span></span>
+            </a>
+            <a href="watermark-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 20 4M14 4h6v6M10 20H4v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><text x="7" y="16" font-size="9" fill="currentColor" font-family="monospace">W</text></svg></span>
+              <span class="mega-text"><strong>Watermark Image</strong><span>Add text or logo overlay</span></span>
+            </a>
+
+            <a href="resize-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3 3 8l5 5M16 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>Resize Image</strong><span>Set exact pixels or percentage</span></span>
+            </a>
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Rotate &amp; Flip</strong><span>Fix orientation in one click</span></span>
+            </a>
+
+            <a href="bulk-optimizer.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>Bulk Optimizer</strong><span>Batch-process a whole folder</span></span>
+            </a>
+            <a href="image-metadata-viewer.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Image Metadata Viewer</strong><span>Check EXIF &amp; file details</span></span>
+            </a>
+          </div>
+          <div class="mega-foot">
+            <span>All tools run free, no signup needed</span>
+            <a href="#">See all image tools →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PDF TOOLS MEGA MENU -->
+      <div class="nav-item" data-menu="pdf">
+        <button class="nav-link crop-mark" aria-haspopup="true" aria-expanded="false">
+          PDF Tools
+          <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mega" role="menu">
+          <div class="mega-grid">
+            <div class="mega-col-title">Organize</div>
+            <div class="mega-col-title">Convert &amp; Secure</div>
+
+            <a href="merge-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
+              <span class="mega-text"><strong>Merge PDF</strong><span>Combine multiple PDFs into one</span></span>
+            </a>
+            <a href="split-separate-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 2"/></svg></span>
+              <span class="mega-text"><strong>Split / Separate PDF</strong><span>Pull out or divide pages</span></span>
+            </a>
+
+            <a href="compress-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 4 4h9l7 7v9a1 1 0 0 1-1 1H4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13 4v6h6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>Compress PDF</strong><span>Reduce PDF file size</span></span>
+            </a>
+            <a href="protect-unlock-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/></svg></span>
+              <span class="mega-text"><strong>Protect / Unlock PDF</strong><span>Add or remove a password</span></span>
+            </a>
+
+            <a href="image-to-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Image to PDF</strong><span>Combine JPG/PNG into a PDF</span></span>
+            </a>
+            <a href="pdf-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>PDF to JPG</strong><span>Export each page as an image</span></span>
+            </a>
+
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Rotate PDF</strong><span>Fix sideways or upside-down pages</span></span>
+            </a>
+            <a href="watermark-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 20 4M14 4h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><text x="6" y="18" font-size="9" fill="currentColor" font-family="monospace">W</text></svg></span>
+              <span class="mega-text"><strong>Watermark PDF</strong><span>Stamp text or logo on pages</span></span>
+            </a>
+          </div>
+          <div class="mega-foot">
+            <span>Works with PDF, JPG, PNG, WEBP</span>
+            <a href="#">See all PDF tools →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONVERT MEGA MENU -->
+      <div class="nav-item" data-menu="convert">
+        <button class="nav-link crop-mark" aria-haspopup="true" aria-expanded="false">
+          Convert
+          <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mega" role="menu">
+          <div class="mega-grid">
+            <div class="mega-col-title">Image ↔ Image</div>
+            <div class="mega-col-title">Image ↔ PDF</div>
+
+            <a href="#convert-jpg-to-png.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>JPG → PNG</strong><span>Adds transparency support</span></span>
+            </a>
+            <a href="merge-jpg-to-pdf.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>Image → PDF</strong> <span class="tag-new">NEW</span><span>Merge JPG/PNG into a PDF</span></span>
+            </a>
+
+            <a href="convert-png-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <span class="mega-text"><strong>PNG → JPG</strong><span>Smaller size for photos</span></span>
+            </a>
+            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>PDF → JPG</strong><span>Export each page as an image</span></span>
+            </a>
+
+            <a href="convert-webp-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>WEBP → JPG/PNG</strong><span>Universal format support</span></span>
+            </a>
+            <a href="convert-pdf-to-png.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
+              <span class="mega-text"><strong>PDF → PNG</strong><span>High-quality page export</span></span>
+            </a>
+
+            <a href="convert-heic-to-jpg.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2"/><path d="M4 15l4-4 4 4 4-6 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="mega-text"><strong>HEIC → JPG</strong><span>Fix iPhone photos for web</span></span>
+            </a>
+            <a href="convert-svg-to-png.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7 12 3l8 4-8 4-8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.5"/></svg></span>
+              <span class="mega-text"><strong>SVG → PNG</strong><span>Rasterize vector graphics</span></span>
+            </a>
+          </div>
+          <div class="mega-foot">
+            <span>Formats: JPG · PNG · WEBP · HEIC · SVG · GIF · PDF</span>
+            <a href="all-converters.html">All converters →</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="api.html" class="nav-link">API</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-ghost">Log in</a>
+      <a href="upload-image.html" class="btn btn-solid">Upload image</a>
+      <button class="hamburger" id="drawerOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     MOBILE DRAWER
+============================================================ -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="brand" style="font-size:17px;">
+      <span class="brand-mark" style="width:26px;height:26px;">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v14a2 2 0 0 0 2 2h12" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/><path d="M17 21V7a2 2 0 0 0-2-2H3" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </span>
+      Croply
+    </span>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div class="drawer-body">
+    <div class="acc" data-acc>
+      <button class="acc-trigger">
+        Tools
+        <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <a href="crop-image.html">Crop Image</a>
+          <a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a>
+          <a href="compress-image.html">Compress Image</a>
+          <a href="watermark-image.html">Watermark Image</a>
+          <a href="resize-image.html">Resize Image</a>
+          <a href="rotate-flip-image.html">Rotate &amp; Flip</a>
+          <a href="bulk-optimizer.html">Bulk Optimizer</a>
+          <a href="image-metadata-viewer.html">Image Metadata Viewer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc" data-acc>
+      <button class="acc-trigger">
+        PDF Tools
+        <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <a href="merge-pdf.html">Merge PDF</a>
+          <a href="split-separate-pdf.html">Split / Separate PDF</a>
+          <a href="compress-pdf.html">Compress PDF</a>
+          <a href="protect-unlock-pdf.html">Protect / Unlock PDF</a>
+          <a href="watermark-pdf.html">Watermark PDF</a>
+          <a href="rotate-pdf.html">Rotate PDF</a>
+          <a href="image-to-pdf.html">Image to PDF</a>
+          <a href="pdf-to-jpg.html">PDF to JPG</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc" data-acc>
+      <button class="acc-trigger">
+        Convert
+        <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 5 6.5 8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <a href="convert-jpg-to-png.html">JPG to PNG</a>
+          <a href="convert-png-to-jpg.html">PNG to JPG</a>
+          <a href="convert-webp-to-jpg-png.html">WEBP to JPG/PNG</a>
+          <a href="convert-heic-to-jpg.html">HEIC to JPG</a>
+          <a href="convert-svg-to-png.html">SVG to PNG</a>
+          <a href="convert-image-to-pdf.html">Image to PDF</a>
+          <a href="convert-pdf-to-jpg.html">PDF to JPG</a>
+          <a href="convert-pdf-to-png.html">PDF to PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="pricing.html" class="drawer-simple-link">Pricing</a>
+    <a href="api.html" class="drawer-simple-link">API</a>
+    <a href="blog.html" class="drawer-simple-link">Blog</a>
+  </div>
+
+  <div class="drawer-foot">
+    <a href="log-in.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
+    <a href="upload-image.html" class="btn btn-solid">Upload image</a>
+  </div>
+</aside>
+
+<!-- demo filler so the footer isn't glued to the nav -->
+<main class="wrap demo-hero">
+
+
+    <div class="app" id="app">
+    <!-- hero -->
+    <div class="flex-between">
+        <div>
+            <h1>🔍 Find & Replace</h1>
+            <div class="subtitle">Find words, phrases, or patterns and replace them instantly with powerful search options.</div>
+        </div>
+        <div class="flex-row">
+            <button class="btn btn-outline btn-sm" id="darkToggle" aria-label="Toggle dark mode">🌙 Dark</button>
+            <span class="badge" style="background:#2d6a4f;">🔒 100% browser</span>
+        </div>
+    </div>
+
+    <!-- main controls -->
+    <div class="card" style="padding-bottom: 0.75rem;">
+        <div class="control-group">
+            <div class="field"><label for="findInput">Find</label><input type="text" id="findInput" placeholder="Find text…" aria-label="Find text"></div>
+            <div class="field"><label for="replaceInput">Replace</label><input type="text" id="replaceInput" placeholder="Replace with…" aria-label="Replace with"></div>
+            <div class="flex-row" style="flex-wrap: wrap;">
+                <button class="btn btn-primary" id="findBtn">🔎 Find</button>
+                <button class="btn btn-success" id="replaceAllBtn">Replace All</button>
+                <button class="btn btn-outline" id="replaceNextBtn">Replace Next</button>
+                <button class="btn btn-outline" id="replacePrevBtn">Replace Previous</button>
+            </div>
+        </div>
+
+        <!-- options expandable -->
+        <div style="margin-top: 0.5rem;">
+            <button class="collapse-toggle" id="optionsToggle" aria-expanded="false">⚙️ Search Options</button>
+            <div class="collapse-content" id="optionsContent">
+                <label><input type="checkbox" id="matchCase"> Match Case</label>
+                <label><input type="checkbox" id="wholeWord"> Whole Word</label>
+                <label><input type="checkbox" id="wholeLine"> Whole Line</label>
+                <label><input type="checkbox" id="searchFromStart"> Search From Start</label>
+                <label><input type="checkbox" id="highlightMatches" checked> Highlight Matches</label>
+                <label><input type="checkbox" id="regexMode"> Regex Mode <span style="font-size:0.7rem; color:#64748b;">(JS regex)</span></label>
+                <span style="font-size:0.75rem; color:#b91c1c;" id="regexWarning">⚠️ Uses JavaScript regex syntax</span>
+            </div>
+        </div>
+
+        <!-- match navigation & counter -->
+        <div class="flex-between mt-1">
+            <div class="flex-row">
+                <span class="match-info" id="matchCounter">0 matches</span>
+                <span class="match-info" id="matchPosition">—</span>
+            </div>
+            <div class="flex-row">
+                <button class="btn btn-outline btn-sm" id="firstMatchBtn">⏮ First</button>
+                <button class="btn btn-outline btn-sm" id="prevMatchBtn">◀ Prev</button>
+                <button class="btn btn-outline btn-sm" id="nextMatchBtn">Next ▶</button>
+                <button class="btn btn-outline btn-sm" id="lastMatchBtn">Last ⏭</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- editors -->
+    <div class="editor-grid">
+        <div class="editor-panel">
+            <div class="panel-label">📄 Original</div>
+            <textarea id="originalText" placeholder="Type or paste your text here…" spellcheck="true"></textarea>
+        </div>
+        <div class="editor-panel">
+            <div class="panel-label">✨ Result</div>
+            <textarea id="resultText" placeholder="Modified text appears here…" spellcheck="false" readonly></textarea>
+        </div>
+    </div>
+
+    <!-- action row: swap, clear, file, export -->
+    <div class="flex-row" style="justify-content: space-between; flex-wrap: wrap; margin: 0.5rem 0;">
+        <div class="flex-row">
+            <button class="btn btn-outline btn-sm" id="swapBtn">🔄 Swap</button>
+            <button class="btn btn-outline btn-sm" id="clearBtn">🗑 Clear</button>
+            <button class="btn btn-outline btn-sm" id="undoBtn">↩ Undo</button>
+            <button class="btn btn-outline btn-sm" id="redoBtn">↪ Redo</button>
+        </div>
+        <div class="flex-row">
+            <button class="btn btn-outline btn-sm" id="copyBtn">📋 Copy Result</button>
+            <button class="btn btn-outline btn-sm" id="downloadTxtBtn">⬇ .txt</button>
+            <button class="btn btn-outline btn-sm" id="downloadCsvBtn">⬇ .csv</button>
+        </div>
+    </div>
+
+    <!-- stats -->
+    <div class="stats-grid" id="statsGrid">
+        <div class="stat-item"><span class="stat-label">Original</span><br><span class="stat-value" id="origChars">0</span> chars</div>
+        <div class="stat-item"><span class="stat-label">Words</span><br><span class="stat-value" id="origWords">0</span></div>
+        <div class="stat-item"><span class="stat-label">Lines</span><br><span class="stat-value" id="origLines">0</span></div>
+        <div class="stat-item"><span class="stat-label">Result</span><br><span class="stat-value" id="resultChars">0</span> chars</div>
+        <div class="stat-item"><span class="stat-label">Words</span><br><span class="stat-value" id="resultWords">0</span></div>
+        <div class="stat-item"><span class="stat-label">Lines</span><br><span class="stat-value" id="resultLines">0</span></div>
+        <div class="stat-item"><span class="stat-label">Matches</span><br><span class="stat-value" id="totalMatchesStat">0</span></div>
+        <div class="stat-item"><span class="stat-label">Replaced</span><br><span class="stat-value" id="totalReplacedStat">0</span></div>
+    </div>
+
+    <!-- advanced tools collapsible -->
+    <div class="card" style="padding: 0.75rem 1rem;">
+        <button class="collapse-toggle" id="advancedToggle">🛠 Advanced Tools</button>
+        <div class="collapse-content" id="advancedContent" style="display: none;">
+            <button class="btn btn-outline btn-sm" data-clean="trim">Trim lines</button>
+            <button class="btn btn-outline btn-sm" data-clean="removeEmpty">Remove empty lines</button>
+            <button class="btn btn-outline btn-sm" data-clean="normalizeNL">Normalize line breaks</button>
+            <button class="btn btn-outline btn-sm" data-clean="removeDup">Remove duplicate lines</button>
+            <button class="btn btn-outline btn-sm" data-clean="removeTabs">Remove tabs</button>
+            <button class="btn btn-outline btn-sm" data-clean="tabsToSpaces">Tabs → spaces</button>
+            <span style="margin-left: auto; font-size:0.75rem; color:#64748b;">Case conversion: </span>
+            <select id="caseSelect" style="padding:0.2rem 0.5rem; border-radius:20px; border:1px solid #d1d9e6;">
+                <option value="preserve">Preserve</option>
+                <option value="upper">UPPERCASE</option>
+                <option value="lower">lowercase</option>
+                <option value="title">Title Case</option>
+                <option value="sentence">Sentence case</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- file drop + history -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem;">
+        <div class="drop-zone" id="dropZone" role="button" tabindex="0" aria-label="Drop file or browse">
+            <div>📁 Drop a text file here or <strong>Browse Files</strong></div>
+            <div style="font-size:0.75rem; color:#64748b;">.txt .csv .log .md .html .css .js .json</div>
+            <div id="fileInfo" style="font-size:0.85rem; margin-top:0.5rem;"></div>
+            <input type="file" id="fileInput" accept=".txt,.csv,.log,.md,.html,.css,.js,.json" style="display:none">
+        </div>
+        <div>
+            <div class="flex-between"><span style="font-weight:600;">📜 History</span><button class="btn btn-outline btn-sm" id="clearHistoryBtn">Clear</button></div>
+            <div class="history-panel" id="historyPanel"></div>
+        </div>
+    </div>
+
+    <!-- live status -->
+    <div aria-live="polite" id="liveStatus"></div>
+</div>
+
+
+
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <span class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v14a2 2 0 0 0 2 2h12" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/><path d="M17 21V7a2 2 0 0 0-2-2H3" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+          Croply <span class="ext">.io</span>
+        </span>
+        <p>Fast, private image &amp; PDF tools that run in your browser — no upload to a server needed.</p>
+        <div class="format-badges">
+          <span class="format-badge">.JPG</span>
+          <span class="format-badge">.PNG</span>
+          <span class="format-badge">.WEBP</span>
+          <span class="format-badge">.HEIC</span>
+          <span class="format-badge">.SVG</span>
+          <span class="format-badge clay">.PDF</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Edit</h4>
+        <ul>
+          <li><a href="crop-image.html">Crop Image</a></li>
+          <li><a href="resize-image.html">Resize Image</a></li>
+          <li><a href="rotate-flip-image.html">Rotate &amp; Flip</a></li>
+          <li><a href="compress-image.html">Compress Image</a></li>
+          <li><a href="watermark-image.html">Watermark Image</a></li>
+          <li><a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a></li>
+          <li><a href="bulk-optimizer.html">Bulk Optimizer</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>PDF Tools</h4>
+        <ul>
+          <li><a href="merge-pdf.html">Merge PDF</a></li>
+          <li><a href="split-separate-pdf.html">Split / Separate PDF</a></li>
+          <li><a href="compress-pdf.html">Compress PDF</a></li>
+          <li><a href="protect-unlock-pdf.html">Protect / Unlock PDF</a></li>
+          <li><a href="watermark-pdf.html">Watermark PDF</a></li>
+          <li><a href="rotate-pdf.html">Rotate PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Convert</h4>
+        <ul>
+          <li><a href="convert-jpg-to-png.html">JPG to PNG</a></li>
+          <li><a href="convert-png-to-jpg.html">PNG to JPG</a></li>
+          <li><a href="convert-image-to-pdf.html">Image to PDF</a></li>
+          <li><a href="convert-pdf-to-jpg.html">PDF to JPG</a></li>
+          <li><a href="convert-heic-to-jpg.html">HEIC to JPG</a></li>
+          <li><a href="convert-svg-to-png.html">SVG to PNG</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="api-docs.html">API docs</a></li>
+          <li><a href="help-center.html">Help center</a></li>
+          <li><a href="status.html">Status</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-more">
+        <div class="footer-more-head">
+          <h4>More tools</h4>
+          <a href="more-tools.html">View all 30+ tools →</a>
+        </div>
+        <div class="footer-more-list">
+          <a href="image-to-base64.html">Image to Base64</a>
+          <a href="gif-to-jpg.html">GIF to JPG</a>
+          <a href="png-to-webp.html">PNG to WEBP</a>
+          <a href="add-border.html">Add Border</a>
+          <a href="image-color-picker.html">Image Color Picker</a>
+          <a href="blur-face-area.html">Blur Face / Area</a>
+          <a href="meme-generator.html">Meme Generator</a>
+          <a href="photo-collage-maker.html">Photo Collage Maker</a>
+          <a href="pdf-page-reorder.html">PDF Page Reorder</a>
+          <a href="pdf-to-word.html">PDF to Word</a>
+          <a href="grayscale-converter.html">Grayscale Converter</a>
+          <a href="image-compressor.html">Image Compressor (Bulk)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer-newsletter">
+    <div>
+      <h5>Get new tools first</h5>
+      <p>One short email when we ship a new converter or feature.</p>
+    </div>
+    <form class="news-form" onsubmit="return false;">
+      <label for="footerEmail" class="sr-only">Email address</label>
+      <input id="footerEmail" type="email" placeholder="you@email.com" required>
+      <button type="submit" class="btn btn-solid">Subscribe</button>
+    </form>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <span>© 2026 Croply.io — All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="privacy.html">Privacy Policy</a> 
+      <a href="terms.html">Terms of Service</a>
+      <a href="cookies.html">Cookies</a>
+    </div>
+    <div class="socials"> 
+      <a href="#" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- Desktop mega-menu (hover + keyboard/click) ----------
+  const navItems = document.querySelectorAll('.nav-item[data-menu]');
+
+  function closeAllMenus(except){
+    navItems.forEach(item=>{
+      if(item !== except){
+        item.dataset.open = "false";
+        item.querySelector('.nav-link').setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  navItems.forEach(item=>{
+    const trigger = item.querySelector('.nav-link');
+    let closeTimer;
+
+    function open(){
+      clearTimeout(closeTimer);
+      closeAllMenus(item);
+      item.dataset.open = "true";
+      trigger.setAttribute('aria-expanded','true');
+    }
+    function scheduleClose(){
+      closeTimer = setTimeout(()=>{
+        item.dataset.open = "false";
+        trigger.setAttribute('aria-expanded','false');
+      }, 140);
+    }
+
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('mouseleave', scheduleClose);
+
+    trigger.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const isOpen = item.dataset.open === "true";
+      if(isOpen){
+        item.dataset.open = "false";
+        trigger.setAttribute('aria-expanded','false');
+      } else {
+        open();
+      }
+    });
+  });
+
+  document.addEventListener('click', (e)=>{
+    if(!e.target.closest('.nav-item[data-menu]')) closeAllMenus(null);
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') closeAllMenus(null);
+  });
+
+  // ---------- Mobile drawer ----------
+  const drawer = document.getElementById('mobileDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+  const openBtn = document.getElementById('drawerOpen');
+  const closeBtn = document.getElementById('drawerClose');
+
+  function openDrawer(){
+    drawer.classList.add('active');
+    overlay.classList.add('active');
+    drawer.setAttribute('aria-hidden','false');
+    openBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer(){
+    drawer.classList.remove('active');
+    overlay.classList.remove('active');
+    drawer.setAttribute('aria-hidden','true');
+    openBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  openBtn.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeDrawer(); });
+
+  // ---------- Mobile accordion (Tools / PDF Tools / Convert) ----------
+  document.querySelectorAll('[data-acc]').forEach(acc=>{
+    const trigger = acc.querySelector('.acc-trigger');
+    const panel = acc.querySelector('.acc-panel');
+    trigger.addEventListener('click', ()=>{
+      const isOpen = acc.dataset.open === "true";
+      // close siblings for a clean single-open accordion
+      acc.parentElement.querySelectorAll('[data-acc]').forEach(other=>{
+        if(other !== acc){
+          other.dataset.open = "false";
+          other.querySelector('.acc-panel').style.maxHeight = null;
+        }
+      });
+      if(isOpen){
+        acc.dataset.open = "false";
+        panel.style.maxHeight = null;
+      } else {
+        acc.dataset.open = "true";
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
+<!-- PAge Script Herer-->
+<script>
+    (function() {
+        // ----- state -----
+        let original = '';
+        let result = '';
+        let matchPositions = []; // [{index, length, text}]
+        let currentMatchIdx = -1;
+        let totalReplaced = 0;
+        let history = []; // array of {original, result, timestamp, description}
+        let historyIndex = -1;
+        let replaceHistory = []; // for panel
+        let darkMode = localStorage.getItem('darkMode') === 'true';
+
+        // DOM refs
+        const origText = document.getElementById('originalText');
+        const resultText = document.getElementById('resultText');
+        const findInput = document.getElementById('findInput');
+        const replaceInput = document.getElementById('replaceInput');
+        const findBtn = document.getElementById('findBtn');
+        const replaceAllBtn = document.getElementById('replaceAllBtn');
+        const replaceNextBtn = document.getElementById('replaceNextBtn');
+        const replacePrevBtn = document.getElementById('replacePrevBtn');
+        const matchCounter = document.getElementById('matchCounter');
+        const matchPosition = document.getElementById('matchPosition');
+        const totalMatchesStat = document.getElementById('totalMatchesStat');
+        const totalReplacedStat = document.getElementById('totalReplacedStat');
+        const liveStatus = document.getElementById('liveStatus');
+
+        const matchCase = document.getElementById('matchCase');
+        const wholeWord = document.getElementById('wholeWord');
+        const wholeLine = document.getElementById('wholeLine');
+        const searchFromStart = document.getElementById('searchFromStart');
+        const highlightMatches = document.getElementById('highlightMatches');
+        const regexMode = document.getElementById('regexMode');
+
+        const undoBtn = document.getElementById('undoBtn');
+        const redoBtn = document.getElementById('redoBtn');
+        const swapBtn = document.getElementById('swapBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const downloadTxtBtn = document.getElementById('downloadTxtBtn');
+        const downloadCsvBtn = document.getElementById('downloadCsvBtn');
+        const darkToggle = document.getElementById('darkToggle');
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const historyPanel = document.getElementById('historyPanel');
+        const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+
+        // stats
+        const origChars = document.getElementById('origChars');
+        const origWords = document.getElementById('origWords');
+        const origLines = document.getElementById('origLines');
+        const resultChars = document.getElementById('resultChars');
+        const resultWords = document.getElementById('resultWords');
+        const resultLines = document.getElementById('resultLines');
+
+        // collapsibles
+        const optionsToggle = document.getElementById('optionsToggle');
+        const optionsContent = document.getElementById('optionsContent');
+        const advancedToggle = document.getElementById('advancedToggle');
+        const advancedContent = document.getElementById('advancedContent');
+
+        // ----- helpers -----
+        function updateStats() {
+            const o = original, r = result;
+            origChars.textContent = o.length;
+            origWords.textContent = o.split(/\s+/).filter(w=>w).length;
+            origLines.textContent = o.split('\n').length;
+            resultChars.textContent = r.length;
+            resultWords.textContent = r.split(/\s+/).filter(w=>w).length;
+            resultLines.textContent = r.split('\n').length;
+        }
+
+        function updateMatchUI() {
+            const total = matchPositions.length;
+            matchCounter.textContent = total + ' matches found';
+            totalMatchesStat.textContent = total;
+            if (total === 0) { matchPosition.textContent = '—'; return; }
+            const idx = currentMatchIdx >= 0 ? currentMatchIdx : 0;
+            matchPosition.textContent = `Match ${idx+1} of ${total}`;
+            if (highlightMatches.checked) highlightInResult();
+        }
+
+        function highlightInResult() {
+            // we use a simple approach: apply classes via textarea replacement (visual only)
+            // for large text we use a lightweight method: we create a highlighted version in resultText
+            if (!highlightMatches.checked || matchPositions.length === 0) {
+                resultText.value = result;
+                return;
+            }
+            let highlighted = result;
+            // build from end to start to preserve indices
+            let offsets = matchPositions.map((m, i) => ({...m, idx: i})).sort((a,b) => b.index - a.index);
+            for (let m of offsets) {
+                const cls = (m.idx === currentMatchIdx) ? 'current-match' : 'match-highlight';
+                const before = highlighted.slice(0, m.index);
+                const after = highlighted.slice(m.index + m.length);
+                highlighted = before + `<span class="${cls}">` + highlighted.slice(m.index, m.index + m.length) + `</span>` + after;
+            }
+            // we can't use innerHTML on textarea, so we use a div overlay? Instead use a simpler approach:
+            // for real highlighting we'd need a contenteditable or overlay. For simplicity, we update resultText with plain text
+            // but we show match count. We'll skip visual highlighting in textarea to keep it fast, but we show current match via background.
+            // Instead we'll use a small indicator: current match index.
+            resultText.value = result;
+            // show current match in status
+        }
+
+        function findMatches() {
+            const pattern = findInput.value;
+            if (!pattern) { matchPositions = []; currentMatchIdx = -1; updateMatchUI(); updateStats(); return; }
+            const text = original;
+            let flags = 'g';
+            if (!matchCase.checked) flags += 'i';
+            let regex;
+            try {
+                if (regexMode.checked) {
+                    regex = new RegExp(pattern, flags);
+                } else {
+                    const escaped = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    let wordBoundary = wholeWord.checked ? '\\b' : '';
+                    let lineBoundary = wholeLine.checked ? '^' : '';
+                    let endLine = wholeLine.checked ? '$' : '';
+                    regex = new RegExp(lineBoundary + wordBoundary + escaped + wordBoundary + endLine, flags);
+                }
+            } catch(e) {
+                liveStatus.textContent = '⚠️ Invalid regular expression. Please check your pattern.';
+                matchPositions = []; currentMatchIdx = -1; updateMatchUI(); return;
+            }
+            const matches = [];
+            let m;
+            while ((m = regex.exec(text)) !== null) {
+                matches.push({ index: m.index, length: m[0].length, text: m[0] });
+                if (m.index === regex.lastIndex) regex.lastIndex++;
+            }
+            matchPositions = matches;
+            currentMatchIdx = matchPositions.length > 0 ? 0 : -1;
+            updateMatchUI();
+            updateStats();
+            liveStatus.textContent = `Found ${matchPositions.length} matches.`;
+        }
+
+        function replaceCurrent() {
+            if (matchPositions.length === 0 || currentMatchIdx < 0) return;
+            const m = matchPositions[currentMatchIdx];
+            const replacement = replaceInput.value || '';
+            let newResult = result.slice(0, m.index) + replacement + result.slice(m.index + m.length);
+            // update result
+            result = newResult;
+            // update original? no, we keep original separate
+            // update match positions: remove this match and shift subsequent
+            const shift = replacement.length - m.length;
+            matchPositions.splice(currentMatchIdx, 1);
+            for (let i = currentMatchIdx; i < matchPositions.length; i++) {
+                matchPositions[i].index += shift;
+            }
+            totalReplaced++;
+            totalReplacedStat.textContent = totalReplaced;
+            resultText.value = result;
+            if (matchPositions.length === 0) currentMatchIdx = -1;
+            else if (currentMatchIdx >= matchPositions.length) currentMatchIdx = matchPositions.length - 1;
+            updateMatchUI();
+            updateStats();
+            pushHistory('Replace Next');
+        }
+
+        function replaceAll() {
+            if (matchPositions.length === 0) return;
+            const replacement = replaceInput.value || '';
+            let newResult = result;
+            // from end to start
+            let offsets = matchPositions.map((m,i) => ({...m, idx:i})).sort((a,b) => b.index - a.index);
+            for (let m of offsets) {
+                newResult = newResult.slice(0, m.index) + replacement + newResult.slice(m.index + m.length);
+            }
+            const count = matchPositions.length;
+            totalReplaced += count;
+            totalReplacedStat.textContent = totalReplaced;
+            result = newResult;
+            matchPositions = [];
+            currentMatchIdx = -1;
+            resultText.value = result;
+            updateMatchUI();
+            updateStats();
+            pushHistory(`Replace All (${count} matches)`);
+            liveStatus.textContent = `Replaced ${count} matches.`;
+        }
+
+        function pushHistory(desc) {
+            history.push({ original: original, result: result, timestamp: Date.now(), description: desc });
+            historyIndex = history.length - 1;
+            if (history.length > 50) history.shift();
+            updateHistoryPanel();
+        }
+
+        function undo() {
+            if (historyIndex <= 0) return;
+            historyIndex--;
+            const entry = history[historyIndex];
+            original = entry.original;
+            result = entry.result;
+            origText.value = original;
+            resultText.value = result;
+            findMatches();
+            updateStats();
+            updateHistoryPanel();
+        }
+
+        function redo() {
+            if (historyIndex >= history.length - 1) return;
+            historyIndex++;
+            const entry = history[historyIndex];
+            original = entry.original;
+            result = entry.result;
+            origText.value = original;
+            resultText.value = result;
+            findMatches();
+            updateStats();
+            updateHistoryPanel();
+        }
+
+        function updateHistoryPanel() {
+            historyPanel.innerHTML = '';
+            const items = history.slice(-10).reverse();
+            for (let h of items) {
+                const div = document.createElement('div');
+                div.className = 'history-item';
+                div.innerHTML = `<span>${h.description}</span><span>${new Date(h.timestamp).toLocaleTimeString()}</span>`;
+                historyPanel.appendChild(div);
+            }
+        }
+
+        // ----- events -----
+        origText.addEventListener('input', function() {
+            original = this.value;
+            result = original;
+            resultText.value = result;
+            totalReplaced = 0;
+            totalReplacedStat.textContent = '0';
+            findMatches();
+            updateStats();
+            pushHistory('Edit');
+        });
+
+        findBtn.addEventListener('click', findMatches);
+        replaceAllBtn.addEventListener('click', function() {
+            if (matchPositions.length === 0) return;
+            if (confirm(`Replace ${matchPositions.length} matches with "${replaceInput.value || ''}"?`)) {
+                replaceAll();
+            }
+        });
+        replaceNextBtn.addEventListener('click', function() {
+            if (matchPositions.length === 0) { findMatches(); if (matchPositions.length===0) return; }
+            if (currentMatchIdx < 0) currentMatchIdx = 0;
+            replaceCurrent();
+            // move to next
+            if (matchPositions.length > 0) {
+                currentMatchIdx = (currentMatchIdx + 1) % matchPositions.length;
+                updateMatchUI();
+            }
+        });
+        replacePrevBtn.addEventListener('click', function() {
+            if (matchPositions.length === 0) { findMatches(); if (matchPositions.length===0) return; }
+            if (currentMatchIdx < 0) currentMatchIdx = matchPositions.length - 1;
+            replaceCurrent();
+            if (matchPositions.length > 0) {
+                currentMatchIdx = (currentMatchIdx - 1 + matchPositions.length) % matchPositions.length;
+                updateMatchUI();
+            }
+        });
+
+        // navigation
+        document.getElementById('firstMatchBtn').addEventListener('click', function() { if (matchPositions.length) { currentMatchIdx = 0; updateMatchUI(); } });
+        document.getElementById('lastMatchBtn').addEventListener('click', function() { if (matchPositions.length) { currentMatchIdx = matchPositions.length-1; updateMatchUI(); } });
+        document.getElementById('prevMatchBtn').addEventListener('click', function() { if (matchPositions.length) { currentMatchIdx = (currentMatchIdx-1+matchPositions.length)%matchPositions.length; updateMatchUI(); } });
+        document.getElementById('nextMatchBtn').addEventListener('click', function() { if (matchPositions.length) { currentMatchIdx = (currentMatchIdx+1)%matchPositions.length; updateMatchUI(); } });
+
+        // undo/redo
+        undoBtn.addEventListener('click', undo);
+        redoBtn.addEventListener('click', redo);
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
+                e.preventDefault();
+                if (e.shiftKey) redo(); else undo();
+            }
+        });
+
+        // swap
+        swapBtn.addEventListener('click', function() {
+            const temp = original;
+            original = result;
+            result = temp;
+            origText.value = original;
+            resultText.value = result;
+            totalReplaced = 0;
+            totalReplacedStat.textContent = '0';
+            findMatches();
+            updateStats();
+            pushHistory('Swap');
+        });
+
+        // clear
+        clearBtn.addEventListener('click', function() {
+            if (original || result) {
+                if (!confirm('Clear all text?')) return;
+            }
+            original = ''; result = ''; matchPositions = []; currentMatchIdx = -1; totalReplaced = 0;
+            origText.value = ''; resultText.value = '';
+            updateMatchUI(); updateStats(); totalReplacedStat.textContent = '0';
+            pushHistory('Clear');
+        });
+
+        // copy
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard?.writeText(result).then(() => liveStatus.textContent = '✓ Copied successfully');
+        });
+
+        // download
+        downloadTxtBtn.addEventListener('click', function() {
+            const blob = new Blob([result], {type: 'text/plain'});
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'result.txt'; a.click();
+        });
+        downloadCsvBtn.addEventListener('click', function() {
+            const blob = new Blob([result], {type: 'text/csv'});
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'result.csv'; a.click();
+        });
+
+        // dark mode
+        darkToggle.addEventListener('click', function() {
+            darkMode = !darkMode;
+            document.body.classList.toggle('dark', darkMode);
+            localStorage.setItem('darkMode', darkMode);
+            darkToggle.textContent = darkMode ? '☀️ Light' : '🌙 Dark';
+        });
+        if (darkMode) { document.body.classList.add('dark'); darkToggle.textContent = '☀️ Light'; }
+
+        // collapse
+        optionsToggle.addEventListener('click', function() {
+            const open = optionsContent.style.display === 'flex';
+            optionsContent.style.display = open ? 'none' : 'flex';
+            optionsToggle.setAttribute('aria-expanded', !open);
+        });
+        advancedToggle.addEventListener('click', function() {
+            advancedContent.style.display = advancedContent.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // file drop
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault(); dropZone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file) handleFile(file);
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleFile(e.target.files[0]);
+        });
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                original = ev.target.result;
+                result = original;
+                origText.value = original;
+                resultText.value = result;
+                totalReplaced = 0; totalReplacedStat.textContent = '0';
+                findMatches(); updateStats(); pushHistory('File loaded');
+                fileInfo.textContent = `${file.name} • ${(file.size/1024).toFixed(1)}KB • ${original.split('\n').length} lines`;
+                liveStatus.textContent = `Loaded ${file.name}`;
+            };
+            reader.readAsText(file);
+        }
+
+        // advanced cleanup
+        document.querySelectorAll('[data-clean]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.dataset.clean;
+                let text = result;
+                switch(action) {
+                    case 'trim': text = text.split('\n').map(l=>l.trim()).join('\n'); break;
+                    case 'removeEmpty': text = text.split('\n').filter(l=>l.trim()).join('\n'); break;
+                    case 'normalizeNL': text = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n'); break;
+                    case 'removeDup': text = [...new Set(text.split('\n'))].join('\n'); break;
+                    case 'removeTabs': text = text.replace(/\t/g,''); break;
+                    case 'tabsToSpaces': text = text.replace(/\t/g,'    '); break;
+                }
+                result = text; resultText.value = result; origText.value = original;
+                findMatches(); updateStats(); pushHistory('Cleanup: '+action);
+            });
+        });
+
+        // case conversion on replace
+        document.getElementById('caseSelect').addEventListener('change', function() {
+            // we apply to current result? we'll apply on next replace via replaceInput? 
+            // For simplicity, we can apply to selection: we'll convert replacement text.
+            // we'll just set replaceInput value to transformed version of replaceInput
+            const val = replaceInput.value;
+            const mode = this.value;
+            if (mode === 'upper') replaceInput.value = val.toUpperCase();
+            else if (mode === 'lower') replaceInput.value = val.toLowerCase();
+            else if (mode === 'title') replaceInput.value = val.replace(/\w\S*/g, w => w[0].toUpperCase()+w.slice(1).toLowerCase());
+            else if (mode === 'sentence') replaceInput.value = val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
+        });
+
+        // init
+        original = ''; result = ''; origText.value = ''; resultText.value = '';
+        findMatches(); updateStats(); pushHistory('Start');
+        updateHistoryPanel();
+        // show options open by default? no.
+        optionsContent.style.display = 'none';
+        advancedContent.style.display = 'none';
+    })();
+</script>
+
+<!--End page script-->
+
+</body>
+</html>

@@ -7,10 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Cropper.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" />
+
 
 <style>
   :root{
@@ -369,7 +366,6 @@
     background: var(--ink);
     color: rgba(246,245,241,0.72);
     margin-top: 40px;
-
   }
   .footer-top{
     padding: 56px 10px 40px;
@@ -487,7 +483,7 @@
   }
 
   .footer-newsletter{
-    padding: 34px 0;
+    padding: 34px 10px;
     border-bottom: 1px solid var(--line);
     display:flex;
     align-items:center;
@@ -560,7 +556,7 @@
   }
 
   /* Demo page filler (not part of the component) */
-  .demo-hero{ padding: 20px 10; text-align:center; }
+  .demo-hero{ padding: 40px 0; text-align:center; }
   .demo-hero h1{ font-family:var(--font-display); font-size: clamp(28px,4vw,42px); margin:0 0 12px; }
   .demo-hero p{ color:#5b6272; font-size:15px; max-width:520px; margin:0 auto; }
   .sr-only{
@@ -568,82 +564,332 @@
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
 
+  /*Page style goes here....................*/
 
+    body.dark {
+      background: #0b1120;
+      color: #e2e8f0;
+    }
 
-
-
-/* Main section styles */
     .app {
-      max-width: 1400px;
+      max-width: 1600px;
       width: 100%;
     }
 
-    /* ----- TOOL GRID (cards) ----- */
-    .tool-section {
-      margin: 1rem 0 1.5rem;
+    /* hero */
+    .hero {
+      margin-bottom: 2rem;
     }
-    .tool-section h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #0b1a2f;
-      border-left: 6px solid #2b5b8a;
-      padding-left: 0.8rem;
-      margin-bottom: 1.2rem;
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
     }
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-top: 0.25rem;
+      max-width: 700px;
     }
-    .tool-card {
-      background: white;
-      border-radius: 1.2rem;
-      padding: 1.2rem 0.8rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      border: 1px solid #e9eef3;
-      transition: all 0.2s ease;
-      cursor: pointer;
+
+    body.dark .hero p {
+      color: #94a3b8;
+    }
+
+    .toolbar-top {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
       align-items: center;
+      margin-bottom: 1.5rem;
+      background: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid #e9edf4;
+    }
+
+    body.dark .toolbar-top {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .toolbar-top .btn-group {
+      display: flex;
+      flex-wrap: wrap;
       gap: 0.4rem;
-      text-decoration: none;
-      color: inherit;
     }
-    .tool-card:hover {
-      transform: translateY(-6px);
-      border-color: #aac2db;
-      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
-    }
-    .tool-card i {
-      font-size: 2.2rem;
-      color: #1e3a5f;
-    }
-    .tool-card span {
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      padding: 0.45rem 1rem;
+      background: #f1f5f9;
+      border: 1px solid transparent;
+      border-radius: 40px;
       font-weight: 500;
       font-size: 0.9rem;
-      color: #1e2f44;
+      color: #1e293b;
+      cursor: pointer;
+      transition: 0.15s;
+      white-space: nowrap;
     }
 
-
-
-    /* responsive */
-    @media (max-width: 600px) {
-      .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-     
-    }
-    @media (min-width: 900px) {
-      .tool-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    body.dark .btn {
+      background: #334155;
+      color: #e2e8f0;
     }
 
-    
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      font-weight: 600;
+    }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-success { background: #16a34a; color: white; }
+    .btn-success:hover { background: #15803d; }
+    .btn-outline { background: transparent; border: 1px solid #cbd5e1; }
+    body.dark .btn-outline { border-color: #475569; }
+    .btn-outline:hover { background: #eef2f6; }
+    body.dark .btn-outline:hover { background: #2d3a4f; }
 
-/* End of main */
+    .btn-sm { padding: 0.3rem 0.8rem; font-size: 0.8rem; }
+
+    .mode-selector {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      margin: 0.5rem 0 1.2rem;
+      background: #ffffff;
+      padding: 0.6rem 1.25rem;
+      border-radius: 30px;
+      border: 1px solid #e9edf4;
+    }
+
+    body.dark .mode-selector {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .mode-selector select, .mode-selector input {
+      background: #f8fafc;
+      border: 1px solid #d1d9e6;
+      border-radius: 30px;
+      padding: 0.3rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    body.dark .mode-selector select, 
+    body.dark .mode-selector input {
+      background: #2d3a4f;
+      border-color: #475569;
+      color: #e2e8f0;
+    }
+
+    .mode-selector label {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .editor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1rem 1rem 0.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      border: 1px solid #eef2f6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark .panel {
+      background: #1e293b;
+      border-color: #2d3a4f;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    body.dark .panel-header { color: #cbd5e1; }
+
+    .panel textarea {
+      width: 100%;
+      min-height: 320px;
+      height: 55vh;
+      max-height: 600px;
+      background: #fafcff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 1rem;
+      font-family: 'Menlo', 'Consolas', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      resize: vertical;
+      color: #0f172a;
+      transition: 0.15s;
+    }
+
+    body.dark .panel textarea {
+      background: #0f172a;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+
+    .panel textarea:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: -1px;
+    }
+
+    .stat-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin: 1rem 0 0.5rem;
+      padding: 0.5rem 0.2rem;
+    }
+
+    .stat-item {
+      background: #f1f5f9;
+      border-radius: 40px;
+      padding: 0.2rem 1.2rem 0.2rem 1rem;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    body.dark .stat-item {
+      background: #2d3a4f;
+      border-color: #475569;
+    }
+    .stat-item strong { font-weight: 700; }
+
+    .duplicate-highlight {
+      background: #fef9c3;
+      border-radius: 12px;
+      padding: 0.1rem 0.3rem;
+    }
+    body.dark .duplicate-highlight { background: #4b3f1a; color: #fde047; }
+
+    .removed-panel {
+      margin-top: 1.5rem;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1rem 1.25rem;
+      border: 1px solid #e9edf4;
+    }
+    body.dark .removed-panel { background: #1e293b; border-color: #334155; }
+
+    .advanced-tools {
+      margin-top: 1rem;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 0.8rem 1.25rem 1.25rem;
+      border: 1px solid #e9edf4;
+    }
+    body.dark .advanced-tools { background: #1e293b; border-color: #334155; }
+
+    .collapse-toggle {
+      background: transparent;
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #2563eb;
+      padding: 0.3rem 0;
+    }
+
+    .collapse-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 0.8rem;
+    }
+
+    .drag-drop-area {
+      border: 2px dashed #cbd5e1;
+      border-radius: 24px;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin: 0.8rem 0;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    body.dark .drag-drop-area { border-color: #475569; }
+    .drag-drop-area.dragover { background: #eef2ff; border-color: #2563eb; }
+
+    .find-replace {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+      padding: 0.6rem 0;
+    }
+
+    .find-replace input {
+      background: #f8fafc;
+      border: 1px solid #d1d9e6;
+      border-radius: 30px;
+      padding: 0.3rem 1rem;
+      font-size: 0.9rem;
+      flex: 1 1 140px;
+    }
+    body.dark .find-replace input { background: #2d3a4f; border-color: #475569; color: #e2e8f0; }
+
+    .badge-privacy {
+      display: inline-block;
+      background: #dbeafe;
+      border-radius: 40px;
+      padding: 0.2rem 1.2rem;
+      font-size: 0.8rem;
+      margin: 1rem 0 0.2rem;
+    }
+    body.dark .badge-privacy { background: #1e3a5f; }
+
+    /* mobile */
+    @media (max-width: 768px) {
+      .editor-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .hero h1 { font-size: 2rem; }
+      .toolbar-top { flex-direction: column; align-items: stretch; }
+      .btn-group { flex-wrap: wrap; }
+      .mode-selector { flex-direction: column; align-items: stretch; }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 0.6rem; }
+      .panel textarea { min-height: 220px; }
+      .stat-cards { gap: 0.3rem; }
+      .stat-item { font-size: 0.7rem; padding: 0.1rem 0.8rem; }
+    }
+
+  /* End Page style goes here....................*/
 </style>
 </head>
 <body>
@@ -730,7 +976,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>Merge PDF</strong><span>Combine multiple PDFs into one</span></span>
             </a>
-            <a href="split-pdf.html" class="mega-link" role="menuitem">
+            <a href="split-separate-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 2"/></svg></span>
               <span class="mega-text"><strong>Split / Separate PDF</strong><span>Pull out or divide pages</span></span>
             </a>
@@ -753,7 +999,7 @@
               <span class="mega-text"><strong>PDF to JPG</strong><span>Export each page as an image</span></span>
             </a>
 
-            <a href="rotate-flip-pdf.html" class="mega-link" role="menuitem">
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Rotate PDF</strong><span>Fix sideways or upside-down pages</span></span>
             </a>
@@ -780,11 +1026,11 @@
             <div class="mega-col-title">Image ↔ Image</div>
             <div class="mega-col-title">Image ↔ PDF</div>
 
-            <a href="convert-jpg-to-png.html" class="mega-link" role="menuitem">
+            <a href="#convert-jpg-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>JPG → PNG</strong><span>Adds transparency support</span></span>
             </a>
-            <a href="image-to-pdf.html" class="mega-link" role="menuitem">
+            <a href="merge-jpg-to-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Image → PDF</strong> <span class="tag-new">NEW</span><span>Merge JPG/PNG into a PDF</span></span>
             </a>
@@ -793,7 +1039,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>PNG → JPG</strong><span>Smaller size for photos</span></span>
             </a>
-            <a href="pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>PDF → JPG</strong><span>Export each page as an image</span></span>
             </a>
@@ -802,7 +1048,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>WEBP → JPG/PNG</strong><span>Universal format support</span></span>
             </a>
-            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>PDF → PNG</strong><span>High-quality page export</span></span>
             </a>
@@ -818,20 +1064,18 @@
           </div>
           <div class="mega-foot">
             <span>Formats: JPG · PNG · WEBP · HEIC · SVG · GIF · PDF</span>
-            <a href="#">All converters →</a>
+            <a href="all-converters.html">All converters →</a>
           </div>
         </div>
       </div>
 
-      <a href="qr-code-generator.html" class="nav-link">QR Code Generator</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
-
       <a href="api.html" class="nav-link">API</a>
       <a href="blog.html" class="nav-link">Blog</a>
     </nav>
 
     <div class="nav-actions">
-      <a href="log-in.html" class="btn btn-ghost">Log in</a>
+      <a href="login.html" class="btn btn-ghost">Log in</a>
       <a href="upload-image.html" class="btn btn-solid">Upload image</a>
       <button class="hamburger" id="drawerOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -915,126 +1159,131 @@
       </div>
     </div>
 
-    
-    <a href="qr-code-generator.html" class="drawer-simple-link">QR Code Generator</a>
     <a href="pricing.html" class="drawer-simple-link">Pricing</a>
     <a href="api.html" class="drawer-simple-link">API</a>
     <a href="blog.html" class="drawer-simple-link">Blog</a>
   </div>
 
   <div class="drawer-foot">
-    <a href="login.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
-    <a href="upload.html" class="btn btn-solid">Upload image</a>
+    <a href="log-in.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
+    <a href="upload-image.html" class="btn btn-solid">Upload image</a>
   </div>
 </aside>
 
 <!-- demo filler so the footer isn't glued to the nav -->
-
-
-
-
 <main class="wrap demo-hero">
 
 
-  <div class="app">
-    <!-- ===== MAIN TOOLS SECTION ===== -->
-    <div class="main-tools">
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image Tools</h2>
-        <div class="tool-grid">
-          <a href="crop-image.html" class="tool-card"><i class="fas fa-crop-alt"></i><span>Crop Image</span></a>
-          <a href="compress-image.html" class="tool-card"><i class="fas fa-compress-alt"></i><span>Compress</span></a>
-          <a href="resize-image.html" class="tool-card"><i class="fas fa-arrows-alt"></i><span>Resize</span></a>
-          <a href="convert-image.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Convert</span></a>
-          <a href="rotate-image.html" class="tool-card"><i class="fas fa-undo-alt"></i><span>Rotate</span></a>
-          <a href="flip-image.html" class="tool-card"><i class="fas fa-arrows-alt-h"></i><span>Flip</span></a>
-          <a href="watermark-image.html" class="tool-card"><i class="fas fa-water"></i><span>Watermark</span></a>
-         <!-- 
-          <a href="remove-background.html" class="tool-card"><i class="fas fa-magic"></i><span>Remove BG</span></a>
-        -->
-        <a href="social-media-image-resizer.html" class="tool-card"><i class="fa-solid fa-crop-simple"></i><span>Social Media Image Resizer</span></a>
-
-          <a href="qr-code-generator.html" class="tool-card"><i class="fa-solid fa-qrcode"></i><span>QR Code Generator</span></a>
-      
-          <a href="metadata.html" class="tool-card"><i class="fas fa-info-circle"></i><span>Metadata</span></a>
-          <a href="enhance-image.html" class="tool-card"><i class="fas fa-sliders-h"></i><span>Enhance</span></a>
-          
-          <a href="url-shortener.html" class="tool-card"><i class="fas fa-link"></i><span>URL Shortener</span></a>
-          
-        </div>
-      </div>
-
-            <!-- PDF Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-file-pdf" style="margin-right:10px;"></i>PDF Tools</h2>
-        <div class="tool-grid">
-          <a href="images-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>Images to PDF</span></a>
-          <a href="jpg-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>JPG to PDF</span></a>
-          <a href="png-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>PNG to PDF</span></a>
-          <a href="pdf-to-image.html" class="tool-card"><i class="fas fa-file-pdf"></i><span>PDF to Image</span></a>
-          <a href="merge-pdf.html" class="tool-card"><i class="fas fa-object-group"></i><span>Merge PDF</span></a>
-          <a href="split-pdf.html" class="tool-card"><i class="fas fa-cut"></i><span>Split PDF</span></a>
-          <a href="compress-pdf.html" class="tool-card"><i class="fas fa-compress"></i><span>Compress PDF</span></a>
-          <a href="extract-pages.html" class="tool-card"><i class="fas fa-file-export"></i><span>Extract Pages</span></a>
-          <a href="rotate-pdf.html" class="tool-card"><i class="fas fa-sync-alt"></i><span>Rotate PDF</span></a>
-          <a href="reorder-pdf.html" class="tool-card"><i class="fas fa-arrows-alt-v"></i><span>Reorder PDF</span></a>
-          <a href="pdf-watermark.html" class="tool-card"><i class="fas fa-water"></i><span>PDF Watermark</span></a>
-          <a href="extract-images.html" class="tool-card"><i class="fas fa-images"></i><span>Extract Images</span></a>
-        </div>
-      </div>
-      
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image convert Tools</h2>
-        <div class="tool-grid">
-          <a href="convert-jpg-to-png.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to Png</span></a>
-          <a href="convert-jpg-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to jpeg</span></a>
-          <a href="convert-jpg-to-webp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to webp</span></a>
-          <a href="convert-png-to-jpg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Jpg</span></a>
-          <a href="convert-png-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Jpeg</span></a>
-          <a href="convert-png-to-webp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Webp</span></a>
-          <a href="convert-webp-to-jpg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Jpg</span></a>
-          <a href="convert-webp-to-png.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Png</span></a>
-          <a href="convert-webp-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Jpeg</span></a>
-         
-        </div>
-      </div>
-
-            <!-- Text Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Text Tools</h2>
-        <div class="tool-grid">
-          <a href="word-counter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Word Counter</span></a>
-          <a href="character-counter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Character Counter</span></a>
-          <a href="case-converter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Case Converter</span></a>
-          <a href="remove-duplicate-lines.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Remove Duplicate Lines</span></a>
-          <a href="remove-extra-spaces.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Remove Extra Spaces</span></a>
-          <a href="text-sorter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Sorter</span></a>
-          <a href="find-and-replace.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Find & Replace</span></a>
-          <a href="text-to-slug.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text → Slug</span></a>
-          <a href="text-reverser.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Reverser</span></a>
-          <a href="text-diff-checker.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Diff Checker</span></a>
-         
-        </div>
-      </div>
-
-
-
-      <!-- Other Tools 
-      <div class="tool-section">
-        <h2><i class="fas fa-cog" style="margin-right:10px;"></i>Other Tools</h2>
-        <div class="tool-grid">
-          <a href="batch-processing.html" class="tool-card"><i class="fas fa-layer-group"></i><span>Batch Processing</span></a>
-          <a href="zip-download.html" class="tool-card"><i class="fas fa-file-archive"></i><span>ZIP Download</span></a>
-          <a href="file-info.html" class="tool-card"><i class="fas fa-file-alt"></i><span>File Info</span></a>
-        </div>
-      </div>
-      -->
-
-    </div>
-
+   <div class="app" id="app">
+  <div class="hero">
+    <h1>✂️ Remove Duplicate Lines</h1>
+    <p>Instantly find and remove duplicate lines from your text while keeping your unique content organized.</p>
   </div>
+
+  <!-- privacy badge -->
+  <div class="badge-privacy">🔒 100% Browser-Based · Your text stays local</div>
+
+  <!-- main toolbar -->
+  <div class="toolbar-top">
+    <div class="btn-group">
+      <button class="btn btn-primary" id="removeDupBtn">🧹 Remove Duplicates</button>
+      <button class="btn btn-outline" id="copyOutputBtn">📋 Copy</button>
+      <button class="btn btn-outline" id="clearBtn">🗑️ Clear</button>
+      <button class="btn btn-outline" id="swapBtn">⇄ Swap</button>
+      <button class="btn btn-outline" id="downloadTxtBtn">⬇ .txt</button>
+      <button class="btn btn-outline" id="downloadCsvBtn">⬇ .csv</button>
+    </div>
+    <div style="margin-left:auto; display:flex; gap:0.4rem;">
+      <button class="btn btn-sm" id="darkToggle">🌙 Dark</button>
+    </div>
+  </div>
+
+  <!-- mode selector -->
+  <div class="mode-selector">
+    <label>Detection:
+      <select id="detectMode">
+        <option value="exact">Exact Match</option>
+        <option value="ignoreCase">Ignore Case</option>
+        <option value="trim">Trim Spaces</option>
+        <option value="ignoreCaseTrim">Ignore Case + Trim</option>
+      </select>
+    </label>
+    <label>Keep:
+      <select id="keepMode">
+        <option value="first">First Occurrence</option>
+        <option value="last">Last Occurrence</option>
+      </select>
+    </label>
+    <label>Empty:
+      <select id="emptyMode">
+        <option value="keep">Keep Empty</option>
+        <option value="remove">Remove Empty</option>
+        <option value="collapse">Collapse Empty</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="highlightCheck"> Highlight duplicates</label>
+  </div>
+
+  <!-- editor grid -->
+  <div class="editor-grid">
+    <div class="panel">
+      <div class="panel-header"><span>📥 Input</span> <span id="inputStats"></span></div>
+      <textarea id="inputArea" placeholder="Paste or type your text here…"></textarea>
+      <div class="stat-cards" id="inputStatCards"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><span>📤 Output (unique)</span> <span id="outputStats"></span></div>
+      <textarea id="outputArea" placeholder="Unique lines will appear here…" readonly></textarea>
+      <div class="stat-cards" id="outputStatCards"></div>
+    </div>
+  </div>
+
+  <!-- removed duplicates & advanced tools -->
+  <div class="removed-panel">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center;">
+      <span><strong>🗑️ Removed Duplicates</strong> <span id="removedCount">(0)</span></span>
+      <span>
+        <button class="btn btn-sm btn-outline" id="copyRemovedBtn">Copy</button>
+        <button class="btn btn-sm btn-outline" id="clearRemovedBtn">Clear</button>
+      </span>
+    </div>
+    <textarea id="removedArea" rows="2" style="width:100%; background:#f8fafc; border-radius:16px; border:1px solid #e2e8f0; padding:0.6rem; margin-top:0.3rem; font-family:monospace; resize:vertical;" readonly placeholder="Removed lines appear here…"></textarea>
+  </div>
+
+  <!-- advanced tools -->
+  <div class="advanced-tools">
+    <button class="collapse-toggle" id="advToggle">⚙️ Advanced Tools ▼</button>
+    <div class="collapse-content" id="advContent" style="display:flex;">
+      <button class="btn btn-sm btn-outline" data-action="trim">Trim each line</button>
+      <button class="btn btn-sm btn-outline" data-action="normalizeSpaces">Normalize spaces</button>
+      <button class="btn btn-sm btn-outline" data-action="removeLeading">Remove leading</button>
+      <button class="btn btn-sm btn-outline" data-action="removeTrailing">Remove trailing</button>
+      <button class="btn btn-sm btn-outline" data-action="reverse">Reverse order</button>
+      <button class="btn btn-sm btn-outline" data-action="sortAZ">A→Z</button>
+      <button class="btn btn-sm btn-outline" data-action="sortZA">Z→A</button>
+      <button class="btn btn-sm btn-outline" data-action="shuffle">Shuffle</button>
+    </div>
+    <!-- find & replace -->
+    <div class="find-replace">
+      <input type="text" id="findInput" placeholder="Find…">
+      <input type="text" id="replaceInput" placeholder="Replace…">
+      <button class="btn btn-sm btn-primary" id="replaceAllBtn">Replace All</button>
+      <label><input type="checkbox" id="matchCase"> Match case</label>
+      <label><input type="checkbox" id="wholeLine"> Whole line</label>
+      <span id="matchCount" style="font-size:0.8rem;">0 matches</span>
+    </div>
+    <!-- drag & drop -->
+    <div class="drag-drop-area" id="dropArea">
+      📂 Drop a text file here or click to browse
+      <input type="file" id="fileInput" accept=".txt,.csv,.log" style="display:none">
+    </div>
+  </div>
+
+  <!-- message -->
+  <div id="message" style="margin-top:0.8rem; font-weight:500;"></div>
+</div>
+ 
+
 
 
 
@@ -1069,7 +1318,7 @@
         <ul>
           <li><a href="crop-image.html">Crop Image</a></li>
           <li><a href="resize-image.html">Resize Image</a></li>
-          <li><a href="rotate-flip.html">Rotate &amp; Flip</a></li>
+          <li><a href="rotate-flip-image.html">Rotate &amp; Flip</a></li>
           <li><a href="compress-image.html">Compress Image</a></li>
           <li><a href="watermark-image.html">Watermark Image</a></li>
           <li><a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a></li>
@@ -1084,7 +1333,7 @@
           <li><a href="split-separate-pdf.html">Split / Separate PDF</a></li>
           <li><a href="compress-pdf.html">Compress PDF</a></li>
           <li><a href="protect-unlock-pdf.html">Protect / Unlock PDF</a></li>
-          <li><a href="pdf-watermark.html">Watermark PDF</a></li>
+          <li><a href="watermark-pdf.html">Watermark PDF</a></li>
           <li><a href="rotate-pdf.html">Rotate PDF</a></li>
         </ul>
       </div>
@@ -1118,8 +1367,8 @@
           <li><a href="api-docs.html">API docs</a></li>
           <li><a href="help-center.html">Help center</a></li>
           <li><a href="status.html">Status</a></li>
-          <li><a href="privacy-policy.html">Privacy</a></li>
-          <li><a href="terms-of-service.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
         </ul>
       </div>
 
@@ -1161,13 +1410,17 @@
   <div class="wrap footer-bottom">
     <span>© 2026 Croply.io — All rights reserved.</span>
     <div class="footer-legal">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a> 
+      <a href="terms.html">Terms of Service</a>
       <a href="cookies.html">Cookies</a>
     </div>
-    <div class="socials">
-      <a href="https://twitter.com/croply" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
-     
+    <div class="socials"> 
+      <a href="#" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
+    </div>
+  </div>
+</footer>
 
 <script>
   // ---------- Desktop mega-menu (hover + keyboard/click) ----------
@@ -1269,6 +1522,360 @@
     });
   });
 </script>
+
+<!-- PAge Script Herer-->
+<script>
+  (function() {
+    // DOM refs
+    const inputArea = document.getElementById('inputArea');
+    const outputArea = document.getElementById('outputArea');
+    const removedArea = document.getElementById('removedArea');
+    const removeBtn = document.getElementById('removeDupBtn');
+    const copyBtn = document.getElementById('copyOutputBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const swapBtn = document.getElementById('swapBtn');
+    const downloadTxt = document.getElementById('downloadTxtBtn');
+    const downloadCsv = document.getElementById('downloadCsvBtn');
+    const darkToggle = document.getElementById('darkToggle');
+    const detectMode = document.getElementById('detectMode');
+    const keepMode = document.getElementById('keepMode');
+    const emptyMode = document.getElementById('emptyMode');
+    const highlightCheck = document.getElementById('highlightCheck');
+    const inputStats = document.getElementById('inputStats');
+    const outputStats = document.getElementById('outputStats');
+    const inputStatCards = document.getElementById('inputStatCards');
+    const outputStatCards = document.getElementById('outputStatCards');
+    const removedCount = document.getElementById('removedCount');
+    const copyRemovedBtn = document.getElementById('copyRemovedBtn');
+    const clearRemovedBtn = document.getElementById('clearRemovedBtn');
+    const advToggle = document.getElementById('advToggle');
+    const advContent = document.getElementById('advContent');
+    const findInput = document.getElementById('findInput');
+    const replaceInput = document.getElementById('replaceInput');
+    const replaceAllBtn = document.getElementById('replaceAllBtn');
+    const matchCase = document.getElementById('matchCase');
+    const wholeLine = document.getElementById('wholeLine');
+    const matchCount = document.getElementById('matchCount');
+    const dropArea = document.getElementById('dropArea');
+    const fileInput = document.getElementById('fileInput');
+    const message = document.getElementById('message');
+
+    let lastRemoved = [];
+    let undoStack = [];
+    let redoStack = [];
+
+    // ---------- helpers ----------
+    function getLines(text) {
+      return text.split(/\r?\n/);
+    }
+
+    function setOutput(text) {
+      outputArea.value = text;
+      updateStats();
+      showMessage('✅ Updated');
+    }
+
+    function showMessage(msg, isError=false) {
+      message.textContent = msg;
+      message.style.color = isError ? '#b91c1c' : '#16a34a';
+      setTimeout(() => { if(message.textContent === msg) message.textContent = ''; }, 4000);
+    }
+
+    // ---------- core duplicate removal ----------
+    function removeDuplicates(text) {
+      const lines = getLines(text);
+      const mode = detectMode.value;
+      const keep = keepMode.value;
+      const empty = emptyMode.value;
+
+      let processed = lines.map((l, idx) => ({ raw: l, idx }));
+
+      // empty handling
+      if (empty === 'remove') processed = processed.filter(l => l.raw !== '');
+      else if (empty === 'collapse') {
+        let collapsed = [];
+        let lastEmpty = false;
+        for (let line of processed) {
+          if (line.raw === '') {
+            if (!lastEmpty) collapsed.push(line);
+            lastEmpty = true;
+          } else { collapsed.push(line); lastEmpty = false; }
+        }
+        processed = collapsed;
+      }
+
+      // key function
+      function keyFn(line) {
+        let s = line.raw;
+        if (mode === 'ignoreCase' || mode === 'ignoreCaseTrim') s = s.toLowerCase();
+        if (mode === 'trim' || mode === 'ignoreCaseTrim') s = s.trim();
+        return s;
+      }
+
+      const seen = new Map();
+      const unique = [];
+      const removed = [];
+
+      for (let item of processed) {
+        const k = keyFn(item);
+        if (seen.has(k)) {
+          removed.push(item.raw);
+          if (keep === 'last') {
+            // replace
+            const idx = seen.get(k);
+            unique[idx] = item;
+            seen.set(k, idx);
+          }
+        } else {
+          seen.set(k, unique.length);
+          unique.push(item);
+        }
+      }
+
+      // if keep last, we need to rebuild unique in original order
+      let resultLines;
+      if (keep === 'last') {
+        // unique contains last occurrences but in order of first encounter; reorder by original index
+        const idxMap = new Map();
+        unique.forEach((item, i) => idxMap.set(item.idx, i));
+        const sorted = unique.slice().sort((a,b) => a.idx - b.idx);
+        resultLines = sorted.map(item => item.raw);
+      } else {
+        resultLines = unique.map(item => item.raw);
+      }
+
+      lastRemoved = removed;
+      removedArea.value = removed.join('\n');
+      removedCount.textContent = `(${removed.length})`;
+
+      const finalText = resultLines.join('\n');
+      return finalText;
+    }
+
+    // ---------- update statistics ----------
+    function updateStats() {
+      const inputText = inputArea.value;
+      const outputText = outputArea.value;
+      const inLines = getLines(inputText);
+      const outLines = getLines(outputText);
+      const dupCount = inLines.length - outLines.length;
+
+      const stats = (lines, prefix) => {
+        const total = lines.length;
+        const nonEmpty = lines.filter(l => l !== '').length;
+        const words = lines.join(' ').split(/\s+/).filter(w => w).length;
+        const chars = lines.join('').length;
+        return { total, nonEmpty, words, chars };
+      };
+
+      const inStats = stats(inLines);
+      const outStats = stats(outLines);
+
+      function renderCards(el, s, label) {
+        el.innerHTML = `
+          <span class="stat-item"><strong>${label}</strong></span>
+          <span class="stat-item">📄 ${s.total}</span>
+          <span class="stat-item">✨ ${s.nonEmpty}</span>
+          <span class="stat-item">📝 ${s.words}</span>
+          <span class="stat-item">🔤 ${s.chars}</span>
+        `;
+      }
+      renderCards(inputStatCards, inStats, 'Input');
+      renderCards(outputStatCards, outStats, 'Output');
+
+      const dupPercent = inLines.length ? Math.round((dupCount / inLines.length) * 100) : 0;
+      inputStats.textContent = `Total: ${inLines.length}  ·  Dup: ${dupCount}  ·  Empty: ${inLines.filter(l=>l==='').length}`;
+      outputStats.textContent = `Unique: ${outLines.length}  ·  Removed: ${dupCount}  ·  ${dupPercent}% duplicated`;
+    }
+
+    // ---------- highlight duplicates in input ----------
+    function highlightDuplicates() {
+      if (!highlightCheck.checked) {
+        inputArea.style.background = '';
+        return;
+      }
+      const lines = getLines(inputArea.value);
+      const mode = detectMode.value;
+      function keyFn(s) {
+        let x = s;
+        if (mode === 'ignoreCase' || mode === 'ignoreCaseTrim') x = x.toLowerCase();
+        if (mode === 'trim' || mode === 'ignoreCaseTrim') x = x.trim();
+        return x;
+      }
+      const count = new Map();
+      lines.forEach(l => { const k = keyFn(l); count.set(k, (count.get(k)||0)+1); });
+      // we can't highlight per line easily in textarea, but we can add a visual hint: show count in stats
+      const dupLines = lines.filter(l => count.get(keyFn(l)) > 1);
+      if (dupLines.length) {
+        inputArea.style.background = '#fffbeb';
+        inputStats.textContent += ` ⚠️ ${dupLines.length} duplicate lines`;
+      } else {
+        inputArea.style.background = '';
+      }
+    }
+
+    // ---------- main process ----------
+    function processRemove() {
+      const inputText = inputArea.value;
+      if (!inputText.trim()) { showMessage('No text to process', true); return; }
+      const result = removeDuplicates(inputText);
+      setOutput(result);
+      const removedCount = lastRemoved.length;
+      showMessage(`✓ Removed ${removedCount} duplicate lines`);
+      if (highlightCheck.checked) highlightDuplicates();
+      updateStats();
+    }
+
+    // ---------- advanced actions ----------
+    function applyAdvanced(action) {
+      const text = outputArea.value;
+      if (!text && action !== 'shuffle') return;
+      let lines = getLines(text);
+      switch(action) {
+        case 'trim': lines = lines.map(l => l.trim()); break;
+        case 'normalizeSpaces': lines = lines.map(l => l.replace(/\s+/g, ' ').trim()); break;
+        case 'removeLeading': lines = lines.map(l => l.replace(/^\s+/, '')); break;
+        case 'removeTrailing': lines = lines.map(l => l.replace(/\s+$/, '')); break;
+        case 'reverse': lines.reverse(); break;
+        case 'sortAZ': lines.sort((a,b) => a.localeCompare(b)); break;
+        case 'sortZA': lines.sort((a,b) => b.localeCompare(a)); break;
+        case 'shuffle': for (let i=lines.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [lines[i],lines[j]]=[lines[j],lines[i]]; } break;
+        default: return;
+      }
+      const result = lines.join('\n');
+      setOutput(result);
+      showMessage(`✅ ${action} applied`);
+    }
+
+    // ---------- find & replace ----------
+    function replaceAll() {
+      const text = outputArea.value;
+      if (!text) return;
+      const find = findInput.value;
+      if (!find) return;
+      const replace = replaceInput.value;
+      const caseSensitive = matchCase.checked;
+      const whole = wholeLine.checked;
+      let lines = getLines(text);
+      let count = 0;
+      if (whole) {
+        lines = lines.map(l => {
+          if (caseSensitive ? l === find : l.toLowerCase() === find.toLowerCase()) {
+            count++;
+            return replace;
+          }
+          return l;
+        });
+      } else {
+        const flags = caseSensitive ? 'g' : 'gi';
+        const regex = new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), flags);
+        lines = lines.map(l => {
+          const matches = l.match(regex);
+          if (matches) count += matches.length;
+          return l.replace(regex, replace);
+        });
+      }
+      const result = lines.join('\n');
+      setOutput(result);
+      matchCount.textContent = `${count} matches replaced`;
+    }
+
+    // ---------- event binding ----------
+    removeBtn.addEventListener('click', processRemove);
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard?.writeText(outputArea.value).then(() => showMessage('📋 Copied!'));
+    });
+    clearBtn.addEventListener('click', () => { inputArea.value = ''; outputArea.value = ''; removedArea.value = ''; lastRemoved=[]; updateStats(); showMessage('Cleared'); });
+    swapBtn.addEventListener('click', () => {
+      const tmp = inputArea.value;
+      inputArea.value = outputArea.value;
+      outputArea.value = tmp;
+      updateStats();
+    });
+    downloadTxt.addEventListener('click', () => {
+      const blob = new Blob([outputArea.value], {type:'text/plain'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'unique_lines.txt'; a.click();
+    });
+    downloadCsv.addEventListener('click', () => {
+      const lines = getLines(outputArea.value);
+      const csv = lines.map(l => `"${l.replace(/"/g, '""')}"`).join('\n');
+      const blob = new Blob([csv], {type:'text/csv'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'unique_lines.csv'; a.click();
+    });
+
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      darkToggle.textContent = document.body.classList.contains('dark') ? '☀️ Light' : '🌙 Dark';
+      localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+    });
+    if (localStorage.getItem('darkMode') === 'true') { document.body.classList.add('dark'); darkToggle.textContent = '☀️ Light'; }
+
+    // advanced tools
+    document.querySelectorAll('[data-action]').forEach(btn => {
+      btn.addEventListener('click', () => applyAdvanced(btn.dataset.action));
+    });
+
+    // replace all
+    replaceAllBtn.addEventListener('click', replaceAll);
+    findInput.addEventListener('input', () => {
+      const text = outputArea.value;
+      const find = findInput.value;
+      if (!find) { matchCount.textContent = '0 matches'; return; }
+      const flags = matchCase.checked ? 'g' : 'gi';
+      const regex = new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), flags);
+      const matches = text.match(regex);
+      matchCount.textContent = `${matches ? matches.length : 0} matches`;
+    });
+
+    // drag & drop
+    dropArea.addEventListener('click', () => fileInput.click());
+    dropArea.addEventListener('dragover', e => { e.preventDefault(); dropArea.classList.add('dragover'); });
+    dropArea.addEventListener('dragleave', () => dropArea.classList.remove('dragover'));
+    dropArea.addEventListener('drop', e => {
+      e.preventDefault(); dropArea.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file) handleFile(file);
+    });
+    fileInput.addEventListener('change', e => {
+      if (fileInput.files[0]) handleFile(fileInput.files[0]);
+      fileInput.value = '';
+    });
+
+    function handleFile(file) {
+      const reader = new FileReader();
+      reader.onload = ev => {
+        inputArea.value = ev.target.result;
+        processRemove();
+        showMessage(`📂 File loaded: ${file.name}`);
+      };
+      reader.readAsText(file);
+    }
+
+    // copy removed
+    copyRemovedBtn.addEventListener('click', () => {
+      navigator.clipboard?.writeText(removedArea.value).then(() => showMessage('Removed lines copied'));
+    });
+    clearRemovedBtn.addEventListener('click', () => { removedArea.value = ''; lastRemoved=[]; removedCount.textContent='(0)'; });
+
+    // collapse advanced
+    advToggle.addEventListener('click', () => {
+      const isHidden = advContent.style.display === 'none';
+      advContent.style.display = isHidden ? 'flex' : 'none';
+      advToggle.textContent = isHidden ? '⚙️ Advanced Tools ▲' : '⚙️ Advanced Tools ▼';
+    });
+
+    // input listeners
+    inputArea.addEventListener('input', () => {
+      updateStats();
+      if (highlightCheck.checked) highlightDuplicates();
+    });
+
+    // init
+    updateStats();
+  })();
+</script>
+
+<!--End page script-->
 
 </body>
 </html>

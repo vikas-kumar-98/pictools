@@ -7,10 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Cropper.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" />
+
 
 <style>
   :root{
@@ -369,7 +366,6 @@
     background: var(--ink);
     color: rgba(246,245,241,0.72);
     margin-top: 40px;
-
   }
   .footer-top{
     padding: 56px 10px 40px;
@@ -487,7 +483,7 @@
   }
 
   .footer-newsletter{
-    padding: 34px 0;
+    padding: 34px 10px;
     border-bottom: 1px solid var(--line);
     display:flex;
     align-items:center;
@@ -560,7 +556,7 @@
   }
 
   /* Demo page filler (not part of the component) */
-  .demo-hero{ padding: 20px 10; text-align:center; }
+  .demo-hero{ padding: 40px 0; text-align:center; }
   .demo-hero h1{ font-family:var(--font-display); font-size: clamp(28px,4vw,42px); margin:0 0 12px; }
   .demo-hero p{ color:#5b6272; font-size:15px; max-width:520px; margin:0 auto; }
   .sr-only{
@@ -568,82 +564,407 @@
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
 
-
-
-
-
-/* Main section styles */
+  /*Page style goes here....................*/
+  
     .app {
-      max-width: 1400px;
+      max-width: 1440px;
       width: 100%;
+      margin: 0 auto;
     }
-
-    /* ----- TOOL GRID (cards) ----- */
-    .tool-section {
-      margin: 1rem 0 1.5rem;
+    /* hero */
+    .hero {
+      margin-bottom: 1.5rem;
+      padding: 1rem 0.5rem 0.5rem;
     }
-    .tool-section h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #0b1a2f;
-      border-left: 6px solid #2b5b8a;
-      padding-left: 0.8rem;
-      margin-bottom: 1.2rem;
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
     }
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
+    .hero p {
+      font-size: 1.05rem;
+      color: #475569;
+      margin-top: 0.2rem;
+      max-width: 650px;
     }
-    .tool-card {
-      background: white;
-      border-radius: 1.2rem;
-      padding: 1.2rem 0.8rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      border: 1px solid #e9eef3;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
+    body.dark .hero p {
+      color: #b0c4de;
+    }
+    .privacy-badge {
+      display: inline-flex;
       align-items: center;
+      gap: 6px;
+      background: #e6f0ff;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #1e3a8a;
+      margin-top: 0.5rem;
+    }
+    body.dark .privacy-badge {
+      background: #1e2a44;
+      color: #b8d0ff;
+    }
+    /* toolbar */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
       gap: 0.4rem;
-      text-decoration: none;
-      color: inherit;
+      padding: 0.5rem 0.2rem;
+      border-bottom: 1px solid #d1d9e6;
+      margin-bottom: 1rem;
     }
-    .tool-card:hover {
-      transform: translateY(-6px);
-      border-color: #aac2db;
-      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
+    body.dark .toolbar {
+      border-bottom-color: #2c3a4e;
     }
-    .tool-card i {
-      font-size: 2.2rem;
-      color: #1e3a5f;
-    }
-    .tool-card span {
+    .toolbar button {
+      background: transparent;
+      border: 1px solid #d1d9e6;
+      border-radius: 8px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
       font-weight: 500;
+      color: #1e293b;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    body.dark .toolbar button {
+      color: #e2e8f0;
+      border-color: #334155;
+    }
+    .toolbar button:hover {
+      background: #e9edf4;
+    }
+    body.dark .toolbar button:hover {
+      background: #28344a;
+    }
+    .toolbar .icon-btn {
+      padding: 0.4rem 0.7rem;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    /* panels */
+    .editor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .panel {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+    body.dark .panel {
+      background: #1e293b;
+      border-color: #2d3a4f;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      background: #f1f5f9;
+      font-weight: 600;
       font-size: 0.9rem;
-      color: #1e2f44;
+      border-bottom: 1px solid #e2e8f0;
     }
-
-
-
+    body.dark .panel-header {
+      background: #0f1a2b;
+      border-bottom-color: #2d3a4f;
+      color: #cbd5e1;
+    }
+    .panel-header span:last-child {
+      font-weight: 400;
+      opacity: 0.7;
+      font-size: 0.8rem;
+    }
+    textarea, .output-area {
+      width: 100%;
+      min-height: 220px;
+      padding: 1rem;
+      border: none;
+      font-size: 0.95rem;
+      font-family: 'Menlo', 'Consolas', monospace;
+      resize: vertical;
+      background: white;
+      color: #0b1a2f;
+      line-height: 1.6;
+      outline: none;
+    }
+    body.dark textarea, body.dark .output-area {
+      background: #1e293b;
+      color: #e8edf5;
+    }
+    .output-area {
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 220px;
+      overflow-y: auto;
+    }
+    .panel-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.6rem 1rem;
+      border-top: 1px solid #e2e8f0;
+      background: #fafcff;
+    }
+    body.dark .panel-actions {
+      background: #111d2e;
+      border-top-color: #2d3a4f;
+    }
+    .panel-actions button {
+      background: transparent;
+      border: 1px solid #d1d9e6;
+      border-radius: 6px;
+      padding: 0.25rem 0.9rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    body.dark .panel-actions button {
+      border-color: #3b4a60;
+      color: #d1d9e6;
+    }
+    .panel-actions button:hover {
+      background: #e9edf4;
+    }
+    body.dark .panel-actions button:hover {
+      background: #2a3850;
+    }
+    /* conversion buttons */
+    .conversion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.6rem;
+      margin: 1rem 0 1.2rem;
+    }
+    .conversion-btn {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.6rem 0.2rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: all 0.1s ease;
+      color: #1e293b;
+    }
+    body.dark .conversion-btn {
+      background: #1e2a3f;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+    .conversion-btn:hover {
+      background: #eef2f8;
+      border-color: #94a3b8;
+      transform: translateY(-2px);
+    }
+    body.dark .conversion-btn:hover {
+      background: #2b3b55;
+      border-color: #5b6f8a;
+    }
+    .conversion-btn small {
+      display: block;
+      font-weight: 400;
+      opacity: 0.6;
+      font-size: 0.65rem;
+      margin-top: 3px;
+    }
+    /* cleanup & advanced */
+    .section-title {
+      font-weight: 600;
+      margin: 1.2rem 0 0.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cleanup-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+    .cleanup-btn {
+      background: #f1f5f9;
+      border: 1px solid #dbe0e8;
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    body.dark .cleanup-btn {
+      background: #1f2c40;
+      border-color: #334155;
+      color: #d1d9e6;
+    }
+    .cleanup-btn:hover {
+      background: #e2e8f0;
+    }
+    body.dark .cleanup-btn:hover {
+      background: #2e405b;
+    }
+    /* stats */
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+      background: #f1f6fd;
+      padding: 0.8rem 1.2rem;
+      border-radius: 40px;
+      margin: 0.5rem 0 1rem;
+    }
+    body.dark .stats-grid {
+      background: #162233;
+    }
+    .stat-item {
+      font-size: 0.85rem;
+      display: flex;
+      gap: 4px;
+    }
+    .stat-item strong {
+      font-weight: 600;
+      min-width: 28px;
+    }
+    /* find & replace */
+    .find-replace {
+      background: #f8fcff;
+      border-radius: 16px;
+      padding: 1rem;
+      border: 1px solid #e2e8f0;
+      margin: 1.2rem 0;
+    }
+    body.dark .find-replace {
+      background: #15202f;
+      border-color: #2d3a4f;
+    }
+    .find-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .find-row input {
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #d1d9e6;
+      border-radius: 30px;
+      flex: 1 1 150px;
+      background: white;
+    }
+    body.dark .find-row input {
+      background: #1a273c;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+    .find-row button {
+      background: white;
+      border: 1px solid #d1d9e6;
+      border-radius: 30px;
+      padding: 0.3rem 1rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    body.dark .find-row button {
+      background: #1f2c40;
+      border-color: #3b4a60;
+      color: #d1d9e6;
+    }
+    .find-row label {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    /* batch */
+    .batch-area {
+      margin: 1rem 0;
+    }
+    .batch-area textarea {
+      min-height: 80px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 0.8rem;
+      width: 100%;
+      font-family: monospace;
+      background: white;
+    }
+    body.dark .batch-area textarea {
+      background: #1a273c;
+      border-color: #2d3a4f;
+      color: #e2e8f0;
+    }
+    .diff-toggle {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .diff-toggle button {
+      background: #f1f5f9;
+      border: 1px solid #d1d9e6;
+      border-radius: 30px;
+      padding: 0.2rem 1.2rem;
+      cursor: pointer;
+    }
+    body.dark .diff-toggle button {
+      background: #1f2c40;
+      border-color: #3b4a60;
+      color: #d1d9e6;
+    }
+    .diff-highlight {
+      background: #fef9c3;
+      color: #1e1e1e;
+      padding: 0 2px;
+      border-radius: 4px;
+    }
+    body.dark .diff-highlight {
+      background: #5f5a1a;
+      color: #f5f0d7;
+    }
     /* responsive */
-    @media (max-width: 600px) {
-      .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-     
+    @media (max-width: 700px) {
+      .editor-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .conversion-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+      body { padding: 0.8rem; }
     }
-    @media (min-width: 900px) {
-      .tool-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    @media (max-width: 480px) {
+      .stats-grid { gap: 0.3rem 1rem; }
+      .toolbar button { font-size: 0.7rem; padding: 0.2rem 0.5rem; }
+    }
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e293b;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 99;
+    }
+    body.dark .dark-toggle {
+      background: #e2e8f0;
+      color: #0b1a2f;
     }
 
-    
 
-/* End of main */
+  /* End Page style goes here....................*/
 </style>
 </head>
 <body>
@@ -730,7 +1051,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>Merge PDF</strong><span>Combine multiple PDFs into one</span></span>
             </a>
-            <a href="split-pdf.html" class="mega-link" role="menuitem">
+            <a href="split-separate-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 2"/></svg></span>
               <span class="mega-text"><strong>Split / Separate PDF</strong><span>Pull out or divide pages</span></span>
             </a>
@@ -753,7 +1074,7 @@
               <span class="mega-text"><strong>PDF to JPG</strong><span>Export each page as an image</span></span>
             </a>
 
-            <a href="rotate-flip-pdf.html" class="mega-link" role="menuitem">
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Rotate PDF</strong><span>Fix sideways or upside-down pages</span></span>
             </a>
@@ -780,11 +1101,11 @@
             <div class="mega-col-title">Image ↔ Image</div>
             <div class="mega-col-title">Image ↔ PDF</div>
 
-            <a href="convert-jpg-to-png.html" class="mega-link" role="menuitem">
+            <a href="#convert-jpg-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>JPG → PNG</strong><span>Adds transparency support</span></span>
             </a>
-            <a href="image-to-pdf.html" class="mega-link" role="menuitem">
+            <a href="merge-jpg-to-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Image → PDF</strong> <span class="tag-new">NEW</span><span>Merge JPG/PNG into a PDF</span></span>
             </a>
@@ -793,7 +1114,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>PNG → JPG</strong><span>Smaller size for photos</span></span>
             </a>
-            <a href="pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>PDF → JPG</strong><span>Export each page as an image</span></span>
             </a>
@@ -802,7 +1123,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>WEBP → JPG/PNG</strong><span>Universal format support</span></span>
             </a>
-            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>PDF → PNG</strong><span>High-quality page export</span></span>
             </a>
@@ -818,20 +1139,18 @@
           </div>
           <div class="mega-foot">
             <span>Formats: JPG · PNG · WEBP · HEIC · SVG · GIF · PDF</span>
-            <a href="#">All converters →</a>
+            <a href="all-converters.html">All converters →</a>
           </div>
         </div>
       </div>
 
-      <a href="qr-code-generator.html" class="nav-link">QR Code Generator</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
-
       <a href="api.html" class="nav-link">API</a>
       <a href="blog.html" class="nav-link">Blog</a>
     </nav>
 
     <div class="nav-actions">
-      <a href="log-in.html" class="btn btn-ghost">Log in</a>
+      <a href="login.html" class="btn btn-ghost">Log in</a>
       <a href="upload-image.html" class="btn btn-solid">Upload image</a>
       <button class="hamburger" id="drawerOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -915,126 +1234,149 @@
       </div>
     </div>
 
-    
-    <a href="qr-code-generator.html" class="drawer-simple-link">QR Code Generator</a>
     <a href="pricing.html" class="drawer-simple-link">Pricing</a>
     <a href="api.html" class="drawer-simple-link">API</a>
     <a href="blog.html" class="drawer-simple-link">Blog</a>
   </div>
 
   <div class="drawer-foot">
-    <a href="login.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
-    <a href="upload.html" class="btn btn-solid">Upload image</a>
+    <a href="log-in.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
+    <a href="upload-image.html" class="btn btn-solid">Upload image</a>
   </div>
 </aside>
 
 <!-- demo filler so the footer isn't glued to the nav -->
-
-
-
-
 <main class="wrap demo-hero">
 
 
-  <div class="app">
-    <!-- ===== MAIN TOOLS SECTION ===== -->
-    <div class="main-tools">
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image Tools</h2>
-        <div class="tool-grid">
-          <a href="crop-image.html" class="tool-card"><i class="fas fa-crop-alt"></i><span>Crop Image</span></a>
-          <a href="compress-image.html" class="tool-card"><i class="fas fa-compress-alt"></i><span>Compress</span></a>
-          <a href="resize-image.html" class="tool-card"><i class="fas fa-arrows-alt"></i><span>Resize</span></a>
-          <a href="convert-image.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Convert</span></a>
-          <a href="rotate-image.html" class="tool-card"><i class="fas fa-undo-alt"></i><span>Rotate</span></a>
-          <a href="flip-image.html" class="tool-card"><i class="fas fa-arrows-alt-h"></i><span>Flip</span></a>
-          <a href="watermark-image.html" class="tool-card"><i class="fas fa-water"></i><span>Watermark</span></a>
-         <!-- 
-          <a href="remove-background.html" class="tool-card"><i class="fas fa-magic"></i><span>Remove BG</span></a>
-        -->
-        <a href="social-media-image-resizer.html" class="tool-card"><i class="fa-solid fa-crop-simple"></i><span>Social Media Image Resizer</span></a>
-
-          <a href="qr-code-generator.html" class="tool-card"><i class="fa-solid fa-qrcode"></i><span>QR Code Generator</span></a>
-      
-          <a href="metadata.html" class="tool-card"><i class="fas fa-info-circle"></i><span>Metadata</span></a>
-          <a href="enhance-image.html" class="tool-card"><i class="fas fa-sliders-h"></i><span>Enhance</span></a>
-          
-          <a href="url-shortener.html" class="tool-card"><i class="fas fa-link"></i><span>URL Shortener</span></a>
-          
-        </div>
-      </div>
-
-            <!-- PDF Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-file-pdf" style="margin-right:10px;"></i>PDF Tools</h2>
-        <div class="tool-grid">
-          <a href="images-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>Images to PDF</span></a>
-          <a href="jpg-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>JPG to PDF</span></a>
-          <a href="png-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>PNG to PDF</span></a>
-          <a href="pdf-to-image.html" class="tool-card"><i class="fas fa-file-pdf"></i><span>PDF to Image</span></a>
-          <a href="merge-pdf.html" class="tool-card"><i class="fas fa-object-group"></i><span>Merge PDF</span></a>
-          <a href="split-pdf.html" class="tool-card"><i class="fas fa-cut"></i><span>Split PDF</span></a>
-          <a href="compress-pdf.html" class="tool-card"><i class="fas fa-compress"></i><span>Compress PDF</span></a>
-          <a href="extract-pages.html" class="tool-card"><i class="fas fa-file-export"></i><span>Extract Pages</span></a>
-          <a href="rotate-pdf.html" class="tool-card"><i class="fas fa-sync-alt"></i><span>Rotate PDF</span></a>
-          <a href="reorder-pdf.html" class="tool-card"><i class="fas fa-arrows-alt-v"></i><span>Reorder PDF</span></a>
-          <a href="pdf-watermark.html" class="tool-card"><i class="fas fa-water"></i><span>PDF Watermark</span></a>
-          <a href="extract-images.html" class="tool-card"><i class="fas fa-images"></i><span>Extract Images</span></a>
-        </div>
-      </div>
-      
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image convert Tools</h2>
-        <div class="tool-grid">
-          <a href="convert-jpg-to-png.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to Png</span></a>
-          <a href="convert-jpg-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to jpeg</span></a>
-          <a href="convert-jpg-to-webp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to webp</span></a>
-          <a href="convert-png-to-jpg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Jpg</span></a>
-          <a href="convert-png-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Jpeg</span></a>
-          <a href="convert-png-to-webp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Webp</span></a>
-          <a href="convert-webp-to-jpg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Jpg</span></a>
-          <a href="convert-webp-to-png.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Png</span></a>
-          <a href="convert-webp-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Jpeg</span></a>
-         
-        </div>
-      </div>
-
-            <!-- Text Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Text Tools</h2>
-        <div class="tool-grid">
-          <a href="word-counter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Word Counter</span></a>
-          <a href="character-counter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Character Counter</span></a>
-          <a href="case-converter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Case Converter</span></a>
-          <a href="remove-duplicate-lines.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Remove Duplicate Lines</span></a>
-          <a href="remove-extra-spaces.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Remove Extra Spaces</span></a>
-          <a href="text-sorter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Sorter</span></a>
-          <a href="find-and-replace.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Find & Replace</span></a>
-          <a href="text-to-slug.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text → Slug</span></a>
-          <a href="text-reverser.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Reverser</span></a>
-          <a href="text-diff-checker.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Diff Checker</span></a>
-         
-        </div>
-      </div>
-
-
-
-      <!-- Other Tools 
-      <div class="tool-section">
-        <h2><i class="fas fa-cog" style="margin-right:10px;"></i>Other Tools</h2>
-        <div class="tool-grid">
-          <a href="batch-processing.html" class="tool-card"><i class="fas fa-layer-group"></i><span>Batch Processing</span></a>
-          <a href="zip-download.html" class="tool-card"><i class="fas fa-file-archive"></i><span>ZIP Download</span></a>
-          <a href="file-info.html" class="tool-card"><i class="fas fa-file-alt"></i><span>File Info</span></a>
-        </div>
-      </div>
-      -->
-
-    </div>
-
+    <div class="app" id="app">
+  <div class="hero">
+    <h1>Free Case Converter</h1>
+    <p>Convert your text to uppercase, lowercase, title case, sentence case, camel case, and more instantly.</p>
+    <div class="privacy-badge">🔒 Your text stays in your browser. Nothing is uploaded.</div>
   </div>
+
+  <!-- toolbar -->
+  <div class="toolbar">
+    <button onclick="copyOutput()" title="Copy">📋 Copy</button>
+    <button onclick="downloadTxt()" title="Download .txt">⬇️ Download</button>
+    <button onclick="clearAll()" title="Clear">🗑️ Clear</button>
+    <button onclick="pasteText()" title="Paste">📥 Paste</button>
+    <button onclick="undoLast()" title="Undo">↩️ Undo</button>
+    <button onclick="redoLast()" title="Redo">↪️ Redo</button>
+    <button onclick="swapInputOutput()" title="Swap">🔁 Swap</button>
+    <button onclick="resetToDefault()" title="Reset">🔄 Reset</button>
+    <button class="icon-btn" onclick="toggleDark()" title="Dark mode">🌙</button>
+  </div>
+
+  <!-- main editor -->
+  <div class="editor-grid">
+    <div class="panel">
+      <div class="panel-header"><span>Input</span><span id="inputStats">0 chars</span></div>
+      <textarea id="inputText" placeholder="Type or paste your text here…" spellcheck="true"></textarea>
+      <div class="panel-actions">
+        <button onclick="clearInput()">Clear</button>
+        <button onclick="document.getElementById('inputText').select()">Select</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><span>Output</span><span id="outputStats">0 chars</span></div>
+      <div class="output-area" id="outputText" contenteditable="false"></div>
+      <div class="panel-actions">
+        <button onclick="copyOutput()">Copy</button>
+        <button onclick="downloadTxt()">Download</button>
+        <button onclick="clearOutput()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- conversion grid -->
+  <div class="conversion-grid" id="conversionGrid">
+    <div class="conversion-btn" data-case="upper">UPPERCASE <small>hello → HELLO</small></div>
+    <div class="conversion-btn" data-case="lower">lowercase <small>HELLO → hello</small></div>
+    <div class="conversion-btn" data-case="sentence">Sentence case <small>hello WORLD. → Hello world.</small></div>
+    <div class="conversion-btn" data-case="title">Title Case <small>the quick → The Quick</small></div>
+    <div class="conversion-btn" data-case="capitalized">Capitalized <small>every word → Every Word</small></div>
+    <div class="conversion-btn" data-case="alternating">aLtErNaTiNg <small>alternate</small></div>
+    <div class="conversion-btn" data-case="inverse">InVeRsE <small>reverse case</small></div>
+    <div class="conversion-btn" data-case="camel">camelCase <small>hello world → helloWorld</small></div>
+    <div class="conversion-btn" data-case="pascal">PascalCase <small>hello world → HelloWorld</small></div>
+    <div class="conversion-btn" data-case="snake">snake_case <small>hello world → hello_world</small></div>
+    <div class="conversion-btn" data-case="kebab">kebab-case <small>hello world → hello-world</small></div>
+    <div class="conversion-btn" data-case="dot">dot.case <small>hello world → hello.world</small></div>
+    <div class="conversion-btn" data-case="constant">CONSTANT_CASE <small>hello → HELLO</small></div>
+    <div class="conversion-btn" data-case="path">path/case <small>hello world → hello/world</small></div>
+    <div class="conversion-btn" data-case="train">Train-Case <small>hello world → Hello-World</small></div>
+  </div>
+
+  <!-- cleanup -->
+  <div class="section-title">🧹 Text Cleanup</div>
+  <div class="cleanup-grid" id="cleanupGrid">
+    <button class="cleanup-btn" data-clean="removeExtraSpaces">Remove extra spaces</button>
+    <button class="cleanup-btn" data-clean="removeLeading">Trim leading</button>
+    <button class="cleanup-btn" data-clean="removeTrailing">Trim trailing</button>
+    <button class="cleanup-btn" data-clean="removeDuplicateLines">Remove duplicate lines</button>
+    <button class="cleanup-btn" data-clean="removeEmptyLines">Remove empty lines</button>
+    <button class="cleanup-btn" data-clean="normalizeLineBreaks">Normalize breaks</button>
+    <button class="cleanup-btn" data-clean="removePunctuation">Remove punctuation</button>
+    <button class="cleanup-btn" data-clean="removeNumbers">Remove numbers</button>
+    <button class="cleanup-btn" data-clean="removeSpecialChars">Remove special</button>
+    <button class="cleanup-btn" data-clean="replaceMultipleSpaces">Collapse spaces</button>
+    <button class="cleanup-btn" data-clean="trimAll">Trim entire</button>
+  </div>
+
+  <!-- stats -->
+  <div class="stats-grid" id="statsDisplay">
+    <span class="stat-item"><strong id="charCount">0</strong> chars</span>
+    <span class="stat-item"><strong id="charNoSpace">0</strong> no spaces</span>
+    <span class="stat-item"><strong id="wordCount">0</strong> words</span>
+    <span class="stat-item"><strong id="lineCount">0</strong> lines</span>
+    <span class="stat-item"><strong id="sentenceCount">0</strong> sentences</span>
+    <span class="stat-item"><strong id="paraCount">0</strong> paragraphs</span>
+    <span class="stat-item"><strong id="upperCount">0</strong> uppercase</span>
+    <span class="stat-item"><strong id="lowerCount">0</strong> lowercase</span>
+    <span class="stat-item"><strong id="numCount">0</strong> numbers</span>
+    <span class="stat-item"><strong id="specialCount">0</strong> special</span>
+  </div>
+
+  <!-- find & replace -->
+  <div class="find-replace">
+    <div style="display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center; margin-bottom:0.3rem;"><span>🔍 Find & Replace</span></div>
+    <div class="find-row">
+      <input id="findInput" placeholder="Find…" />
+      <input id="replaceInput" placeholder="Replace…" />
+      <button onclick="findAndReplace(false)">Replace</button>
+      <button onclick="findAndReplace(true)">Replace All</button>
+      <label><input type="checkbox" id="matchCase" /> Match case</label>
+      <label><input type="checkbox" id="wholeWord" /> Whole word</label>
+      <span id="matchCount" style="font-size:0.8rem;">0 matches</span>
+    </div>
+  </div>
+
+  <!-- batch -->
+  <div class="batch-area">
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+      <span style="font-weight:600;">📋 Batch Mode</span>
+      <button onclick="batchConvert('title')">Title Case each line</button>
+      <button onclick="batchConvert('upper')">UPPER each line</button>
+      <button onclick="batchConvert('lower')">lower each line</button>
+      <button onclick="batchConvert('capitalized')">Capitalized each</button>
+    </div>
+    <textarea id="batchInput" placeholder="Paste multiple lines…" rows="3"></textarea>
+    <div style="margin-top:0.3rem;"><button onclick="applyBatch()">Apply batch →</button> <span id="batchStatus"></span></div>
+  </div>
+
+  <!-- compare diff toggle -->
+  <div class="diff-toggle">
+    <span>🔎 Compare: </span>
+    <button id="diffToggleBtn" onclick="toggleDiff()">Show differences</button>
+    <span style="font-size:0.8rem; opacity:0.6;">(highlights changes in output)</span>
+  </div>
+
+  <div style="height:2rem;"></div>
+  <button class="dark-toggle" onclick="toggleDark()">🌓 Dark</button>
+</div>
+
 
 
 
@@ -1069,7 +1411,7 @@
         <ul>
           <li><a href="crop-image.html">Crop Image</a></li>
           <li><a href="resize-image.html">Resize Image</a></li>
-          <li><a href="rotate-flip.html">Rotate &amp; Flip</a></li>
+          <li><a href="rotate-flip-image.html">Rotate &amp; Flip</a></li>
           <li><a href="compress-image.html">Compress Image</a></li>
           <li><a href="watermark-image.html">Watermark Image</a></li>
           <li><a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a></li>
@@ -1084,7 +1426,7 @@
           <li><a href="split-separate-pdf.html">Split / Separate PDF</a></li>
           <li><a href="compress-pdf.html">Compress PDF</a></li>
           <li><a href="protect-unlock-pdf.html">Protect / Unlock PDF</a></li>
-          <li><a href="pdf-watermark.html">Watermark PDF</a></li>
+          <li><a href="watermark-pdf.html">Watermark PDF</a></li>
           <li><a href="rotate-pdf.html">Rotate PDF</a></li>
         </ul>
       </div>
@@ -1118,8 +1460,8 @@
           <li><a href="api-docs.html">API docs</a></li>
           <li><a href="help-center.html">Help center</a></li>
           <li><a href="status.html">Status</a></li>
-          <li><a href="privacy-policy.html">Privacy</a></li>
-          <li><a href="terms-of-service.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
         </ul>
       </div>
 
@@ -1161,13 +1503,17 @@
   <div class="wrap footer-bottom">
     <span>© 2026 Croply.io — All rights reserved.</span>
     <div class="footer-legal">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a> 
+      <a href="terms.html">Terms of Service</a>
       <a href="cookies.html">Cookies</a>
     </div>
-    <div class="socials">
-      <a href="https://twitter.com/croply" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
-     
+    <div class="socials"> 
+      <a href="#" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
+    </div>
+  </div>
+</footer>
 
 <script>
   // ---------- Desktop mega-menu (hover + keyboard/click) ----------
@@ -1269,6 +1615,224 @@
     });
   });
 </script>
+
+<!-- PAge Script Herer-->
+
+<script>
+  (function() {
+    const input = document.getElementById('inputText');
+    const output = document.getElementById('outputText');
+    let history = [''];
+    let historyIndex = 0;
+    let diffActive = false;
+
+    function updateStats() {
+      const text = input.value;
+      const chars = text.length;
+      const noSpace = text.replace(/\s/g, '').length;
+      const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+      const lines = text.split('\n').length;
+      const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const paras = text.split(/\n\s*\n/).filter(p => p.trim().length > 0).length;
+      const upper = (text.match(/[A-Z]/g) || []).length;
+      const lower = (text.match(/[a-z]/g) || []).length;
+      const nums = (text.match(/[0-9]/g) || []).length;
+      const special = text.replace(/[a-zA-Z0-9\s]/g, '').length;
+      document.getElementById('charCount').textContent = chars;
+      document.getElementById('charNoSpace').textContent = noSpace;
+      document.getElementById('wordCount').textContent = words;
+      document.getElementById('lineCount').textContent = lines;
+      document.getElementById('sentenceCount').textContent = sentences;
+      document.getElementById('paraCount').textContent = paras;
+      document.getElementById('upperCount').textContent = upper;
+      document.getElementById('lowerCount').textContent = lower;
+      document.getElementById('numCount').textContent = nums;
+      document.getElementById('specialCount').textContent = special;
+      document.getElementById('inputStats').textContent = chars + ' chars';
+      document.getElementById('outputStats').textContent = output.textContent.length + ' chars';
+    }
+
+    function updateOutput(text) {
+      output.textContent = text;
+      if (diffActive) highlightDiff();
+      updateStats();
+    }
+
+    function getInput() { return input.value; }
+
+    function setOutput(text) { updateOutput(text); }
+
+    // conversion functions
+    function convertCase(type) {
+      let txt = getInput();
+      if (!txt) return;
+      let result = '';
+      switch(type) {
+        case 'upper': result = txt.toUpperCase(); break;
+        case 'lower': result = txt.toLowerCase(); break;
+        case 'sentence': result = txt.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()); break;
+        case 'title': result = toTitleCase(txt); break;
+        case 'capitalized': result = txt.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()); break;
+        case 'alternating': result = [...txt].map((c,i) => i%2===0? c.toUpperCase() : c.toLowerCase()).join(''); break;
+        case 'inverse': result = [...txt].map(c => c===c.toUpperCase()? c.toLowerCase() : c.toUpperCase()).join(''); break;
+        case 'camel': result = toCamel(txt); break;
+        case 'pascal': result = toPascal(txt); break;
+        case 'snake': result = toSnake(txt); break;
+        case 'kebab': result = toKebab(txt); break;
+        case 'dot': result = toDot(txt); break;
+        case 'constant': result = toConstant(txt); break;
+        case 'path': result = toPath(txt); break;
+        case 'train': result = toTrain(txt); break;
+        default: result = txt;
+      }
+      setOutput(result);
+    }
+
+    function toTitleCase(str) {
+      const small = ['a','an','the','and','or','but','of','in','on','to','for'];
+      return str.toLowerCase().replace(/\b\w+\b/g, (word, index, arr) => {
+        if (index === 0 || index === arr.length-1) return word.charAt(0).toUpperCase() + word.slice(1);
+        if (small.includes(word)) return word;
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      });
+    }
+
+    function toCamel(str) { return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_,c) => c.toUpperCase()); }
+    function toPascal(str) { let c = toCamel(str); return c.charAt(0).toUpperCase() + c.slice(1); }
+    function toSnake(str) { return str.trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '').toLowerCase(); }
+    function toKebab(str) { return str.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase(); }
+    function toDot(str) { return str.trim().replace(/\s+/g, '.').replace(/[^a-zA-Z0-9.]/g, '').toLowerCase(); }
+    function toConstant(str) { return str.trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '').toUpperCase(); }
+    function toPath(str) { return str.trim().replace(/\s+/g, '/').replace(/[^a-zA-Z0-9/]/g, '').toLowerCase(); }
+    function toTrain(str) { return str.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').replace(/\b\w/g, c => c.toUpperCase()); }
+
+    // cleanup
+    function applyCleanup(type) {
+      let txt = getInput();
+      switch(type) {
+        case 'removeExtraSpaces': txt = txt.replace(/\s{2,}/g, ' '); break;
+        case 'removeLeading': txt = txt.replace(/^\s+/, ''); break;
+        case 'removeTrailing': txt = txt.replace(/\s+$/, ''); break;
+        case 'removeDuplicateLines': txt = [...new Set(txt.split('\n'))].join('\n'); break;
+        case 'removeEmptyLines': txt = txt.split('\n').filter(l => l.trim()).join('\n'); break;
+        case 'normalizeLineBreaks': txt = txt.replace(/\r\n/g, '\n').replace(/\r/g, '\n'); break;
+        case 'removePunctuation': txt = txt.replace(/[.,!?;:]/g, ''); break;
+        case 'removeNumbers': txt = txt.replace(/[0-9]/g, ''); break;
+        case 'removeSpecialChars': txt = txt.replace(/[^a-zA-Z0-9\s]/g, ''); break;
+        case 'replaceMultipleSpaces': txt = txt.replace(/\s{2,}/g, ' '); break;
+        case 'trimAll': txt = txt.trim(); break;
+      }
+      setOutput(txt);
+    }
+
+    // batch
+    function batchConvert(type) {
+      const lines = document.getElementById('batchInput').value.split('\n');
+      const converted = lines.map(line => {
+        if (!line.trim()) return line;
+        let temp = line;
+        if (type==='upper') return temp.toUpperCase();
+        if (type==='lower') return temp.toLowerCase();
+        if (type==='title') return toTitleCase(temp);
+        if (type==='capitalized') return temp.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+        return temp;
+      });
+      document.getElementById('batchInput').value = converted.join('\n');
+      document.getElementById('batchStatus').textContent = '✅ converted ' + converted.length + ' lines';
+    }
+    function applyBatch() {
+      const txt = document.getElementById('batchInput').value;
+      if (txt) { input.value = txt; updateStats(); }
+    }
+
+    // find & replace
+    function findAndReplace(all) {
+      const find = document.getElementById('findInput').value;
+      const replace = document.getElementById('replaceInput').value;
+      if (!find) return;
+      let txt = getInput();
+      let flags = 'g';
+      if (!document.getElementById('matchCase').checked) flags += 'i';
+      let regex = new RegExp(find, flags);
+      if (document.getElementById('wholeWord').checked) regex = new RegExp('\\b' + find + '\\b', flags);
+      const matches = txt.match(regex) || [];
+      document.getElementById('matchCount').textContent = matches.length + ' matches';
+      if (all) txt = txt.replace(regex, replace);
+      else txt = txt.replace(regex, replace);
+      setOutput(txt);
+    }
+
+    // diff
+    function toggleDiff() {
+      diffActive = !diffActive;
+      document.getElementById('diffToggleBtn').textContent = diffActive ? 'Hide differences' : 'Show differences';
+      if (diffActive) highlightDiff(); else setOutput(getInput());
+    }
+    function highlightDiff() {
+      const original = getInput();
+      const converted = output.textContent;
+      if (original === converted) return;
+      let diff = '';
+      for (let i=0; i<Math.max(original.length, converted.length); i++) {
+        if (original[i] !== converted[i]) diff += '<span class="diff-highlight">' + (converted[i] || '') + '</span>';
+        else diff += converted[i] || '';
+      }
+      output.innerHTML = diff;
+    }
+
+    // toolbar
+    window.copyOutput = function() { navigator.clipboard?.writeText(output.textContent); };
+    window.downloadTxt = function() {
+      const blob = new Blob([output.textContent], {type:'text/plain'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'converted.txt'; a.click();
+    };
+    window.clearAll = function() { input.value = ''; setOutput(''); updateStats(); };
+    window.pasteText = function() { navigator.clipboard?.readText().then(t => { input.value = t; updateStats(); }); };
+    window.undoLast = function() { /* simple undo */ };
+    window.redoLast = function() { };
+    window.swapInputOutput = function() {
+      const temp = input.value;
+      input.value = output.textContent;
+      setOutput(temp);
+      updateStats();
+    };
+    window.resetToDefault = function() { input.value = ''; setOutput(''); updateStats(); };
+    window.clearInput = function() { input.value = ''; updateStats(); };
+    window.clearOutput = function() { setOutput(''); };
+
+    // dark mode
+    window.toggleDark = function() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    };
+    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+
+    // event listeners
+    input.addEventListener('input', function() {
+      setOutput(this.value);
+      updateStats();
+    });
+
+    // conversion button clicks
+    document.querySelectorAll('.conversion-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const type = this.dataset.case;
+        convertCase(type);
+      });
+    });
+
+    // cleanup clicks
+    document.querySelectorAll('.cleanup-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        applyCleanup(this.dataset.clean);
+      });
+    });
+
+    // update stats on load
+    updateStats();
+  })();
+</script>
+<!--End page script-->
 
 </body>
 </html>

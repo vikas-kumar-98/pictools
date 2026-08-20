@@ -7,10 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Cropper.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" />
+  <!-- Font & icons (lightweight) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
   :root{
@@ -369,7 +367,6 @@
     background: var(--ink);
     color: rgba(246,245,241,0.72);
     margin-top: 40px;
-
   }
   .footer-top{
     padding: 56px 10px 40px;
@@ -487,7 +484,7 @@
   }
 
   .footer-newsletter{
-    padding: 34px 0;
+    padding: 34px 10px;
     border-bottom: 1px solid var(--line);
     display:flex;
     align-items:center;
@@ -560,7 +557,7 @@
   }
 
   /* Demo page filler (not part of the component) */
-  .demo-hero{ padding: 20px 10; text-align:center; }
+  .demo-hero{ padding: 40px 0; text-align:center; }
   .demo-hero h1{ font-family:var(--font-display); font-size: clamp(28px,4vw,42px); margin:0 0 12px; }
   .demo-hero p{ color:#5b6272; font-size:15px; max-width:520px; margin:0 auto; }
   .sr-only{
@@ -568,82 +565,286 @@
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
 
-
-
-
-
-/* Main section styles */
-    .app {
-      max-width: 1400px;
+  /*Page style goes here....................*/
+    .app-container {
+      max-width: 1440px;
       width: 100%;
+      background: #ffffff;
+      border-radius: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      padding: 28px 30px 35px;
+      transition: background 0.2s, box-shadow 0.2s;
     }
-
-    /* ----- TOOL GRID (cards) ----- */
-    .tool-section {
-      margin: 1rem 0 1.5rem;
+    body.dark .app-container {
+      background: #1e1e1e;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
     }
-    .tool-section h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #0b1a2f;
-      border-left: 6px solid #2b5b8a;
-      padding-left: 0.8rem;
-      margin-bottom: 1.2rem;
+    /* main heading */
+    .tool-heading {
+      margin-bottom: 12px;
     }
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
+    .tool-heading h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
     }
-    .tool-card {
-      background: white;
-      border-radius: 1.2rem;
-      padding: 1.2rem 0.8rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      border: 1px solid #e9eef3;
-      transition: all 0.2s ease;
-      cursor: pointer;
+    body.dark .tool-heading h1 {
+      background: linear-gradient(145deg, #e0e0e0, #b0b0b0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      color: #5b6778;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: -6px;
+      margin-bottom: 24px;
+    }
+    body.dark .subtitle { color: #a0aec0; }
+    /* layout */
+    .row {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+    .col-left {
+      flex: 1.1;
+      min-width: 300px;
+    }
+    .col-right {
+      flex: 1.9;
+      min-width: 380px;
+    }
+    /* cards */
+    .card {
+      background: #f8fafc;
+      border-radius: 28px;
+      padding: 20px 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: background 0.2s;
+    }
+    body.dark .card {
+      background: #2a2a2a;
+    }
+    .card-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      color: #2d3748;
+      margin-bottom: 14px;
+      display: flex;
       align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-      color: inherit;
+      gap: 8px;
     }
-    .tool-card:hover {
-      transform: translateY(-6px);
-      border-color: #aac2db;
-      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
+    body.dark .card-title { color: #d0d0d0; }
+    .upload-zone {
+      border: 2px dashed #cbd5e1;
+      border-radius: 24px;
+      padding: 28px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #f1f5f9;
     }
-    .tool-card i {
-      font-size: 2.2rem;
-      color: #1e3a5f;
+    body.dark .upload-zone {
+      border-color: #3a3a3a;
+      background: #252525;
     }
-    .tool-card span {
+    .upload-zone:hover { background: #e9edf3; }
+    .upload-zone i { font-size: 2.4rem; color: #4b5563; margin-bottom: 8px; }
+    body.dark .upload-zone i { color: #b0b0b0; }
+    .upload-zone p { font-weight: 500; color: #334155; }
+    body.dark .upload-zone p { color: #c0c0c0; }
+    .preset-scroll {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 8px 6px;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .preset-btn {
+      flex: 0 0 auto;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 60px;
+      padding: 10px 18px;
+      font-size: 0.8rem;
       font-weight: 500;
+      color: #1e293b;
+      cursor: pointer;
+      transition: 0.15s;
+      white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    body.dark .preset-btn {
+      background: #2d2d2d;
+      border-color: #444;
+      color: #ddd;
+    }
+    .preset-btn:hover { background: #eef2f6; transform: scale(0.97); }
+    .preset-btn.active {
+      background: #1e293b;
+      color: white;
+      border-color: #1e293b;
+    }
+    body.dark .preset-btn.active { background: #4a5568; border-color: #4a5568; }
+    .dimension-inputs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      align-items: center;
+      margin-top: 6px;
+    }
+    .dim-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dim-group label { font-size: 0.8rem; font-weight: 500; color: #475569; }
+    body.dark .dim-group label { color: #aaa; }
+    .dim-group input {
+      width: 80px;
+      padding: 8px 6px;
+      border-radius: 14px;
+      border: 1px solid #d1d9e6;
+      background: white;
+      font-weight: 500;
+      text-align: center;
+    }
+    body.dark .dim-group input { background: #333; border-color: #555; color: #eee; }
+    .aspect-lock {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .mode-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0 2px;
+    }
+    .mode-btn {
+      background: #eef2f6;
+      border: none;
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+    body.dark .mode-btn { background: #3a3a3a; color: #ccc; }
+    .mode-btn.active { background: #1e293b; color: white; }
+    body.dark .mode-btn.active { background: #4a5568; }
+    .preview-box {
+      position: relative;
+      background: #f0f2f5;
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body.dark .preview-box { background: #1f1f1f; }
+    .preview-box img {
+      max-width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      display: block;
+    }
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding: 10px 0 4px;
+      font-size: 0.85rem;
+    }
+    .info-item { background: #eef2f6; padding: 4px 14px; border-radius: 40px; }
+    body.dark .info-item { background: #333; }
+    .btn {
+      background: #1e293b;
+      border: none;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 60px;
+      font-weight: 600;
       font-size: 0.9rem;
-      color: #1e2f44;
+      cursor: pointer;
+      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-
-
-
+    .btn-outline { background: transparent; border: 1px solid #cbd5e1; color: #1e293b; }
+    body.dark .btn-outline { border-color: #555; color: #ddd; }
+    .btn:hover { transform: scale(0.97); opacity: 0.9; }
+    .btn-sm { padding: 6px 14px; font-size: 0.75rem; }
+    .flex-wrap { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .edit-slider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 0;
+    }
+    .edit-slider input { flex: 1; }
+    .batch-thumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .batch-item {
+      background: #eef2f6;
+      border-radius: 20px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+    }
+    body.dark .batch-item { background: #333; }
+    /* toggle */
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    input[type="checkbox"] { accent-color: #1e293b; width: 18px; height: 18px; }
     /* responsive */
-    @media (max-width: 600px) {
-      .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-     
+    @media (max-width: 720px) {
+      .app-container { padding: 16px; }
+      .col-left, .col-right { min-width: 100%; }
+      .dimension-inputs { flex-direction: column; align-items: stretch; }
+      .dim-group { flex-wrap: wrap; }
+      .preset-scroll { gap: 4px; }
+      .preset-btn { padding: 8px 14px; font-size: 0.7rem; }
     }
-    @media (min-width: 900px) {
-      .tool-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    /* dark mode toggle small */
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #4b5563;
     }
+    body.dark .dark-toggle { color: #c0c0c0; }
 
-    
 
-/* End of main */
+  /* End Page style goes here....................*/
 </style>
 </head>
 <body>
@@ -730,7 +931,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>Merge PDF</strong><span>Combine multiple PDFs into one</span></span>
             </a>
-            <a href="split-pdf.html" class="mega-link" role="menuitem">
+            <a href="split-separate-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 2"/></svg></span>
               <span class="mega-text"><strong>Split / Separate PDF</strong><span>Pull out or divide pages</span></span>
             </a>
@@ -753,7 +954,7 @@
               <span class="mega-text"><strong>PDF to JPG</strong><span>Export each page as an image</span></span>
             </a>
 
-            <a href="rotate-flip-pdf.html" class="mega-link" role="menuitem">
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Rotate PDF</strong><span>Fix sideways or upside-down pages</span></span>
             </a>
@@ -780,11 +981,11 @@
             <div class="mega-col-title">Image ↔ Image</div>
             <div class="mega-col-title">Image ↔ PDF</div>
 
-            <a href="convert-jpg-to-png.html" class="mega-link" role="menuitem">
+            <a href="#convert-jpg-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>JPG → PNG</strong><span>Adds transparency support</span></span>
             </a>
-            <a href="image-to-pdf.html" class="mega-link" role="menuitem">
+            <a href="merge-jpg-to-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Image → PDF</strong> <span class="tag-new">NEW</span><span>Merge JPG/PNG into a PDF</span></span>
             </a>
@@ -793,7 +994,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>PNG → JPG</strong><span>Smaller size for photos</span></span>
             </a>
-            <a href="pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>PDF → JPG</strong><span>Export each page as an image</span></span>
             </a>
@@ -802,7 +1003,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>WEBP → JPG/PNG</strong><span>Universal format support</span></span>
             </a>
-            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>PDF → PNG</strong><span>High-quality page export</span></span>
             </a>
@@ -818,20 +1019,18 @@
           </div>
           <div class="mega-foot">
             <span>Formats: JPG · PNG · WEBP · HEIC · SVG · GIF · PDF</span>
-            <a href="#">All converters →</a>
+            <a href="all-converters.html">All converters →</a>
           </div>
         </div>
       </div>
 
-      <a href="qr-code-generator.html" class="nav-link">QR Code Generator</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
-
       <a href="api.html" class="nav-link">API</a>
       <a href="blog.html" class="nav-link">Blog</a>
     </nav>
 
     <div class="nav-actions">
-      <a href="log-in.html" class="btn btn-ghost">Log in</a>
+      <a href="login.html" class="btn btn-ghost">Log in</a>
       <a href="upload-image.html" class="btn btn-solid">Upload image</a>
       <button class="hamburger" id="drawerOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -915,126 +1114,136 @@
       </div>
     </div>
 
-    
-    <a href="qr-code-generator.html" class="drawer-simple-link">QR Code Generator</a>
     <a href="pricing.html" class="drawer-simple-link">Pricing</a>
     <a href="api.html" class="drawer-simple-link">API</a>
     <a href="blog.html" class="drawer-simple-link">Blog</a>
   </div>
 
   <div class="drawer-foot">
-    <a href="login.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
-    <a href="upload.html" class="btn btn-solid">Upload image</a>
+    <a href="log-in.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
+    <a href="upload-image.html" class="btn btn-solid">Upload image</a>
   </div>
 </aside>
 
 <!-- demo filler so the footer isn't glued to the nav -->
-
-
-
-
 <main class="wrap demo-hero">
 
 
-  <div class="app">
-    <!-- ===== MAIN TOOLS SECTION ===== -->
-    <div class="main-tools">
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image Tools</h2>
-        <div class="tool-grid">
-          <a href="crop-image.html" class="tool-card"><i class="fas fa-crop-alt"></i><span>Crop Image</span></a>
-          <a href="compress-image.html" class="tool-card"><i class="fas fa-compress-alt"></i><span>Compress</span></a>
-          <a href="resize-image.html" class="tool-card"><i class="fas fa-arrows-alt"></i><span>Resize</span></a>
-          <a href="convert-image.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Convert</span></a>
-          <a href="rotate-image.html" class="tool-card"><i class="fas fa-undo-alt"></i><span>Rotate</span></a>
-          <a href="flip-image.html" class="tool-card"><i class="fas fa-arrows-alt-h"></i><span>Flip</span></a>
-          <a href="watermark-image.html" class="tool-card"><i class="fas fa-water"></i><span>Watermark</span></a>
-         <!-- 
-          <a href="remove-background.html" class="tool-card"><i class="fas fa-magic"></i><span>Remove BG</span></a>
-        -->
-        <a href="social-media-image-resizer.html" class="tool-card"><i class="fa-solid fa-crop-simple"></i><span>Social Media Image Resizer</span></a>
-
-          <a href="qr-code-generator.html" class="tool-card"><i class="fa-solid fa-qrcode"></i><span>QR Code Generator</span></a>
-      
-          <a href="metadata.html" class="tool-card"><i class="fas fa-info-circle"></i><span>Metadata</span></a>
-          <a href="enhance-image.html" class="tool-card"><i class="fas fa-sliders-h"></i><span>Enhance</span></a>
-          
-          <a href="url-shortener.html" class="tool-card"><i class="fas fa-link"></i><span>URL Shortener</span></a>
-          
-        </div>
-      </div>
-
-            <!-- PDF Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-file-pdf" style="margin-right:10px;"></i>PDF Tools</h2>
-        <div class="tool-grid">
-          <a href="images-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>Images to PDF</span></a>
-          <a href="jpg-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>JPG to PDF</span></a>
-          <a href="png-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>PNG to PDF</span></a>
-          <a href="pdf-to-image.html" class="tool-card"><i class="fas fa-file-pdf"></i><span>PDF to Image</span></a>
-          <a href="merge-pdf.html" class="tool-card"><i class="fas fa-object-group"></i><span>Merge PDF</span></a>
-          <a href="split-pdf.html" class="tool-card"><i class="fas fa-cut"></i><span>Split PDF</span></a>
-          <a href="compress-pdf.html" class="tool-card"><i class="fas fa-compress"></i><span>Compress PDF</span></a>
-          <a href="extract-pages.html" class="tool-card"><i class="fas fa-file-export"></i><span>Extract Pages</span></a>
-          <a href="rotate-pdf.html" class="tool-card"><i class="fas fa-sync-alt"></i><span>Rotate PDF</span></a>
-          <a href="reorder-pdf.html" class="tool-card"><i class="fas fa-arrows-alt-v"></i><span>Reorder PDF</span></a>
-          <a href="pdf-watermark.html" class="tool-card"><i class="fas fa-water"></i><span>PDF Watermark</span></a>
-          <a href="extract-images.html" class="tool-card"><i class="fas fa-images"></i><span>Extract Images</span></a>
-        </div>
-      </div>
-      
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image convert Tools</h2>
-        <div class="tool-grid">
-          <a href="convert-jpg-to-png.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to Png</span></a>
-          <a href="convert-jpg-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to jpeg</span></a>
-          <a href="convert-jpg-to-webp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to webp</span></a>
-          <a href="convert-png-to-jpg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Jpg</span></a>
-          <a href="convert-png-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Jpeg</span></a>
-          <a href="convert-png-to-webp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Webp</span></a>
-          <a href="convert-webp-to-jpg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Jpg</span></a>
-          <a href="convert-webp-to-png.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Png</span></a>
-          <a href="convert-webp-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Jpeg</span></a>
-         
-        </div>
-      </div>
-
-            <!-- Text Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Text Tools</h2>
-        <div class="tool-grid">
-          <a href="word-counter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Word Counter</span></a>
-          <a href="character-counter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Character Counter</span></a>
-          <a href="case-converter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Case Converter</span></a>
-          <a href="remove-duplicate-lines.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Remove Duplicate Lines</span></a>
-          <a href="remove-extra-spaces.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Remove Extra Spaces</span></a>
-          <a href="text-sorter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Sorter</span></a>
-          <a href="find-and-replace.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Find & Replace</span></a>
-          <a href="text-to-slug.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text → Slug</span></a>
-          <a href="text-reverser.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Reverser</span></a>
-          <a href="text-diff-checker.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Diff Checker</span></a>
-         
-        </div>
-      </div>
-
-
-
-      <!-- Other Tools 
-      <div class="tool-section">
-        <h2><i class="fas fa-cog" style="margin-right:10px;"></i>Other Tools</h2>
-        <div class="tool-grid">
-          <a href="batch-processing.html" class="tool-card"><i class="fas fa-layer-group"></i><span>Batch Processing</span></a>
-          <a href="zip-download.html" class="tool-card"><i class="fas fa-file-archive"></i><span>ZIP Download</span></a>
-          <a href="file-info.html" class="tool-card"><i class="fas fa-file-alt"></i><span>File Info</span></a>
-        </div>
-      </div>
-      -->
-
+    
+<div class="app-container">
+  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div class="tool-heading">
+      <h1>Social Media Image Resizer</h1>
+      <div class="subtitle">Resize and optimize your images for Instagram, Facebook, X, LinkedIn, YouTube, TikTok, Pinterest, and more.</div>
     </div>
-
+    <div class="dark-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
   </div>
+  <!-- main row -->
+  <div class="row">
+    <!-- left column: upload, presets, controls -->
+    <div class="col-left">
+      <!-- upload -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-cloud-upload-alt"></i> Upload</div>
+        <div class="upload-zone" id="uploadZone">
+          <i class="fas fa-image"></i>
+          <p>Click or drag & drop · paste from clipboard</p>
+          <input type="file" id="fileInput" accept="image/*" multiple style="display:none">
+        </div>
+        <div class="flex-wrap" style="margin-top: 12px;">
+          <span class="info-item" id="fileInfo">No image</span>
+          <span class="info-item" id="dimInfo">—</span>
+          <span class="info-item" id="sizeInfo">—</span>
+        </div>
+      </div>
+      <!-- presets -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-hashtag"></i> Presets</div>
+        <div class="preset-scroll" id="presetContainer"></div>
+        <div class="dimension-inputs">
+          <div class="dim-group"><label>W</label><input type="number" id="widthInput" value="1080" min="1"></div>
+          <div class="dim-group"><label>H</label><input type="number" id="heightInput" value="1080" min="1"></div>
+          <div class="aspect-lock"><input type="checkbox" id="aspectLock" checked> <span>🔒</span></div>
+        </div>
+      </div>
+      <!-- modes & bg -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-vector-square"></i> Resize mode</div>
+        <div class="mode-group" id="modeGroup">
+          <span class="mode-btn active" data-mode="fit">Fit</span>
+          <span class="mode-btn" data-mode="fill">Fill</span>
+          <span class="mode-btn" data-mode="crop">Crop</span>
+          <span class="mode-btn" data-mode="stretch">Stretch</span>
+          <span class="mode-btn" data-mode="contain">Contain</span>
+          <span class="mode-btn" data-mode="cover">Cover</span>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px;">
+          <select id="bgSelect" style="padding: 6px 12px; border-radius: 40px; border:1px solid #d1d9e6; background:white;">
+            <option value="transparent">Transparent</option>
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="blur">Blurred</option>
+            <option value="gradient">Gradient</option>
+          </select>
+          <input type="color" id="customColor" value="#3b82f6" style="width:36px;height:36px;border:none;border-radius:40px;">
+        </div>
+      </div>
+      <!-- edits -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-sliders-h"></i> Adjust</div>
+        <div class="edit-slider"><span>Bright</span><input type="range" id="brightness" min="0" max="2" step="0.01" value="1"></div>
+        <div class="edit-slider"><span>Contrast</span><input type="range" id="contrast" min="0" max="2" step="0.01" value="1"></div>
+        <div class="edit-slider"><span>Saturation</span><input type="range" id="saturation" min="0" max="2" step="0.01" value="1"></div>
+        <div class="flex-wrap"><button class="btn btn-sm btn-outline" id="resetEdits">Reset</button></div>
+        <div class="flex-wrap" style="margin-top:6px;">
+          <button class="btn btn-sm" id="undoBtn"><i class="fas fa-undo"></i></button>
+          <button class="btn btn-sm" id="redoBtn"><i class="fas fa-redo"></i></button>
+          <button class="btn btn-sm btn-outline" id="flipH">↔ Flip H</button>
+          <button class="btn btn-sm btn-outline" id="flipV">↕ Flip V</button>
+          <button class="btn btn-sm btn-outline" id="rotateBtn">↻ Rotate</button>
+        </div>
+      </div>
+      <!-- batch -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-layer-group"></i> Batch</div>
+        <div id="batchList" class="batch-thumb"></div>
+        <button class="btn btn-sm" id="downloadAllBtn"><i class="fas fa-download"></i> Download All</button>
+      </div>
+    </div>
+    <!-- right column: preview + export -->
+    <div class="col-right">
+      <div class="card" style="padding-bottom: 8px;">
+        <div class="card-title"><i class="fas fa-eye"></i> Preview</div>
+        <div class="preview-box" id="previewBox">
+          <img id="previewImage" src="" alt="preview" style="display:none;">
+          <div id="placeholderText" style="color:#94a3b8;padding:40px;">Upload an image to preview</div>
+        </div>
+        <div class="flex-wrap" style="margin-top: 12px; justify-content: space-between;">
+          <div><button class="btn btn-sm btn-outline" id="beforeAfterBtn">Before / After</button></div>
+          <div><span id="outputDim" style="font-weight:500;">—</span></div>
+        </div>
+      </div>
+      <!-- export -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-file-export"></i> Export</div>
+        <div class="flex-wrap">
+          <select id="exportFormat" style="padding:8px 14px;border-radius:40px;border:1px solid #d1d9e6;">
+            <option value="image/jpeg">JPG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+          <label>Quality <input type="number" id="qualityInput" value="92" min="1" max="100" style="width:60px;padding:4px;"></label>
+          <input type="text" id="fileNameInput" value="my-image" placeholder="filename" style="padding:6px 12px;border-radius:40px;border:1px solid #d1d9e6;flex:1;">
+          <button class="btn" id="downloadBtn"><i class="fas fa-download"></i> Download</button>
+        </div>
+        <div class="info-grid">
+          <span class="info-item" id="origSizeLabel">Orig: —</span>
+          <span class="info-item" id="estSizeLabel">Est: —</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -1069,7 +1278,7 @@
         <ul>
           <li><a href="crop-image.html">Crop Image</a></li>
           <li><a href="resize-image.html">Resize Image</a></li>
-          <li><a href="rotate-flip.html">Rotate &amp; Flip</a></li>
+          <li><a href="rotate-flip-image.html">Rotate &amp; Flip</a></li>
           <li><a href="compress-image.html">Compress Image</a></li>
           <li><a href="watermark-image.html">Watermark Image</a></li>
           <li><a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a></li>
@@ -1084,7 +1293,7 @@
           <li><a href="split-separate-pdf.html">Split / Separate PDF</a></li>
           <li><a href="compress-pdf.html">Compress PDF</a></li>
           <li><a href="protect-unlock-pdf.html">Protect / Unlock PDF</a></li>
-          <li><a href="pdf-watermark.html">Watermark PDF</a></li>
+          <li><a href="watermark-pdf.html">Watermark PDF</a></li>
           <li><a href="rotate-pdf.html">Rotate PDF</a></li>
         </ul>
       </div>
@@ -1118,8 +1327,8 @@
           <li><a href="api-docs.html">API docs</a></li>
           <li><a href="help-center.html">Help center</a></li>
           <li><a href="status.html">Status</a></li>
-          <li><a href="privacy-policy.html">Privacy</a></li>
-          <li><a href="terms-of-service.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
         </ul>
       </div>
 
@@ -1161,13 +1370,17 @@
   <div class="wrap footer-bottom">
     <span>© 2026 Croply.io — All rights reserved.</span>
     <div class="footer-legal">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a> 
+      <a href="terms.html">Terms of Service</a>
       <a href="cookies.html">Cookies</a>
     </div>
-    <div class="socials">
-      <a href="https://twitter.com/croply" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
-     
+    <div class="socials"> 
+      <a href="#" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
+    </div>
+  </div>
+</footer>
 
 <script>
   // ---------- Desktop mega-menu (hover + keyboard/click) ----------
@@ -1269,6 +1482,384 @@
     });
   });
 </script>
+
+<!-- PAge Script Herer-->
+
+<script>
+  (function(){
+    // ---------- STATE ----------
+    let originalImage = null;         // original Image object
+    let currentImageData = null;      // ImageData for edits
+    let canvas = document.createElement('canvas');
+    let ctx = canvas.getContext('2d');
+    let uploadedFile = null;
+    let originalFileSize = 0;
+    let history = [];
+    let historyIndex = -1;
+    let flipH = 1, flipV = 1, rotation = 0;
+    let batchFiles = [];
+
+    // DOM refs
+    const fileInput = document.getElementById('fileInput');
+    const uploadZone = document.getElementById('uploadZone');
+    const previewImg = document.getElementById('previewImage');
+    const placeholder = document.getElementById('placeholderText');
+    const fileInfo = document.getElementById('fileInfo');
+    const dimInfo = document.getElementById('dimInfo');
+    const sizeInfo = document.getElementById('sizeInfo');
+    const widthInput = document.getElementById('widthInput');
+    const heightInput = document.getElementById('heightInput');
+    const aspectLock = document.getElementById('aspectLock');
+    const presetContainer = document.getElementById('presetContainer');
+    const modeGroup = document.getElementById('modeGroup');
+    const bgSelect = document.getElementById('bgSelect');
+    const customColor = document.getElementById('customColor');
+    const brightness = document.getElementById('brightness');
+    const contrast = document.getElementById('contrast');
+    const saturation = document.getElementById('saturation');
+    const exportFormat = document.getElementById('exportFormat');
+    const qualityInput = document.getElementById('qualityInput');
+    const fileNameInput = document.getElementById('fileNameInput');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const downloadAllBtn = document.getElementById('downloadAllBtn');
+    const batchList = document.getElementById('batchList');
+    const outputDim = document.getElementById('outputDim');
+    const origSizeLabel = document.getElementById('origSizeLabel');
+    const estSizeLabel = document.getElementById('estSizeLabel');
+    const themeToggle = document.getElementById('themeToggle');
+
+    // presets
+    const presets = {
+      'Instagram Square': [1080,1080], 'Instagram Portrait': [1080,1350], 'Instagram Landscape': [1080,566], 'Instagram Story': [1080,1920],
+      'Facebook Post': [1200,630], 'Facebook Square': [1080,1080], 'Facebook Story': [1080,1920], 'Facebook Cover': [1640,856], 'Facebook Event': [1920,1005],
+      'X Post': [1600,900], 'X Square': [1080,1080], 'X Header': [1500,500],
+      'LinkedIn Post': [1200,627], 'LinkedIn Square': [1200,1200], 'LinkedIn Profile': [400,400], 'LinkedIn Cover': [1584,396],
+      'YouTube Thumbnail': [1280,720], 'YouTube Banner': [2560,1440], 'YouTube Profile': [800,800],
+      'Pinterest Pin': [1000,1500], 'Pinterest Square': [1000,1000],
+      'TikTok Post': [1080,1920], 'TikTok Profile': [200,200]
+    };
+    // populate presets
+    function renderPresets() {
+      presetContainer.innerHTML = '';
+      for (let [name, dims] of Object.entries(presets)) {
+        const btn = document.createElement('button');
+        btn.className = 'preset-btn';
+        btn.textContent = name;
+        btn.dataset.w = dims[0];
+        btn.dataset.h = dims[1];
+        btn.addEventListener('click', (e) => {
+          document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          widthInput.value = dims[0];
+          heightInput.value = dims[1];
+          updatePreview();
+        });
+        presetContainer.appendChild(btn);
+      }
+    }
+    renderPresets();
+
+    // ---------- UPLOAD ----------
+    function loadImage(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          originalImage = img;
+          uploadedFile = file;
+          originalFileSize = file.size;
+          fileInfo.textContent = file.name;
+          dimInfo.textContent = `${img.width}×${img.height}`;
+          sizeInfo.textContent = (file.size/1024).toFixed(1)+' KB';
+          // reset edits
+          brightness.value = 1; contrast.value = 1; saturation.value = 1;
+          flipH = 1; flipV = 1; rotation = 0;
+          history = []; historyIndex = -1;
+          applyEditsAndRender();
+          // batch
+          if (!batchFiles.find(f=>f.name===file.name)) {
+            batchFiles.push(file);
+            renderBatch();
+          }
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    uploadZone.addEventListener('click', ()=> fileInput.click());
+    fileInput.addEventListener('change', (e)=> {
+      if (e.target.files.length) {
+        loadImage(e.target.files[0]);
+      }
+    });
+    // drag & drop
+    uploadZone.addEventListener('dragover', (e)=> { e.preventDefault(); uploadZone.style.borderColor='#2563eb'; });
+    uploadZone.addEventListener('dragleave', ()=> { uploadZone.style.borderColor='#cbd5e1'; });
+    uploadZone.addEventListener('drop', (e)=> {
+      e.preventDefault();
+      uploadZone.style.borderColor='#cbd5e1';
+      if (e.dataTransfer.files.length) loadImage(e.dataTransfer.files[0]);
+    });
+    // paste
+    document.addEventListener('paste', (e)=> {
+      const items = e.clipboardData.items;
+      for (let item of items) {
+        if (item.type.startsWith('image/')) {
+          const file = item.getAsFile();
+          loadImage(file);
+          break;
+        }
+      }
+    });
+
+    // ---------- EDIT & RENDER ----------
+    function applyEditsAndRender() {
+      if (!originalImage) return;
+      const w = parseInt(widthInput.value) || 1080;
+      const h = parseInt(heightInput.value) || 1080;
+      const mode = document.querySelector('.mode-btn.active')?.dataset.mode || 'fit';
+      const bg = bgSelect.value;
+      const color = customColor.value;
+      canvas.width = w;
+      canvas.height = h;
+      ctx.clearRect(0,0,w,h);
+
+      // background
+      if (bg === 'white') { ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,w,h); }
+      else if (bg === 'black') { ctx.fillStyle='#000000'; ctx.fillRect(0,0,w,h); }
+      else if (bg === 'gradient') {
+        const grad = ctx.createLinearGradient(0,0,w,h);
+        grad.addColorStop(0,'#f093fb'); grad.addColorStop(1,'#f5576c');
+        ctx.fillStyle=grad; ctx.fillRect(0,0,w,h);
+      } else if (bg === 'blur') {
+        ctx.filter = 'blur(8px)';
+        ctx.drawImage(originalImage, 0, 0, w, h);
+        ctx.filter = 'none';
+      } else { // transparent
+        ctx.clearRect(0,0,w,h);
+      }
+
+      // compute draw
+      const imgW = originalImage.width, imgH = originalImage.height;
+      let dw = w, dh = h, dx = 0, dy = 0;
+      const aspect = imgW/imgH;
+      const targetAspect = w/h;
+
+      if (mode === 'stretch') {
+        dw = w; dh = h;
+      } else if (mode === 'fit' || mode === 'contain') {
+        if (aspect > targetAspect) { dh = w/aspect; dy = (h-dh)/2; dw = w; }
+        else { dw = h*aspect; dx = (w-dw)/2; dh = h; }
+      } else if (mode === 'fill' || mode === 'cover') {
+        if (aspect > targetAspect) { dw = h*aspect; dx = (w-dw)/2; dh = h; }
+        else { dh = w/aspect; dy = (h-dh)/2; dw = w; }
+      } else if (mode === 'crop') {
+        // center crop
+        let cropW = imgW, cropH = imgH;
+        if (aspect > targetAspect) { cropW = imgH * targetAspect; }
+        else { cropH = imgW / targetAspect; }
+        const sx = (imgW - cropW)/2, sy = (imgH - cropH)/2;
+        ctx.drawImage(originalImage, sx, sy, cropW, cropH, 0, 0, w, h);
+        // then apply filters
+        applyFilters();
+        updateInfo(w,h);
+        return;
+      }
+      ctx.save();
+      // flip & rotate
+      ctx.translate(w/2, h/2);
+      ctx.scale(flipH, flipV);
+      ctx.rotate(rotation * Math.PI/180);
+      ctx.drawImage(originalImage, -dw/2, -dh/2, dw, dh);
+      ctx.restore();
+      applyFilters();
+      updateInfo(w,h);
+    }
+
+    function applyFilters() {
+      const bright = parseFloat(brightness.value);
+      const cont = parseFloat(contrast.value);
+      const sat = parseFloat(saturation.value);
+      const imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+      const data = imageData.data;
+      for (let i=0; i<data.length; i+=4) {
+        let r=data[i], g=data[i+1], b=data[i+2];
+        // contrast
+        r = (r/255 - 0.5) * cont + 0.5;
+        g = (g/255 - 0.5) * cont + 0.5;
+        b = (b/255 - 0.5) * cont + 0.5;
+        // brightness
+        r *= bright; g *= bright; b *= bright;
+        // saturation
+        const gray = 0.299*r + 0.587*g + 0.114*b;
+        r = gray + (r-gray)*sat;
+        g = gray + (g-gray)*sat;
+        b = gray + (b-gray)*sat;
+        data[i] = Math.min(255, Math.max(0, r*255));
+        data[i+1] = Math.min(255, Math.max(0, g*255));
+        data[i+2] = Math.min(255, Math.max(0, b*255));
+      }
+      ctx.putImageData(imageData,0,0);
+      // push history
+      const snap = ctx.getImageData(0,0,canvas.width,canvas.height);
+      history = history.slice(0, historyIndex+1);
+      history.push(snap);
+      historyIndex = history.length-1;
+    }
+
+    function updateInfo(w,h) {
+      previewImg.src = canvas.toDataURL('image/png');
+      previewImg.style.display = 'block';
+      placeholder.style.display = 'none';
+      outputDim.textContent = `${w}×${h}`;
+      const est = canvas.toDataURL(exportFormat.value, qualityInput.value/100).length;
+      estSizeLabel.textContent = 'Est: '+(est/1024).toFixed(1)+' KB';
+      origSizeLabel.textContent = 'Orig: '+(originalFileSize/1024).toFixed(1)+' KB';
+    }
+
+    function updatePreview() { applyEditsAndRender(); }
+
+    // mode switching
+    modeGroup.addEventListener('click', (e)=> {
+      if (e.target.dataset.mode) {
+        document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+        e.target.classList.add('active');
+        updatePreview();
+      }
+    });
+
+    // dimension inputs
+    widthInput.addEventListener('input', ()=>{
+      if (aspectLock.checked && originalImage) {
+        const aspect = originalImage.width/originalImage.height;
+        heightInput.value = Math.round(widthInput.value / aspect);
+      }
+      updatePreview();
+    });
+    heightInput.addEventListener('input', ()=>{
+      if (aspectLock.checked && originalImage) {
+        const aspect = originalImage.width/originalImage.height;
+        widthInput.value = Math.round(heightInput.value * aspect);
+      }
+      updatePreview();
+    });
+    [bgSelect, customColor, brightness, contrast, saturation].forEach(el=> el.addEventListener('input', updatePreview));
+
+    // flip rotate
+    document.getElementById('flipH').addEventListener('click', ()=>{ flipH *= -1; updatePreview(); });
+    document.getElementById('flipV').addEventListener('click', ()=>{ flipV *= -1; updatePreview(); });
+    document.getElementById('rotateBtn').addEventListener('click', ()=>{ rotation = (rotation+90)%360; updatePreview(); });
+    document.getElementById('resetEdits').addEventListener('click', ()=>{
+      brightness.value=1; contrast.value=1; saturation.value=1;
+      flipH=1; flipV=1; rotation=0;
+      updatePreview();
+    });
+
+    // undo/redo
+    document.getElementById('undoBtn').addEventListener('click', ()=>{
+      if (historyIndex>0) { historyIndex--; ctx.putImageData(history[historyIndex],0,0); previewImg.src=canvas.toDataURL(); }
+    });
+    document.getElementById('redoBtn').addEventListener('click', ()=>{
+      if (historyIndex<history.length-1) { historyIndex++; ctx.putImageData(history[historyIndex],0,0); previewImg.src=canvas.toDataURL(); }
+    });
+
+    // before/after (toggle)
+    let beforeAfter = false;
+    document.getElementById('beforeAfterBtn').addEventListener('click', ()=>{
+      beforeAfter = !beforeAfter;
+      if (beforeAfter && originalImage) {
+        const w = parseInt(widthInput.value), h = parseInt(heightInput.value);
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = w*2; tempCanvas.height = h;
+        const tctx = tempCanvas.getContext('2d');
+        tctx.drawImage(originalImage,0,0,w,h);
+        tctx.drawImage(canvas,w,0,w,h);
+        previewImg.src = tempCanvas.toDataURL();
+      } else {
+        previewImg.src = canvas.toDataURL();
+      }
+    });
+
+    // download
+    downloadBtn.addEventListener('click', ()=>{
+      const format = exportFormat.value;
+      const quality = qualityInput.value/100;
+      const name = fileNameInput.value || 'image';
+      const ext = format.split('/')[1];
+      const link = document.createElement('a');
+      link.download = `${name}.${ext}`;
+      link.href = canvas.toDataURL(format, quality);
+      link.click();
+    });
+
+    // batch
+    function renderBatch() {
+      batchList.innerHTML = '';
+      batchFiles.forEach((f,idx)=>{
+        const div = document.createElement('div');
+        div.className = 'batch-item';
+        div.innerHTML = `<span>${f.name}</span> <button class="btn btn-sm" data-idx="${idx}"><i class="fas fa-download"></i></button>`;
+        div.querySelector('button').addEventListener('click', (e)=>{
+          const i = parseInt(e.target.closest('button').dataset.idx);
+          const reader = new FileReader();
+          reader.onload = (ev)=>{
+            const img = new Image();
+            img.onload = ()=>{
+              const w = parseInt(widthInput.value), h = parseInt(heightInput.value);
+              const c = document.createElement('canvas');
+              c.width = w; c.height = h;
+              const cx = c.getContext('2d');
+              cx.drawImage(img,0,0,w,h);
+              const link = document.createElement('a');
+              const fmt = exportFormat.value;
+              link.download = `${fileNameInput.value || 'image'}-batch.${fmt.split('/')[1]}`;
+              link.href = c.toDataURL(fmt, qualityInput.value/100);
+              link.click();
+            };
+            img.src = ev.target.result;
+          };
+          reader.readAsDataURL(batchFiles[i]);
+        });
+        batchList.appendChild(div);
+      });
+    }
+
+    downloadAllBtn.addEventListener('click', ()=>{
+      batchFiles.forEach((f)=>{
+        const reader = new FileReader();
+        reader.onload = (ev)=>{
+          const img = new Image();
+          img.onload = ()=>{
+            const w = parseInt(widthInput.value), h = parseInt(heightInput.value);
+            const c = document.createElement('canvas');
+            c.width = w; c.height = h;
+            const cx = c.getContext('2d');
+            cx.drawImage(img,0,0,w,h);
+            const link = document.createElement('a');
+            const fmt = exportFormat.value;
+            link.download = `${fileNameInput.value || 'image'}-batch.${fmt.split('/')[1]}`;
+            link.href = c.toDataURL(fmt, qualityInput.value/100);
+            link.click();
+          };
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(f);
+      });
+    });
+
+    // dark mode
+    themeToggle.addEventListener('click', ()=>{
+      document.body.classList.toggle('dark');
+      themeToggle.innerHTML = document.body.classList.contains('dark') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+
+    // init: set default preset active
+    document.querySelector('.preset-btn')?.classList.add('active');
+  })();
+</script>
+<!--End page script-->
 
 </body>
 </html>

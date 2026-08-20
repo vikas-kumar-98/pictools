@@ -7,10 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Cropper.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" />
+
 
 <style>
   :root{
@@ -369,7 +366,6 @@
     background: var(--ink);
     color: rgba(246,245,241,0.72);
     margin-top: 40px;
-
   }
   .footer-top{
     padding: 56px 10px 40px;
@@ -487,7 +483,7 @@
   }
 
   .footer-newsletter{
-    padding: 34px 0;
+    padding: 34px 10px;
     border-bottom: 1px solid var(--line);
     display:flex;
     align-items:center;
@@ -560,7 +556,7 @@
   }
 
   /* Demo page filler (not part of the component) */
-  .demo-hero{ padding: 20px 10; text-align:center; }
+  .demo-hero{ padding: 40px 0; text-align:center; }
   .demo-hero h1{ font-family:var(--font-display); font-size: clamp(28px,4vw,42px); margin:0 0 12px; }
   .demo-hero p{ color:#5b6272; font-size:15px; max-width:520px; margin:0 auto; }
   .sr-only{
@@ -568,82 +564,351 @@
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
 
+  /*Page style goes here....................*/
 
-
-
-
-/* Main section styles */
+    body.dark {
+      background: #0b1a2f;
+      color: #e2e8f0;
+    }
     .app {
       max-width: 1400px;
       width: 100%;
+      margin: 0 auto;
     }
-
-    /* ----- TOOL GRID (cards) ----- */
-    .tool-section {
-      margin: 1rem 0 1.5rem;
+    /* hero */
+    .hero {
+      margin-bottom: 1.5rem;
     }
-    .tool-section h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #0b1a2f;
-      border-left: 6px solid #2b5b8a;
-      padding-left: 0.8rem;
-      margin-bottom: 1.2rem;
-    }
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-    .tool-card {
-      background: white;
-      border-radius: 1.2rem;
-      padding: 1.2rem 0.8rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      border: 1px solid #e9eef3;
-      transition: all 0.2s ease;
-      cursor: pointer;
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-top: 0.1rem;
+      font-weight: 400;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      margin-bottom: 1rem;
+    }
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      text-decoration: none;
+      transition: 0.2s;
+      background: white;
+      color: #0b1a2f;
+    }
+    body.dark .theme-toggle {
+      background: #1e2a44;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+    .privacy-badge {
+      font-size: 0.8rem;
+      background: #e9edf4;
+      padding: 0.25rem 0.9rem;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+    body.dark .privacy-badge {
+      background: #1e2a44;
+    }
+    /* grid */
+    .editor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .editor-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+    .panel {
+      background: white;
+      border-radius: 18px;
+      padding: 1rem 1rem 0.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid #e9edf4;
+      transition: background 0.2s, border 0.2s;
+    }
+    body.dark .panel {
+      background: #132237;
+      border-color: #2a3a52;
+    }
+    .panel textarea {
+      width: 100%;
+      height: 300px;
+      border: none;
+      resize: vertical;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      background: transparent;
       color: inherit;
+      outline: none;
+      font-family: 'Monaco', 'Menlo', 'Cascadia Code', monospace;
     }
-    .tool-card:hover {
-      transform: translateY(-6px);
-      border-color: #aac2db;
-      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
+    .panel textarea::placeholder {
+      color: #94a3b8;
+      opacity: 0.7;
     }
-    .tool-card i {
-      font-size: 2.2rem;
-      color: #1e3a5f;
-    }
-    .tool-card span {
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid #e9edf4;
+      margin-top: 0.3rem;
+      font-size: 0.8rem;
       font-weight: 500;
+      color: #475569;
+    }
+    body.dark .stats-row {
+      border-top-color: #2a3a52;
+      color: #a0b6d9;
+    }
+    .stats-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .stats-row strong {
+      color: #0b1a2f;
+    }
+    body.dark .stats-row strong {
+      color: #e2e8f0;
+    }
+    /* controls */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .control-section {
+      background: white;
+      border-radius: 18px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #e9edf4;
+      transition: background 0.2s, border 0.2s;
+    }
+    body.dark .control-section {
+      background: #132237;
+      border-color: #2a3a52;
+    }
+    .section-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #64748b;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    body.dark .section-title {
+      color: #94a9cc;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.5rem;
+      align-items: center;
+    }
+    .btn {
+      background: #f1f5f9;
+      border: none;
+      padding: 0.35rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1e293b;
+      cursor: pointer;
+      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .btn:hover {
+      background: #e2e8f0;
+    }
+    .btn-primary {
+      background: #1e293b;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #0f172a;
+    }
+    body.dark .btn {
+      background: #1e2a44;
+      color: #e2e8f0;
+    }
+    body.dark .btn-primary {
+      background: #3b4e6b;
+      color: white;
+    }
+    body.dark .btn-primary:hover {
+      background: #4a5f7e;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+    }
+    body.dark .btn-outline {
+      border-color: #3b4e6b;
+    }
+    .btn-sm {
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+    }
+    .btn-icon {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      padding: 0.2rem 0.4rem;
+      cursor: pointer;
+    }
+    .inline-label {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    select, input[type="text"], input[type="number"] {
+      background: white;
+      border: 1px solid #d1d9e6;
+      border-radius: 30px;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.8rem;
+      color: #0b1a2f;
+      height: 30px;
+      outline: none;
+    }
+    body.dark select, body.dark input[type="text"], body.dark input[type="number"] {
+      background: #1e2a44;
+      border-color: #3b4e6b;
+      color: #e2e8f0;
+    }
+    .flex-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.7rem;
+    }
+    .divider {
+      width: 1px;
+      height: 24px;
+      background: #d1d9e6;
+      display: inline-block;
+    }
+    body.dark .divider {
+      background: #3b4e6b;
+    }
+    .action-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.2rem 0;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e293b;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
       font-size: 0.9rem;
-      color: #1e2f44;
+      opacity: 0;
+      transition: 0.2s;
+      pointer-events: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    .toast.show {
+      opacity: 1;
+    }
+    body.dark .toast {
+      background: #2d3f5a;
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.5rem; }
+      .panel textarea { height: 200px; }
+      .control-section { padding: 0.8rem; }
+    }
+    .comparison-box {
+      background: #f1f5f9;
+      border-radius: 16px;
+      padding: 0.8rem 1rem;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      max-height: 120px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+    body.dark .comparison-box {
+      background: #1a293f;
+    }
+    .file-upload-area {
+      border: 2px dashed #cbd5e1;
+      border-radius: 20px;
+      padding: 1.2rem;
+      text-align: center;
+      transition: 0.2s;
+      margin-top: 0.3rem;
+      background: #f8fafc;
+    }
+    body.dark .file-upload-area {
+      border-color: #3b4e6b;
+      background: #0f1d2f;
+    }
+    .file-upload-area.dragover {
+      border-color: #2563eb;
+      background: #e9edf4;
+    }
+    .file-info {
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .hidden {
+      display: none !important;
     }
 
-
-
-    /* responsive */
-    @media (max-width: 600px) {
-      .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-     
-    }
-    @media (min-width: 900px) {
-      .tool-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    
-
-/* End of main */
+  /* End Page style goes here....................*/
 </style>
 </head>
 <body>
@@ -730,7 +995,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>Merge PDF</strong><span>Combine multiple PDFs into one</span></span>
             </a>
-            <a href="split-pdf.html" class="mega-link" role="menuitem">
+            <a href="split-separate-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 2"/></svg></span>
               <span class="mega-text"><strong>Split / Separate PDF</strong><span>Pull out or divide pages</span></span>
             </a>
@@ -753,7 +1018,7 @@
               <span class="mega-text"><strong>PDF to JPG</strong><span>Export each page as an image</span></span>
             </a>
 
-            <a href="rotate-flip-pdf.html" class="mega-link" role="menuitem">
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Rotate PDF</strong><span>Fix sideways or upside-down pages</span></span>
             </a>
@@ -780,11 +1045,11 @@
             <div class="mega-col-title">Image ↔ Image</div>
             <div class="mega-col-title">Image ↔ PDF</div>
 
-            <a href="convert-jpg-to-png.html" class="mega-link" role="menuitem">
+            <a href="#convert-jpg-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>JPG → PNG</strong><span>Adds transparency support</span></span>
             </a>
-            <a href="image-to-pdf.html" class="mega-link" role="menuitem">
+            <a href="merge-jpg-to-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Image → PDF</strong> <span class="tag-new">NEW</span><span>Merge JPG/PNG into a PDF</span></span>
             </a>
@@ -793,7 +1058,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>PNG → JPG</strong><span>Smaller size for photos</span></span>
             </a>
-            <a href="pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>PDF → JPG</strong><span>Export each page as an image</span></span>
             </a>
@@ -802,7 +1067,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>WEBP → JPG/PNG</strong><span>Universal format support</span></span>
             </a>
-            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="convert-pdf-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>PDF → PNG</strong><span>High-quality page export</span></span>
             </a>
@@ -818,20 +1083,18 @@
           </div>
           <div class="mega-foot">
             <span>Formats: JPG · PNG · WEBP · HEIC · SVG · GIF · PDF</span>
-            <a href="#">All converters →</a>
+            <a href="all-converters.html">All converters →</a>
           </div>
         </div>
       </div>
 
-      <a href="qr-code-generator.html" class="nav-link">QR Code Generator</a>
       <a href="pricing.html" class="nav-link">Pricing</a>
-
       <a href="api.html" class="nav-link">API</a>
       <a href="blog.html" class="nav-link">Blog</a>
     </nav>
 
     <div class="nav-actions">
-      <a href="log-in.html" class="btn btn-ghost">Log in</a>
+      <a href="login.html" class="btn btn-ghost">Log in</a>
       <a href="upload-image.html" class="btn btn-solid">Upload image</a>
       <button class="hamburger" id="drawerOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -915,126 +1178,167 @@
       </div>
     </div>
 
-    
-    <a href="qr-code-generator.html" class="drawer-simple-link">QR Code Generator</a>
     <a href="pricing.html" class="drawer-simple-link">Pricing</a>
     <a href="api.html" class="drawer-simple-link">API</a>
     <a href="blog.html" class="drawer-simple-link">Blog</a>
   </div>
 
   <div class="drawer-foot">
-    <a href="login.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
-    <a href="upload.html" class="btn btn-solid">Upload image</a>
+    <a href="log-in.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
+    <a href="upload-image.html" class="btn btn-solid">Upload image</a>
   </div>
 </aside>
 
 <!-- demo filler so the footer isn't glued to the nav -->
-
-
-
-
 <main class="wrap demo-hero">
 
 
-  <div class="app">
-    <!-- ===== MAIN TOOLS SECTION ===== -->
-    <div class="main-tools">
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image Tools</h2>
-        <div class="tool-grid">
-          <a href="crop-image.html" class="tool-card"><i class="fas fa-crop-alt"></i><span>Crop Image</span></a>
-          <a href="compress-image.html" class="tool-card"><i class="fas fa-compress-alt"></i><span>Compress</span></a>
-          <a href="resize-image.html" class="tool-card"><i class="fas fa-arrows-alt"></i><span>Resize</span></a>
-          <a href="convert-image.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Convert</span></a>
-          <a href="rotate-image.html" class="tool-card"><i class="fas fa-undo-alt"></i><span>Rotate</span></a>
-          <a href="flip-image.html" class="tool-card"><i class="fas fa-arrows-alt-h"></i><span>Flip</span></a>
-          <a href="watermark-image.html" class="tool-card"><i class="fas fa-water"></i><span>Watermark</span></a>
-         <!-- 
-          <a href="remove-background.html" class="tool-card"><i class="fas fa-magic"></i><span>Remove BG</span></a>
-        -->
-        <a href="social-media-image-resizer.html" class="tool-card"><i class="fa-solid fa-crop-simple"></i><span>Social Media Image Resizer</span></a>
-
-          <a href="qr-code-generator.html" class="tool-card"><i class="fa-solid fa-qrcode"></i><span>QR Code Generator</span></a>
-      
-          <a href="metadata.html" class="tool-card"><i class="fas fa-info-circle"></i><span>Metadata</span></a>
-          <a href="enhance-image.html" class="tool-card"><i class="fas fa-sliders-h"></i><span>Enhance</span></a>
-          
-          <a href="url-shortener.html" class="tool-card"><i class="fas fa-link"></i><span>URL Shortener</span></a>
-          
-        </div>
+<div class="app" id="app">
+  <div class="hero">
+    <div class="top-bar">
+      <div><h1>📄 Text Sorter</h1><p>Sort, organize, clean, and arrange your text lines instantly with powerful sorting options.</p></div>
+      <div style="display:flex; gap:0.8rem; align-items:center; flex-wrap:wrap;">
+        <span class="privacy-badge">🔒 100% Browser-Based</span>
+        <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
       </div>
+    </div>
+  </div>
 
-            <!-- PDF Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-file-pdf" style="margin-right:10px;"></i>PDF Tools</h2>
-        <div class="tool-grid">
-          <a href="images-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>Images to PDF</span></a>
-          <a href="jpg-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>JPG to PDF</span></a>
-          <a href="png-to-pdf.html" class="tool-card"><i class="fas fa-file-image"></i><span>PNG to PDF</span></a>
-          <a href="pdf-to-image.html" class="tool-card"><i class="fas fa-file-pdf"></i><span>PDF to Image</span></a>
-          <a href="merge-pdf.html" class="tool-card"><i class="fas fa-object-group"></i><span>Merge PDF</span></a>
-          <a href="split-pdf.html" class="tool-card"><i class="fas fa-cut"></i><span>Split PDF</span></a>
-          <a href="compress-pdf.html" class="tool-card"><i class="fas fa-compress"></i><span>Compress PDF</span></a>
-          <a href="extract-pages.html" class="tool-card"><i class="fas fa-file-export"></i><span>Extract Pages</span></a>
-          <a href="rotate-pdf.html" class="tool-card"><i class="fas fa-sync-alt"></i><span>Rotate PDF</span></a>
-          <a href="reorder-pdf.html" class="tool-card"><i class="fas fa-arrows-alt-v"></i><span>Reorder PDF</span></a>
-          <a href="pdf-watermark.html" class="tool-card"><i class="fas fa-water"></i><span>PDF Watermark</span></a>
-          <a href="extract-images.html" class="tool-card"><i class="fas fa-images"></i><span>Extract Images</span></a>
-        </div>
+  <!-- editor -->
+  <div class="editor-grid">
+    <div class="panel">
+      <textarea id="inputText" placeholder="Paste or type your text here…" spellcheck="false"></textarea>
+      <div class="stats-row" id="inputStats">
+        <span>📄 Lines <strong id="inLines">0</strong></span>
+        <span>📝 Words <strong id="inWords">0</strong></span>
+        <span>🔤 Characters <strong id="inChars">0</strong></span>
+        <span>🔄 Unique <strong id="inUnique">0</strong></span>
+        <span>⬜ Empty <strong id="inEmpty">0</strong></span>
       </div>
-      
-      <!-- Image Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image convert Tools</h2>
-        <div class="tool-grid">
-          <a href="convert-jpg-to-png.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to Png</span></a>
-          <a href="convert-jpg-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to jpeg</span></a>
-          <a href="convert-jpg-to-webp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Jpg to webp</span></a>
-          <a href="convert-png-to-jpg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Jpg</span></a>
-          <a href="convert-png-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Jpeg</span></a>
-          <a href="convert-png-to-webp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Png to Webp</span></a>
-          <a href="convert-webp-to-jpg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Jpg</span></a>
-          <a href="convert-webp-to-png.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Png</span></a>
-          <a href="convert-webp-to-jpeg.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Webp to Jpeg</span></a>
-         
-        </div>
+    </div>
+    <div class="panel">
+      <textarea id="outputText" placeholder="Your sorted text will appear here…" spellcheck="false" readonly></textarea>
+      <div class="stats-row" id="outputStats">
+        <span>📄 Lines <strong id="outLines">0</strong></span>
+        <span>📝 Words <strong id="outWords">0</strong></span>
+        <span>🔤 Characters <strong id="outChars">0</strong></span>
+        <span>🔄 Unique <strong id="outUnique">0</strong></span>
       </div>
+    </div>
+  </div>
 
-            <!-- Text Tools -->
-      <div class="tool-section">
-        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Text Tools</h2>
-        <div class="tool-grid">
-          <a href="word-counter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Word Counter</span></a>
-          <a href="character-counter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Character Counter</span></a>
-          <a href="case-converter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Case Converter</span></a>
-          <a href="remove-duplicate-lines.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Remove Duplicate Lines</span></a>
-          <a href="remove-extra-spaces.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Remove Extra Spaces</span></a>
-          <a href="text-sorter.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Sorter</span></a>
-          <a href="find-and-replace.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Find & Replace</span></a>
-          <a href="text-to-slug.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text → Slug</span></a>
-          <a href="text-reverser.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Reverser</span></a>
-          <a href="text-diff-checker.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Text Diff Checker</span></a>
-         
-        </div>
+  <!-- controls -->
+  <div class="controls" id="controlsContainer">
+    <!-- sort options -->
+    <div class="control-section"><div class="section-title">🔠 Sorting</div>
+      <div class="btn-group">
+        <button class="btn" data-sort="alpha-asc">A→Z</button>
+        <button class="btn" data-sort="alpha-desc">Z→A</button>
+        <button class="btn" data-sort="natural">Natural</button>
+        <button class="btn" data-sort="num-asc">1→9</button>
+        <button class="btn" data-sort="num-desc">9→1</button>
+        <button class="btn" data-sort="short">Shortest</button>
+        <button class="btn" data-sort="long">Longest</button>
+        <button class="btn" data-sort="word-asc">Fewest Words</button>
+        <button class="btn" data-sort="word-desc">Most Words</button>
+        <button class="btn" data-sort="reverse">↕ Reverse</button>
+        <button class="btn" data-sort="shuffle">🎲 Shuffle</button>
+        <button class="btn btn-sm" data-sort="reshuffle">↻ Shuffle Again</button>
       </div>
-
-
-
-      <!-- Other Tools 
-      <div class="tool-section">
-        <h2><i class="fas fa-cog" style="margin-right:10px;"></i>Other Tools</h2>
-        <div class="tool-grid">
-          <a href="batch-processing.html" class="tool-card"><i class="fas fa-layer-group"></i><span>Batch Processing</span></a>
-          <a href="zip-download.html" class="tool-card"><i class="fas fa-file-archive"></i><span>ZIP Download</span></a>
-          <a href="file-info.html" class="tool-card"><i class="fas fa-file-alt"></i><span>File Info</span></a>
-        </div>
+      <div class="flex-wrap" style="margin-top:0.5rem;">
+        <label class="inline-label"><input type="checkbox" id="caseSensitive" checked> Case sensitive</label>
+        <label class="inline-label"><input type="checkbox" id="ignoreSpacesLen"> Ignore spaces in length</label>
       </div>
-      -->
-
     </div>
 
+    <!-- duplicate + empty + whitespace -->
+    <div class="control-section"><div class="section-title">🧹 Clean & Duplicates</div>
+      <div class="btn-group">
+        <button class="btn" data-action="keep-dupes">Keep dupes</button>
+        <button class="btn" data-action="remove-dupes">Remove dupes</button>
+        <button class="btn" data-action="keep-first">Keep first</button>
+        <button class="btn" data-action="keep-last">Keep last</button>
+        <button class="btn" data-action="ignore-case-dupe">🔽 Ignore case</button>
+        <button class="btn" data-action="trim-spaces">Trim</button>
+        <button class="btn" data-action="remove-empty">Remove empty</button>
+        <button class="btn" data-action="empty-top">Empty → top</button>
+        <button class="btn" data-action="empty-bottom">Empty → bottom</button>
+      </div>
+    </div>
+
+    <!-- advanced & custom -->
+    <div class="control-section"><div class="section-title">⚙️ Advanced & Custom</div>
+      <div class="flex-wrap">
+        <button class="btn" data-sort="first-char">First char</button>
+        <button class="btn" data-sort="last-char">Last char</button>
+        <button class="btn" data-sort="first-word">First word</button>
+        <button class="btn" data-sort="last-word">Last word</button>
+        <button class="btn" data-sort="word-count">Word count</button>
+        <button class="btn" data-sort="char-count">Char count</button>
+        <span class="divider"></span>
+        <select id="separatorSelect"><option value=" ">Space</option><option value=",">Comma</option><option value="\t">Tab</option><option value="|">Pipe</option><option value=";">Semicolon</option><option value="custom">Custom</option></select>
+        <input type="text" id="customSep" placeholder="Custom sep" style="width:70px;" class="hidden">
+        <input type="number" id="columnIndex" placeholder="Col#" style="width:60px;" value="1" min="1">
+        <button class="btn" data-sort="column-sort">Sort by column</button>
+      </div>
+    </div>
+
+    <!-- prefix/suffix & find/replace -->
+    <div class="control-section"><div class="section-title">✏️ Tools</div>
+      <div class="flex-wrap">
+        <button class="btn" data-action="add-numbers">➕ Line numbers</button>
+        <button class="btn" data-action="remove-numbers">➖ Remove numbers</button>
+        <input type="text" id="prefixInput" placeholder="Prefix" style="width:80px;">
+        <button class="btn" data-action="add-prefix">Add prefix</button>
+        <input type="text" id="suffixInput" placeholder="Suffix" style="width:80px;">
+        <button class="btn" data-action="add-suffix">Add suffix</button>
+        <span class="divider"></span>
+        <input type="text" id="findInput" placeholder="Find" style="width:90px;">
+        <input type="text" id="replaceInput" placeholder="Replace" style="width:90px;">
+        <button class="btn" data-action="replace-all">Replace all</button>
+        <button class="btn" data-action="find-count">Count</button>
+      </div>
+    </div>
+
+    <!-- presets & action toolbar -->
+    <div class="control-section"><div class="section-title">🚀 Presets & Actions</div>
+      <div class="btn-group">
+        <button class="btn btn-primary" data-preset="az">A→Z</button>
+        <button class="btn btn-primary" data-preset="za">Z→A</button>
+        <button class="btn btn-primary" data-preset="num">Numbers</button>
+        <button class="btn btn-primary" data-preset="short">Shortest</button>
+        <button class="btn btn-primary" data-preset="long">Longest</button>
+        <button class="btn btn-primary" data-preset="clean">Clean & Sort</button>
+      </div>
+      <div class="action-toolbar">
+        <button class="btn" data-action="copy">📋 Copy</button>
+        <button class="btn" data-action="paste">📥 Paste</button>
+        <button class="btn" data-action="clear">🗑️ Clear</button>
+        <button class="btn" data-action="download-txt">⬇️ .txt</button>
+        <button class="btn" data-action="download-csv">⬇️ .csv</button>
+        <button class="btn" data-action="swap">⇄ Swap</button>
+        <button class="btn" data-action="undo">↩ Undo</button>
+        <button class="btn" data-action="redo">↪ Redo</button>
+        <button class="btn" data-action="reset">⟲ Reset</button>
+      </div>
+    </div>
+
+    <!-- file upload & comparison -->
+    <div class="control-section"><div class="section-title">📂 File & Compare</div>
+      <div class="file-upload-area" id="dropArea">
+        <div>📤 Drop a text file here or click to browse</div>
+        <input type="file" id="fileInput" accept=".txt,.csv,.log,.md" style="display:none;">
+        <div class="file-info" id="fileInfo"></div>
+      </div>
+      <div style="margin-top:0.5rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <button class="btn" data-action="show-changes">📊 Show Changes</button>
+        <div id="comparisonContainer" class="comparison-box hidden"></div>
+      </div>
+    </div>
   </div>
+  <div id="toast" class="toast"></div>
+</div>
+
 
 
 
@@ -1069,7 +1373,7 @@
         <ul>
           <li><a href="crop-image.html">Crop Image</a></li>
           <li><a href="resize-image.html">Resize Image</a></li>
-          <li><a href="rotate-flip.html">Rotate &amp; Flip</a></li>
+          <li><a href="rotate-flip-image.html">Rotate &amp; Flip</a></li>
           <li><a href="compress-image.html">Compress Image</a></li>
           <li><a href="watermark-image.html">Watermark Image</a></li>
           <li><a href="remove-background.html">Remove Background <span class="tag-new">NEW</span></a></li>
@@ -1084,7 +1388,7 @@
           <li><a href="split-separate-pdf.html">Split / Separate PDF</a></li>
           <li><a href="compress-pdf.html">Compress PDF</a></li>
           <li><a href="protect-unlock-pdf.html">Protect / Unlock PDF</a></li>
-          <li><a href="pdf-watermark.html">Watermark PDF</a></li>
+          <li><a href="watermark-pdf.html">Watermark PDF</a></li>
           <li><a href="rotate-pdf.html">Rotate PDF</a></li>
         </ul>
       </div>
@@ -1118,8 +1422,8 @@
           <li><a href="api-docs.html">API docs</a></li>
           <li><a href="help-center.html">Help center</a></li>
           <li><a href="status.html">Status</a></li>
-          <li><a href="privacy-policy.html">Privacy</a></li>
-          <li><a href="terms-of-service.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
         </ul>
       </div>
 
@@ -1161,13 +1465,17 @@
   <div class="wrap footer-bottom">
     <span>© 2026 Croply.io — All rights reserved.</span>
     <div class="footer-legal">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a> 
+      <a href="terms.html">Terms of Service</a>
       <a href="cookies.html">Cookies</a>
     </div>
-    <div class="socials">
-      <a href="https://twitter.com/croply" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
-     
+    <div class="socials"> 
+      <a href="#" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+      <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
+    </div>
+  </div>
+</footer>
 
 <script>
   // ---------- Desktop mega-menu (hover + keyboard/click) ----------
@@ -1269,6 +1577,332 @@
     });
   });
 </script>
+
+<!-- PAge Script Herer-->
+<script>
+  (function() {
+    // ----- state -----
+    const input = document.getElementById('inputText');
+    const output = document.getElementById('outputText');
+    let history = [];
+    let historyIndex = -1;
+    let originalInput = '';
+
+    // helpers
+    function getLines(text) { return text.split('\n'); }
+    function getText(lines) { return lines.join('\n'); }
+    function stats(text) {
+      const lines = getLines(text);
+      const words = text.split(/\s+/).filter(w => w).length;
+      const chars = text.length;
+      const unique = new Set(lines);
+      const empty = lines.filter(l => l.trim() === '').length;
+      return { lines: lines.length, words, chars, unique: unique.size, empty };
+    }
+
+    function updateStats() {
+      const s = stats(input.value);
+      document.getElementById('inLines').textContent = s.lines;
+      document.getElementById('inWords').textContent = s.words;
+      document.getElementById('inChars').textContent = s.chars;
+      document.getElementById('inUnique').textContent = s.unique;
+      document.getElementById('inEmpty').textContent = s.empty;
+      const out = stats(output.value);
+      document.getElementById('outLines').textContent = out.lines;
+      document.getElementById('outWords').textContent = out.words;
+      document.getElementById('outChars').textContent = out.chars;
+      document.getElementById('outUnique').textContent = out.unique;
+    }
+
+    function pushHistory() {
+      const state = { input: input.value, output: output.value };
+      history = history.slice(0, historyIndex + 1);
+      history.push(state);
+      historyIndex = history.length - 1;
+      if (history.length > 100) history.shift();
+    }
+
+    function undo() {
+      if (historyIndex > 0) { historyIndex--; restoreState(history[historyIndex]); }
+    }
+    function redo() {
+      if (historyIndex < history.length - 1) { historyIndex++; restoreState(history[historyIndex]); }
+    }
+    function restoreState(state) {
+      input.value = state.input;
+      output.value = state.output;
+      updateStats();
+    }
+
+    function applyToOutput(fn) {
+      const lines = getLines(output.value);
+      const result = fn(lines);
+      output.value = getText(result);
+      updateStats();
+      pushHistory();
+    }
+
+    function applyToInput(fn) {
+      const lines = getLines(input.value);
+      const result = fn(lines);
+      input.value = getText(result);
+      output.value = '';
+      updateStats();
+      pushHistory();
+    }
+
+    // sorters
+    function sortAlpha(lines, desc = false) {
+      const sens = document.getElementById('caseSensitive').checked;
+      return lines.slice().sort((a,b) => {
+        const x = sens ? a : a.toLowerCase();
+        const y = sens ? b : b.toLowerCase();
+        return desc ? y.localeCompare(x) : x.localeCompare(y);
+      });
+    }
+    function naturalSort(lines) {
+      return lines.slice().sort((a,b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+    }
+    function numericSort(lines, desc = false) {
+      return lines.slice().sort((a,b) => {
+        const na = parseFloat(a) || 0, nb = parseFloat(b) || 0;
+        return desc ? nb - na : na - nb;
+      });
+    }
+    function lengthSort(lines, desc = false) {
+      const ignore = document.getElementById('ignoreSpacesLen').checked;
+      return lines.slice().sort((a,b) => {
+        const la = ignore ? a.replace(/\s/g,'').length : a.length;
+        const lb = ignore ? b.replace(/\s/g,'').length : b.length;
+        return desc ? lb - la : la - lb;
+      });
+    }
+    function wordCountSort(lines, desc = false) {
+      return lines.slice().sort((a,b) => {
+        const wa = a.split(/\s+/).filter(w=>w).length;
+        const wb = b.split(/\s+/).filter(w=>w).length;
+        return desc ? wb - wa : wa - wb;
+      });
+    }
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    // apply sort action
+    function handleSort(action) {
+      const lines = getLines(output.value);
+      let result;
+      switch(action) {
+        case 'alpha-asc': result = sortAlpha(lines, false); break;
+        case 'alpha-desc': result = sortAlpha(lines, true); break;
+        case 'natural': result = naturalSort(lines); break;
+        case 'num-asc': result = numericSort(lines, false); break;
+        case 'num-desc': result = numericSort(lines, true); break;
+        case 'short': result = lengthSort(lines, false); break;
+        case 'long': result = lengthSort(lines, true); break;
+        case 'word-asc': result = wordCountSort(lines, false); break;
+        case 'word-desc': result = wordCountSort(lines, true); break;
+        case 'reverse': result = lines.slice().reverse(); break;
+        case 'shuffle': result = shuffleArray(lines.slice()); break;
+        case 'reshuffle': result = shuffleArray(lines.slice()); break;
+        case 'first-char': result = lines.slice().sort((a,b) => (a[0]||'').localeCompare(b[0]||'')); break;
+        case 'last-char': result = lines.slice().sort((a,b) => (a.slice(-1)||'').localeCompare(b.slice(-1)||'')); break;
+        case 'first-word': result = lines.slice().sort((a,b) => (a.split(/\s+/)[0]||'').localeCompare(b.split(/\s+/)[0]||'')); break;
+        case 'last-word': result = lines.slice().sort((a,b) => (a.split(/\s+/).pop()||'').localeCompare(b.split(/\s+/).pop()||'')); break;
+        case 'word-count': result = wordCountSort(lines, false); break;
+        case 'char-count': result = lengthSort(lines, false); break;
+        case 'column-sort': {
+          const sep = document.getElementById('separatorSelect').value;
+          const custom = document.getElementById('customSep').value;
+          let separator = sep === 'custom' ? custom : (sep === '\\t' ? '\t' : sep);
+          if (!separator) separator = ' ';
+          const col = parseInt(document.getElementById('columnIndex').value) || 1;
+          result = lines.slice().sort((a,b) => {
+            const pa = a.split(separator), pb = b.split(separator);
+            const va = (pa[col-1]||'').trim(), vb = (pb[col-1]||'').trim();
+            const na = parseFloat(va), nb = parseFloat(vb);
+            if (!isNaN(na) && !isNaN(nb)) return na - nb;
+            return va.localeCompare(vb);
+          });
+          break;
+        }
+        default: result = lines;
+      }
+      output.value = getText(result);
+      updateStats();
+      pushHistory();
+    }
+
+    // clean / duplicate actions
+    function handleAction(action) {
+      const lines = getLines(output.value);
+      let result = lines.slice();
+      switch(action) {
+        case 'keep-dupes': break;
+        case 'remove-dupes': { const s = new Set(); result = result.filter(l => { const key = l; if(s.has(key)) return false; s.add(key); return true; }); break; }
+        case 'keep-first': { const seen = new Set(); result = result.filter(l => { if(seen.has(l)) return false; seen.add(l); return true; }); break; }
+        case 'keep-last': { const seen = new Set(); result = result.reverse().filter(l => { if(seen.has(l)) return false; seen.add(l); return true; }).reverse(); break; }
+        case 'ignore-case-dupe': { const seen = new Set(); result = result.filter(l => { const key = l.toLowerCase(); if(seen.has(key)) return false; seen.add(key); return true; }); break; }
+        case 'trim-spaces': result = result.map(l => l.trim()); break;
+        case 'remove-empty': result = result.filter(l => l.trim() !== ''); break;
+        case 'empty-top': { const e = result.filter(l => l.trim() === ''); const n = result.filter(l => l.trim() !== ''); result = [...e, ...n]; break; }
+        case 'empty-bottom': { const e = result.filter(l => l.trim() === ''); const n = result.filter(l => l.trim() !== ''); result = [...n, ...e]; break; }
+        case 'add-numbers': {
+          const style = '1.';
+          result = result.map((l,i) => `${i+1}. ${l}`);
+          break;
+        }
+        case 'remove-numbers': result = result.map(l => l.replace(/^\d+[\.\)]\s*/, '')); break;
+        case 'add-prefix': {
+          const p = document.getElementById('prefixInput').value;
+          if(p) result = result.map(l => p + l);
+          break;
+        }
+        case 'add-suffix': {
+          const s = document.getElementById('suffixInput').value;
+          if(s) result = result.map(l => l + s);
+          break;
+        }
+        case 'replace-all': {
+          const find = document.getElementById('findInput').value;
+          const rep = document.getElementById('replaceInput').value;
+          if(find) result = result.map(l => l.split(find).join(rep));
+          break;
+        }
+        case 'find-count': {
+          const find = document.getElementById('findInput').value;
+          if(find) {
+            let count = 0;
+            result.forEach(l => { count += (l.match(new RegExp(find, 'g')) || []).length; });
+            showToast(`Found ${count} matches`);
+          }
+          break;
+        }
+        case 'clear': output.value = ''; updateStats(); pushHistory(); return;
+        case 'copy': navigator.clipboard?.writeText(output.value).then(()=>showToast('✓ Copied successfully')); return;
+        case 'paste': navigator.clipboard?.readText().then(t=>{ output.value = t; updateStats(); pushHistory(); }); return;
+        case 'swap': { const temp = input.value; input.value = output.value; output.value = temp; updateStats(); pushHistory(); return; }
+        case 'undo': undo(); return;
+        case 'redo': redo(); return;
+        case 'reset': input.value = originalInput; output.value = ''; updateStats(); pushHistory(); return;
+        case 'download-txt': download(output.value, 'sorted.txt', 'text/plain'); return;
+        case 'download-csv': download(output.value, 'sorted.csv', 'text/csv'); return;
+        case 'show-changes': showChanges(); return;
+        default: return;
+      }
+      output.value = getText(result);
+      updateStats();
+      pushHistory();
+    }
+
+    function download(content, filename, mime) {
+      const blob = new Blob([content], { type: mime });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function showChanges() {
+      const before = getLines(input.value);
+      const after = getLines(output.value);
+      const container = document.getElementById('comparisonContainer');
+      container.classList.remove('hidden');
+      let diff = `Added: ${after.filter(l => !before.includes(l)).length}\nRemoved: ${before.filter(l => !after.includes(l)).length}\n`;
+      const dupesBefore = before.length - new Set(before).size;
+      const dupesAfter = after.length - new Set(after).size;
+      diff += `Duplicates removed: ${dupesBefore - dupesAfter}`;
+      container.textContent = diff;
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timeout);
+      t._timeout = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // presets
+    function applyPreset(name) {
+      const lines = getLines(output.value);
+      let result;
+      switch(name) {
+        case 'az': result = sortAlpha(lines, false); break;
+        case 'za': result = sortAlpha(lines, true); break;
+        case 'num': result = numericSort(lines, false); break;
+        case 'short': result = lengthSort(lines, false); break;
+        case 'long': result = lengthSort(lines, true); break;
+        case 'clean': {
+          let cleaned = lines.map(l => l.trim()).filter(l => l !== '');
+          const s = new Set(); cleaned = cleaned.filter(l => { const key = l; if(s.has(key)) return false; s.add(key); return true; });
+          result = sortAlpha(cleaned, false);
+          break;
+        }
+        default: result = lines;
+      }
+      output.value = getText(result);
+      updateStats();
+      pushHistory();
+    }
+
+    // file upload
+    function handleFile(file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        input.value = e.target.result;
+        originalInput = input.value;
+        output.value = '';
+        updateStats();
+        pushHistory();
+        document.getElementById('fileInfo').textContent = `${file.name} (${file.size} bytes, ${getLines(input.value).length} lines)`;
+      };
+      reader.readAsText(file);
+    }
+
+    // event binding
+    document.querySelectorAll('[data-sort]').forEach(b => b.addEventListener('click', e => handleSort(e.currentTarget.dataset.sort)));
+    document.querySelectorAll('[data-action]').forEach(b => b.addEventListener('click', e => handleAction(e.currentTarget.dataset.action)));
+    document.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('click', e => applyPreset(e.currentTarget.dataset.preset)));
+
+    document.getElementById('separatorSelect').addEventListener('change', function() {
+      document.getElementById('customSep').classList.toggle('hidden', this.value !== 'custom');
+    });
+
+    // dark mode
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      themeToggle.textContent = document.body.classList.contains('dark') ? '☀️ Light' : '🌙 Dark';
+      localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'true' : 'false');
+    });
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+      themeToggle.textContent = '☀️ Light';
+    }
+
+    // file drop
+    const dropArea = document.getElementById('dropArea');
+    const fileInput = document.getElementById('fileInput');
+    dropArea.addEventListener('click', () => fileInput.click());
+    dropArea.addEventListener('dragover', e => { e.preventDefault(); dropArea.classList.add('dragover'); });
+    dropArea.addEventListener('dragleave', () => dropArea.classList.remove('dragover'));
+    dropArea.addEventListener('drop', e => { e.preventDefault(); dropArea.classList.remove('dragover'); if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+    fileInput.addEventListener('change', e => { if(e.target.files.length) handleFile(e.target.files[0]); });
+
+    // init
+    input.addEventListener('input', () => { originalInput = input.value; output.value = ''; updateStats(); pushHistory(); });
+    updateStats();
+    pushHistory();
+  })();
+</script>
+
+<!--End page script-->
 
 </body>
 </html>
