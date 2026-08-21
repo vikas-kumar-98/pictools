@@ -1,9 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Croply — Nav & Footer</title>
+    <!-- ============================================================ -->
+    <!-- 1. BASIC PAGE CONFIGURATION                                   -->
+    <!-- ============================================================ -->
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="color-scheme" content="light dark">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 2. PRIMARY SEO META TAGS                                      -->
+    <!-- ============================================================ -->
+    
+    <title>Free Online Tools - Image, PDF, URL Shortener &amp; More | ToolsHub</title>
+    <meta name="description" content="Free online tools: Image converter, PDF editor, URL shortener, QR code generator, file compressor, and more. 100% free, no sign-up required.">
+    <link rel="canonical" href="https://toolshub.com/">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 3. ROBOTS & CRAWLER INSTRUCTIONS                             -->
+    <!-- ============================================================ -->
+    
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:50, max-image-preview:large">
+    <meta name="bingbot" content="index, follow">
+    <meta name="google" content="notranslate">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 4. ALTERNATE URLS (International / Multi-region)             -->
+    <!-- ============================================================ -->
+    
+    <link rel="alternate" href="https://toolshub.com/" hreflang="x-default">
+    <link rel="alternate" href="https://toolshub.com/en-us/" hreflang="en-us">
+    <link rel="alternate" href="https://toolshub.com/en-gb/" hreflang="en-gb">
+    <link rel="alternate" href="https://toolshub.com/es/" hreflang="es">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 5. OPEN GRAPH (Facebook, LinkedIn, WhatsApp, Telegram)       -->
+    <!-- ============================================================ -->
+    
+    <meta property="og:title" content="Free Online Tools - Image, PDF, URL Shortener &amp; More | ToolsHub">
+    <meta property="og:description" content="Your all-in-one toolkit: Convert images, edit PDFs, shorten URLs, generate QR codes, compress files, and more. Completely free to use.">
+    <meta property="og:image" content="https://toolshub.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://toolshub.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ToolsHub">
+    <meta property="og:locale" content="en_US">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 6. TWITTER CARDS (X / Twitter)                               -->
+    <!-- ============================================================ -->
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online Tools - Image, PDF, URL Shortener &amp; More">
+    <meta name="twitter:description" content="Your all-in-one toolkit: Convert images, edit PDFs, shorten URLs, generate QR codes, compress files, and more.">
+    <meta name="twitter:image" content="https://toolshub.com/images/twitter-image.jpg">
+    <meta name="twitter:site" content="@ToolsHub">
+    <meta name="twitter:creator" content="@ToolsHub">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 7. APPLE / IOS META TAGS                                     -->
+    <!-- ============================================================ -->
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 8. FAVICONS & SITE VERIFICATION                              -->
+    <!-- ============================================================ -->
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="google-site-verification" content="your-verification-code">
+    <meta name="msvalidate.01" content="your-verification-code">
+    <meta name="p:domain_verify" content="your-verification-code">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 9. ADVANCED / NICHE META TAGS                                -->
+    <!-- ============================================================ -->
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="author" content="ToolsHub Team">
+    <meta name="copyright" content="2026 ToolsHub. All rights reserved.">
+    <meta name="rating" content="General">
+    <meta name="distribution" content="global">
+    <meta name="resource-type" content="document">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="San Francisco">
+    <meta name="geo.position" content="37.774929;-122.419418">
+    <meta name="ICBM" content="37.774929, -122.419418">
+    <meta name="revisit-after" content="7 days">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 10. STRUCTURED DATA (JSON-LD) - CRITICAL FOR RICH SNIPPETS  -->
+    <!-- ============================================================ -->
+    
+    <!-- SCHEMA 1: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ToolsHub",
+      "url": "https://toolshub.com/",
+      "description": "Free online tools for image conversion, PDF editing, URL shortening, QR code generation, and file compression.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://toolshub.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- SCHEMA 2: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ToolsHub",
+      "alternateName": "ToolsHub Online Tools",
+      "url": "https://toolshub.com/",
+      "logo": "https://toolshub.com/logo.png",
+      "description": "Free online tools platform offering image, PDF, URL, QR, and compression services.",
+      "email": "support@toolshub.com",
+      "telephone": "+1-800-555-1234",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Market Street",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94103",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://www.facebook.com/toolshub",
+        "https://twitter.com/toolshub",
+        "https://www.instagram.com/toolshub",
+        "https://www.linkedin.com/company/toolshub",
+        "https://www.youtube.com/c/toolshub"
+      ]
+    }
+    </script>
+    
+    <!-- SCHEMA 3: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://toolshub.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "All Tools",
+          "item": "https://toolshub.com/tools/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- SCHEMA 4: ItemList (All Tools) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "All Free Online Tools",
+      "description": "Complete list of all available free online tools.",
+      "numberOfItems": "12",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Image to JPG Converter",
+          "url": "https://toolshub.com/image-to-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PNG to WebP Converter",
+          "url": "https://toolshub.com/png-to-webp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Image Resizer",
+          "url": "https://toolshub.com/image-resizer/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Image Compressor",
+          "url": "https://toolshub.com/image-compressor/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "PDF to Word Converter",
+          "url": "https://toolshub.com/pdf-to-word/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "PDF to JPG Converter",
+          "url": "https://toolshub.com/pdf-to-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "PDF Merge Tool",
+          "url": "https://toolshub.com/pdf-merge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "PDF Compressor",
+          "url": "https://toolshub.com/pdf-compressor/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "URL Shortener",
+          "url": "https://toolshub.com/url-shortener/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "QR Code Generator",
+          "url": "https://toolshub.com/qr-code-generator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "File Compressor",
+          "url": "https://toolshub.com/file-compressor/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Text to Speech",
+          "url": "https://toolshub.com/text-to-speech/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- SCHEMA 5: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are these tools completely free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all tools on this platform are 100% free to use. No sign-up, no hidden charges, and no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account to use these tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No account is required. You can use all tools instantly without registration or login."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data safe when using these online tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All file uploads are processed securely and automatically deleted from our servers after conversion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use these tools on mobile devices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all tools are fully responsive and work seamlessly on smartphones, tablets, and desktop computers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you store my files permanently?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All files are automatically deleted from our servers within 1 hour of processing."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- SCHEMA 6: WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free Online Tools - Image, PDF, URL Shortener &amp; More",
+      "description": "Free online tools: Image converter, PDF editor, URL shortener, QR code generator, file compressor, and more.",
+      "url": "https://toolshub.com/",
+      "inLanguage": "en-US",
+      "about": {
+        "@type": "Thing",
+        "name": "Online Tools and Utilities"
+      }
+    }
+    </script>
+    
+    
+    <!-- ============================================================ -->
+    <!-- 11. PERFORMANCE (Preload & Preconnect)                       -->
+    <!-- ============================================================ -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://toolshub.com/css/main.css" as="style">
+    <link rel="preload" href="https://toolshub.com/images/hero-banner.jpg" as="image">
+    <link rel="dns-prefetch" href="//google-analytics.com">
+    <link rel="dns-prefetch" href="//googletagmanager.com">
+    <link rel="dns-prefetch" href="//facebook.com">
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -851,7 +1192,7 @@
       <span class="brand-mark">
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v14a2 2 0 0 0 2 2h12" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/><path d="M17 21V7a2 2 0 0 0-2-2H3" stroke="#062521" stroke-width="2.4" stroke-linecap="round"/></svg>
       </span>
-      Croply <span class="ext">.io</span>
+      MyTools <span class="ext">.com</span>
     </a>
 
     <nav class="nav-primary" aria-label="Primary">
@@ -884,11 +1225,11 @@
               <span class="mega-text"><strong>Watermark Image</strong><span>Add text or logo overlay</span></span>
             </a>
 
-            <a href="re" class="mega-link" role="menuitem">
+            <a href="resize-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3 3 8l5 5M16 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>Resize Image</strong><span>Set exact pixels or percentage</span></span>
             </a>
-            <a href="rotate-image.html" class="mega-link" role="menuitem">
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Rotate &amp; Flip</strong><span>Fix orientation in one click</span></span>
             </a>
@@ -904,7 +1245,7 @@
           </div>
           <div class="mega-foot">
             <span>All tools run free, no signup needed</span>
-            <a href="all-image-tools.html">See all image tools →</a>
+            <a href="image-tools.html">See all image tools →</a>
           </div>
         </div>
       </div>
@@ -924,7 +1265,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>Merge PDF</strong><span>Combine multiple PDFs into one</span></span>
             </a>
-            <a href="split-pdf.html" class="mega-link" role="menuitem">
+            <a href="split-separate-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 2"/></svg></span>
               <span class="mega-text"><strong>Split / Separate PDF</strong><span>Pull out or divide pages</span></span>
             </a>
@@ -942,12 +1283,12 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Image to PDF</strong><span>Combine JPG/PNG into a PDF</span></span>
             </a>
-            <a href="pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="pdf-to-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="mega-text"><strong>PDF to JPG</strong><span>Export each page as an image</span></span>
+              <span class="mega-text"><strong>PDF to Image</strong><span>Export each page as an image</span></span>
             </a>
 
-            <a href="rotate-pdf.html" class="mega-link" role="menuitem">
+            <a href="rotate-flip-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Rotate PDF</strong><span>Fix sideways or upside-down pages</span></span>
             </a>
@@ -958,7 +1299,7 @@
           </div>
           <div class="mega-foot">
             <span>Works with PDF, JPG, PNG, WEBP</span>
-            <a href="all-pdf-tools.html">See all PDF tools →</a>
+            <a href="#">See all PDF tools →</a>
           </div>
         </div>
       </div>
@@ -978,7 +1319,7 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>JPG → PNG</strong><span>Adds transparency support</span></span>
             </a>
-            <a href="convert-image-to-pdf.html" class="mega-link" role="menuitem">
+            <a href="jpg-to-pdf.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>Image → PDF</strong> <span class="tag-new">NEW</span><span>Merge JPG/PNG into a PDF</span></span>
             </a>
@@ -987,25 +1328,25 @@
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
               <span class="mega-text"><strong>PNG → JPG</strong><span>Smaller size for photos</span></span>
             </a>
-            <a href="convert-pdf-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="pdf-to-image.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="mega-text"><strong>PDF → JPG</strong><span>Export each page as an image</span></span>
+              <span class="mega-text"><strong>PDF → Image</strong><span>Export each page as an image</span></span>
             </a>
 
             <a href="convert-webp-to-jpg.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>WEBP → JPG/PNG</strong><span>Universal format support</span></span>
             </a>
-            <a href="convert-pdf-to-png.html" class="mega-link" role="menuitem">
-              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width("0.5"/></svg></span>
+            <a href="pdf-to-png.html" class="mega-link" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="12" y="6" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>PDF → PNG</strong><span>High-quality page export</span></span>
             </a>
 
-            <a href="convert-heic-to-jpg.html" class="mega-link" role="menuitem">
+            <a href="heic-to-jpg.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2"/><path d="M4 15l4-4 4 4 4-6 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="mega-text"><strong>HEIC → JPG</strong><span>Fix iPhone photos for web</span></span>
             </a>
-            <a href="convert-svg-to-png.html" class="mega-link" role="menuitem">
+            <a href="svg-to-png.html" class="mega-link" role="menuitem">
               <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7 12 3l8 4-8 4-8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.5"/></svg></span>
               <span class="mega-text"><strong>SVG → PNG</strong><span>Rasterize vector graphics</span></span>
             </a>
@@ -1017,14 +1358,17 @@
         </div>
       </div>
 
-      <a href="pricing.html" class="nav-link">Pricing</a>
-      <a href="api.html" class="nav-link">API</a>
-      <a href="blog.html" class="nav-link">Blog</a>
+
+      <a href="qr-code-generator.html" class="nav-link">QR Code Generator</a>
+      <a href="url-shortener.html" class="nav-link">URL Shortener</a>
+      <a href="google-serp-preview-tool.html" class="nav-link">Google SERP Preview Tool</a>
     </nav>
 
     <div class="nav-actions">
-      <a href="login.html" class="btn btn-ghost">Log in</a>
-      <a href="upload-image.html" class="btn btn-solid">Upload image</a>
+     <!--
+       <a href="login.html" class="btn btn-ghost">Log in</a>
+       <a href="upload-image.html" class="btn btn-solid">Upload image</a>
+      -->
       <button class="hamburger" id="drawerOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
@@ -1107,14 +1451,16 @@
       </div>
     </div>
 
-    <a href="pricing.html" class="drawer-simple-link">Pricing</a>
-    <a href="api.html" class="drawer-simple-link">API</a>
-    <a href="blog.html" class="drawer-simple-link">Blog</a>
+    <a href="qr-code-generator.html" class="drawer-simple-link">QR Code Generator</a>
+    <a href="url-shortener.html" class="drawer-simple-link">URL Shortener</a>
+    <a href="google-serp-preview-tool.html" class="drawer-simple-link">Google SERP Preview Tool</a>
   </div>
 
   <div class="drawer-foot">
-    <a href="login.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
+    <!--
+    <a href="log-in.html" class="btn btn-ghost" style="border:1px solid var(--line);">Log in</a>
     <a href="upload-image.html" class="btn btn-solid">Upload image</a>
+    -->
   </div>
 </aside>
 
@@ -1233,10 +1579,10 @@
         <ul>
           <li><a href="convert-jpg-to-png.html">JPG to PNG</a></li>
           <li><a href="convert-png-to-jpg.html">PNG to JPG</a></li>
-          <li><a href="convert-image-to-pdf.html">Image to PDF</a></li>
-          <li><a href="convert-pdf-to-jpg.html">PDF to JPG</a></li>
+          <li><a href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a href="pdf-to-jpg.html">PDF to JPG</a></li>
           <li><a href="convert-heic-to-jpg.html">HEIC to JPG</a></li>
-          <li><a href="convert-svg-to-png.html">SVG to PNG</a></li>
+          <li><a href="svg-to-png.html">SVG to PNG</a></li>
         </ul>
       </div>
 
@@ -1244,9 +1590,6 @@
         <h4>Company</h4>
         <ul>
           <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -1254,7 +1597,9 @@
       <div class="footer-col">
         <h4>Resources</h4>
         <ul>
+          <!--
           <li><a href="api-docs.html">API docs</a></li>
+          -->
           <li><a href="help-center.html">Help center</a></li>
           <li><a href="status.html">Status</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -1268,16 +1613,16 @@
           <a href="more-tools.html">View all 30+ tools →</a>
         </div>
         <div class="footer-more-list">
-          <a href="convert-image-to-base64.html">Image to Base64</a>
-          <a href="convert-gif-to-jpg.html">GIF to JPG</a>
-          <a href="convert-png-to-webp.html">PNG to WEBP</a>
+          <a href="image-to-base64.html">Image to Base64</a>
+          <a href="gif-to-jpg.html">GIF to JPG</a>
+          <a href="png-to-webp.html">PNG to WEBP</a>
           <a href="add-border.html">Add Border</a>
           <a href="image-color-picker.html">Image Color Picker</a>
           <a href="blur-face-area.html">Blur Face / Area</a>
           <a href="meme-generator.html">Meme Generator</a>
           <a href="photo-collage-maker.html">Photo Collage Maker</a>
           <a href="pdf-page-reorder.html">PDF Page Reorder</a>
-          <a href="convert-pdf-to-word.html">PDF to Word</a>
+          <a href="pdf-to-word.html">PDF to Word</a>
           <a href="grayscale-converter.html">Grayscale Converter</a>
           <a href="image-compressor.html">Image Compressor (Bulk)</a>
         </div>
@@ -1300,12 +1645,12 @@
   <div class="wrap footer-bottom">
     <span>© 2026 Croply.io — All rights reserved.</span>
     <div class="footer-legal">
-      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html">Privacy Policy</a> 
       <a href="terms.html">Terms of Service</a>
-      <a href="cookies.html">Cookies</a> 
+      <a href="cookies.html">Cookies</a>
     </div>
-    <div class="socials">
-      <a href="tw" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
+    <div class="socials"> 
+      <a href="#" class="social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22H16.9l-5-6.5-5.7 6.5H2.9l7.7-8.8L1.9 2h6.6l4.5 6z"/></svg></a>
       <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
       <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
     </div>
