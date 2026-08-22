@@ -567,7 +567,333 @@
 
   /*Page style goes here....................*/
 
-
+    .tc-adv-wrapper {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 290px;
+      gap: 2.8rem;
+      align-items: start;
+    }
+    /* ----- main content (unique) ----- */
+    .tc-adv-content {
+      background: transparent;
+      min-width: 0;
+    }
+    /* ----- hero (unique) ----- */
+    .tc-adv-hero {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e5ecf5;
+      margin-bottom: 2.8rem;
+      transition: box-shadow 0.2s;
+    }
+    .tc-adv-hero-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+    .tc-adv-hero-icon {
+      background: #eaf2ff;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #1a5cff;
+      flex-shrink: 0;
+      box-shadow: 0 4px 8px rgba(26, 92, 255, 0.08);
+    }
+    .tc-adv-hero-text {
+      flex: 1;
+    }
+    .tc-adv-hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0b1a2f;
+      line-height: 1.1;
+      margin-bottom: 0.15rem;
+    }
+    .tc-adv-hero-sub {
+      font-size: 1.15rem;
+      color: #2c405e;
+      font-weight: 400;
+      margin: 0.2rem 0 0.4rem;
+    }
+    .tc-adv-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.92rem;
+      color: #4e627c;
+      border-top: 1px solid #e9eff6;
+      padding-top: 0.9rem;
+    }
+    .tc-adv-hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tc-adv-notice-compact {
+      background: #f0f6ff;
+      border-radius: 60px;
+      padding: 0.5rem 1.4rem;
+      font-size: 0.92rem;
+      color: #1f3a6b;
+      border: 1px solid #d7e3f2;
+      display: inline-block;
+      margin-top: 0.6rem;
+    }
+    /* ----- sidebar (unique) ----- */
+    .tc-adv-sidebar {
+      position: sticky;
+      top: 2rem;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.6rem 1rem 1.6rem 1.2rem;
+      border: 1px solid #e5ecf5;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.02);
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+    }
+    .tc-adv-sidebar-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #2f4a6a;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eef2f8;
+      padding-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tc-adv-toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .tc-adv-toc-list li a {
+      display: block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1f3a5f;
+      text-decoration: none;
+      transition: 0.12s ease;
+      font-weight: 450;
+      border-left: 3px solid transparent;
+    }
+    .tc-adv-toc-list li a:hover {
+      background: #eef5ff;
+      color: #0b2b6b;
+      border-left-color: #1a5cff;
+    }
+    .tc-adv-toc-list li a.tc-adv-active-link {
+      background: #e6effa;
+      color: #0b2b6b;
+      font-weight: 500;
+      border-left-color: #1a5cff;
+    }
+    /* ----- mobile TOC (unique) ----- */
+    .tc-adv-mobile-toggle {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #dce3ec;
+      border-radius: 60px;
+      padding: 0.7rem 1.4rem;
+      font-weight: 500;
+      color: #1a2f4a;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      font-size: 0.95rem;
+      margin-bottom: 1.6rem;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+      transition: background 0.15s;
+    }
+    .tc-adv-mobile-toggle:hover {
+      background: #f5f9ff;
+    }
+    .tc-adv-mobile-toggle span:last-child {
+      background: #eef2f6;
+      border-radius: 30px;
+      padding: 0.1rem 0.7rem;
+      font-size: 0.8rem;
+    }
+    .tc-adv-mobile-dropdown {
+      display: none;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 0.8rem 0.5rem;
+      border: 1px solid #e5ecf5;
+      margin-bottom: 1.6rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .tc-adv-mobile-dropdown.tc-adv-open {
+      display: block;
+    }
+    .tc-adv-mobile-dropdown ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .tc-adv-mobile-dropdown ul li a {
+      display: block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      color: #1f3a5f;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.1s;
+    }
+    .tc-adv-mobile-dropdown ul li a:hover {
+      background: #eef5ff;
+    }
+    .tc-adv-mobile-dropdown ul li a.tc-adv-active-link {
+      background: #e6effa;
+      font-weight: 500;
+    }
+    /* ----- sections (unique) ----- */
+    .tc-adv-section {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e5ecf5;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.01);
+      scroll-margin-top: 2rem;
+      transition: box-shadow 0.2s;
+    }
+    .tc-adv-section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0b1f3a;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #eef3fa;
+      padding-bottom: 0.6rem;
+    }
+    .tc-adv-section p, .tc-adv-section li {
+      color: #1d334d;
+    }
+    .tc-adv-section ul, .tc-adv-section ol {
+      padding-left: 1.5rem;
+      margin: 0.8rem 0;
+    }
+    .tc-adv-section li {
+      margin-bottom: 0.3rem;
+    }
+    .tc-adv-highlight-box {
+      background: #f5faff;
+      border-left: 6px solid #1a5cff;
+      padding: 1.2rem 1.8rem;
+      border-radius: 18px;
+      margin: 1.2rem 0;
+    }
+    .tc-adv-warning-box {
+      background: #fef6f2;
+      border: 1px solid #fadfd2;
+      border-radius: 20px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.2rem 0;
+      color: #712b1a;
+    }
+    .tc-adv-warning-box strong {
+      color: #a13d22;
+    }
+    .tc-adv-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0 0.5rem;
+    }
+    .tc-adv-summary-card {
+      background: #fafcff;
+      border: 1px solid #dfe8f2;
+      border-radius: 24px;
+      padding: 1.1rem 0.8rem;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #132b47;
+      transition: transform 0.1s, box-shadow 0.15s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+    }
+    .tc-adv-summary-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 20, 40, 0.04);
+    }
+    .tc-adv-contact-card {
+      background: #f2f8ff;
+      border-radius: 22px;
+      padding: 1.6rem 2rem;
+      border: 1px solid #d9e6f7;
+    }
+    .tc-adv-contact-card p {
+      margin: 0.3rem 0;
+    }
+    .tc-adv-placeholder {
+      background: #ecf2fa;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      font-family: 'SF Mono', 'Menlo', monospace;
+      font-size: 0.9rem;
+      color: #1f4480;
+      border: 1px solid #d6e0ec;
+    }
+    /* ----- responsive (unique) ----- */
+    @media (max-width: 920px) {
+      .tc-adv-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .tc-adv-sidebar {
+        display: none;
+      }
+      .tc-adv-mobile-toggle {
+        display: flex;
+      }
+      .tc-adv-mobile-dropdown {
+        display: block;
+      }
+      .tc-adv-mobile-dropdown ul {
+        display: none;
+      }
+      .tc-adv-mobile-dropdown.tc-adv-open ul {
+        display: flex;
+      }
+      .tc-adv-hero {
+        padding: 1.6rem;
+      }
+      .tc-adv-hero-text h1 {
+        font-size: 2.2rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .tc-adv-body { padding: 1rem; }
+      .tc-adv-section { padding: 1.2rem; }
+      .tc-adv-hero-row { gap: 0.8rem; }
+      .tc-adv-hero-icon { width: 46px; height: 46px; font-size: 1.6rem; }
+      .tc-adv-hero-text h1 { font-size: 1.8rem; }
+    }
+    /* utility */
+    .tc-adv-text-muted { color: #4b627e; }
+    .tc-adv-mt-1 { margin-top: 0.8rem; }
+    .tc-adv-mb-1 { margin-bottom: 0.8rem; }
+    .tc-adv-fw-500 { font-weight: 500; }
 
   /* End Page style goes here....................*/
 </style>
@@ -861,6 +1187,196 @@
 
 
     
+<div class="tc-adv-wrapper">
+
+  <!-- MAIN CONTENT -->
+  <div class="tc-adv-content">
+
+    <!-- HERO -->
+    <div class="tc-adv-hero">
+      <div class="tc-adv-hero-row">
+        <div class="tc-adv-hero-icon" aria-hidden="true">📄</div>
+        <div class="tc-adv-hero-text">
+          <h1>Terms &amp; Conditions</h1>
+          <p class="tc-adv-hero-sub">Please read these terms carefully before using our website and online tools.</p>
+          <div class="tc-adv-hero-meta">
+            <span>📅 Last Updated: <strong>May 15, 2026</strong></span>
+            <span>⚖️ Effective: <strong>May 22, 2026</strong></span>
+          </div>
+          <div class="tc-adv-notice-compact">
+            ⚠️ By using this website, you accept these terms.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE TOC -->
+    <div class="tc-adv-mobile-toggle" id="tcAdvMobileToggle" role="button" tabindex="0" aria-expanded="false">
+      <span>📑 Table of contents</span>
+      <span id="tcAdvChevron">▼</span>
+    </div>
+    <div class="tc-adv-mobile-dropdown" id="tcAdvMobileDropdown">
+      <ul id="tcAdvMobileList">
+        <li><a href="#tc-adv-acceptance">Acceptance of Terms</a></li><li><a href="#tc-adv-use">Use of Our Services</a></li>
+        <li><a href="#tc-adv-responsibilities">User Responsibilities</a></li><li><a href="#tc-adv-file-uploads">File Uploads &amp; Processing</a></li>
+        <li><a href="#tc-adv-ip">Intellectual Property</a></li><li><a href="#tc-adv-prohibited">Prohibited Activities</a></li>
+        <li><a href="#tc-adv-thirdparty">Third-Party Services</a></li><li><a href="#tc-adv-availability">Availability &amp; Changes</a></li>
+        <li><a href="#tc-adv-disclaimer">Disclaimer</a></li><li><a href="#tc-adv-liability">Limitation of Liability</a></li>
+        <li><a href="#tc-adv-indemnification">Indemnification</a></li><li><a href="#tc-adv-termination">Termination</a></li>
+        <li><a href="#tc-adv-governing">Governing Law</a></li><li><a href="#tc-adv-changes">Changes to These Terms</a></li>
+        <li><a href="#tc-adv-contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- SECTIONS with unique IDs -->
+    <section class="tc-adv-section" id="tc-adv-acceptance">
+      <h2>Acceptance of Terms</h2>
+      <p>By accessing or using this website and its online tools, you agree to be bound by these Terms &amp; Conditions and all applicable laws and regulations. If you do not agree with any part of these terms, <strong>please do not use the website</strong>.</p>
+      <p>Your continued use constitutes acceptance of any updates to these terms.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-use">
+      <h2>Use of Our Services</h2>
+      <p>We provide a suite of online utilities including but not limited to:</p>
+      <ul>
+        <li>Image optimization &amp; conversion</li>
+        <li>PDF tools (merge, split, compress)</li>
+        <li>Text utilities &amp; formatters</li>
+        <li>Developer utilities (minify, beautify, validators)</li>
+        <li>Other online productivity tools</li>
+      </ul>
+      <p>The available tools may be changed, added, removed, or modified at any time without prior notice.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-responsibilities">
+      <h2>User Responsibilities</h2>
+      <p>You agree to:</p>
+      <ul>
+        <li>Use the website lawfully and in compliance with these terms.</li>
+        <li>Provide accurate information where required.</li>
+        <li>Respect intellectual property rights of the platform and third parties.</li>
+        <li>Not abuse the service, interfere with its operation, or attempt to bypass security measures.</li>
+        <li>Ensure you have the necessary permissions to process any files you upload.</li>
+      </ul>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-file-uploads">
+      <h2>File Uploads &amp; Processing</h2>
+      <div class="tc-adv-highlight-box">
+        <p><strong>📁 File ownership &amp; responsibility</strong></p>
+        <p>You retain full ownership of all files you upload. You are solely responsible for ensuring you have the right to upload and process those files. Processing methods vary per tool: some operations happen entirely in your browser, while others may involve server-side processing.</p>
+        <p>We recommend that you do <strong>not</strong> upload highly confidential or sensitive information unless the service explicitly states it supports secure handling.</p>
+        <p class="tc-adv-text-muted" style="font-size:0.9rem; margin-top:0.3rem;">We do not claim that uploaded files are automatically deleted — please refer to our privacy policy for data handling practices.</p>
+      </div>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-ip">
+      <h2>Intellectual Property</h2>
+      <p>All content on this website, including design, branding, logos, text, graphics, software, UI components, and original materials, is the property of the website operator or its licensors. You are granted a limited, non-transferable right to use the tools, but you do not receive ownership of the underlying technology or intellectual property.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-prohibited">
+      <h2>Prohibited Activities</h2>
+      <div class="tc-adv-warning-box">
+        <strong>⚠️ Users must not:</strong>
+        <ul style="margin-top:0.4rem;">
+          <li>Use the service for unlawful or fraudulent purposes.</li>
+          <li>Attempt to gain unauthorized access to systems or accounts.</li>
+          <li>Reverse engineer, decompile, or disassemble restricted components.</li>
+          <li>Introduce malware, viruses, or any harmful code.</li>
+          <li>Abuse automated requests or circumvent rate limits.</li>
+          <li>Overload or disrupt the infrastructure.</li>
+          <li>Infringe on copyrights, trademarks, or other rights.</li>
+          <li>Use the service to violate another person's rights.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-thirdparty">
+      <h2>Third-Party Services</h2>
+      <p>Our website may integrate with third-party services for analytics, hosting, security, payments, advertising, and infrastructure. These third parties have their own terms and privacy policies; we encourage you to review them. We are not responsible for the practices of third-party providers.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-availability">
+      <h2>Service Availability</h2>
+      <p>We make reasonable efforts to keep the website available, but we cannot guarantee uninterrupted service. Downtime may occur due to maintenance, updates, technical failures, network issues, security incidents, or other events beyond our control.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-disclaimer">
+      <h2>Disclaimer</h2>
+      <div style="background: #f9fbfe; border-radius: 20px; padding: 1.2rem 1.8rem; border: 1px solid #dfe8f2;">
+        <p><strong>“As available” &amp; “As is”</strong></p>
+        <p>To the extent permitted by law, the tools and information are provided on an “as available” and “as is” basis. We do not promise that every tool will work perfectly, that results are always accurate, that files will never be corrupted, or that the service will be error-free.</p>
+      </div>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-liability">
+      <h2>Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, the website operator shall not be liable for any indirect, incidental, consequential, or punitive damages arising from your use or inability to use the service, even if advised of the possibility of such damages. This does not affect any mandatory consumer protections that cannot be excluded.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-indemnification">
+      <h2>Indemnification</h2>
+      <p>You agree to indemnify and hold harmless the website operator from any claims, losses, or damages arising out of your misuse of the website, violation of these terms, or infringement of any third-party rights, to the extent permitted by applicable law.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-termination">
+      <h2>Termination</h2>
+      <p>We may suspend or terminate your access at any time, without prior notice, for reasons including abuse, security threats, illegal activity, violations of these terms, or to protect the service. You may also stop using the service at any time.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-governing">
+      <h2>Governing Law</h2>
+      <p><span class="tc-adv-placeholder">Governing Law: [Insert applicable jurisdiction]</span></p>
+      <p><span class="tc-adv-placeholder">Jurisdiction: [Insert applicable courts/location]</span></p>
+      <p class="tc-adv-text-muted" style="font-size:0.9rem;">These placeholders are intended for your actual legal jurisdiction.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-changes">
+      <h2>Changes to These Terms</h2>
+      <p>We may update these Terms &amp; Conditions periodically. The “Last Updated” and “Effective” dates at the top of this page indicate the latest revision. Continued use of the website after changes constitutes acceptance where legally applicable.</p>
+    </section>
+
+    <section class="tc-adv-section" id="tc-adv-contact" style="border-color: #d3e0ef;">
+      <h2>Contact Us</h2>
+      <div class="tc-adv-contact-card">
+        <p><strong>📬 Questions About These Terms?</strong></p>
+        <p>If you have questions regarding these Terms &amp; Conditions, please contact us.</p>
+        <p>📧 <span class="tc-adv-placeholder">Email: legal@example.com</span></p>
+        <p>🌐 <span class="tc-adv-placeholder">Website: example.com</span></p>
+      </div>
+    </section>
+
+    <!-- SUMMARY CARDS -->
+    <div style="margin: 2.2rem 0 0.5rem;">
+      <div class="tc-adv-card-grid">
+        <div class="tc-adv-summary-card">⚖️ Use Responsibly</div>
+        <div class="tc-adv-summary-card">📁 You Control Your Files</div>
+        <div class="tc-adv-summary-card">🔐 Respect Security</div>
+        <div class="tc-adv-summary-card">©️ Respect Intellectual Property</div>
+        <div class="tc-adv-summary-card">🚫 No Abuse</div>
+        <div class="tc-adv-summary-card">🔄 Terms May Change</div>
+      </div>
+    </div>
+
+  </div> <!-- /tc-adv-content -->
+
+  <!-- SIDEBAR (desktop) -->
+  <aside class="tc-adv-sidebar" id="tcAdvSidebar">
+    <div class="tc-adv-sidebar-title">📋 On this page</div>
+    <ul class="tc-adv-toc-list" id="tcAdvDesktopList">
+      <li><a href="#tc-adv-acceptance">Acceptance of Terms</a></li><li><a href="#tc-adv-use">Use of Our Services</a></li>
+      <li><a href="#tc-adv-responsibilities">User Responsibilities</a></li><li><a href="#tc-adv-file-uploads">File Uploads &amp; Processing</a></li>
+      <li><a href="#tc-adv-ip">Intellectual Property</a></li><li><a href="#tc-adv-prohibited">Prohibited Activities</a></li>
+      <li><a href="#tc-adv-thirdparty">Third-Party Services</a></li><li><a href="#tc-adv-availability">Availability &amp; Changes</a></li>
+      <li><a href="#tc-adv-disclaimer">Disclaimer</a></li><li><a href="#tc-adv-liability">Limitation of Liability</a></li>
+      <li><a href="#tc-adv-indemnification">Indemnification</a></li><li><a href="#tc-adv-termination">Termination</a></li>
+      <li><a href="#tc-adv-governing">Governing Law</a></li><li><a href="#tc-adv-changes">Changes to These Terms</a></li>
+      <li><a href="#tc-adv-contact">Contact Us</a></li>
+    </ul>
+  </aside>
+
+</div> <!-- /tc-adv-wrapper -->
 
 
 
@@ -1102,7 +1618,88 @@
 
 <!-- PAge Script Herer-->
 
+<script>
+  (function() {
+    // ----- mobile TOC toggle (unique) -----
+    const toggleBtn = document.getElementById('tcAdvMobileToggle');
+    const dropdown = document.getElementById('tcAdvMobileDropdown');
+    const chevron = document.getElementById('tcAdvChevron');
+    if (toggleBtn && dropdown) {
+      toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('tc-adv-open');
+        toggleBtn.setAttribute('aria-expanded', isOpen);
+        chevron.textContent = isOpen ? '▲' : '▼';
+      });
+      // close on link click (mobile)
+      dropdown.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          dropdown.classList.remove('tc-adv-open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          chevron.textContent = '▼';
+        });
+      });
+    }
 
+    // ----- active TOC highlight (desktop + mobile) unique classes -----
+    const sections = document.querySelectorAll('.tc-adv-section');
+    const desktopLinks = document.querySelectorAll('#tcAdvDesktopList a');
+    const mobileLinks = document.querySelectorAll('#tcAdvMobileList a');
+
+    function updateActive() {
+      let currentId = '';
+      const scrollPos = window.scrollY + 100; // offset
+
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentId = section.getAttribute('id');
+        }
+      });
+
+      // update desktop
+      desktopLinks.forEach(link => {
+        link.classList.toggle('tc-adv-active-link', link.getAttribute('href') === '#' + currentId);
+      });
+      // update mobile
+      mobileLinks.forEach(link => {
+        link.classList.toggle('tc-adv-active-link', link.getAttribute('href') === '#' + currentId);
+      });
+    }
+
+    // throttle + initial
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          updateActive();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    window.addEventListener('load', updateActive);
+    window.addEventListener('hashchange', function() {
+      setTimeout(updateActive, 60);
+    });
+
+    // smooth anchor scrolling (with offset)
+    document.querySelectorAll('a[href^="#tc-adv"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+          setTimeout(updateActive, 300);
+        }
+      });
+    });
+
+  })();
+</script>
 <!--End page script-->
 
 </body>

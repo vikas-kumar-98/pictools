@@ -567,7 +567,413 @@
 
   /*Page style goes here....................*/
 
+    .app-container {
+      max-width: 1400px;
+      width: 100%;
+      background: white;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 60px rgba(0, 20, 40, 0.08), 0 8px 24px rgba(0,0,0,0.02);
+      padding: 2.5rem 2.2rem;
+      transition: all 0.2s;
+    }
 
+    /* ----- hero compact ----- */
+    .hero {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    .hero-text h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0a1a2b;
+    }
+    .hero-text p {
+      color: #3b4c5e;
+      font-size: 1.1rem;
+      margin-top: 0.25rem;
+    }
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.8rem;
+      margin-top: 0.75rem;
+    }
+    .badge {
+      background: #eef3f8;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1d3a5a;
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #dce5ed;
+    }
+    .badge i {
+      font-size: 0.7rem;
+      color: #2f6b9e;
+    }
+
+    /* upload zone */
+    .upload-zone {
+      border: 2px dashed #cbd9e8;
+      border-radius: 2rem;
+      background: #f9fcff;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      transition: all 0.2s;
+      margin-bottom: 2rem;
+      position: relative;
+      cursor: pointer;
+    }
+    .upload-zone.dragover {
+      border-color: #2f7bb5;
+      background: #e7f0fa;
+      box-shadow: 0 0 0 4px rgba(47, 123, 181, 0.15);
+    }
+    .upload-zone i {
+      font-size: 3.5rem;
+      color: #386a9b;
+      margin-bottom: 0.5rem;
+    }
+    .upload-zone h3 {
+      font-weight: 500;
+      color: #1d2f40;
+    }
+    .upload-zone p {
+      color: #4e657e;
+      font-size: 0.95rem;
+    }
+    .upload-zone .hint {
+      font-size: 0.8rem;
+      color: #6d7e92;
+      margin-top: 0.8rem;
+    }
+    .upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .privacy-note {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #4c6a86;
+      background: #eaf1f9;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 30px;
+    }
+
+    /* dashboard cards */
+    .dashboard-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1.8rem 0 1.2rem;
+      gap: 0.8rem;
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      color: #1f3b57;
+      background: #f2f7fd;
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+    }
+    .stats span {
+      font-weight: 600;
+    }
+    .bulk-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #b7ccdf;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1b3b5c;
+      cursor: pointer;
+      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-outline:hover {
+      background: #e2ecf7;
+      border-color: #6f96b9;
+    }
+    .btn-primary {
+      background: #1a4972;
+      border: none;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(22, 78, 128, 0.2);
+    }
+    .btn-primary:hover { background: #0f3552; transform: scale(0.98); }
+    .btn-primary:disabled { opacity: 0.5; pointer-events: none; }
+
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .pdf-card {
+      background: white;
+      border-radius: 1.5rem;
+      border: 1px solid #e3eef7;
+      padding: 1rem 0.9rem 0.9rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      transition: 0.1s;
+      position: relative;
+    }
+    .pdf-card .thumb {
+      background: #f0f6fe;
+      border-radius: 1rem;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      color: #1d4b75;
+      margin-bottom: 0.6rem;
+    }
+    .pdf-card .info {
+      font-size: 0.8rem;
+      color: #1f3a56;
+    }
+    .pdf-card .info .name {
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pdf-card .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 0.5rem;
+    }
+    .pdf-card .actions button {
+      background: none;
+      border: none;
+      color: #4a6d8d;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    /* settings panel */
+    .settings-panel {
+      background: #f9fcff;
+      border-radius: 2rem;
+      padding: 1.8rem 1.8rem 1.2rem;
+      margin: 2rem 0;
+      border: 1px solid #e3edf6;
+    }
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.8rem 1.2rem;
+    }
+    .setting-group label {
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #1d3853;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .setting-group select, .setting-group input {
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      border-radius: 40px;
+      border: 1px solid #cbdae9;
+      background: white;
+      font-size: 0.9rem;
+    }
+    .setting-group input[type="range"] {
+      padding: 0;
+      accent-color: #1d5b8c;
+    }
+    .setting-group .range-value {
+      font-weight: 600;
+      color: #0b2b46;
+    }
+    .advanced-toggle {
+      margin-top: 1.5rem;
+      color: #1c4b71;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-block;
+      border-bottom: 1px dashed #90b0cc;
+    }
+    .advanced-collapse {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+      gap: 1rem;
+      border-top: 1px solid #dce8f2;
+      padding-top: 1rem;
+    }
+    .advanced-collapse.hidden { display: none; }
+
+    /* page preview */
+    .page-preview-area {
+      background: #f4faff;
+      border-radius: 1.8rem;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border: 1px solid #dce8f2;
+    }
+    .page-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 0.2rem 0.2rem 0.8rem;
+    }
+    .page-thumb-item {
+      background: white;
+      border-radius: 1.2rem;
+      border: 2px solid #e2edf7;
+      padding: 0.4rem;
+      width: 100px;
+      text-align: center;
+      transition: 0.1s;
+      cursor: pointer;
+    }
+    .page-thumb-item.selected {
+      border-color: #1d6b9e;
+      background: #e5f0fd;
+    }
+    .page-thumb-item canvas {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      background: white;
+    }
+    .page-thumb-item .page-num {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #1b3f60;
+      margin-top: 0.2rem;
+    }
+
+    /* convert button */
+    .convert-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1.5rem 0 1rem;
+    }
+    .progress-wrap {
+      flex: 1;
+      min-width: 150px;
+      margin-right: 1rem;
+      background: #e7f0f9;
+      border-radius: 60px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #1f6b9e;
+      border-radius: 60px;
+      transition: width 0.3s;
+    }
+    .status-text {
+      font-size: 0.9rem;
+      color: #1a3f60;
+    }
+
+    /* results */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .result-card {
+      background: white;
+      border-radius: 1.5rem;
+      border: 1px solid #deecf7;
+      padding: 0.8rem;
+      text-align: center;
+    }
+    .result-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      background: #eef4fa;
+      aspect-ratio: 1/1.3;
+      object-fit: contain;
+    }
+    .result-card .meta {
+      font-size: 0.7rem;
+      color: #1e3a56;
+      margin-top: 0.4rem;
+    }
+    .result-card .dl-btn {
+      margin-top: 0.4rem;
+      background: #e6f0fa;
+      border: none;
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #17456b;
+      cursor: pointer;
+    }
+
+    /* empty */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .empty-state i {
+      font-size: 4rem;
+      color: #b2cada;
+    }
+    .empty-state h3 {
+      font-weight: 400;
+      color: #1d3a57;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .app-container { padding: 1.5rem; }
+      .hero-text h1 { font-size: 1.8rem; }
+      .pdf-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .settings-grid { grid-template-columns: 1fr; }
+      .badge-group { gap: 0.4rem; }
+    }
 
   /* End Page style goes here....................*/
 </style>
@@ -860,7 +1266,93 @@
 <main class="wrap demo-hero">
 
 
-    
+    <div class="app-container" id="app">
+  <!-- hero -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1><i class="fas fa-file-pdf" style="color:#1b5a8c; margin-right: 10px;"></i>PDF to JPG Converter</h1>
+      <p>Convert PDF pages into high-quality JPG images quickly, accurately, and easily.</p>
+      <div class="badge-group">
+        <span class="badge"><i class="fas fa-check-circle"></i> High Quality</span>
+        <span class="badge"><i class="fas fa-layer-group"></i> Multi-Page</span>
+        <span class="badge"><i class="fas fa-copy"></i> Batch Processing</span>
+        <span class="badge"><i class="fas fa-bolt"></i> Fast Conversion</span>
+        <span class="badge"><i class="fas fa-shield-alt"></i> Secure</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- upload zone -->
+  <div class="upload-zone" id="uploadZone">
+    <i class="fas fa-file-pdf"></i>
+    <h3>Drag & drop your PDF files here</h3>
+    <p>or click to browse · Multiple files supported</p>
+    <div class="hint">📄 .pdf up to 20MB each</div>
+    <div class="privacy-note"><i class="fas fa-lock"></i> Your files stay private · processed locally</div>
+    <input type="file" id="fileInput" accept=".pdf" multiple>
+  </div>
+
+  <!-- dashboard -->
+  <div id="dashboard" style="display: none;">
+    <div class="dashboard-header">
+      <div class="stats">
+        <span id="totalFiles">0</span> files · <span id="totalPages">0</span> pages · <span id="totalSize">0 MB</span>
+      </div>
+      <div class="bulk-actions">
+        <button class="btn-outline" id="selectAllBtn"><i class="fas fa-check-double"></i> Select all</button>
+        <button class="btn-outline" id="deselectAllBtn"><i class="fas fa-times"></i> Deselect</button>
+        <button class="btn-outline" id="removeSelectedBtn"><i class="fas fa-trash"></i> Remove</button>
+        <button class="btn-outline" id="addMoreBtn"><i class="fas fa-plus"></i> Add more</button>
+      </div>
+    </div>
+    <div class="pdf-grid" id="pdfGrid"></div>
+  </div>
+
+  <!-- settings -->
+  <div class="settings-panel">
+    <div class="settings-grid">
+      <div class="setting-group"><label>JPG Quality</label><input type="range" min="10" max="100" value="90" id="qualitySlider"><span class="range-value" id="qualityDisplay">90%</span></div>
+      <div class="setting-group"><label>DPI</label><select id="dpiSelect"><option value="72">72 DPI</option><option value="96">96 DPI</option><option value="150">150 DPI</option><option value="200">200 DPI</option><option value="300" selected>300 DPI</option><option value="custom">Custom</option></select></div>
+      <div class="setting-group"><label>Background</label><select id="bgSelect"><option value="white">White</option><option value="black">Black</option><option value="custom">Custom color</option></select><input type="color" id="customColor" value="#ffffff" style="margin-top:6px; width:100%;"></div>
+      <div class="setting-group"><label>Page range</label><input type="text" id="pageRangeInput" placeholder="e.g. 1-5, 7, 9-12" value="all"></div>
+    </div>
+    <div class="advanced-toggle" id="advancedToggle"><i class="fas fa-cog"></i> Advanced settings</div>
+    <div class="advanced-collapse hidden" id="advancedPanel">
+      <div class="setting-group"><label>Rotation</label><select id="rotateSelect"><option value="0">0°</option><option value="90">90°</option><option value="180">180°</option><option value="270">270°</option></select></div>
+      <div class="setting-group"><label>Naming pattern</label><input type="text" value="document-page" id="namePattern"></div>
+      <div class="setting-group"><label>Anti-aliasing</label><select id="aaSelect"><option value="true">On</option><option value="false">Off</option></select></div>
+    </div>
+  </div>
+
+  <!-- page preview -->
+  <div class="page-preview-area" id="pagePreviewArea" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <span><strong>Page preview</strong> <span id="selectedPageCount">0</span> selected</span>
+      <div><button class="btn-outline" id="previewSelectAll">Select all</button> <button class="btn-outline" id="previewDeselectAll">Deselect</button></div>
+    </div>
+    <div class="page-thumbs" id="pageThumbs"></div>
+  </div>
+
+  <!-- convert -->
+  <div class="convert-bar">
+    <button class="btn-primary" id="convertBtn"><i class="fas fa-arrow-right"></i> Convert PDF to JPG</button>
+    <div style="display: flex; align-items: center; gap: 1rem; flex:1; min-width:120px;">
+      <div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+      <span class="status-text" id="statusText">Ready</span>
+    </div>
+    <button class="btn-outline" id="cancelConvertBtn" style="display: none;"><i class="fas fa-stop"></i> Cancel</button>
+  </div>
+
+  <!-- results -->
+  <div id="resultsContainer"></div>
+
+  <!-- empty state (shown if no files) -->
+  <div class="empty-state" id="emptyState">
+    <i class="fas fa-file-pdf"></i>
+    <h3>Upload a PDF to get started</h3>
+    <p style="color:#4f6c89;">Drag & drop or click to browse · .pdf up to 20MB</p>
+  </div>
+</div>
 
 
 
@@ -1101,7 +1593,293 @@
 </script>
 
 <!-- PAge Script Herer-->
+<script>
+  (function() {
+    // ---- state ----
+    let pdfFiles = []; // { id, file, name, size, pages, selected, pageSelection: 'all'|array, thumbData, status }
+    let convertedResults = [];
+    let isConverting = false;
+    let conversionCancel = false;
+    let fileIdCounter = 0;
+    const MAX_FILE_SIZE = 20 * 1024 * 1024;
 
+    const uploadZone = document.getElementById('uploadZone');
+    const fileInput = document.getElementById('fileInput');
+    const pdfGrid = document.getElementById('pdfGrid');
+    const dashboard = document.getElementById('dashboard');
+    const emptyState = document.getElementById('emptyState');
+    const pageThumbs = document.getElementById('pageThumbs');
+    const pagePreviewArea = document.getElementById('pagePreviewArea');
+    const progressFill = document.getElementById('progressFill');
+    const statusText = document.getElementById('statusText');
+    const convertBtn = document.getElementById('convertBtn');
+    const cancelBtn = document.getElementById('cancelConvertBtn');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityDisplay = document.getElementById('qualityDisplay');
+    const dpiSelect = document.getElementById('dpiSelect');
+    const bgSelect = document.getElementById('bgSelect');
+    const customColor = document.getElementById('customColor');
+    const pageRangeInput = document.getElementById('pageRangeInput');
+    const rotateSelect = document.getElementById('rotateSelect');
+    const namePattern = document.getElementById('namePattern');
+    const aaSelect = document.getElementById('aaSelect');
+    const resultsContainer = document.getElementById('resultsContainer');
+    const totalFilesSpan = document.getElementById('totalFiles');
+    const totalPagesSpan = document.getElementById('totalPages');
+    const totalSizeSpan = document.getElementById('totalSize');
+
+    // advanced toggle
+    document.getElementById('advancedToggle').addEventListener('click', function() {
+      document.getElementById('advancedPanel').classList.toggle('hidden');
+    });
+
+    qualitySlider.addEventListener('input', () => qualityDisplay.textContent = qualitySlider.value + '%');
+
+    // ---- helpers ----
+    function formatSize(bytes) { return (bytes / (1024*1024)).toFixed(2) + ' MB'; }
+
+    function updateStats() {
+      let files = pdfFiles.length, pages = 0, size = 0;
+      pdfFiles.forEach(f => { pages += f.pages || 0; size += f.size || 0; });
+      totalFilesSpan.textContent = files;
+      totalPagesSpan.textContent = pages;
+      totalSizeSpan.textContent = formatSize(size);
+    }
+
+    function renderDashboard() {
+      if (pdfFiles.length === 0) {
+        dashboard.style.display = 'none';
+        emptyState.style.display = 'block';
+        pagePreviewArea.style.display = 'none';
+        return;
+      }
+      dashboard.style.display = 'block';
+      emptyState.style.display = 'none';
+      let html = '';
+      pdfFiles.forEach((f, idx) => {
+        html += `<div class="pdf-card" data-id="${f.id}">
+          <div class="thumb"><i class="fas fa-file-pdf"></i></div>
+          <div class="info"><div class="name">${f.name}</div>${formatSize(f.size)} · ${f.pages||'?'} pages</div>
+          <div class="actions">
+            <button class="removeFileBtn" data-id="${f.id}"><i class="fas fa-times"></i></button>
+          </div>
+        </div>`;
+      });
+      pdfGrid.innerHTML = html;
+      document.querySelectorAll('.removeFileBtn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = Number(btn.dataset.id);
+          pdfFiles = pdfFiles.filter(f => f.id !== id);
+          renderDashboard();
+          updateStats();
+          renderPagePreviews();
+        });
+      });
+      updateStats();
+      renderPagePreviews();
+    }
+
+    // ---- page preview ----
+    function renderPagePreviews() {
+      let selectedFile = pdfFiles.find(f => f.selected !== false);
+      if (!selectedFile) { pagePreviewArea.style.display = 'none'; return; }
+      pagePreviewArea.style.display = 'block';
+      const pages = selectedFile.pages || 0;
+      let html = '';
+      let selectedCount = 0;
+      const selArr = selectedFile.pageSelection === 'all' ? [] : (selectedFile.pageSelection || []);
+      for (let i = 1; i <= pages; i++) {
+        const isSel = (selArr.length === 0) || selArr.includes(i);
+        if (isSel) selectedCount++;
+        html += `<div class="page-thumb-item ${isSel?'selected':''}" data-page="${i}">
+          <canvas width="80" height="100"></canvas>
+          <div class="page-num">${i}</div>
+        </div>`;
+      }
+      pageThumbs.innerHTML = html;
+      document.getElementById('selectedPageCount').textContent = selectedCount + ' of ' + pages;
+
+      // click toggle
+      pageThumbs.querySelectorAll('.page-thumb-item').forEach(el => {
+        el.addEventListener('click', function() {
+          const page = Number(this.dataset.page);
+          let sel = selectedFile.pageSelection === 'all' ? [] : (selectedFile.pageSelection || []);
+          if (sel.includes(page)) sel = sel.filter(p => p !== page);
+          else sel.push(page);
+          sel.sort((a,b)=>a-b);
+          selectedFile.pageSelection = sel.length === 0 ? 'all' : sel;
+          renderPagePreviews();
+        });
+      });
+
+      // draw thumbnails (simplified)
+      // for real rendering we would use pdf.js, but for demo we just show placeholder
+    }
+
+    document.getElementById('previewSelectAll').addEventListener('click', function() {
+      let f = pdfFiles.find(f => f.selected !== false);
+      if (f) { f.pageSelection = 'all'; renderPagePreviews(); }
+    });
+    document.getElementById('previewDeselectAll').addEventListener('click', function() {
+      let f = pdfFiles.find(f => f.selected !== false);
+      if (f) { f.pageSelection = []; renderPagePreviews(); }
+    });
+
+    // ---- file handling ----
+    function handleFiles(fileList) {
+      let added = 0;
+      for (let file of fileList) {
+        if (file.type !== 'application/pdf') continue;
+        if (file.size > MAX_FILE_SIZE) { alert('File too large: ' + file.name); continue; }
+        if (pdfFiles.some(f => f.name === file.name && f.size === file.size)) continue;
+        const id = ++fileIdCounter;
+        // mock page count
+        const mockPages = Math.floor(Math.random() * 15) + 2;
+        pdfFiles.push({
+          id, name: file.name, size: file.size, file, pages: mockPages,
+          selected: true, pageSelection: 'all', status: 'idle'
+        });
+        added++;
+      }
+      if (added) { renderDashboard(); updateStats(); }
+    }
+
+    fileInput.addEventListener('change', (e) => { handleFiles(e.target.files); fileInput.value = ''; });
+    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+    uploadZone.addEventListener('drop', (e) => {
+      e.preventDefault(); uploadZone.classList.remove('dragover');
+      handleFiles(e.dataTransfer.files);
+    });
+    document.getElementById('addMoreBtn').addEventListener('click', () => fileInput.click());
+
+    // bulk select/deselect/remove
+    document.getElementById('selectAllBtn').addEventListener('click', function() {
+      pdfFiles.forEach(f => f.selected = true); renderDashboard();
+    });
+    document.getElementById('deselectAllBtn').addEventListener('click', function() {
+      pdfFiles.forEach(f => f.selected = false); renderDashboard();
+    });
+    document.getElementById('removeSelectedBtn').addEventListener('click', function() {
+      pdfFiles = pdfFiles.filter(f => f.selected !== false);
+      renderDashboard(); updateStats();
+    });
+
+    // ---- conversion mock ----
+    convertBtn.addEventListener('click', function() {
+      if (isConverting) return;
+      if (pdfFiles.length === 0) return;
+      isConverting = true;
+      conversionCancel = false;
+      cancelBtn.style.display = 'inline-block';
+      convertBtn.disabled = true;
+      statusText.textContent = 'Starting...';
+      progressFill.style.width = '0%';
+      resultsContainer.innerHTML = '';
+      convertedResults = [];
+
+      // simulate conversion
+      let total = pdfFiles.reduce((acc, f) => acc + (f.pages || 0), 0);
+      let processed = 0;
+      const interval = setInterval(() => {
+        if (conversionCancel) { clearInterval(interval); resetConvert(); return; }
+        processed += Math.min(3, total - processed);
+        let pct = Math.min(100, Math.round((processed / total) * 100));
+        progressFill.style.width = pct + '%';
+        statusText.textContent = `Converting ${processed} of ${total} pages...`;
+        if (processed >= total) {
+          clearInterval(interval);
+          // mock results
+          pdfFiles.forEach(f => {
+            for (let i=1; i<= (f.pages||2); i++) {
+              convertedResults.push({
+                page: i, filename: `${namePattern.value || 'document'}-${i}.jpg`,
+                size: (Math.random()*0.5+0.2).toFixed(2)+' MB',
+                dimensions: '800x1100', dataUrl: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%221100%22%3E%3Crect fill=%22%23eef4fa%22 width=%22800%22 height=%221100%22/%3E%3Ctext x=%2230%22 y=%2250%22 font-family=%22system-ui%22 font-size=%2230%22 fill=%22%231a3f60%22%3EPage '+i+'%3C/text%3E%3C/svg%3E'
+              });
+            }
+          });
+          showResults();
+          resetConvert();
+        }
+      }, 300);
+    });
+
+    function resetConvert() {
+      isConverting = false;
+      conversionCancel = false;
+      cancelBtn.style.display = 'none';
+      convertBtn.disabled = false;
+      statusText.textContent = 'Done';
+    }
+
+    cancelBtn.addEventListener('click', function() {
+      conversionCancel = true;
+      statusText.textContent = 'Cancelling...';
+    });
+
+    function showResults() {
+      let html = `<h3 style="margin:1rem 0 0.5rem"><i class="fas fa-check-circle" style="color:#1f8b4c;"></i> Conversion Complete</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:1.5rem; background:#f4faff; border-radius:2rem; padding:1rem 1.5rem; margin:0.5rem 0 1rem;">
+        <span>📄 PDFs: ${pdfFiles.length}</span>
+        <span>🖼️ JPGs: ${convertedResults.length}</span>
+        <span>📦 total size: ~${(convertedResults.length*0.3).toFixed(1)} MB</span>
+      </div>
+      <div class="results-grid">`;
+      convertedResults.forEach((r, idx) => {
+        html += `<div class="result-card">
+          <img src="${r.dataUrl}" alt="page ${r.page}">
+          <div class="meta">${r.filename} · ${r.dimensions}</div>
+          <div class="meta">${r.size}</div>
+          <button class="dl-btn" data-idx="${idx}"><i class="fas fa-download"></i> Download</button>
+        </div>`;
+      });
+      html += `</div>
+      <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem;">
+        <button class="btn-primary" id="downloadAllZip"><i class="fas fa-file-archive"></i> Download All as ZIP</button>
+        <button class="btn-outline" id="downloadAllJpg"><i class="fas fa-download"></i> Download All JPGs</button>
+      </div>`;
+      resultsContainer.innerHTML = html;
+      // individual download
+      document.querySelectorAll('.dl-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const idx = Number(this.dataset.idx);
+          const r = convertedResults[idx];
+          const a = document.createElement('a');
+          a.href = r.dataUrl;
+          a.download = r.filename;
+          a.click();
+        });
+      });
+      document.getElementById('downloadAllZip').addEventListener('click', function() {
+        const zip = new JSZip();
+        convertedResults.forEach(r => {
+          const blob = dataURLToBlob(r.dataUrl);
+          zip.file(r.filename, blob);
+        });
+        zip.generateAsync({type:'blob'}).then(content => {
+          const a = document.createElement('a'); a.href = URL.createObjectURL(content); a.download = 'converted.zip'; a.click();
+        });
+      });
+      document.getElementById('downloadAllJpg').addEventListener('click', function() {
+        convertedResults.forEach(r => {
+          const a = document.createElement('a'); a.href = r.dataUrl; a.download = r.filename; a.click();
+        });
+      });
+    }
+
+    function dataURLToBlob(dataurl) {
+      const arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+      while(n--) u8arr[n] = bstr.charCodeAt(n);
+      return new Blob([u8arr], {type:mime});
+    }
+
+    // init
+    renderDashboard();
+    updateStats();
+  })();
+</script>
 
 <!--End page script-->
 

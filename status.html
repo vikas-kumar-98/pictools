@@ -567,7 +567,438 @@
 
   /*Page style goes here....................*/
 
+    .status-page-container {
+      max-width: 1280px;
+      width: 100%;
+    }
 
+    /* ----- cards & spacing ----- */
+    .status-card {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 20, 40, 0.04);
+      padding: 1.75rem 1.75rem 2rem;
+      border: 1px solid #eef2f6;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .status-card:hover {
+      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.05);
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      color: #1a2634;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title small {
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #5b6f87;
+      margin-left: 0.5rem;
+    }
+
+    /* ----- main status overview ----- */
+    .main-status-wrapper {
+      margin-bottom: 2.5rem;
+    }
+
+    .main-status-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 0.5rem;
+    }
+
+    .status-badge-large {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .status-badge-large .indicator {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: #2d9b4e;
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(45, 155, 78, 0.2);
+    }
+
+    .status-badge-large .status-label {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0c1a2b;
+    }
+
+    .status-badge-large .status-sub {
+      font-size: 0.95rem;
+      color: #3a4c62;
+      margin-left: 0.25rem;
+      font-weight: 400;
+    }
+
+    .status-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem 1.8rem;
+      color: #3f556b;
+      font-size: 0.9rem;
+    }
+
+    .status-meta time {
+      background: #f0f4fa;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f3143;
+    }
+
+    .refresh-control {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .refresh-btn {
+      background: transparent;
+      border: 1px solid #d3dee9;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #1a2c40;
+      cursor: pointer;
+      transition: background 0.1s, border 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .refresh-btn:hover {
+      background: #eaf0f8;
+      border-color: #b3c6db;
+    }
+
+    .refresh-btn:active {
+      background: #d5e0ee;
+    }
+
+    .auto-refresh-tag {
+      background: #e7edf6;
+      border-radius: 20px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #1e3349;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .auto-refresh-tag span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #2d9b4e;
+      border-radius: 50%;
+      margin-right: 0.2rem;
+    }
+
+    .refresh-countdown {
+      font-variant-numeric: tabular-nums;
+      min-width: 2.2rem;
+      display: inline-block;
+    }
+
+    /* ----- service list ----- */
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .service-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0.75rem 0.3rem;
+      border-bottom: 1px solid #f0f4fa;
+      gap: 0.25rem 0.5rem;
+    }
+
+    .service-row:last-child {
+      border-bottom: none;
+    }
+
+    .service-name {
+      font-weight: 500;
+      min-width: 130px;
+      flex: 1 1 120px;
+    }
+
+    .service-desc {
+      color: #48617a;
+      font-size: 0.85rem;
+      flex: 2 1 160px;
+    }
+
+    .service-status-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: auto;
+      flex-wrap: wrap;
+      flex: 1 0 auto;
+      justify-content: flex-end;
+    }
+
+    .status-dot {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .status-dot.operational { background: #2d9b4e; }
+    .status-dot.degraded { background: #e68a2e; }
+    .status-dot.partial { background: #d97706; }
+    .status-dot.major { background: #c72a2a; }
+    .status-dot.maintenance { background: #6b7b94; }
+
+    .status-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    .availability-pct {
+      font-size: 0.8rem;
+      background: #f0f5fd;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      font-weight: 500;
+      color: #1c334a;
+    }
+
+    .resp-time {
+      font-size: 0.75rem;
+      color: #5f768f;
+      background: #f4f8ff;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    /* ----- uptime overview (blocks) ----- */
+    .uptime-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .uptime-block {
+      background: #f8faff;
+      border-radius: 1rem;
+      padding: 0.9rem 0.3rem 0.9rem 1rem;
+      border: 1px solid #eef3f9;
+    }
+
+    .uptime-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #5f738d;
+    }
+
+    .uptime-value {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0.2rem 0 0.1rem;
+    }
+
+    .uptime-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: #e2eaf3;
+      border-radius: 6px;
+      margin-top: 0.4rem;
+      overflow: hidden;
+    }
+
+    .uptime-bar-fill {
+      height: 100%;
+      background: #2d9b4e;
+      border-radius: 6px;
+      width: 99.99%;
+    }
+
+    /* ----- incident history ----- */
+    .incident-item {
+      border-left: 3px solid #bccbde;
+      padding: 0.8rem 0 0.8rem 1.2rem;
+      margin-bottom: 0.5rem;
+      background: #fafdff;
+      border-radius: 0 0.7rem 0.7rem 0;
+    }
+
+    .incident-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+      cursor: pointer;
+    }
+
+    .incident-title {
+      font-weight: 600;
+    }
+
+    .incident-meta {
+      font-size: 0.8rem;
+      color: #4d677f;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+    }
+
+    .incident-status-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      background: #e2eaf3;
+      color: #1d3146;
+    }
+
+    .incident-timeline {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      color: #3d5974;
+      border-top: 1px dashed #dae3ed;
+      padding-top: 0.6rem;
+    }
+
+    .incident-timeline span {
+      background: #edf3fa;
+      padding: 0.05rem 0.7rem;
+      border-radius: 40px;
+    }
+
+    .maintenance-card {
+      background: #f4f8fe;
+      border-radius: 1rem;
+      padding: 0.8rem 1.2rem;
+      margin: 0.4rem 0;
+      border: 1px solid #e2ecf7;
+    }
+
+    /* ---- performance mini charts (mock) ---- */
+    .perf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .perf-item {
+      background: #f9fcff;
+      padding: 0.8rem 0.5rem 0.8rem 0.9rem;
+      border-radius: 1rem;
+      border: 1px solid #eef3f9;
+    }
+
+    .perf-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #5f738d;
+    }
+
+    .perf-value {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .mini-chart {
+      display: flex;
+      align-items: flex-end;
+      height: 24px;
+      gap: 3px;
+      margin-top: 4px;
+    }
+
+    .mini-chart .bar {
+      flex: 1;
+      background: #b6cde0;
+      height: 8px;
+      border-radius: 4px;
+      transition: height 0.1s;
+    }
+
+    .mini-chart .bar.high { background: #2d9b4e; height: 22px; }
+    .mini-chart .bar.medium { background: #e68a2e; height: 14px; }
+
+    /* ---- filters / search ---- */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1rem;
+      margin-bottom: 1.2rem;
+      align-items: center;
+    }
+
+    .filter-bar input, .filter-bar select {
+      background: white;
+      border: 1px solid #d7e2ed;
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      color: #1a2634;
+    }
+
+    .filter-bar input::placeholder {
+      color: #8499b0;
+    }
+
+    /* ---- responsive adjustments ---- */
+    @media (max-width: 700px) {
+      .status-card { padding: 1.2rem; }
+      .main-status-grid { flex-direction: column; align-items: flex-start; }
+      .status-meta { flex-wrap: wrap; row-gap: 0.5rem; }
+      .service-row { flex-direction: column; align-items: flex-start; }
+      .service-status-badge { margin-left: 0; width: 100%; justify-content: flex-start; }
+      .uptime-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 430px) {
+      .uptime-grid { grid-template-columns: 1fr; }
+      .perf-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* accessibility & utils */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; }
+    button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #1f6bb8; outline-offset: 2px; }
+    .status-card { transition: background 0.1s; }
+
+    /* no maintenance */
+    .no-maint {
+      padding: 0.5rem 0 0.2rem;
+      color: #3f5a75;
+      font-style: italic;
+    }
 
   /* End Page style goes here....................*/
 </style>
@@ -861,6 +1292,117 @@
 
 
     
+  <div class="status-page-container" role="main">
+
+    <!-- MAIN OVERVIEW -->
+    <section class="main-status-wrapper" aria-label="Overall system status">
+      <div class="status-card">
+        <div class="main-status-grid">
+          <div class="status-badge-large">
+            <span class="indicator" id="globalIndicator" role="status" aria-label="All systems operational"></span>
+            <span class="status-label" id="globalStatusLabel">All Systems Operational</span>
+            <span class="status-sub" id="globalStatusSub">· All services are operating normally.</span>
+          </div>
+          <div class="status-meta">
+            <time id="lastUpdatedTime" datetime="2026-08-23T14:32:00">Updated just now</time>
+            <div class="refresh-control">
+              <span class="auto-refresh-tag"><span></span> Auto-refresh <span class="refresh-countdown" id="countdownDisplay">30</span>s</span>
+              <button class="refresh-btn" id="refreshStatusBtn" aria-label="Refresh status">↻ Refresh</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE LIST -->
+    <section class="status-card" style="margin-bottom: 2rem;" aria-label="Service status list">
+      <div class="section-title">Services <small>real-time availability</small></div>
+      <div class="filter-bar">
+        <input type="text" id="serviceSearch" placeholder="Search services..." aria-label="Search services">
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="all">All status</option>
+          <option value="operational">Operational</option>
+          <option value="degraded">Degraded</option>
+          <option value="partial">Partial outage</option>
+          <option value="major">Major outage</option>
+          <option value="maintenance">Maintenance</option>
+        </select>
+        <select id="sortServices" aria-label="Sort services">
+          <option value="name">Sort by name</option>
+          <option value="status">Sort by status</option>
+        </select>
+      </div>
+      <div class="service-list" id="serviceListContainer" role="list"></div>
+    </section>
+
+    <!-- UPTIME OVERVIEW -->
+    <section class="status-card" style="margin-bottom: 2rem;" aria-label="Uptime overview">
+      <div class="section-title">Uptime <small>last 90 days</small></div>
+      <div class="uptime-grid" id="uptimeGrid">
+        <div class="uptime-block"><span class="uptime-label">90-day</span><div class="uptime-value" id="uptime90">99.99%</div><div class="uptime-bar-bg"><div class="uptime-bar-fill" style="width:99.99%"></div></div></div>
+        <div class="uptime-block"><span class="uptime-label">30-day</span><div class="uptime-value" id="uptime30">99.99%</div><div class="uptime-bar-bg"><div class="uptime-bar-fill" style="width:99.99%"></div></div></div>
+        <div class="uptime-block"><span class="uptime-label">7-day</span><div class="uptime-value" id="uptime7">100%</div><div class="uptime-bar-bg"><div class="uptime-bar-fill" style="width:100%"></div></div></div>
+        <div class="uptime-block"><span class="uptime-label">24-hour</span><div class="uptime-value" id="uptime24">100%</div><div class="uptime-bar-bg"><div class="uptime-bar-fill" style="width:100%"></div></div></div>
+      </div>
+    </section>
+
+    <!-- PERFORMANCE METRICS -->
+    <section class="status-card" style="margin-bottom: 2rem;" aria-label="Performance metrics">
+      <div class="section-title">Performance</div>
+      <div class="perf-grid" id="perfGrid">
+        <div class="perf-item"><span class="perf-label">Avg response</span><div class="perf-value">142 ms</div><div class="mini-chart"><div class="bar high"></div><div class="bar high"></div><div class="bar medium"></div><div class="bar high"></div><div class="bar high"></div></div></div>
+        <div class="perf-item"><span class="perf-label">API latency</span><div class="perf-value">89 ms</div><div class="mini-chart"><div class="bar high"></div><div class="bar high"></div><div class="bar high"></div><div class="bar medium"></div><div class="bar high"></div></div></div>
+        <div class="perf-item"><span class="perf-label">Success rate</span><div class="perf-value">99.8%</div><div class="mini-chart"><div class="bar high"></div><div class="bar high"></div><div class="bar high"></div><div class="bar high"></div><div class="bar medium"></div></div></div>
+        <div class="perf-item"><span class="perf-label">Error rate</span><div class="perf-value">0.2%</div><div class="mini-chart"><div class="bar medium"></div><div class="bar high"></div><div class="bar high"></div><div class="bar high"></div><div class="bar high"></div></div></div>
+        <div class="perf-item"><span class="perf-label">Traffic</span><div class="perf-value">1.2k req/s</div><div class="mini-chart"><div class="bar high"></div><div class="bar high"></div><div class="bar medium"></div><div class="bar high"></div><div class="bar high"></div></div></div>
+        <div class="perf-item"><span class="perf-label">Availability</span><div class="perf-value">99.99%</div><div class="mini-chart"><div class="bar high"></div><div class="bar high"></div><div class="bar high"></div><div class="bar high"></div><div class="bar high"></div></div></div>
+      </div>
+    </section>
+
+    <!-- INCIDENT HISTORY + MAINTENANCE -->
+    <section class="status-card" style="margin-bottom: 2rem;" aria-label="Incident history and maintenance">
+      <div class="section-title">Incident history <small>resolved</small></div>
+      <div class="filter-bar" style="margin-top:-0.2rem;">
+        <select id="incidentFilterDate" aria-label="Filter incidents by date">
+          <option value="all">All time</option>
+          <option value="7">Last 7 days</option>
+          <option value="30">Last 30 days</option>
+        </select>
+      </div>
+      <div id="incidentList">
+        <div class="incident-item">
+          <div class="incident-header"><span class="incident-title">API latency spike</span><span class="incident-meta">Aug 22, 2026 · 09:14 – 09:42 · 28 min</span><span class="incident-status-tag" style="background:#d7e6d0;color:#1b6b2b;">Resolved</span></div>
+          <div class="incident-timeline"><span>Investigating</span><span>Identified</span><span>Monitoring</span><span>Resolved</span></div>
+          <div style="font-size:0.85rem;color:#2f4b64;margin-top:0.3rem;">Affected: API · brief error rate increase</div>
+        </div>
+        <div class="incident-item">
+          <div class="incident-header"><span class="incident-title">CDN edge cache issue</span><span class="incident-meta">Aug 20, 2026 · 13:02 – 13:15 · 13 min</span><span class="incident-status-tag" style="background:#d7e6d0;color:#1b6b2b;">Resolved</span></div>
+          <div class="incident-timeline"><span>Investigating</span><span>Identified</span><span>Monitoring</span><span>Resolved</span></div>
+          <div style="font-size:0.85rem;color:#2f4b64;margin-top:0.3rem;">Affected: CDN · partial slow-down</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.8rem;">
+        <div class="section-title" style="font-size:1rem;">Scheduled maintenance</div>
+        <div id="maintenanceContainer">
+          <div class="maintenance-card"><strong>Database upgrade</strong> · Affected: Database · Aug 27, 2026 · 02:00 UTC · 45 min · <span style="background:#e5ebf3;padding:0 0.5rem;border-radius:30px;">scheduled</span><div style="font-size:0.85rem;color:#3b5773;">Planned performance improvements.</div></div>
+          <div class="no-maint" style="display:none;" id="noMaintenanceMsg">No scheduled maintenance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTIFICATIONS (UI only) -->
+    <section class="status-card" aria-label="Subscribe to status updates">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem 1.5rem;">
+        <span style="font-weight:500;">📬 Subscribe to Status Updates</span>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center;">
+          <input type="email" id="notifyEmail" placeholder="Email address" aria-label="Email for notifications" style="padding:0.4rem 0.8rem;border-radius:40px;border:1px solid #d7e2ed;font-size:0.85rem;min-width:190px;">
+          <button id="notifySubscribeBtn" style="background:#1f3349;color:white;border:none;padding:0.4rem 1.4rem;border-radius:40px;font-weight:500;cursor:pointer;">Subscribe</button>
+        </div>
+      </div>
+      <div id="notifyFeedback" style="margin-top:0.4rem;font-size:0.85rem;color:#2d5f3c;"></div>
+    </section>
+  </div>
 
 
 
@@ -1101,7 +1643,199 @@
 </script>
 
 <!-- PAge Script Herer-->
+  <script>
+    (function() {
+      "use strict";
 
+      // ---------- MOCK DATA ----------
+      const servicesData = [
+        { id: 'svc1', name: 'Website', desc: 'Public web interface', status: 'operational', availability: 99.99, response: 120 },
+        { id: 'svc2', name: 'Image Tools', desc: 'Image processing & optimization', status: 'operational', availability: 99.97, response: 210 },
+        { id: 'svc3', name: 'PDF Tools', desc: 'PDF generation & conversion', status: 'degraded', availability: 98.4, response: 340 },
+        { id: 'svc4', name: 'Developer Tools', desc: 'API playground & testing', status: 'operational', availability: 99.98, response: 95 },
+        { id: 'svc5', name: 'API', desc: 'Core API gateway', status: 'operational', availability: 99.95, response: 89 },
+        { id: 'svc6', name: 'File Processing', desc: 'File upload & transformation', status: 'partial', availability: 97.2, response: 440 },
+        { id: 'svc7', name: 'Authentication', desc: 'User auth & sessions', status: 'operational', availability: 100, response: 55 },
+        { id: 'svc8', name: 'CDN', desc: 'Content delivery network', status: 'maintenance', availability: 99.7, response: 70 },
+        { id: 'svc9', name: 'Database', desc: 'Primary data store', status: 'operational', availability: 99.99, response: 24 }
+      ];
+
+      // ----- DOM refs -----
+      const serviceListEl = document.getElementById('serviceListContainer');
+      const globalIndicator = document.getElementById('globalIndicator');
+      const globalStatusLabel = document.getElementById('globalStatusLabel');
+      const globalStatusSub = document.getElementById('globalStatusSub');
+      const lastUpdatedTime = document.getElementById('lastUpdatedTime');
+      const countdownEl = document.getElementById('countdownDisplay');
+      const refreshBtn = document.getElementById('refreshStatusBtn');
+
+      const serviceSearch = document.getElementById('serviceSearch');
+      const statusFilter = document.getElementById('statusFilter');
+      const sortServices = document.getElementById('sortServices');
+
+      // notification
+      const notifyEmail = document.getElementById('notifyEmail');
+      const notifyBtn = document.getElementById('notifySubscribeBtn');
+      const notifyFeedback = document.getElementById('notifyFeedback');
+
+      // ----- helpers -----
+      function getStatusText(s) {
+        return s.replace(/([A-Z])/g, ' $1').trim();
+      }
+
+      function statusDotClass(s) {
+        const map = { 'operational':'operational','degraded':'degraded','partial':'partial','major':'major','maintenance':'maintenance' };
+        return map[s] || 'operational';
+      }
+
+      // render service rows
+      function renderServices(filtered) {
+        const list = filtered || servicesData;
+        let html = '';
+        list.forEach(svc => {
+          const dot = statusDotClass(svc.status);
+          const statusDisplay = getStatusText(svc.status);
+          html += `<div class="service-row" role="listitem" data-status="${svc.status}" data-name="${svc.name.toLowerCase()}">
+            <span class="service-name">${svc.name}</span>
+            <span class="service-desc">${svc.desc}</span>
+            <span class="service-status-badge">
+              <span class="status-dot ${dot}" aria-hidden="true"></span>
+              <span class="status-text">${statusDisplay}</span>
+              <span class="availability-pct">${svc.availability}%</span>
+              <span class="resp-time">${svc.response} ms</span>
+            </span>
+          </div>`;
+        });
+        serviceListEl.innerHTML = html;
+        updateGlobalStatus();
+      }
+
+      // compute global status
+      function updateGlobalStatus() {
+        const rows = document.querySelectorAll('.service-row');
+        if (!rows.length) return;
+        let hasMajor = false, hasPartial = false, hasDegraded = false, hasMaintenance = false;
+        rows.forEach(row => {
+          const st = row.dataset.status;
+          if (st === 'major') hasMajor = true;
+          else if (st === 'partial') hasPartial = true;
+          else if (st === 'degraded') hasDegraded = true;
+          else if (st === 'maintenance') hasMaintenance = true;
+        });
+        let label = 'All Systems Operational', sub = 'All services are operating normally.';
+        let dotColor = '#2d9b4e';
+        if (hasMajor) { label = 'Major Outage'; sub = 'One or more services are experiencing a major outage.'; dotColor = '#c72a2a'; }
+        else if (hasPartial) { label = 'Partial Outage'; sub = 'Some services are experiencing issues.'; dotColor = '#d97706'; }
+        else if (hasDegraded) { label = 'Degraded Performance'; sub = 'Some services are experiencing degraded performance.'; dotColor = '#e68a2e'; }
+        else if (hasMaintenance) { label = 'Maintenance'; sub = 'Some services are under maintenance.'; dotColor = '#6b7b94'; }
+        globalStatusLabel.textContent = label;
+        globalStatusSub.textContent = '· ' + sub;
+        globalIndicator.style.background = dotColor;
+        globalIndicator.style.boxShadow = `0 0 0 3px ${dotColor}33`;
+      }
+
+      // filter + sort
+      function applyFiltersAndSort() {
+        const search = serviceSearch.value.toLowerCase().trim();
+        const status = statusFilter.value;
+        const sort = sortServices.value;
+        let filtered = servicesData.filter(s => {
+          const matchName = s.name.toLowerCase().includes(search) || s.desc.toLowerCase().includes(search);
+          const matchStatus = status === 'all' || s.status === status;
+          return matchName && matchStatus;
+        });
+        if (sort === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name));
+        else if (sort === 'status') filtered.sort((a,b) => a.status.localeCompare(b.status));
+        renderServices(filtered);
+      }
+
+      // ----- auto refresh countdown & timestamp -----
+      let countdown = 30;
+      let refreshInterval;
+
+      function updateTimestamp() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+        lastUpdatedTime.textContent = `Updated ${timeStr}`;
+        lastUpdatedTime.setAttribute('datetime', now.toISOString());
+      }
+
+      function refreshData() {
+        // mock: shuffle small variation
+        servicesData.forEach(s => {
+          // random slight changes
+          const variation = (Math.random() * 0.2) - 0.1;
+          let newAvail = Math.min(100, Math.max(95, s.availability + variation));
+          s.availability = Math.round(newAvail * 100) / 100;
+          s.response = Math.round(s.response + (Math.random() * 6 - 3));
+          if (s.response < 20) s.response = 22;
+          // keep status stable mostly
+        });
+        applyFiltersAndSort();
+        updateTimestamp();
+        // update uptime mock
+        document.getElementById('uptime90').textContent = (99.9 + Math.random()*0.09).toFixed(2) + '%';
+        document.getElementById('uptime30').textContent = (99.95 + Math.random()*0.04).toFixed(2) + '%';
+        document.getElementById('uptime7').textContent = (99.98 + Math.random()*0.02).toFixed(2) + '%';
+        document.getElementById('uptime24').textContent = '100%';
+        countdown = 30;
+        countdownEl.textContent = countdown;
+      }
+
+      function startCountdown() {
+        if (refreshInterval) clearInterval(refreshInterval);
+        refreshInterval = setInterval(() => {
+          countdown -= 1;
+          if (countdown <= 0) {
+            refreshData();
+            countdown = 30;
+          }
+          countdownEl.textContent = countdown;
+        }, 1000);
+      }
+
+      // ---- init ----
+      function init() {
+        renderServices(servicesData);
+        updateTimestamp();
+        startCountdown();
+
+        // refresh button
+        refreshBtn.addEventListener('click', function(e) {
+          refreshData();
+          countdown = 30;
+          countdownEl.textContent = countdown;
+        });
+
+        // search / filter / sort
+        serviceSearch.addEventListener('input', applyFiltersAndSort);
+        statusFilter.addEventListener('change', applyFiltersAndSort);
+        sortServices.addEventListener('change', applyFiltersAndSort);
+
+        // notification mock
+        notifyBtn.addEventListener('click', function() {
+          const email = notifyEmail.value.trim();
+          if (!email || !email.includes('@') || !email.includes('.')) {
+            notifyFeedback.textContent = 'Please enter a valid email address.';
+            notifyFeedback.style.color = '#a53a3a';
+          } else {
+            notifyFeedback.textContent = `✓ Subscribed (demo) — updates would be sent to ${email}`;
+            notifyFeedback.style.color = '#1f6b37';
+            notifyEmail.value = '';
+          }
+        });
+      }
+
+      // additional incident filter (mock)
+      document.getElementById('incidentFilterDate')?.addEventListener('change', function() {
+        // just visual mock: we keep both incidents visible.
+      });
+
+      // if no maintenance? we have maintenance displayed, keep as is.
+
+      init();
+    })();
+  </script>
 
 <!--End page script-->
 

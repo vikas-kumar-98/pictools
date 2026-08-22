@@ -567,7 +567,413 @@
 
   /*Page style goes here....................*/
 
+    /* main wrapper */
+    .tf-privacy-wrap {
+      max-width: 1280px;
+      width: 100%;
+    }
 
+    /* card */
+    .tf-privacy-card {
+      background: #ffffff;
+      border-radius: 44px;
+      box-shadow: 0 24px 60px -16px rgba(0, 20, 40, 0.12), 0 8px 28px rgba(0, 0, 0, 0.02);
+      padding: 2.8rem 3rem 2.2rem;
+      transition: all 0.15s ease;
+    }
+
+    /* ----- two column layout ----- */
+    .tf-grid-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2.8rem;
+      align-items: start;
+    }
+
+    /* ----- sidebar (sticky TOC) ----- */
+    .tf-sidebar-nav {
+      position: sticky;
+      top: 2.2rem;
+      background: #f8fcff;
+      border-radius: 28px;
+      padding: 1.8rem 1.2rem 1.6rem 1.5rem;
+      border: 1px solid #e3ebf5;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    }
+
+    .tf-sidebar-label {
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #3f5a78;
+      border-bottom: 2px solid #dfe9f3;
+      padding-bottom: 0.7rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tf-sidebar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tf-sidebar-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .tf-sidebar-list a {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #1f3a57;
+      padding: 0.35rem 0.5rem 0.35rem 0.9rem;
+      border-radius: 40px;
+      border-left: 3px solid transparent;
+      transition: all 0.1s ease;
+      text-decoration: none;
+    }
+
+    .tf-sidebar-list a:hover {
+      background: #eaf1fc;
+      border-left-color: #2563eb;
+      color: #0b1f33;
+    }
+
+    .tf-sidebar-list a:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    /* ----- mobile TOC (hidden on desktop) ----- */
+    .tf-toc-mobile {
+      display: none;
+    }
+
+    /* ----- hero ----- */
+    .tf-hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 2px solid #eaf0f8;
+    }
+
+    .tf-hero-text h1 {
+      font-size: 2.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #091a2c;
+      line-height: 1.15;
+      margin-bottom: 0.15rem;
+    }
+
+    .tf-hero-sub {
+      font-size: 1.1rem;
+      color: #3b5775;
+      max-width: 600px;
+    }
+
+    .tf-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+
+    .tf-hero-badge {
+      background: #e6eefa;
+      border-radius: 60px;
+      padding: 0.25rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1d3d5e;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tf-hero-icon {
+      background: #e3edfd;
+      border-radius: 80px;
+      width: 68px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    /* ----- content typography ----- */
+    .tf-content-area h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin: 2.6rem 0 0.8rem 0;
+      letter-spacing: -0.01em;
+      color: #091a2c;
+      border-bottom: 2px solid #eef4fb;
+      padding-bottom: 0.3rem;
+    }
+
+    .tf-content-area h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.4rem 0;
+      color: #1a3450;
+    }
+
+    .tf-content-area p {
+      margin-bottom: 0.9rem;
+      color: #1d3855;
+    }
+
+    .tf-content-area ul,
+    .tf-content-area ol {
+      padding-left: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tf-content-area li {
+      margin-bottom: 0.25rem;
+    }
+
+    .tf-content-area a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .tf-content-area a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- highlight card (file processing) ----- */
+    .tf-highlight-box {
+      background: #f2f8ff;
+      border-radius: 24px;
+      padding: 1.6rem 2rem;
+      border: 1px solid #d8e6f7;
+      margin: 1.6rem 0 1.8rem 0;
+      box-shadow: 0 2px 10px rgba(0, 40, 80, 0.02);
+    }
+
+    .tf-highlight-box i {
+      color: #2563eb;
+      width: 1.6rem;
+    }
+
+    .tf-highlight-box strong {
+      color: #08263f;
+    }
+
+    /* ----- info grid (analytics / third-party) ----- */
+    .tf-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1.5fr 1fr;
+      gap: 0.6rem 0.8rem;
+      background: #f7fcff;
+      padding: 1rem 1.2rem;
+      border-radius: 20px;
+      border: 1px solid #e0eaf5;
+      margin: 0.8rem 0 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .tf-info-grid .tf-grid-head {
+      font-weight: 600;
+      color: #1d3d5e;
+    }
+
+    /* ----- highlights summary badges ----- */
+    .tf-badge-cluster {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.8rem 1.2rem;
+      background: #f7fcff;
+      border-radius: 30px;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0 1.5rem;
+      border: 1px solid #e0eaf5;
+    }
+
+    .tf-badge-cluster .tf-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #142433;
+    }
+
+    .tf-badge-cluster .tf-badge-item i {
+      font-size: 1.3rem;
+      color: #2563eb;
+      width: 2rem;
+    }
+
+    /* ----- contact card ----- */
+    .tf-contact-block {
+      background: #ecf4fe;
+      border-radius: 28px;
+      padding: 2rem 2.2rem;
+      margin: 2.4rem 0 0.5rem;
+      border: 1px solid #d2e2f5;
+    }
+
+    .tf-contact-block h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #091a2c;
+    }
+
+    .tf-contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .tf-contact-row span {
+      background: white;
+      padding: 0.35rem 1.4rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+      border: 1px solid #d4e0ef;
+    }
+
+    .tf-contact-row i {
+      margin-right: 8px;
+      color: #2563eb;
+    }
+
+    .tf-placeholder-tag {
+      background: #e0eaf5;
+      border-radius: 30px;
+      padding: 0.1rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #294a6b;
+      margin-left: 6px;
+    }
+
+    /* ----- footer note (no nav) ----- */
+    .tf-footer-note {
+      margin-top: 2.2rem;
+      font-size: 0.75rem;
+      color: #8aa0b8;
+      text-align: center;
+      border-top: 1px solid #e2ebf5;
+      padding-top: 1.2rem;
+    }
+
+    /* ----- responsive ----- */
+    @media (max-width: 960px) {
+      .tf-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .tf-sidebar-nav {
+        display: none;
+      }
+      .tf-toc-mobile {
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .tf-toc-mobile details {
+        background: #f3f9ff;
+        border-radius: 40px;
+        padding: 0.5rem 1.2rem;
+        border: 1px solid #d8e4f0;
+      }
+      .tf-toc-mobile summary {
+        font-weight: 600;
+        cursor: pointer;
+        color: #0b1f33;
+        font-size: 0.95rem;
+      }
+      .tf-toc-mobile ul {
+        list-style: none;
+        padding: 0.8rem 0.2rem 0.2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.15rem 0.8rem;
+      }
+      .tf-toc-mobile a {
+        font-size: 0.85rem;
+        text-decoration: none;
+        color: #1a3450;
+        font-weight: 500;
+        padding: 0.2rem 0;
+        border-bottom: 1px solid transparent;
+      }
+      .tf-toc-mobile a:hover {
+        border-bottom-color: #2563eb;
+      }
+      .tf-hero-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .tf-hero-icon {
+        align-self: flex-start;
+        margin-top: 0.5rem;
+      }
+      .tf-privacy-card {
+        padding: 1.8rem 1.4rem;
+        border-radius: 32px;
+      }
+      .tf-info-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.3rem;
+      }
+      .tf-info-grid .tf-grid-head {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 0rem;
+      }
+      .tf-privacy-card {
+        padding: 1.2rem 0.9rem;
+        border-radius: 24px;
+      }
+      .tf-hero-text h1 {
+        font-size: 2.1rem;
+      }
+      .tf-badge-cluster {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        padding: 1rem 1rem;
+      }
+      .tf-contact-row {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .tf-toc-mobile ul {
+        grid-template-columns: 1fr;
+      }
+      .tf-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* accessibility */
+    html {
+      scroll-behavior: smooth;
+    }
+    :focus {
+      outline: 3px solid #2563eb;
+      outline-offset: 2px;
+    }
 
   /* End Page style goes here....................*/
 </style>
@@ -860,7 +1266,225 @@
 <main class="wrap demo-hero">
 
 
-    
+      <div class="tf-privacy-wrap">
+    <div class="tf-privacy-card">
+
+      <!-- HERO -->
+      <div class="tf-hero-section">
+        <div class="tf-hero-text">
+          <h1>Privacy Policy</h1>
+          <div class="tf-hero-sub">Your privacy matters. Learn how we collect, use, protect, and manage your information.</div>
+          <div class="tf-hero-meta">
+            <span class="tf-hero-badge"><i class="far fa-calendar-alt"></i> Last Updated: 22 August 2026</span>
+          </div>
+        </div>
+        <div class="tf-hero-icon"><i class="fas fa-shield-alt"></i></div>
+      </div>
+
+      <!-- GRID: SIDEBAR + CONTENT -->
+      <div class="tf-grid-layout">
+
+        <!-- SIDEBAR (desktop) -->
+        <aside class="tf-sidebar-nav">
+          <div class="tf-sidebar-label"><i class="fas fa-compass"></i> Contents</div>
+          <ul class="tf-sidebar-list">
+            <li><a href="#tf-collect">Information We Collect</a></li>
+            <li><a href="#tf-use">How We Use Information</a></li>
+            <li><a href="#tf-file">File &amp; Tool Processing</a></li>
+            <li><a href="#tf-cookies">Cookies &amp; Tracking</a></li>
+            <li><a href="#tf-analytics">Analytics</a></li>
+            <li><a href="#tf-thirdparty">Third-Party Services</a></li>
+            <li><a href="#tf-security">Data Security</a></li>
+            <li><a href="#tf-retention">Data Retention</a></li>
+            <li><a href="#tf-sharing">Data Sharing</a></li>
+            <li><a href="#tf-rights">User Rights</a></li>
+            <li><a href="#tf-children">Children's Privacy</a></li>
+            <li><a href="#tf-transfers">International Transfers</a></li>
+            <li><a href="#tf-changes">Policy Changes</a></li>
+            <li><a href="#tf-contact">Contact Us</a></li>
+          </ul>
+        </aside>
+
+        <!-- MOBILE TOC (collapsible) -->
+        <div class="tf-toc-mobile">
+          <details>
+            <summary><i class="fas fa-bars" style="margin-right: 6px;"></i> Jump to section</summary>
+            <ul>
+              <li><a href="#tf-collect">Information We Collect</a></li>
+              <li><a href="#tf-use">How We Use Information</a></li>
+              <li><a href="#tf-file">File &amp; Tool Processing</a></li>
+              <li><a href="#tf-cookies">Cookies &amp; Tracking</a></li>
+              <li><a href="#tf-analytics">Analytics</a></li>
+              <li><a href="#tf-thirdparty">Third-Party Services</a></li>
+              <li><a href="#tf-security">Data Security</a></li>
+              <li><a href="#tf-retention">Data Retention</a></li>
+              <li><a href="#tf-sharing">Data Sharing</a></li>
+              <li><a href="#tf-rights">User Rights</a></li>
+              <li><a href="#tf-children">Children's Privacy</a></li>
+              <li><a href="#tf-transfers">International Transfers</a></li>
+              <li><a href="#tf-changes">Policy Changes</a></li>
+              <li><a href="#tf-contact">Contact Us</a></li>
+            </ul>
+          </details>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <main class="tf-content-area">
+
+          <!-- Information We Collect -->
+          <h2 id="tf-collect">Information We Collect</h2>
+          <p>We may collect information that is necessary for operating and improving the website. This includes:</p>
+          <ul>
+            <li><strong>Voluntarily provided</strong> information (e.g., when you contact us).</li>
+            <li><strong>Contact information</strong> such as email address when you reach out.</li>
+            <li><strong>Basic technical information</strong> including browser and device details.</li>
+            <li><strong>IP address</strong> and usage information (e.g., pages visited, features used).</li>
+            <li><strong>Error and performance</strong> data to help us improve reliability.</li>
+          </ul>
+          <p>We collect only what is reasonably needed to provide and enhance our service.</p>
+
+          <!-- File & Tool Processing (highlight) -->
+          <h2 id="tf-file">File &amp; Tool Processing</h2>
+          <div class="tf-highlight-box">
+            <p><i class="fas fa-file-upload"></i> <strong>How we handle your files</strong></p>
+            <p>For tools such as image compressors, PDF tools, converters, and generators:</p>
+            <ul>
+              <li><i class="fas fa-check-circle"></i> When possible, files are processed locally in your browser, meaning they never leave your device.</li>
+              <li><i class="fas fa-clock"></i> Files are temporarily stored only as required for processing and are not retained longer than necessary.</li>
+              <li><i class="fas fa-trash-alt"></i> We do not permanently store uploaded files unless explicitly required for the tool’s functionality.</li>
+              <li><i class="fas fa-exclamation-triangle"></i> Please avoid uploading sensitive or confidential information when using our tools.</li>
+            </ul>
+            <p style="margin-top: 0.5rem;"><i class="fas fa-info-circle"></i> Processing practices are designed to respect your privacy and limit data exposure.</p>
+          </div>
+
+          <!-- How We Use Information -->
+          <h2 id="tf-use">How We Use Information</h2>
+          <p>We use the information we collect for legitimate purposes, including:</p>
+          <ul>
+            <li>Providing website functionality and processing requested tools.</li>
+            <li>Improving performance, fixing bugs, and preventing abuse.</li>
+            <li>Understanding usage trends to enhance user experience.</li>
+            <li>Responding to support requests and communications.</li>
+          </ul>
+
+          <!-- Cookies -->
+          <h2 id="tf-cookies">Cookies &amp; Similar Technologies</h2>
+          <p>We use cookies and similar technologies to operate and improve our website.</p>
+          <ul>
+            <li><strong>Essential cookies:</strong> Required for core functionality (e.g., security, session management).</li>
+            <li><strong>Analytics cookies:</strong> Help us understand how visitors interact with our site.</li>
+            <li><strong>Preference cookies:</strong> Remember your settings and choices.</li>
+            <li><strong>Optional tracking technologies:</strong> Used only with your consent where required.</li>
+          </ul>
+          <p>You can manage cookie preferences through your browser settings. Disabling certain cookies may affect functionality.</p>
+
+          <!-- Analytics -->
+          <h2 id="tf-analytics">Analytics</h2>
+          <p>We may use analytics services to better understand site usage. The following placeholders reflect potential usage:</p>
+          <div class="tf-info-grid">
+            <span class="tf-grid-head">Provider</span><span class="tf-grid-head">Purpose</span><span class="tf-grid-head">Data Collected</span><span class="tf-grid-head">Retention</span>
+            <span>[Analytics Provider]</span><span>Usage analysis, performance</span><span>Aggregated data, IP (masked)</span><span>[Retention period]</span>
+          </div>
+          <p>We do not use analytics providers that require unnecessary data collection.</p>
+
+          <!-- Third-Party Services -->
+          <h2 id="tf-thirdparty">Third-Party Services</h2>
+          <p>We may rely on third-party services for various aspects of our operations, including:</p>
+          <ul>
+            <li>Analytics, hosting, security, payments, advertising, and infrastructure.</li>
+            <li>These providers process information according to their own privacy policies.</li>
+          </ul>
+          <p>We do not use third-party services unless they are necessary for the operation of our platform.</p>
+
+          <!-- Data Security -->
+          <h2 id="tf-security">Data Security</h2>
+          <p>We implement reasonable technical and organizational safeguards, including:</p>
+          <ul>
+            <li>Secure connections (HTTPS/TLS).</li>
+            <li>Access controls and infrastructure security.</li>
+            <li>Abuse prevention and regular maintenance.</li>
+          </ul>
+          <p>While we strive to protect your information, no system is completely secure.</p>
+
+          <!-- Data Retention -->
+          <h2 id="tf-retention">Data Retention</h2>
+          <p>We retain information only for as long as reasonably necessary to fulfill the purposes outlined in this policy, including:</p>
+          <ul>
+            <li>Temporary file-processing data: deleted shortly after processing.</li>
+            <li>Account-related information (if applicable): retained for the duration of your account.</li>
+            <li>Analytics data: retained in aggregated form for a limited period.</li>
+            <li>Support communications: kept as needed to resolve inquiries.</li>
+          </ul>
+
+          <!-- Data Sharing -->
+          <h2 id="tf-sharing">Data Sharing</h2>
+          <p>We may share information in limited circumstances, such as:</p>
+          <ul>
+            <li>With service providers who assist in operating our website.</li>
+            <li>To comply with legal requirements or security investigations.</li>
+            <li>In the event of a business transfer (merger, acquisition).</li>
+            <li>With your consent, where required by law.</li>
+          </ul>
+          <p>We do not sell your personal information.</p>
+
+          <!-- User Rights -->
+          <h2 id="tf-rights">User Rights</h2>
+          <p>Depending on your location, you may have rights including:</p>
+          <ul>
+            <li><strong>Access</strong> – request a copy of your data.</li>
+            <li><strong>Correction</strong> – update inaccurate information.</li>
+            <li><strong>Deletion</strong> – request removal of your data.</li>
+            <li><strong>Portability</strong> – receive your data in a structured format.</li>
+            <li><strong>Restriction / Objection</strong> – limit certain processing.</li>
+            <li><strong>Withdraw consent</strong> – where processing is based on consent.</li>
+            <li><strong>Cookie preferences</strong> – manage tracking technologies.</li>
+          </ul>
+          <p>Available rights may vary based on applicable law.</p>
+
+          <!-- Children's Privacy -->
+          <h2 id="tf-children">Children's Privacy</h2>
+          <p>Our website is not intentionally designed to collect personal information from children where prohibited by applicable law. If we become aware of such collection, we will take steps to delete it.</p>
+
+          <!-- International Transfers -->
+          <h2 id="tf-transfers">International Data Transfers</h2>
+          <p>Your information may be processed in countries other than your own. When we transfer data across borders, we take appropriate safeguards to protect your privacy.</p>
+
+          <!-- Policy Changes -->
+          <h2 id="tf-changes">Policy Changes</h2>
+          <p>We may update this Privacy Policy periodically. The “Last Updated” date at the top indicates the most recent revision. Significant changes may be communicated through website notices.</p>
+          <p><strong>Effective Date:</strong> 22 August 2026</p>
+
+          <!-- PRIVACY HIGHLIGHTS (visual summary) -->
+          <div class="tf-badge-cluster">
+            <div class="tf-badge-item"><i class="fas fa-lock"></i> Secure Processing</div>
+            <div class="tf-badge-item"><i class="fas fa-trash-alt"></i> Limited Data Retention</div>
+            <div class="tf-badge-item"><i class="fas fa-file-pdf"></i> File Privacy</div>
+            <div class="tf-badge-item"><i class="fas fa-cookie-bite"></i> Cookie Transparency</div>
+            <div class="tf-badge-item"><i class="fas fa-user-cog"></i> User Control</div>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="tf-contact-block" id="tf-contact">
+            <h3><i class="fas fa-envelope" style="margin-right: 10px; color: #2563eb;"></i> Questions About Privacy?</h3>
+            <p style="font-size: 1rem;">If you have questions, concerns, or requests regarding this Privacy Policy, please contact us.</p>
+            <div class="tf-contact-row">
+              <span><i class="fas fa-envelope"></i> privacy@example.com <span class="tf-placeholder-tag">placeholder</span></span>
+              <span><i class="fas fa-globe"></i> example.com <span class="tf-placeholder-tag">placeholder</span></span>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.8rem; color: #3d5d7e;"><i class="fas fa-pen-fancy"></i> These placeholders are configurable with your actual business details.</p>
+          </div>
+
+          <!-- footer line (no header/nav) -->
+          <div class="tf-footer-note">
+            <i class="fas fa-shield-alt" style="margin-right: 6px;"></i> Privacy Policy · ToolForge
+          </div>
+
+        </main>
+      </div>
+      <!-- end grid -->
+    </div>
+    <!-- end card -->
+  </div>
 
 
 

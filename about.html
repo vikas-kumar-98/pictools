@@ -567,7 +567,372 @@
 
   /*Page style goes here....................*/
 
+    .about-wrapper {
+      max-width: 1100px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08), 0 8px 24px -8px rgba(0,0,0,0.04);
+      padding: 2.5rem 2rem;
+    }
 
+    /* --- hero --- */
+    .about-hero {
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .about-hero .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #eef2f9;
+      border-radius: 100px;
+      padding: 0.25rem 1rem 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f2a44;
+      width: fit-content;
+      letter-spacing: -0.01em;
+    }
+    .about-hero .badge i {
+      font-size: 0.7rem;
+      color: #2a5c8a;
+    }
+    .about-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-top: 0.4rem;
+      color: #0c1427;
+    }
+    .about-hero h1 span {
+      background: linear-gradient(145deg, #1a4c7a, #306b9e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .about-hero .sub {
+      font-size: 1.15rem;
+      color: #3e4a5f;
+      max-width: 680px;
+      margin-top: 0.2rem;
+      font-weight: 400;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem 2.5rem;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #e9edf4;
+    }
+    .hero-meta .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #3c4b62;
+    }
+    .hero-meta .meta-item i {
+      color: #2a5c8a;
+      font-size: 1rem;
+      width: 1.2rem;
+    }
+
+    /* --- TOC (sticky on desktop) --- */
+    .toc-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 1.8rem;
+    }
+    @media (min-width: 820px) {
+      .toc-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      .toc-sticky {
+        position: sticky;
+        top: 2rem;
+        flex: 0 0 230px;
+        background: #f4f7fc;
+        padding: 1.4rem 1.2rem;
+        border-radius: 1.5rem;
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+      .toc-content {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+    .toc-sticky {
+      background: #f4f7fc;
+      padding: 1.4rem 1.2rem;
+      border-radius: 1.5rem;
+    }
+    .toc-sticky .toc-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #2a3a55;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .toc-sticky .toc-title i {
+      color: #306b9e;
+    }
+    .toc-sticky ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .toc-sticky ul li a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1e2b3f;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.4rem;
+      border-radius: 0.5rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    .toc-sticky ul li a i {
+      font-size: 0.7rem;
+      color: #5f7393;
+      width: 1rem;
+    }
+    .toc-sticky ul li a:hover {
+      background: #e1e9f3;
+      color: #0f2847;
+    }
+    .toc-sticky ul li a:focus-visible {
+      outline: 2px solid #1f5a8b;
+      outline-offset: 2px;
+    }
+    .toc-mobile-toggle {
+      display: none;
+      background: #f4f7fc;
+      border: 1px solid #dde4ef;
+      border-radius: 2rem;
+      padding: 0.6rem 1.2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1a2b43;
+      cursor: pointer;
+      align-items: center;
+      gap: 0.6rem;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .toc-mobile-toggle i {
+      transition: transform 0.2s;
+    }
+    .toc-mobile-toggle.active i {
+      transform: rotate(180deg);
+    }
+    @media (max-width: 819px) {
+      .toc-mobile-toggle {
+        display: flex;
+      }
+      .toc-sticky {
+        display: none;
+        width: 100%;
+        margin-bottom: 1.5rem;
+      }
+      .toc-sticky.open {
+        display: block;
+      }
+      .about-wrapper {
+        padding: 1.8rem 1.2rem;
+      }
+      .about-hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* --- content sections --- */
+    .content-section {
+      margin-bottom: 2.8rem;
+      scroll-margin-top: 1.5rem;
+    }
+    .content-section h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0e1a30;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .content-section h2 i {
+      color: #306b9e;
+      font-size: 1.4rem;
+      width: 2rem;
+    }
+    .content-section p {
+      color: #2f3b50;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      max-width: 780px;
+    }
+    .content-section ul, .content-section ol {
+      padding-left: 1.6rem;
+      margin-bottom: 1.2rem;
+      color: #2a374b;
+    }
+    .content-section ul li, .content-section ol li {
+      margin-bottom: 0.3rem;
+    }
+    .highlight-card {
+      background: #f2f6fe;
+      padding: 1.4rem 1.6rem;
+      border-radius: 1.2rem;
+      border-left: 4px solid #2a6b9e;
+      margin: 1.2rem 0 1.8rem 0;
+    }
+    .highlight-card p {
+      margin-bottom: 0.25rem;
+    }
+    .highlight-card strong {
+      color: #10345a;
+    }
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.4rem 0 1.2rem 0;
+    }
+    @media (max-width: 600px) {
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+    }
+    .stat-card {
+      background: #f8faff;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.2rem;
+      border: 1px solid #e6edf8;
+    }
+    .stat-card .num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1b3f64;
+    }
+    .stat-card .label {
+      font-size: 0.9rem;
+      color: #4f637f;
+      font-weight: 500;
+    }
+
+    .contact-card {
+      background: #f2f6fe;
+      border-radius: 1.8rem;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 0.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .contact-card .contact-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .contact-card .contact-text strong {
+      font-size: 1.1rem;
+      color: #0d1f39;
+    }
+    .contact-card .contact-text span {
+      color: #2f4a6b;
+    }
+    .contact-card .contact-links {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .contact-card .contact-links a {
+      text-decoration: none;
+      color: #1e4c7a;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      padding: 0.3rem 1rem 0.3rem 0.8rem;
+      border-radius: 40px;
+      border: 1px solid #d3e0f2;
+      transition: 0.15s;
+    }
+    .contact-card .contact-links a i {
+      font-size: 1rem;
+    }
+    .contact-card .contact-links a:hover {
+      background: #eaf0fc;
+      border-color: #a7bddb;
+    }
+
+    .placeholder-badge {
+      background: #e9edf4;
+      color: #2f405b;
+      padding: 0.1rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-left: 0.4rem;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #e2eaf3;
+      margin: 2rem 0 1rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #68748d;
+      margin-top: 0.8rem;
+      text-align: center;
+    }
+
+    /* accessibility & micro */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #1a5a8a;
+      outline-offset: 2px;
+    }
+
+    /* scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* small */
+    .text-muted {
+      color: #5b6d88;
+    }
+    .icon-wrap {
+      background: #eaf0fa;
+      border-radius: 40px;
+      padding: 0.2rem 0.7rem 0.2rem 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
 
   /* End Page style goes here....................*/
 </style>
@@ -861,7 +1226,128 @@
 <main class="wrap demo-hero">
 
 
-    
+  <div class="about-wrapper" id="top">
+  <!-- hero -->
+  <div class="about-hero">
+    <div class="badge"><i class="fas fa-shield-alt"></i> trusted by creators · since 2025</div>
+    <h1>About <span>Us</span></h1>
+    <div class="sub">We build fast, private, and powerful online tools — image optimization, conversion, and utilities for everyone.</div>
+    <div class="hero-meta">
+      <span class="meta-item"><i class="fas fa-flag"></i> Founded 2025</span>
+      <span class="meta-item"><i class="fas fa-users"></i> 10k+ users</span>
+      <span class="meta-item"><i class="fas fa-lock"></i> privacy-first</span>
+      <span class="meta-item"><i class="fas fa-cloud-upload-alt"></i> 100% browser processing</span>
+    </div>
+  </div>
+
+  <!-- mobile TOC toggle -->
+  <button class="toc-mobile-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocSticky">
+    <i class="fas fa-list-ul"></i> Table of contents <i class="fas fa-chevron-down"></i>
+  </button>
+
+  <div class="toc-wrapper">
+    <!-- sticky TOC -->
+    <nav class="toc-sticky" id="tocSticky" aria-label="Table of contents">
+      <div class="toc-title"><i class="fas fa-bookmark"></i> On this page</div>
+      <ul>
+        <li><a href="#story"><i class="fas fa-chevron-right"></i> Our story</a></li>
+        <li><a href="#mission"><i class="fas fa-chevron-right"></i> Mission & values</a></li>
+        <li><a href="#tools"><i class="fas fa-chevron-right"></i> What we build</a></li>
+        <li><a href="#privacy"><i class="fas fa-chevron-right"></i> Privacy & security</a></li>
+        <li><a href="#team"><i class="fas fa-chevron-right"></i> Team & culture</a></li>
+        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- main content -->
+    <div class="toc-content">
+      <!-- section 1 -->
+      <section class="content-section" id="story">
+        <h2><i class="fas fa-rocket"></i> Our story</h2>
+        <p>We started with a simple belief: <strong>online tools should be fast, private, and genuinely helpful</strong>. No ads, no tracking, no server uploads — just pure client-side processing that respects your data.</p>
+        <p>Today, our platform serves thousands of users who rely on our image optimizer, PDF tools, and developer utilities. We’re a small, independent team passionate about building software that feels premium and works reliably.</p>
+        <div class="highlight-card">
+          <p><i class="fas fa-check-circle" style="color:#1d6f9c;"></i> <strong>100% browser-based</strong> — your files never leave your device unless you explicitly choose to.</p>
+        </div>
+      </section>
+
+      <!-- section 2 -->
+      <section class="content-section" id="mission">
+        <h2><i class="fas fa-bullseye"></i> Mission & values</h2>
+        <p><strong>Mission:</strong> Empower creators, developers, and businesses with professional-grade tools that are accessible, secure, and delightfully simple.</p>
+        <div class="grid-2col">
+          <div class="stat-card"><span class="num">🔒</span> <span class="label">Privacy by default</span><br><span style="font-size:0.9rem; color:#41546d;">No data harvesting, no third-party sharing.</span></div>
+          <div class="stat-card"><span class="num">⚡</span> <span class="label">Performance</span><br><span style="font-size:0.9rem; color:#41546d;">Optimized code for rapid processing, even on mobile.</span></div>
+          <div class="stat-card"><span class="num">🎯</span> <span class="label">Quality focus</span><br><span style="font-size:0.9rem; color:#41546d;">We obsess over compression quality and output fidelity.</span></div>
+          <div class="stat-card"><span class="num">🧩</span> <span class="label">Simplicity</span><br><span style="font-size:0.9rem; color:#41546d;">Clean interfaces, no clutter, just what you need.</span></div>
+        </div>
+      </section>
+
+      <!-- section 3 -->
+      <section class="content-section" id="tools">
+        <h2><i class="fas fa-cogs"></i> What we build</h2>
+        <p>Our core tools are designed for efficiency and precision:</p>
+        <ul>
+          <li><strong>Bulk Image Optimizer</strong> — Compress JPG, PNG, WEBP in batch, with quality control and real-time previews.</li>
+          <li><strong>Image converter</strong> — Switch formats without losing quality.</li>
+          <li><strong>PDF utilities</strong> — Merge, split, and compress PDFs locally.</li>
+          <li><strong>Developer tools</strong> — JSON formatter, code minifiers, and more.</li>
+        </ul>
+        <p>We continuously improve our tools based on user feedback. If you have a feature request, we’d love to hear it.</p>
+      </section>
+
+      <!-- section 4: privacy & security -->
+      <section class="content-section" id="privacy">
+        <h2><i class="fas fa-shield-alt"></i> Privacy & security</h2>
+        <p>Your privacy is non-negotiable. Here’s how we protect it:</p>
+        <ul>
+          <li><strong>Local processing:</strong> Images and files are processed in your browser. We don’t upload them to any server (unless you explicitly save or share).</li>
+          <li><strong>No persistent storage:</strong> We don’t permanently store your files. Temporary data is cleared when you close the page.</li>
+          <li><strong>Minimal analytics:</strong> We only collect anonymous usage statistics to improve the service. No personal identifiers.</li>
+          <li><strong>Secure connections:</strong> All communications are encrypted with HTTPS.</li>
+        </ul>
+        <div class="highlight-card">
+          <p><i class="fas fa-check-circle" style="color:#1d6f9c;"></i> <strong>We don’t sell, share, or rent your data.</strong> Ever. Our business model is simple: we offer premium tools and keep them sustainable through optional pro features.</p>
+        </div>
+        <p>For full details, see our <a href="#" style="color:#1f5a8b; font-weight:500;">Privacy Policy</a> and <a href="#" style="color:#1f5a8b; font-weight:500;">Terms & Conditions</a>.</p>
+      </section>
+
+      <!-- section 5: team -->
+      <section class="content-section" id="team">
+        <h2><i class="fas fa-users"></i> Team & culture</h2>
+        <p>We’re a remote-first team of engineers, designers, and product thinkers from four countries. We believe in:</p>
+        <ul>
+          <li><strong>Transparency</strong> — open about our practices and limitations.</li>
+          <li><strong>Craftsmanship</strong> — we take pride in clean code and polished UI.</li>
+          <li><strong>User-centricity</strong> — every feature is built to solve real problems.</li>
+        </ul>
+        <p>We’re always looking for talented people who share our passion. If that sounds like you, reach out.</p>
+      </section>
+
+      <!-- contact -->
+      <section class="content-section" id="contact">
+        <h2><i class="fas fa-envelope"></i> Contact</h2>
+        <p>Have a question, suggestion, or just want to say hello? We’d love to hear from you.</p>
+        <div class="contact-card">
+          <div class="contact-text">
+            <strong><i class="fas fa-paper-plane"></i> Get in touch</strong>
+            <span>We reply within 24 hours (usually faster).</span>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:hello@example.com"><i class="fas fa-envelope"></i> hello@example.com <span class="placeholder-badge">placeholder</span></a>
+            <a href="#"><i class="fas fa-twitter"></i> @tools <span class="placeholder-badge">placeholder</span></a>
+          </div>
+        </div>
+        <p style="font-size:0.9rem; color:#54657e;"><i class="fas fa-info-circle"></i> For legal or privacy inquiries, please refer to our <a href="#" style="color:#1f5a8b;">Privacy Policy</a> or <a href="#" style="color:#1f5a8b;">Terms</a>.</p>
+      </section>
+
+      <hr>
+      <div class="footer-note">
+        <i class="fas fa-lock" style="margin-right:0.3rem;"></i> Built with privacy in mind · © 2026 · All rights reserved.
+      </div>
+    </div>
+  </div>
+</div>  
 
 
 
@@ -1102,7 +1588,51 @@
 </script>
 
 <!-- PAge Script Herer-->
+<script>
+  (function() {
+    const toggleBtn = document.getElementById('tocToggle');
+    const tocSticky = document.getElementById('tocSticky');
 
+    if (toggleBtn && tocSticky) {
+      toggleBtn.addEventListener('click', function(e) {
+        const isOpen = tocSticky.classList.toggle('open');
+        toggleBtn.classList.toggle('active');
+        toggleBtn.setAttribute('aria-expanded', isOpen);
+        const icon = toggleBtn.querySelector('.fa-chevron-down');
+        if (icon) {
+          icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+      });
+
+      // Close TOC when a link is clicked (mobile)
+      const tocLinks = tocSticky.querySelectorAll('a');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth < 820) {
+            tocSticky.classList.remove('open');
+            toggleBtn.classList.remove('active');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            const icon = toggleBtn.querySelector('.fa-chevron-down');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+          }
+        });
+      });
+    }
+
+    // smooth anchor scroll (additional)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  })();
+</script>
 
 <!--End page script-->
 

@@ -8,7 +8,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-
+  <!-- Font & icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
   :root{
@@ -566,7 +570,472 @@
   }
 
   /*Page style goes here....................*/
+    .contact-page {
+      max-width: 1320px;
+      width: 100%;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2.5rem;
+      box-shadow: 0 30px 60px -15px rgba(0,20,40,0.15);
+      padding: 2.8rem 2.5rem;
+      transition: all 0.2s;
+    }
 
+    /* typography */
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    /* ---- hero ---- */
+    .hero {
+      margin-bottom: 3.5rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid #eef2f6;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .hero-left h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(145deg, #0b1a33, #1e3a6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.2rem;
+      color: #1e3a5f;
+      max-width: 600px;
+      font-weight: 400;
+    }
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #1e3a5f;
+      background: #f0f4fe;
+      padding: 0.6rem 1.5rem;
+      border-radius: 3rem;
+      backdrop-filter: blur(4px);
+    }
+    .trust-badges i {
+      color: #2563eb;
+      margin-right: 0.4rem;
+      width: 1.2rem;
+    }
+
+    /* two column layout */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2.8rem;
+      margin-top: 0.5rem;
+    }
+
+    /* left column cards — premium */
+    .info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .card-item {
+      background: #f9fafc;
+      border-radius: 1.4rem;
+      padding: 1.4rem 1.8rem;
+      border: 1px solid #e9edf2;
+      transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .card-item:hover {
+      background: white;
+      border-color: #b9c8e0;
+      box-shadow: 0 12px 28px -10px rgba(0,20,40,0.12);
+      transform: translateY(-3px);
+    }
+    .card-item .icon-wrap {
+      background: #eef4ff;
+      border-radius: 12px;
+      padding: 0.5rem 0.6rem;
+      color: #2563eb;
+      font-size: 1.3rem;
+      min-width: 2.6rem;
+      text-align: center;
+    }
+    .card-item .label {
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #4b5a74;
+    }
+    .card-item .value {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0b1a33;
+    }
+    .card-item .desc {
+      font-size: 0.9rem;
+      color: #4b5a74;
+      margin-top: 0.1rem;
+    }
+
+    /* form */
+    .form-section {
+      background: white;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      color: #1e2a44;
+    }
+    .required-star {
+      color: #dc2626;
+      margin-left: 2px;
+    }
+    .form-control, .form-select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #dce3ec;
+      border-radius: 1rem;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: #fff;
+      transition: border 0.2s, box-shadow 0.15s;
+    }
+    .form-control:focus, .form-select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.10);
+    }
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .char-counter {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #5f6f8a;
+      margin-top: 0.2rem;
+      font-weight: 500;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    /* file upload drag */
+    .upload-area {
+      border: 2px dashed #d0d9e8;
+      border-radius: 1.2rem;
+      padding: 1.2rem;
+      text-align: center;
+      background: #fafbfd;
+      cursor: pointer;
+      transition: 0.2s;
+      position: relative;
+    }
+    .upload-area:hover {
+      border-color: #2563eb;
+      background: #f0f6ff;
+    }
+    .upload-area .file-input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .upload-area i {
+      font-size: 2rem;
+      color: #2563eb;
+      margin-bottom: 0.2rem;
+    }
+    .upload-area p {
+      font-weight: 500;
+      color: #1e3a5f;
+    }
+    .file-preview {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #eef2f8;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .file-preview .remove-file {
+      color: #b91c1c;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 1rem;
+      background: #ffe6e6;
+      padding: 0.1rem 0.8rem;
+      border-radius: 2rem;
+      transition: 0.1s;
+    }
+    .file-preview .remove-file:hover {
+      background: #fcc;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.95rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+    .checkbox-group input {
+      margin-top: 0.2rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: #2563eb;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      background: #0b1a33;
+      color: white;
+      border: none;
+      border-radius: 3rem;
+      padding: 0.9rem 3.2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 12px rgba(11,26,51,0.15);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: #1e3a5f;
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(11,26,51,0.2);
+    }
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-primary .spinner {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-top: 2px solid white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .success-box {
+      background: #e1f5e8;
+      border-radius: 1.5rem;
+      padding: 1.5rem 2rem;
+      border: 1px solid #a7e0b8;
+      color: #0b4b2a;
+      margin-top: 1.5rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .success-box i { font-size: 1.8rem; color: #0b7a3a; }
+
+    /* dynamic help */
+    .smart-help {
+      background: #f0f5fe;
+      border-radius: 1.2rem;
+      padding: 1rem 1.5rem;
+      margin: 0.5rem 0 1.2rem;
+      border-left: 5px solid #2563eb;
+      display: none;
+      animation: fadeSlide 0.25s ease;
+    }
+    @keyframes fadeSlide { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+    .smart-help a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* quick help cards */
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.2rem;
+      margin: 2rem 0 1.5rem;
+    }
+    .quick-card {
+      background: #f9fafc;
+      border-radius: 1.4rem;
+      padding: 1.4rem 1.4rem 1.2rem;
+      border: 1px solid #e9edf2;
+      transition: 0.2s;
+    }
+    .quick-card:hover {
+      background: white;
+      box-shadow: 0 8px 18px -8px rgba(0,0,0,0.06);
+      border-color: #cbd5e1;
+    }
+    .quick-card h4 { margin-bottom: 0.2rem; }
+    .quick-card .btn-outline {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      border-radius: 3rem;
+      padding: 0.3rem 1.4rem;
+      font-weight: 500;
+      font-size: 0.8rem;
+      margin-top: 0.6rem;
+      display: inline-block;
+      color: #0b1a33;
+      text-decoration: none;
+      transition: 0.1s;
+    }
+    .quick-card .btn-outline:hover {
+      background: #eef2f6;
+      border-color: #94a3b8;
+    }
+
+    .feature-idea {
+      background: linear-gradient(135deg, #f0f6ff, #e8effa);
+      border-radius: 1.8rem;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #d9e3f0;
+    }
+    .feature-idea .badge {
+      background: #2563eb;
+      color: white;
+      border-radius: 3rem;
+      padding: 0.2rem 1.2rem;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .business-card {
+      background: linear-gradient(145deg, #ffffff, #f5f8fe);
+      border: 1px solid #dbe3ed;
+      border-radius: 2rem;
+      padding: 2rem 2.2rem;
+      margin: 1.8rem 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: 0.2s;
+    }
+    .business-card:hover {
+      border-color: #b9c8e0;
+      box-shadow: 0 12px 28px -12px rgba(0,20,40,0.08);
+    }
+
+    .faq-accordion {
+      margin: 2rem 0 1.2rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 0.5rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid #eef2f6;
+    }
+    .faq-question {
+      background: transparent;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 1rem 0;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      color: #0b1a33;
+      transition: 0.1s;
+    }
+    .faq-question:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+    .faq-answer {
+      padding: 0 0 1.2rem 0;
+      color: #2d3f5e;
+      display: none;
+      font-size: 0.95rem;
+    }
+    .faq-answer.show {
+      display: block;
+      animation: fadeSlide 0.2s ease;
+    }
+    .faq-question i {
+      transition: transform 0.25s ease;
+    }
+    .faq-question.open i {
+      transform: rotate(180deg);
+    }
+
+    .privacy-note {
+      background: #f5f8fe;
+      border-radius: 1.4rem;
+      padding: 1.2rem 1.8rem;
+      border: 1px solid #e2e8f0;
+      font-size: 0.9rem;
+      margin: 1.8rem 0 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .privacy-note i { color: #2563eb; font-size: 1.4rem; }
+
+    .error-msg {
+      color: #b91c1c;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* responsive */
+    @media (max-width: 1024px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .contact-page { padding: 1.8rem 1.2rem; }
+      .hero { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .hero-left h1 { font-size: 2.6rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .quick-grid { grid-template-columns: 1fr; }
+      .trust-badges { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0rem; }
+      .contact-page { padding: 1.2rem 0.8rem; border-radius: 1.8rem; }
+      .hero-left h1 { font-size: 2.2rem; }
+    }
 
 
   /* End Page style goes here....................*/
@@ -860,7 +1329,126 @@
 <main class="wrap demo-hero">
 
 
-    
+   <div class="contact-page">
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1>Get in Touch</h1>
+      <div class="hero-sub">Have a question, found a problem, or have an idea? We'd love to hear from you.</div>
+    </div>
+    <div class="trust-badges">
+      <span><i class="fas fa-bolt"></i> Fast Response</span>
+      <span><i class="fas fa-headset"></i> Support 24/7</span>
+      <span><i class="fas fa-lock"></i> Secure</span>
+    </div>
+  </div>
+
+  <!-- grid -->
+  <div class="contact-grid">
+    <!-- left info -->
+    <div class="info-cards">
+      <div class="card-item"><span class="icon-wrap"><i class="fas fa-envelope"></i></span><div><div class="label">Email Support</div><div class="value">support@example.com</div><div class="desc">General &amp; technical support</div></div></div>
+      <div class="card-item"><span class="icon-wrap"><i class="fas fa-shield-alt"></i></span><div><div class="label">Privacy</div><div class="value">privacy@example.com</div><div class="desc">Data &amp; privacy questions</div></div></div>
+      <div class="card-item"><span class="icon-wrap"><i class="fas fa-briefcase"></i></span><div><div class="label">Business</div><div class="value">business@example.com</div><div class="desc">Partnerships &amp; inquiries</div></div></div>
+      <div class="card-item"><span class="icon-wrap"><i class="fas fa-clock"></i></span><div><div class="label">Support Hours</div><div class="value">Mon–Fri · 9:00 AM – 6:00 PM</div><div class="desc">(UTC +1)</div></div></div>
+      <div class="card-item"><span class="icon-wrap"><i class="fas fa-globe"></i></span><div><div class="label">Online Support</div><div class="value">🌐 Digital-first</div><div class="desc">Fully remote, always available.</div></div></div>
+    </div>
+
+    <!-- form -->
+    <div class="form-section" id="contactFormWrapper">
+      <form id="contactForm" novalidate>
+        <!-- smart selector -->
+        <div class="form-group">
+          <label for="helpTopic">What can we help with? <span class="required-star">*</span></label>
+          <select id="helpTopic" class="form-select">
+            <option value="">— Select an option —</option>
+            <option value="Technical Problem">Technical Problem</option>
+            <option value="Tool Not Working">Tool Not Working</option>
+            <option value="General Question">General Question</option>
+            <option value="Feature Request">Feature Request</option>
+            <option value="Business Inquiry">Business Inquiry</option>
+          </select>
+        </div>
+        <div id="smartHelp" class="smart-help">
+          <p id="smartMessage">💡 Before contacting us, try refreshing the page, checking your browser, and trying the tool again.</p>
+          <a href="#" id="smartLink">View Troubleshooting Guide →</a>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group"><label>Full Name <span class="required-star">*</span></label><input type="text" id="fullName" class="form-control" placeholder="Jane Doe" required><div class="error-msg" id="nameError"></div></div>
+          <div class="form-group"><label>Email <span class="required-star">*</span></label><input type="email" id="email" class="form-control" placeholder="jane@example.com" required><div class="error-msg" id="emailError"></div></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Topic</label><select id="topicSelect" class="form-select"><option value="">Select topic</option><option>General Question</option><option>Technical Problem</option><option>Tool Not Working</option><option>File Processing Issue</option><option>Privacy Question</option><option>Business Inquiry</option><option>Partnership</option><option>Feature Request</option><option>Report Abuse</option><option>Other</option></select></div>
+          <div class="form-group"><label>Select Tool</label><select id="toolSelect" class="form-select"><option value="">Select tool</option><option>Bulk Image Optimizer</option><option>Image Resizer</option><option>Image Converter</option><option>PDF Tools</option><option>Text Tools</option><option>Developer Tools</option><option>Other</option></select></div>
+        </div>
+        <div class="form-group"><label>Subject <span class="required-star">*</span></label><input type="text" id="subject" class="form-control" placeholder="Brief subject" required><div class="error-msg" id="subjectError"></div></div>
+        <div class="form-group"><label>Message <span class="required-star">*</span></label><textarea id="message" class="form-control" rows="4" minlength="10" maxlength="500" placeholder="Describe your issue in detail..."></textarea><div class="char-counter"><span id="charCount">0</span> / 500</div><div class="error-msg" id="messageError"></div></div>
+
+        <!-- attachment -->
+        <div class="form-group">
+          <label>Attachment <span style="font-weight:400; color:#4b5a74;">(optional)</span></label>
+          <div class="upload-area" id="dropArea">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Drag &amp; drop or click to upload</p>
+            <input type="file" id="fileInput" class="file-input" accept=".png,.jpg,.jpeg,.gif,.pdf,.doc,.docx,.txt">
+          </div>
+          <div id="filePreview" class="file-preview" style="display:none;"><span id="fileName"></span><span class="remove-file" id="removeFile">✕ Remove</span></div>
+          <div class="error-msg" id="fileError"></div>
+        </div>
+
+        <!-- consent -->
+        <div class="checkbox-group">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">I agree to the processing of my information for the purpose of responding to my request. <a href="#" style="color:#2563eb; font-weight:500;">Privacy Policy</a></label>
+        </div>
+        <div class="error-msg" id="consentError"></div>
+
+        <button type="submit" class="btn-primary" id="submitBtn"><span id="btnText">Send Message</span></button>
+        <div id="formStatus"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- quick help -->
+  <div style="margin-top:2.8rem;"><h3>Looking for Quick Answers?</h3>
+    <div class="quick-grid">
+      <div class="quick-card"><h4>📘 Help Center</h4><p>Find answers to common questions.</p><a href="#" class="btn-outline">Visit Help Center</a></div>
+      <div class="quick-card"><h4>❓ FAQs</h4><p>Browse common questions and solutions.</p><a href="#" class="btn-outline">View FAQs</a></div>
+      <div class="quick-card"><h4>⚠️ Report a Problem</h4><p>Tell us about a technical issue.</p><a href="#" class="btn-outline">Report Issue</a></div>
+    </div>
+  </div>
+
+  <!-- feature request -->
+  <div class="feature-idea">
+    <div><span class="badge">✨ Have an Idea?</span> <strong style="margin-left:0.8rem;">Tell us what tool or feature you'd like to see next.</strong><br><span style="font-size:0.9rem; color:#2d3f5e;">New Tool · Tool Improvement · UI · Performance · Mobile</span></div>
+    <button class="btn-primary" style="background:#2563eb; padding:0.5rem 2rem; font-size:0.9rem; box-shadow:0 4px 12px rgba(37,99,235,0.25);">Feature Suggestion</button>
+  </div>
+
+  <!-- business -->
+  <div class="business-card">
+    <h3 style="display:flex; gap:0.8rem; align-items:center;"><i class="fas fa-handshake" style="color:#2563eb; font-size:1.6rem;"></i> Business &amp; Partnerships</h3>
+    <p style="margin:0.3rem 0 0.8rem; color:#1e3a5f;">Partnerships · API integrations · Advertising · Sponsorships · Enterprise · Collaboration</p>
+    <button class="btn-primary" style="background:#1e3a5f; padding:0.5rem 2.4rem; box-shadow:0 4px 12px rgba(11,26,51,0.15);">Business Inquiry</button>
+  </div>
+
+  <!-- faq accordion -->
+  <div class="faq-accordion">
+    <h3 style="margin-bottom:0.5rem;">Frequently Asked Questions</h3>
+    <div class="faq-item"><button class="faq-question" aria-expanded="false">How quickly will I receive a response? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">We aim to reply within 24 business hours, often sooner.</div></div>
+    <div class="faq-item"><button class="faq-question" aria-expanded="false">Can I report a tool problem? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Yes, use the form above or report directly from the tool page.</div></div>
+    <div class="faq-item"><button class="faq-question" aria-expanded="false">How do I report a bug? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Describe the steps and attach a screenshot via the form.</div></div>
+    <div class="faq-item"><button class="faq-question" aria-expanded="false">Can I request a new tool? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Absolutely! Use the “Feature Suggestion” button above.</div></div>
+    <div class="faq-item"><button class="faq-question" aria-expanded="false">Can I contact you about partnerships? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Yes, our business card above is ready for you.</div></div>
+    <div class="faq-item"><button class="faq-question" aria-expanded="false">Can I send a screenshot? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Yes, use the attachment uploader in the form.</div></div>
+    <div class="faq-item"><button class="faq-question" aria-expanded="false">What should I include when reporting a technical issue? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Include the tool name, browser, and steps to reproduce.</div></div>
+  </div>
+
+  <!-- privacy note -->
+  <div class="privacy-note"><i class="fas fa-shield-alt"></i> <strong>Your Privacy Matters</strong> — Contact information is used to respond to your request and handled according to our Privacy Policy.</div>
+
+</div> 
 
 
 
@@ -1101,7 +1689,154 @@
 </script>
 
 <!-- PAge Script Herer-->
+<script>
+  (function() {
+    // DOM refs
+    const form = document.getElementById('contactForm');
+    const name = document.getElementById('fullName');
+    const email = document.getElementById('email');
+    const subject = document.getElementById('subject');
+    const message = document.getElementById('message');
+    const consent = document.getElementById('consent');
+    const fileInput = document.getElementById('fileInput');
+    const filePreview = document.getElementById('filePreview');
+    const fileName = document.getElementById('fileName');
+    const removeFile = document.getElementById('removeFile');
+    const fileError = document.getElementById('fileError');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const formStatus = document.getElementById('formStatus');
+    const charCount = document.getElementById('charCount');
+    const helpTopic = document.getElementById('helpTopic');
+    const smartHelp = document.getElementById('smartHelp');
+    const smartMessage = document.getElementById('smartMessage');
+    const smartLink = document.getElementById('smartLink');
 
+    // char counter
+    message.addEventListener('input', () => {
+      charCount.textContent = message.value.length;
+    });
+
+    // file upload
+    let uploadedFile = null;
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) handleFile(file);
+    });
+    function handleFile(file) {
+      const maxSize = 5 * 1024 * 1024;
+      const allowed = ['image/png','image/jpeg','image/gif','application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','text/plain'];
+      if (!allowed.includes(file.type) && !file.name.match(/\.(png|jpg|jpeg|gif|pdf|doc|docx|txt)$/i)) {
+        fileError.textContent = '⚠️ File type not supported.';
+        return;
+      }
+      if (file.size > maxSize) {
+        fileError.textContent = '⚠️ File too large (max 5MB).';
+        return;
+      }
+      fileError.textContent = '';
+      uploadedFile = file;
+      fileName.textContent = file.name + ' (' + (file.size/1024).toFixed(1) + ' KB)';
+      filePreview.style.display = 'flex';
+    }
+    removeFile.addEventListener('click', () => {
+      uploadedFile = null;
+      fileInput.value = '';
+      filePreview.style.display = 'none';
+      fileError.textContent = '';
+    });
+    // drag and drop
+    const dropArea = document.getElementById('dropArea');
+    ['dragover','dragenter'].forEach(ev => dropArea.addEventListener(ev, (e) => { e.preventDefault(); dropArea.style.borderColor='#2563eb'; }));
+    ['dragleave','drop'].forEach(ev => dropArea.addEventListener(ev, (e) => { e.preventDefault(); dropArea.style.borderColor='#d0d9e8'; }));
+    dropArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const files = e.dataTransfer.files;
+      if (files.length) handleFile(files[0]);
+    });
+
+    // dynamic help
+    const helpMap = {
+      'Technical Problem': { msg: 'Try clearing cache, updating your browser, and check console errors.', link: 'View Troubleshooting Guide →' },
+      'Tool Not Working': { msg: 'Before contacting us, try refreshing the page, checking your browser, and trying the tool again.', link: 'View Troubleshooting Guide →' },
+      'General Question': { msg: 'Check our Help Center for quick answers.', link: 'Visit Help Center →' },
+      'Feature Request': { msg: 'We love ideas! Let us know what you’d like to see.', link: 'Submit Feature Idea →' },
+      'Business Inquiry': { msg: 'For partnerships, API, or enterprise, contact our business team.', link: 'Business Inquiry →' },
+    };
+    helpTopic.addEventListener('change', () => {
+      const val = helpTopic.value;
+      if (val && helpMap[val]) {
+        smartHelp.style.display = 'block';
+        smartMessage.textContent = '💡 ' + helpMap[val].msg;
+        smartLink.textContent = helpMap[val].link;
+      } else {
+        smartHelp.style.display = 'none';
+      }
+    });
+    // trigger initial if value set
+    if (helpTopic.value && helpMap[helpTopic.value]) {
+      smartHelp.style.display = 'block';
+      smartMessage.textContent = '💡 ' + helpMap[helpTopic.value].msg;
+      smartLink.textContent = helpMap[helpTopic.value].link;
+    }
+
+    // validation helpers
+    function setError(id, msg) { document.getElementById(id).textContent = msg; }
+    function clearAllErrors() {
+      ['nameError','emailError','subjectError','messageError','fileError','consentError'].forEach(id => document.getElementById(id).textContent = '');
+    }
+
+    // submit
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearAllErrors();
+      let valid = true;
+      if (!name.value.trim()) { setError('nameError','Full name is required'); valid=false; }
+      if (!email.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value)) { setError('emailError','Valid email required'); valid=false; }
+      if (!subject.value.trim()) { setError('subjectError','Subject is required'); valid=false; }
+      if (message.value.length < 10) { setError('messageError','Message must be at least 10 characters'); valid=false; }
+      if (!consent.checked) { setError('consentError','You must agree to the privacy policy'); valid=false; }
+      if (!valid) return;
+
+      // simulate submit
+      submitBtn.disabled = true;
+      btnText.innerHTML = '<span class="spinner"></span> Sending...';
+      formStatus.innerHTML = '';
+
+      try {
+        await new Promise((resolve, reject) => setTimeout(resolve, 2200));
+        // success
+        formStatus.innerHTML = `<div class="success-box"><i class="fas fa-check-circle"></i> Message Sent Successfully! <br><small style="font-weight:400;">Reference #T-${Math.floor(Math.random()*10000)}</small></div>`;
+        btnText.textContent = '✓ Sent';
+        // optionally reset form? we keep data
+      } catch (err) {
+        formStatus.innerHTML = `<div class="error-msg" style="color:#b91c1c; padding:0.8rem 0;"><i class="fas fa-exclamation-circle"></i> Network error — <button id="retryBtn" class="btn-outline" style="background:white; border:1px solid #b91c1c; padding:0.1rem 1.2rem; border-radius:2rem; margin-left:0.5rem;">Retry</button></div>`;
+        document.getElementById('retryBtn')?.addEventListener('click', () => form.dispatchEvent(new Event('submit')));
+      } finally {
+        submitBtn.disabled = false;
+        setTimeout(() => { btnText.innerHTML = 'Send Message'; }, 3000);
+      }
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const isOpen = answer.classList.contains('show');
+        // close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('show'));
+        document.querySelectorAll('.faq-question').forEach(b => b.classList.remove('open'));
+        if (!isOpen) {
+          answer.classList.add('show');
+          this.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        } else {
+          this.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  })();
+</script>
 
 <!--End page script-->
 
