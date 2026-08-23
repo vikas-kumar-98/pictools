@@ -347,6 +347,13 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Font & Icons (inter, material symbols) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
+
 <style>
   :root{
     --ink:#12151b;
@@ -901,6 +908,71 @@
     position:absolute; width:1px;height:1px; padding:0; margin:-1px;
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
+
+  /*Page style goes here....................*/
+
+    .ab-root { max-width: 1440px; width: 100%; margin: 0 auto; }
+    /* unique class prefix: ab- */
+    .ab-card { background: #ffffff; border-radius: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.02); padding: 28px 30px; transition: all 0.2s; border: 1px solid rgba(0,0,0,0.02); }
+    .ab-flex { display: flex; flex-wrap: wrap; gap: 28px; }
+    .ab-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    /* hero */
+    .ab-hero { padding: 12px 0 18px; }
+    .ab-badge { display: inline-block; background: #eef2ff; color: #2a3b8f; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3px; padding: 4px 14px; border-radius: 40px; margin-bottom: 12px; }
+    .ab-hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em; color: #0b1120; margin: 6px 0 10px; }
+    .ab-hero p { font-size: 1.1rem; color: #3e445a; max-width: 640px; margin-bottom: 20px; }
+    .ab-trust { display: flex; flex-wrap: wrap; gap: 20px 30px; font-size: 0.9rem; color: #2d3448; }
+    .ab-trust span { display: flex; align-items: center; gap: 6px; }
+    .ab-trust .material-symbols-outlined { font-size: 1.2rem; color: #2a3b8f; }
+    /* upload area */
+    .ab-upload-zone { border: 2px dashed #d0d8e8; border-radius: 28px; padding: 40px 20px; text-align: center; background: #fafbff; transition: 0.2s; cursor: pointer; margin: 16px 0 12px; }
+    .ab-upload-zone:hover { background: #f0f4ff; border-color: #7b8fc7; }
+    .ab-upload-icon .material-symbols-outlined { font-size: 56px; color: #2a3b8f; opacity: 0.5; }
+    .ab-upload-zone h3 { font-weight: 600; font-size: 1.3rem; margin: 12px 0 4px; }
+    .ab-upload-zone p { color: #5b637b; }
+    .ab-btn { background: #1f2a4a; color: white; border: none; padding: 12px 28px; border-radius: 60px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+    .ab-btn:hover { background: #141f3a; transform: scale(0.97); }
+    .ab-btn-outline { background: transparent; border: 1px solid #cbd5e1; color: #1f2a4a; }
+    .ab-btn-outline:hover { background: #f1f5f9; }
+    .ab-upload-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px; font-size: 0.8rem; color: #4b556b; margin-top: 12px; }
+    .ab-file-meta { background: #f2f5fc; border-radius: 20px; padding: 12px 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin: 12px 0; }
+    /* editor workspace */
+    .ab-workspace { margin-top: 18px; }
+    .ab-preview-col { position: relative; background: #f8faff; border-radius: 28px; padding: 16px; display: flex; align-items: center; justify-content: center; min-height: 360px; border: 1px solid #eaeef6; }
+    .ab-preview-col canvas { max-width: 100%; max-height: 560px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+    .ab-controls-col { display: flex; flex-direction: column; gap: 18px; }
+    .ab-control-group { background: #f9fbfe; border-radius: 24px; padding: 18px 20px; border: 1px solid #e6ecf5; }
+    .ab-control-group h4 { font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px; color: #1f2a4a; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .ab-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .ab-slider { flex: 2; min-width: 120px; }
+    .ab-slider input { width: 100%; accent-color: #1f2a4a; }
+    .ab-number { width: 64px; padding: 6px 8px; border: 1px solid #d0d8e8; border-radius: 12px; text-align: center; font-weight: 500; background: white; }
+    .ab-color-picker { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    .ab-color-picker input[type="color"] { width: 40px; height: 40px; border: 0; padding: 0; border-radius: 40px; cursor: pointer; background: none; }
+    .ab-swatch { width: 32px; height: 32px; border-radius: 32px; border: 2px solid transparent; cursor: pointer; transition: 0.1s; }
+    .ab-swatch:hover { transform: scale(1.05); }
+    .ab-style-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ab-style-btn { background: white; border: 1px solid #d0d8e8; border-radius: 30px; padding: 6px 16px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: 0.1s; }
+    .ab-style-btn.active { background: #1f2a4a; color: white; border-color: #1f2a4a; }
+    .ab-preset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px,1fr)); gap: 10px; }
+    .ab-preset-item { background: white; border-radius: 18px; padding: 10px 4px; text-align: center; border: 1px solid #e6ecf5; cursor: pointer; transition: 0.1s; font-size: 0.7rem; }
+    .ab-preset-item:hover { border-color: #1f2a4a; background: #f5f9ff; }
+    .ab-preset-preview { width: 100%; height: 40px; border-radius: 8px; margin-bottom: 4px; background: #eee; }
+    .ab-toggle { display: flex; align-items: center; gap: 8px; }
+    .ab-toggle input { width: 40px; height: 22px; accent-color: #1f2a4a; }
+    .ab-faq { margin-top: 40px; border-top: 1px solid #e6ecf5; padding-top: 28px; }
+    .ab-faq details { margin-bottom: 10px; background: #f9fbfe; padding: 14px 18px; border-radius: 20px; }
+    .ab-faq summary { font-weight: 600; cursor: pointer; }
+    .ab-privacy { background: #f0f4fe; border-radius: 30px; padding: 20px 24px; margin: 30px 0 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .ab-privacy span { display: flex; align-items: center; gap: 8px; }
+    @media (max-width: 860px) { .ab-grid-2 { grid-template-columns: 1fr; } .ab-card { padding: 20px; } }
+    @media (max-width: 480px) { body { padding: 12px; } .ab-upload-zone { padding: 28px 12px; } }
+    .ab-hidden { display: none; }
+    .ab-progress { background: #e6ecf5; border-radius: 40px; height: 8px; margin: 12px 0; width: 100%; }
+    .ab-progress-bar { height: 8px; border-radius: 40px; background: #1f2a4a; width: 0%; }
+    .ab-status { font-weight: 500; }
+
+  /* End Page style goes here....................*/
 </style>
 </head>
 <body>
@@ -1098,7 +1170,6 @@
   </div>
 </header>
 
-
 <!-- ============================================================
      MOBILE DRAWER
 ============================================================ -->
@@ -1192,7 +1263,139 @@
 <main class="wrap demo-hero">
 
 
-    
+  <div class="ab-root">
+
+  <!-- HERO -->
+  <section class="ab-hero ab-card">
+    <div class="ab-badge">Free Image Editor</div>
+    <h1>Add Border to Image</h1>
+    <p>Add beautiful custom borders, frames, outlines, and padding to your images in seconds. Customize the color, width, style, and corners, then download instantly.</p>
+    <div class="ab-trust">
+      <span><span class="material-symbols-outlined">bolt</span> Instant Processing</span>
+      <span><span class="material-symbols-outlined">palette</span> Full Customization</span>
+      <span><span class="material-symbols-outlined">lock</span> Private & Secure</span>
+      <span><span class="material-symbols-outlined">devices</span> Works on Every Device</span>
+    </div>
+  </section>
+
+  <!-- UPLOAD -->
+  <section class="ab-upload-zone" id="abUploadZone">
+    <div class="ab-upload-icon"><span class="material-symbols-outlined">image</span></div>
+    <h3>Drag & Drop Your Image Here</h3>
+    <p>or click to browse files</p>
+    <button class="ab-btn" id="abBrowseBtn"><span class="material-symbols-outlined">upload</span> Choose Image</button>
+    <div class="ab-upload-info">
+      <span>JPG, PNG, WebP</span>
+      <span>Max 20MB</span>
+    </div>
+    <input type="file" id="abFileInput" accept="image/jpeg,image/png,image/webp" style="display:none" />
+  </section>
+
+  <!-- FILE META -->
+  <div id="abFileMeta" class="ab-file-meta ab-hidden">
+    <span id="abFileName">image.jpg</span>
+    <span id="abFileType">JPEG</span>
+    <span id="abFileDims">1200x800</span>
+    <span id="abFileSize">1.2 MB</span>
+    <button class="ab-btn ab-btn-outline" id="abRemoveBtn" style="padding:6px 18px;margin-left:auto;">Remove</button>
+  </div>
+
+  <!-- EDITOR WORKSPACE -->
+  <div class="ab-workspace ab-grid-2">
+    <!-- PREVIEW -->
+    <div class="ab-preview-col" id="abPreviewCol">
+      <canvas id="abPreviewCanvas" width="600" height="400"></canvas>
+    </div>
+    <!-- CONTROLS -->
+    <div class="ab-controls-col">
+      <!-- width -->
+      <div class="ab-control-group">
+        <h4><span class="material-symbols-outlined">width</span> Border Width</h4>
+        <div class="ab-row">
+          <div class="ab-slider"><input type="range" id="abWidthSlider" min="0" max="200" value="16" /></div>
+          <input type="number" class="ab-number" id="abWidthNum" value="16" min="0" max="200" />
+          <span>px</span>
+        </div>
+      </div>
+      <!-- color -->
+      <div class="ab-control-group">
+        <h4><span class="material-symbols-outlined">colorize</span> Border Color</h4>
+        <div class="ab-color-picker">
+          <input type="color" id="abColorPicker" value="#1f2a4a" />
+          <input type="text" id="abHexInput" value="#1f2a4a" style="width:90px;border:1px solid #d0d8e8;border-radius:30px;padding:6px 12px;" />
+          <div class="ab-swatch" style="background:#ffffff;border-color:#ccc;" data-color="#ffffff"></div>
+          <div class="ab-swatch" style="background:#000000;" data-color="#000000"></div>
+          <div class="ab-swatch" style="background:#e53e3e;" data-color="#e53e3e"></div>
+          <div class="ab-swatch" style="background:#3182ce;" data-color="#3182ce"></div>
+          <div class="ab-swatch" style="background:#38a169;" data-color="#38a169"></div>
+          <div class="ab-swatch" style="background:#d69e2e;" data-color="#d69e2e"></div>
+        </div>
+      </div>
+      <!-- style -->
+      <div class="ab-control-group">
+        <h4><span class="material-symbols-outlined">line_style</span> Style</h4>
+        <div class="ab-style-group" id="abStyleGroup">
+          <button class="ab-style-btn active" data-style="solid">Solid</button>
+          <button class="ab-style-btn" data-style="dashed">Dashed</button>
+          <button class="ab-style-btn" data-style="dotted">Dotted</button>
+          <button class="ab-style-btn" data-style="double">Double</button>
+        </div>
+      </div>
+      <!-- corner radius -->
+      <div class="ab-control-group">
+        <h4><span class="material-symbols-outlined">rounded_corner</span> Corner Radius</h4>
+        <div class="ab-row">
+          <div class="ab-slider"><input type="range" id="abRadiusSlider" min="0" max="80" value="8" /></div>
+          <input type="number" class="ab-number" id="abRadiusNum" value="8" min="0" max="80" />
+          <span>px</span>
+        </div>
+      </div>
+      <!-- preset -->
+      <div class="ab-control-group">
+        <h4><span class="material-symbols-outlined">grid_view</span> Presets</h4>
+        <div class="ab-preset-grid" id="abPresetGrid">
+          <div class="ab-preset-item" data-preset='{"width":8,"color":"#ffffff","style":"solid","radius":0}'> <div class="ab-preset-preview" style="background:white;border:4px solid white;"></div> Classic White</div>
+          <div class="ab-preset-item" data-preset='{"width":10,"color":"#000000","style":"solid","radius":0}'> <div class="ab-preset-preview" style="background:black;border:4px solid black;"></div> Classic Black</div>
+          <div class="ab-preset-item" data-preset='{"width":20,"color":"#d4af37","style":"solid","radius":4}'> <div class="ab-preset-preview" style="background:#d4af37;border:6px solid #d4af37;"></div> Gold Frame</div>
+          <div class="ab-preset-item" data-preset='{"width":12,"color":"#ff6b6b","style":"solid","radius":20}'> <div class="ab-preset-preview" style="background:#ff6b6b;border:6px solid #ff6b6b;border-radius:12px;"></div> Neon Glow</div>
+        </div>
+        <button class="ab-btn ab-btn-outline" id="abResetBtn" style="margin-top:10px;padding:6px 20px;">Reset to Default</button>
+      </div>
+      <!-- download -->
+      <div class="ab-control-group" style="background:#eef2ff;">
+        <div class="ab-row" style="justify-content:space-between;">
+          <button class="ab-btn" id="abDownloadBtn"><span class="material-symbols-outlined">download</span> Add Border & Download</button>
+          <div>
+            <select id="abFormatSelect" style="border-radius:30px;padding:8px 14px;border:1px solid #d0d8e8;">
+              <option value="image/png">PNG</option>
+              <option value="image/jpeg">JPG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </div>
+        </div>
+        <div class="ab-progress ab-hidden" id="abProgressWrap"><div class="ab-progress-bar" id="abProgressBar"></div></div>
+        <div id="abStatusMsg" class="ab-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ & PRIVACY -->
+  <div class="ab-privacy">
+    <span><span class="material-symbols-outlined">lock</span> Privacy Focused</span>
+    <span><span class="material-symbols-outlined">speed</span> Fast Local Processing</span>
+    <span><span class="material-symbols-outlined">computer</span> Browser-Based Editing</span>
+    <span><span class="material-symbols-outlined">delete</span> No Permanent File Storage</span>
+  </div>
+  <section class="ab-faq">
+    <h3 style="margin-bottom:16px;">Frequently Asked Questions</h3>
+    <details><summary>Can I add a border to any image?</summary>Yes, support common formats such as JPG, PNG, and WebP.</details>
+    <details><summary>Can I choose a custom border color?</summary>Yes, use the color picker, HEX input, or preset colors.</details>
+    <details><summary>Can I add different borders to each side?</summary>Yes, enable advanced individual side controls (coming soon).</details>
+    <details><summary>Does adding an outside border change image dimensions?</summary>Yes, an outside border can increase the final image dimensions.</details>
+    <details><summary>Can I download the edited image?</summary>Yes, export as JPG, PNG, or WebP.</details>
+  </section>
+
+</div>  
 
 
 
@@ -1431,5 +1634,324 @@
     });
   });
 </script>
+
+<!-- PAge Script Herer-->
+<script>
+  (function() {
+    // DOM refs
+    const canvas = document.getElementById('abPreviewCanvas');
+    const ctx = canvas.getContext('2d');
+    const fileInput = document.getElementById('abFileInput');
+    const uploadZone = document.getElementById('abUploadZone');
+    const browseBtn = document.getElementById('abBrowseBtn');
+    const removeBtn = document.getElementById('abRemoveBtn');
+    const fileMeta = document.getElementById('abFileMeta');
+    const fileName = document.getElementById('abFileName');
+    const fileType = document.getElementById('abFileType');
+    const fileDims = document.getElementById('abFileDims');
+    const fileSize = document.getElementById('abFileSize');
+
+    // controls
+    const widthSlider = document.getElementById('abWidthSlider');
+    const widthNum = document.getElementById('abWidthNum');
+    const colorPicker = document.getElementById('abColorPicker');
+    const hexInput = document.getElementById('abHexInput');
+    const radiusSlider = document.getElementById('abRadiusSlider');
+    const radiusNum = document.getElementById('abRadiusNum');
+    const styleGroup = document.getElementById('abStyleGroup');
+    const presetGrid = document.getElementById('abPresetGrid');
+    const resetBtn = document.getElementById('abResetBtn');
+    const downloadBtn = document.getElementById('abDownloadBtn');
+    const formatSelect = document.getElementById('abFormatSelect');
+    const progressWrap = document.getElementById('abProgressWrap');
+    const progressBar = document.getElementById('abProgressBar');
+    const statusMsg = document.getElementById('abStatusMsg');
+
+    // state
+    let currentImage = null; // Image object
+    let imageUrl = null;
+    let imageData = { width: 0, height: 0 };
+    let settings = {
+      width: 16,
+      color: '#1f2a4a',
+      style: 'solid',
+      radius: 8,
+    };
+    let isProcessing = false;
+
+    // helpers
+    function getStyle() {
+      for (let btn of styleGroup.children) {
+        if (btn.classList.contains('active')) return btn.dataset.style;
+      }
+      return 'solid';
+    }
+
+    function setActiveStyle(style) {
+      for (let btn of styleGroup.children) {
+        btn.classList.toggle('active', btn.dataset.style === style);
+      }
+    }
+
+    function updateUIFromSettings() {
+      widthSlider.value = settings.width;
+      widthNum.value = settings.width;
+      colorPicker.value = settings.color;
+      hexInput.value = settings.color;
+      radiusSlider.value = settings.radius;
+      radiusNum.value = settings.radius;
+      setActiveStyle(settings.style);
+      // update swatches
+    }
+
+    // render border on canvas
+    function renderPreview() {
+      if (!currentImage) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#eef2f6';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#7b8ba3';
+        ctx.font = '16px Inter';
+        ctx.textAlign = 'center';
+        ctx.fillText('Upload an image to preview', canvas.width/2, canvas.height/2);
+        return;
+      }
+      const img = currentImage;
+      const w = img.width, h = img.height;
+      const border = Number(settings.width);
+      const radius = Number(settings.radius);
+      const color = settings.color;
+      const style = settings.style;
+
+      // canvas size = image + border*2 (outside)
+      const cw = w + border*2;
+      const ch = h + border*2;
+      canvas.width = cw;
+      canvas.height = ch;
+
+      // clear
+      ctx.clearRect(0, 0, cw, ch);
+
+      // draw background (checkerboard for transparency)
+      ctx.fillStyle = '#f0f2f5';
+      ctx.fillRect(0, 0, cw, ch);
+      // draw checker
+      const step = 16;
+      for (let y = 0; y < ch; y += step) {
+        for (let x = 0; x < cw; x += step) {
+          if ((Math.floor(x/step)+Math.floor(y/step))%2===0) ctx.fillStyle = '#e0e4ed';
+          else ctx.fillStyle = '#f0f2f5';
+          ctx.fillRect(x, y, step, step);
+        }
+      }
+
+      // draw border (rect with radius)
+      const bx = border, by = border, bw = w, bh = h;
+      ctx.save();
+      // clip for radius
+      ctx.beginPath();
+      ctx.moveTo(bx + radius, by);
+      ctx.lineTo(bx + bw - radius, by);
+      ctx.quadraticCurveTo(bx + bw, by, bx + bw, by + radius);
+      ctx.lineTo(bx + bw, by + bh - radius);
+      ctx.quadraticCurveTo(bx + bw, by + bh, bx + bw - radius, by + bh);
+      ctx.lineTo(bx + radius, by + bh);
+      ctx.quadraticCurveTo(bx, by + bh, bx, by + bh - radius);
+      ctx.lineTo(bx, by + radius);
+      ctx.quadraticCurveTo(bx, by, bx + radius, by);
+      ctx.closePath();
+      ctx.clip();
+
+      // draw image
+      ctx.drawImage(img, bx, by, bw, bh);
+      ctx.restore();
+
+      // draw border outline (on top)
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(bx + radius, by);
+      ctx.lineTo(bx + bw - radius, by);
+      ctx.quadraticCurveTo(bx + bw, by, bx + bw, by + radius);
+      ctx.lineTo(bx + bw, by + bh - radius);
+      ctx.quadraticCurveTo(bx + bw, by + bh, bx + bw - radius, by + bh);
+      ctx.lineTo(bx + radius, by + bh);
+      ctx.quadraticCurveTo(bx, by + bh, bx, by + bh - radius);
+      ctx.lineTo(bx, by + radius);
+      ctx.quadraticCurveTo(bx, by, bx + radius, by);
+      ctx.closePath();
+
+      ctx.strokeStyle = color;
+      ctx.lineWidth = border;
+      if (style === 'dashed') ctx.setLineDash([12, 8]);
+      else if (style === 'dotted') ctx.setLineDash([4, 8]);
+      else if (style === 'double') { ctx.lineWidth = border/3; ctx.stroke(); ctx.lineWidth = border/3; ctx.setLineDash([]); ctx.strokeStyle = color; ctx.stroke(); return; }
+      else ctx.setLineDash([]);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function loadImageFile(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          currentImage = img;
+          imageData.width = img.width;
+          imageData.height = img.height;
+          imageUrl = URL.createObjectURL(file);
+          // update meta
+          fileName.textContent = file.name;
+          fileType.textContent = file.type || 'image';
+          fileDims.textContent = `${img.width}×${img.height}`;
+          fileSize.textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+          fileMeta.classList.remove('ab-hidden');
+          renderPreview();
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // download
+    function downloadImage() {
+      if (!currentImage || isProcessing) return;
+      isProcessing = true;
+      progressWrap.classList.remove('ab-hidden');
+      progressBar.style.width = '30%';
+      statusMsg.textContent = 'Applying your custom border...';
+
+      setTimeout(() => {
+        progressBar.style.width = '70%';
+        // render to canvas (already rendered)
+        const format = formatSelect.value;
+        const mime = format;
+        const quality = 0.92;
+        const dataUrl = canvas.toDataURL(mime, quality);
+        const link = document.createElement('a');
+        link.download = `bordered-image.${mime.split('/')[1] || 'png'}`;
+        link.href = dataUrl;
+        link.click();
+        progressBar.style.width = '100%';
+        statusMsg.textContent = '✓ Your image is ready!';
+        setTimeout(() => {
+          progressWrap.classList.add('ab-hidden');
+          statusMsg.textContent = '';
+          isProcessing = false;
+        }, 1200);
+      }, 300);
+    }
+
+    // event listeners
+    browseBtn.addEventListener('click', () => fileInput.click());
+    uploadZone.addEventListener('click', () => fileInput.click());
+    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.style.borderColor = '#1f2a4a'; });
+    uploadZone.addEventListener('dragleave', () => { uploadZone.style.borderColor = '#d0d8e8'; });
+    uploadZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadZone.style.borderColor = '#d0d8e8';
+      const file = e.dataTransfer.files[0];
+      if (file) loadImageFile(file);
+    });
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) loadImageFile(e.target.files[0]);
+    });
+
+    removeBtn.addEventListener('click', () => {
+      currentImage = null;
+      fileMeta.classList.add('ab-hidden');
+      renderPreview();
+    });
+
+    // width
+    widthSlider.addEventListener('input', () => {
+      settings.width = Number(widthSlider.value);
+      widthNum.value = settings.width;
+      renderPreview();
+    });
+    widthNum.addEventListener('change', () => {
+      let v = Number(widthNum.value);
+      if (v < 0) v = 0;
+      if (v > 200) v = 200;
+      settings.width = v;
+      widthSlider.value = v;
+      renderPreview();
+    });
+
+    // color
+    colorPicker.addEventListener('input', () => {
+      settings.color = colorPicker.value;
+      hexInput.value = settings.color;
+      renderPreview();
+    });
+    hexInput.addEventListener('change', () => {
+      let v = hexInput.value.trim();
+      if (!v.startsWith('#')) v = '#' + v;
+      if (v.length === 4 || v.length === 7) {
+        settings.color = v;
+        colorPicker.value = v;
+        renderPreview();
+      }
+    });
+    document.querySelectorAll('.ab-swatch').forEach(el => {
+      el.addEventListener('click', () => {
+        const c = el.dataset.color;
+        if (c) { settings.color = c; colorPicker.value = c; hexInput.value = c; renderPreview(); }
+      });
+    });
+
+    // radius
+    radiusSlider.addEventListener('input', () => {
+      settings.radius = Number(radiusSlider.value);
+      radiusNum.value = settings.radius;
+      renderPreview();
+    });
+    radiusNum.addEventListener('change', () => {
+      let v = Number(radiusNum.value);
+      if (v < 0) v = 0;
+      if (v > 80) v = 80;
+      settings.radius = v;
+      radiusSlider.value = v;
+      renderPreview();
+    });
+
+    // style
+    styleGroup.addEventListener('click', (e) => {
+      const btn = e.target.closest('.ab-style-btn');
+      if (!btn) return;
+      for (let b of styleGroup.children) b.classList.remove('active');
+      btn.classList.add('active');
+      settings.style = btn.dataset.style;
+      renderPreview();
+    });
+
+    // presets
+    presetGrid.addEventListener('click', (e) => {
+      const item = e.target.closest('.ab-preset-item');
+      if (!item) return;
+      const data = JSON.parse(item.dataset.preset);
+      settings.width = data.width;
+      settings.color = data.color;
+      settings.style = data.style || 'solid';
+      settings.radius = data.radius || 0;
+      updateUIFromSettings();
+      renderPreview();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      settings = { width: 16, color: '#1f2a4a', style: 'solid', radius: 8 };
+      updateUIFromSettings();
+      renderPreview();
+    });
+
+    downloadBtn.addEventListener('click', downloadImage);
+
+    // init
+    renderPreview();
+  })();
+</script>
+
+<!--End page script-->
+
 </body>
 </html>

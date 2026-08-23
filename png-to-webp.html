@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -345,8 +344,14 @@
     <link rel="dns-prefetch" href="//googletagmanager.com">
     <link rel="dns-prefetch" href="//facebook.com">
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- JSZip for ZIP download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+
 <style>
   :root{
     --ink:#12151b;
@@ -901,6 +906,127 @@
     position:absolute; width:1px;height:1px; padding:0; margin:-1px;
     overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
   }
+
+  /*Page style goes here....................*/
+
+    .app {
+      max-width: 1440px;
+      width: 100%;
+      background: white;
+      border-radius: 2.4rem;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.10);
+      padding: 1.8rem 2rem 2.5rem;
+    }
+    .app-title { display: none; }
+
+    .upload-zone {
+      border: 2.5px dashed #cbd5e1;
+      border-radius: 2rem;
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      background: #fafcff;
+      transition: 0.2s;
+      cursor: pointer;
+      margin-bottom: 1.8rem;
+    }
+    .upload-zone.drag-over { border-color: #2563eb; background: #eff6ff; }
+    .upload-zone p { margin: 0.2rem 0; color: #334155; }
+    .upload-zone strong { color: #0f172a; }
+
+    .btn {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.15s;
+      color: #1e293b;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary { background: #1e293b; border-color: #1e293b; color: white; }
+    .btn-primary:hover { background: #0f172a; }
+    .btn-success { background: #10b981; border-color: #10b981; color: white; }
+    .btn-success:hover { background: #059669; }
+    .btn-danger { background: #ef4444; border-color: #ef4444; color: white; }
+    .btn-danger:hover { background: #dc2626; }
+    .btn-warning { background: #f59e0b; border-color: #f59e0b; color: white; }
+    .btn-warning:hover { background: #d97706; }
+    .btn-outline { background: transparent; }
+    .btn-outline:hover { background: #f1f5f9; }
+
+    .flex { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+    .flex-between { justify-content: space-between; }
+    .mt-2 { margin-top: 1.2rem; }
+    .mb-2 { margin-bottom: 1.2rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .hidden { display: none !important; }
+    .inline-flex { display: inline-flex; align-items: center; gap: 8px; }
+
+    .settings-card {
+      background: #f8fafc;
+      border-radius: 1.8rem;
+      padding: 1.5rem 1.8rem;
+      margin: 1.2rem 0;
+    }
+    .settings-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+    }
+    input[type="range"] { width: 140px; }
+    input[type="color"] { width: 34px; height: 34px; border: 0; padding: 0; border-radius: 8px; cursor: pointer; }
+    .file-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .file-card {
+      background: white;
+      border-radius: 1.5rem;
+      border: 1px solid #e9edf2;
+      padding: 0.8rem 0.8rem 1rem;
+      box-shadow: 0 4px 8px -6px rgba(0,0,0,0.04);
+    }
+    .file-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 1rem;
+      background: repeating-conic-gradient(#e2e8f0 0% 25%, white 0% 50%) 0 0 / 16px 16px;
+    }
+    .file-meta {
+      font-size: 0.78rem;
+      color: #475569;
+      margin: 0.4rem 0 0.2rem;
+      word-break: break-all;
+    }
+    .file-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+    .progress-bar {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 40px;
+      margin: 0.8rem 0;
+      overflow: hidden;
+    }
+    .progress-fill { height: 100%; width: 0%; background: #2563eb; border-radius: 40px; transition: width 0.2s; }
+    .status-text { font-size: 0.9rem; font-weight: 500; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 0.8rem; }
+
+    @media (max-width: 720px) {
+      .app { padding: 1rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .settings-row { flex-direction: column; align-items: stretch; }
+      .flex-between { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+    }
+
+  /* End Page style goes here....................*/
 </style>
 </head>
 <body>
@@ -1098,7 +1224,6 @@
   </div>
 </header>
 
-
 <!-- ============================================================
      MOBILE DRAWER
 ============================================================ -->
@@ -1192,7 +1317,103 @@
 <main class="wrap demo-hero">
 
 
-    
+  <div class="app" id="app">
+  <h1 class="app-title">PNG to WebP Converter</h1>
+
+  <!-- UPLOAD ZONE -->
+  <div class="upload-zone" id="dropZone" role="button" tabindex="0" aria-label="Upload PNG images">
+    <p><strong>📤 Drag & drop PNG images</strong></p>
+    <p>or click to browse · paste from clipboard</p>
+    <p style="font-size:0.8rem; color:#64748b;">multiple files · .png only</p>
+    <input type="file" id="fileInput" accept=".png,image/png" multiple style="display:none" />
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="flex flex-between mb-2">
+    <div class="flex">
+      <button class="btn btn-outline" id="addMoreBtn">➕ Add more</button>
+      <button class="btn btn-outline" id="clearAllBtn">🗑️ Clear all</button>
+    </div>
+    <div class="flex">
+      <button class="btn btn-primary" id="convertAllBtn">⚡ Convert All</button>
+      <button class="btn btn-success" id="downloadAllBtn">⬇️ Download All</button>
+      <button class="btn btn-warning" id="downloadZipBtn">📦 Download ZIP</button>
+      <button class="btn btn-danger" id="resetBtn">⟳ Start Over</button>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="settings-card">
+    <div class="settings-row">
+      <div class="inline-flex"><span>🖼️ Mode</span>
+        <select id="modeSelect" aria-label="Compression mode">
+          <option value="lossy" selected>Lossy</option>
+          <option value="lossless">Lossless</option>
+        </select>
+      </div>
+      <div class="inline-flex"><span>🎨 Transparency</span>
+        <label><input type="checkbox" id="preserveAlpha" checked /> Preserve</label>
+        <span style="opacity:0.5;">|</span>
+        <select id="bgSelect" aria-label="Background color">
+          <option value="none">No background</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="custom">Custom</option>
+        </select>
+        <input type="color" id="customColor" value="#ffffff" class="hidden" />
+      </div>
+      <div class="inline-flex"><span>📐 Quality</span>
+        <input type="range" id="qualitySlider" min="1" max="100" value="90" />
+        <span id="qualityLabel">90%</span>
+        <select id="presetSelect" aria-label="Quality preset">
+          <option value="100">Maximum</option>
+          <option value="90" selected>High</option>
+          <option value="75">Balanced</option>
+          <option value="50">Small file</option>
+          <option value="20">Max compression</option>
+        </select>
+      </div>
+    </div>
+    <div class="settings-row mt-2">
+      <div class="inline-flex"><span>📐 Resize</span>
+        <label><input type="checkbox" id="resizeEnable" /> Enable</label>
+        <input type="number" id="resizeWidth" placeholder="width" value="1920" style="width:80px" disabled />
+        <span>×</span>
+        <input type="number" id="resizeHeight" placeholder="height" value="1080" style="width:80px" disabled />
+        <label><input type="checkbox" id="lockAspect" checked disabled /> Lock</label>
+      </div>
+      <div class="inline-flex"><span>📝 Filename</span>
+        <select id="filenameMode">
+          <option value="original">Original</option>
+          <option value="suffix" selected>Add suffix</option>
+          <option value="prefix">Custom prefix</option>
+        </select>
+        <input type="text" id="suffixInput" placeholder="_converted" value="_converted" />
+        <input type="text" id="prefixInput" placeholder="prefix_" value="webp_" class="hidden" />
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div id="progressArea" class="hidden">
+    <div class="flex-between"><span class="status-text" id="progressStatus">Converting...</span><span id="progressCount">0 / 0</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <!-- FILE GRID -->
+  <div id="fileGrid" class="file-grid"></div>
+
+  <!-- SUMMARY -->
+  <div id="summaryArea" class="hidden settings-card">
+    <div class="stat-grid">
+      <div><strong>✅ Conversion complete</strong></div>
+      <div id="summaryCount">0 images</div>
+      <div id="summaryOriginal">Original: 0 MB</div>
+      <div id="summaryOutput">WebP: 0 MB</div>
+      <div id="summarySaved">Saved: 0 MB</div>
+    </div>
+  </div>
+</div>  
 
 
 
@@ -1431,5 +1652,440 @@
     });
   });
 </script>
+
+<!-- PAge Script Herer-->
+<script>
+  (function() {
+    // ----- state -----
+    const state = {
+      files: [], // { id, file, name, size, width, height, dataURL, webpBlob, webpURL, status, error }
+      idCounter: 0,
+      processing: false,
+    };
+
+    // DOM refs
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const fileGrid = document.getElementById('fileGrid');
+    const addMoreBtn = document.getElementById('addMoreBtn');
+    const clearAllBtn = document.getElementById('clearAllBtn');
+    const convertAllBtn = document.getElementById('convertAllBtn');
+    const downloadAllBtn = document.getElementById('downloadAllBtn');
+    const downloadZipBtn = document.getElementById('downloadZipBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const modeSelect = document.getElementById('modeSelect');
+    const preserveAlpha = document.getElementById('preserveAlpha');
+    const bgSelect = document.getElementById('bgSelect');
+    const customColor = document.getElementById('customColor');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityLabel = document.getElementById('qualityLabel');
+    const presetSelect = document.getElementById('presetSelect');
+    const resizeEnable = document.getElementById('resizeEnable');
+    const resizeWidth = document.getElementById('resizeWidth');
+    const resizeHeight = document.getElementById('resizeHeight');
+    const lockAspect = document.getElementById('lockAspect');
+    const filenameMode = document.getElementById('filenameMode');
+    const suffixInput = document.getElementById('suffixInput');
+    const prefixInput = document.getElementById('prefixInput');
+    const progressArea = document.getElementById('progressArea');
+    const progressStatus = document.getElementById('progressStatus');
+    const progressCount = document.getElementById('progressCount');
+    const progressFill = document.getElementById('progressFill');
+    const summaryArea = document.getElementById('summaryArea');
+    const summaryCount = document.getElementById('summaryCount');
+    const summaryOriginal = document.getElementById('summaryOriginal');
+    const summaryOutput = document.getElementById('summaryOutput');
+    const summarySaved = document.getElementById('summarySaved');
+
+    // helpers
+    function formatSize(bytes) {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1048576) return (bytes/1024).toFixed(1) + ' KB';
+      return (bytes/1048576).toFixed(2) + ' MB';
+    }
+
+    function getBgColor() {
+      const val = bgSelect.value;
+      if (val === 'none') return null;
+      if (val === 'custom') return customColor.value;
+      if (val === 'black') return '#000000';
+      return '#ffffff';
+    }
+
+    function getQuality() { return parseInt(qualitySlider.value, 10); }
+    function getMode() { return modeSelect.value; }
+
+    function getResize() {
+      if (!resizeEnable.checked) return null;
+      const w = parseInt(resizeWidth.value, 10);
+      const h = parseInt(resizeHeight.value, 10);
+      if (w > 0 && h > 0) return { width: w, height: h };
+      return null;
+    }
+
+    function getOutputFilename(originalName) {
+      const mode = filenameMode.value;
+      let base = originalName.replace(/\.png$/i, '');
+      if (mode === 'suffix') {
+        const suffix = suffixInput.value || '_converted';
+        return base + suffix + '.webp';
+      } else if (mode === 'prefix') {
+        const prefix = prefixInput.value || 'webp_';
+        return prefix + base + '.webp';
+      }
+      return base + '.webp';
+    }
+
+    // ----- process single image -----
+    function processImage(fileEntry) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        const url = URL.createObjectURL(fileEntry.file);
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          let w = img.width, h = img.height;
+          const resize = getResize();
+          if (resize) {
+            const ratio = w / h;
+            let rw = resize.width, rh = resize.height;
+            if (lockAspect.checked) {
+              if (rw / rh > ratio) rw = rh * ratio;
+              else rh = rw / ratio;
+            }
+            w = Math.round(rw); h = Math.round(rh);
+          }
+          canvas.width = w; canvas.height = h;
+          const ctx = canvas.getContext('2d');
+
+          // background if needed
+          const bg = getBgColor();
+          const preserve = preserveAlpha.checked && bg === null;
+          if (!preserve && bg) {
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, w, h);
+          }
+          ctx.drawImage(img, 0, 0, w, h);
+
+          const mode = getMode();
+          const quality = getQuality() / 100;
+          // lossless uses quality as a hint, but we pass 1 for lossless with quality 0-1
+          let webpQuality = quality;
+          let isLossless = (mode === 'lossless');
+          // for lossless we set quality to 1 (or 0.9) and use lossless: true
+          // but to keep it simple we use toBlob with lossless option if supported
+          // however not all browsers support lossless via toBlob options
+          // we'll use a workaround: if lossless, we set quality to 1 and use lossless:true
+          let options = { type: 'image/webp', quality: webpQuality };
+          if (isLossless) {
+            // some browsers support lossless:true
+            options = { type: 'image/webp', quality: 1, lossless: true };
+          }
+          // fallback: if lossless and browser doesn't support, fallback to high quality
+          try {
+            canvas.toBlob((blob) => {
+              if (blob && blob.type === 'image/webp') {
+                const webpURL = URL.createObjectURL(blob);
+                fileEntry.webpBlob = blob;
+                fileEntry.webpURL = webpURL;
+                fileEntry.status = 'completed';
+                fileEntry.error = null;
+              } else {
+                fileEntry.status = 'failed';
+                fileEntry.error = 'WebP encoding failed';
+              }
+              URL.revokeObjectURL(url);
+              resolve();
+            }, 'image/webp', options.quality);
+          } catch (e) {
+            // fallback: try without lossless option
+            canvas.toBlob((blob) => {
+              if (blob && blob.type === 'image/webp') {
+                const webpURL = URL.createObjectURL(blob);
+                fileEntry.webpBlob = blob;
+                fileEntry.webpURL = webpURL;
+                fileEntry.status = 'completed';
+                fileEntry.error = null;
+              } else {
+                fileEntry.status = 'failed';
+                fileEntry.error = 'WebP encoding fallback failed';
+              }
+              URL.revokeObjectURL(url);
+              resolve();
+            }, 'image/webp', quality);
+          }
+        };
+        img.onerror = function() {
+          fileEntry.status = 'failed';
+          fileEntry.error = 'Image load failed';
+          URL.revokeObjectURL(url);
+          resolve();
+        };
+        img.src = url;
+      });
+    }
+
+    // ----- render grid -----
+    function render() {
+      const files = state.files;
+      if (files.length === 0) {
+        fileGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:2rem; color:#94a3b8;">No PNG images uploaded</div>`;
+        summaryArea.classList.add('hidden');
+        return;
+      }
+      let html = '';
+      for (const f of files) {
+        const isDone = f.status === 'completed';
+        const isFailed = f.status === 'failed';
+        const isConverting = f.status === 'converting';
+        const origSize = formatSize(f.size);
+        const webpSize = f.webpBlob ? formatSize(f.webpBlob.size) : '—';
+        const statusText = isFailed ? '❌ Failed' : isConverting ? '⏳ Converting' : isDone ? '✅ Done' : '⏸️ Waiting';
+        html += `<div class="file-card">
+          <img src="${f.dataURL || ''}" alt="${f.name}" />
+          <div class="file-meta"><strong>${f.name}</strong> ${f.width}×${f.height} · ${origSize}</div>
+          <div class="file-meta">WebP: ${webpSize} · ${statusText}</div>
+          <div class="file-actions">
+            ${isDone ? `<button class="btn btn-success" data-id="${f.id}" data-download>⬇️ Download</button>` : ''}
+            <button class="btn btn-outline" data-id="${f.id}" data-remove>✖ Remove</button>
+          </div>
+        </div>`;
+      }
+      fileGrid.innerHTML = html;
+      fileGrid.querySelectorAll('[data-download]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.dataset.id, 10);
+          const entry = state.files.find(f => f.id === id);
+          if (entry && entry.webpBlob) {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(entry.webpBlob);
+            link.download = getOutputFilename(entry.name);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }
+        });
+      });
+      fileGrid.querySelectorAll('[data-remove]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.dataset.id, 10);
+          removeFile(id);
+        });
+      });
+      updateSummary();
+    }
+
+    function removeFile(id) {
+      const idx = state.files.findIndex(f => f.id === id);
+      if (idx !== -1) {
+        const entry = state.files[idx];
+        if (entry.webpURL) URL.revokeObjectURL(entry.webpURL);
+        if (entry.dataURL) URL.revokeObjectURL(entry.dataURL);
+        state.files.splice(idx, 1);
+        render();
+      }
+    }
+
+    function updateSummary() {
+      const done = state.files.filter(f => f.status === 'completed');
+      const totalOrig = done.reduce((acc, f) => acc + f.size, 0);
+      const totalOut = done.reduce((acc, f) => acc + (f.webpBlob ? f.webpBlob.size : 0), 0);
+      if (done.length === 0) { summaryArea.classList.add('hidden'); return; }
+      summaryArea.classList.remove('hidden');
+      summaryCount.textContent = `${done.length} images`;
+      summaryOriginal.textContent = `Original: ${formatSize(totalOrig)}`;
+      summaryOutput.textContent = `WebP: ${formatSize(totalOut)}`;
+      summarySaved.textContent = `Saved: ${formatSize(totalOrig - totalOut)} (${totalOrig ? Math.round((1 - totalOut/totalOrig)*100) : 0}%)`;
+    }
+
+    // ----- add files -----
+    function addFiles(fileList) {
+      const valid = Array.from(fileList).filter(f => f.type === 'image/png' || f.name.toLowerCase().endsWith('.png'));
+      if (valid.length === 0) { alert('Please select PNG files only.'); return; }
+      for (const file of valid) {
+        if (file.size > 50 * 1024 * 1024) { alert(`File ${file.name} is too large (>50MB)`); continue; }
+        const id = ++state.idCounter;
+        const entry = {
+          id, file, name: file.name, size: file.size,
+          width: 0, height: 0, dataURL: null,
+          webpBlob: null, webpURL: null,
+          status: 'waiting', error: null
+        };
+        const img = new Image();
+        const url = URL.createObjectURL(file);
+        img.onload = function() {
+          entry.width = img.width; entry.height = img.height;
+          entry.dataURL = url;
+          render();
+        };
+        img.onerror = function() {
+          entry.dataURL = url;
+          entry.width = 0; entry.height = 0;
+          render();
+        };
+        img.src = url;
+        state.files.push(entry);
+      }
+      render();
+    }
+
+    // ----- convert all -----
+    async function convertAll() {
+      if (state.processing) return;
+      const pending = state.files.filter(f => f.status !== 'completed' && f.status !== 'converting');
+      if (pending.length === 0) { alert('All images are already converted.'); return; }
+      state.processing = true;
+      progressArea.classList.remove('hidden');
+      const total = pending.length;
+      let completed = 0;
+      for (let i = 0; i < pending.length; i++) {
+        const entry = pending[i];
+        entry.status = 'converting';
+        render();
+        progressStatus.textContent = `Converting ${entry.name}`;
+        progressCount.textContent = `${i+1} / ${total}`;
+        progressFill.style.width = `${Math.round((i/total)*100)}%`;
+        await processImage(entry);
+        completed++;
+        render();
+        progressFill.style.width = `${Math.round((completed/total)*100)}%`;
+      }
+      progressStatus.textContent = '✅ Conversion complete';
+      progressCount.textContent = `${completed} / ${total}`;
+      progressFill.style.width = '100%';
+      state.processing = false;
+      updateSummary();
+      render();
+    }
+
+    // ----- bulk download -----
+    function downloadAll() {
+      const done = state.files.filter(f => f.status === 'completed' && f.webpBlob);
+      if (done.length === 0) { alert('No converted WebP files to download.'); return; }
+      if (done.length === 1) {
+        const entry = done[0];
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(entry.webpBlob);
+        link.download = getOutputFilename(entry.name);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        return;
+      }
+      for (const entry of done) {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(entry.webpBlob);
+        link.download = getOutputFilename(entry.name);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+
+    async function downloadZip() {
+      const done = state.files.filter(f => f.status === 'completed' && f.webpBlob);
+      if (done.length === 0) { alert('No converted WebP files to zip.'); return; }
+      const zip = new JSZip();
+      for (const entry of done) {
+        const name = getOutputFilename(entry.name);
+        zip.file(name, entry.webpBlob);
+      }
+      const content = await zip.generateAsync({ type: 'blob' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(content);
+      link.download = 'converted_png_to_webp.zip';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // ----- reset -----
+    function resetAll() {
+      if (state.processing) return;
+      for (const f of state.files) {
+        if (f.webpURL) URL.revokeObjectURL(f.webpURL);
+        if (f.dataURL) URL.revokeObjectURL(f.dataURL);
+      }
+      state.files = [];
+      state.idCounter = 0;
+      progressArea.classList.add('hidden');
+      summaryArea.classList.add('hidden');
+      render();
+    }
+
+    // ----- event bindings -----
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files) addFiles(e.dataTransfer.files);
+    });
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files) addFiles(e.target.files);
+      fileInput.value = '';
+    });
+    document.addEventListener('paste', (e) => {
+      const items = e.clipboardData && e.clipboardData.items;
+      if (!items) return;
+      const files = [];
+      for (const item of items) {
+        if (item.type === 'image/png') {
+          const file = item.getAsFile();
+          if (file) files.push(file);
+        }
+      }
+      if (files.length) addFiles(files);
+    });
+
+    addMoreBtn.addEventListener('click', () => fileInput.click());
+    clearAllBtn.addEventListener('click', () => {
+      if (state.files.length === 0) return;
+      if (confirm('Remove all images?')) {
+        for (const f of state.files) { if (f.webpURL) URL.revokeObjectURL(f.webpURL); if (f.dataURL) URL.revokeObjectURL(f.dataURL); }
+        state.files = [];
+        render();
+        progressArea.classList.add('hidden');
+        summaryArea.classList.add('hidden');
+      }
+    });
+    convertAllBtn.addEventListener('click', convertAll);
+    downloadAllBtn.addEventListener('click', downloadAll);
+    downloadZipBtn.addEventListener('click', downloadZip);
+    resetBtn.addEventListener('click', resetAll);
+
+    // settings UI
+    qualitySlider.addEventListener('input', () => {
+      qualityLabel.textContent = qualitySlider.value + '%';
+      presetSelect.value = qualitySlider.value;
+    });
+    presetSelect.addEventListener('change', () => {
+      qualitySlider.value = presetSelect.value;
+      qualityLabel.textContent = presetSelect.value + '%';
+    });
+    bgSelect.addEventListener('change', () => {
+      customColor.classList.toggle('hidden', bgSelect.value !== 'custom');
+      // if background is not 'none', we may want to uncheck preserve alpha? but we keep both options
+    });
+    resizeEnable.addEventListener('change', () => {
+      const disabled = !resizeEnable.checked;
+      resizeWidth.disabled = disabled;
+      resizeHeight.disabled = disabled;
+      lockAspect.disabled = disabled;
+    });
+    filenameMode.addEventListener('change', () => {
+      suffixInput.classList.toggle('hidden', filenameMode.value !== 'suffix');
+      prefixInput.classList.toggle('hidden', filenameMode.value !== 'prefix');
+    });
+    suffixInput.classList.remove('hidden');
+    prefixInput.classList.add('hidden');
+
+    // initial
+    render();
+  })();
+</script>
+
+<!--End page script-->
+
 </body>
 </html>
