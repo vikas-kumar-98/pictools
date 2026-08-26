@@ -1,25 +1,439 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Croply — Nav & Footer</title>
+    <!-- ============================================================ -->
+    <!-- 1. BASIC PAGE CONFIGURATION                                   -->
+    <!-- ============================================================ -->
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="color-scheme" content="light dark">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 2. PRIMARY SEO META TAGS                                      -->
+    <!-- ============================================================ -->
+    
+    <title>Free Online Tools - Image, PDF, URL Shortener &amp; More | ToolsHub</title>
+    <meta name="description" content="Free online tools: Image converter, PDF editor, URL shortener, QR code generator, file compressor, and more. 100% free, no sign-up required.">
+    <link rel="canonical" href="https://toolshub.com/">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 3. ROBOTS & CRAWLER INSTRUCTIONS                             -->
+    <!-- ============================================================ -->
+    
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:50, max-image-preview:large">
+    <meta name="bingbot" content="index, follow">
+    <meta name="google" content="notranslate">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 4. ALTERNATE URLS (International / Multi-region)             -->
+    <!-- ============================================================ -->
+    
+    <link rel="alternate" href="https://toolshub.com/" hreflang="x-default">
+    <link rel="alternate" href="https://toolshub.com/en-us/" hreflang="en-us">
+    <link rel="alternate" href="https://toolshub.com/en-gb/" hreflang="en-gb">
+    <link rel="alternate" href="https://toolshub.com/es/" hreflang="es">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 5. OPEN GRAPH (Facebook, LinkedIn, WhatsApp, Telegram)       -->
+    <!-- ============================================================ -->
+    
+    <meta property="og:title" content="Free Online Tools - Image, PDF, URL Shortener &amp; More | ToolsHub">
+    <meta property="og:description" content="Your all-in-one toolkit: Convert images, edit PDFs, shorten URLs, generate QR codes, compress files, and more. Completely free to use.">
+    <meta property="og:image" content="https://toolshub.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://toolshub.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ToolsHub">
+    <meta property="og:locale" content="en_US">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 6. TWITTER CARDS (X / Twitter)                               -->
+    <!-- ============================================================ -->
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online Tools - Image, PDF, URL Shortener &amp; More">
+    <meta name="twitter:description" content="Your all-in-one toolkit: Convert images, edit PDFs, shorten URLs, generate QR codes, compress files, and more.">
+    <meta name="twitter:image" content="https://toolshub.com/images/twitter-image.jpg">
+    <meta name="twitter:site" content="@ToolsHub">
+    <meta name="twitter:creator" content="@ToolsHub">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 7. APPLE / IOS META TAGS                                     -->
+    <!-- ============================================================ -->
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 8. FAVICONS & SITE VERIFICATION                              -->
+    <!-- ============================================================ -->
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="google-site-verification" content="your-verification-code">
+    <meta name="msvalidate.01" content="your-verification-code">
+    <meta name="p:domain_verify" content="your-verification-code">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 9. ADVANCED / NICHE META TAGS                                -->
+    <!-- ============================================================ -->
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="author" content="ToolsHub Team">
+    <meta name="copyright" content="2026 ToolsHub. All rights reserved.">
+    <meta name="rating" content="General">
+    <meta name="distribution" content="global">
+    <meta name="resource-type" content="document">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="San Francisco">
+    <meta name="geo.position" content="37.774929;-122.419418">
+    <meta name="ICBM" content="37.774929, -122.419418">
+    <meta name="revisit-after" content="7 days">
+    
+    
+    <!-- ============================================================ -->
+    <!-- 10. STRUCTURED DATA (JSON-LD) - CRITICAL FOR RICH SNIPPETS  -->
+    <!-- ============================================================ -->
+    
+    <!-- SCHEMA 1: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ToolsHub",
+      "url": "https://toolshub.com/",
+      "description": "Free online tools for image conversion, PDF editing, URL shortening, QR code generation, and file compression.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://toolshub.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- SCHEMA 2: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ToolsHub",
+      "alternateName": "ToolsHub Online Tools",
+      "url": "https://toolshub.com/",
+      "logo": "https://toolshub.com/logo.png",
+      "description": "Free online tools platform offering image, PDF, URL, QR, and compression services.",
+      "email": "support@toolshub.com",
+      "telephone": "+1-800-555-1234",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Market Street",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94103",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://www.facebook.com/toolshub",
+        "https://twitter.com/toolshub",
+        "https://www.instagram.com/toolshub",
+        "https://www.linkedin.com/company/toolshub",
+        "https://www.youtube.com/c/toolshub"
+      ]
+    }
+    </script>
+    
+    <!-- SCHEMA 3: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://toolshub.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "All Tools",
+          "item": "https://toolshub.com/tools/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- SCHEMA 4: ItemList (All Tools) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "All Free Online Tools",
+      "description": "Complete list of all available free online tools.",
+      "numberOfItems": "12",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Image to JPG Converter",
+          "url": "https://toolshub.com/image-to-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PNG to WebP Converter",
+          "url": "https://toolshub.com/png-to-webp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Image Resizer",
+          "url": "https://toolshub.com/image-resizer/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Image Compressor",
+          "url": "https://toolshub.com/image-compressor/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "PDF to Word Converter",
+          "url": "https://toolshub.com/pdf-to-word/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "PDF to JPG Converter",
+          "url": "https://toolshub.com/pdf-to-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "PDF Merge Tool",
+          "url": "https://toolshub.com/pdf-merge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "PDF Compressor",
+          "url": "https://toolshub.com/pdf-compressor/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "URL Shortener",
+          "url": "https://toolshub.com/url-shortener/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "QR Code Generator",
+          "url": "https://toolshub.com/qr-code-generator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "File Compressor",
+          "url": "https://toolshub.com/file-compressor/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Text to Speech",
+          "url": "https://toolshub.com/text-to-speech/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- SCHEMA 5: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are these tools completely free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all tools on this platform are 100% free to use. No sign-up, no hidden charges, and no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account to use these tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No account is required. You can use all tools instantly without registration or login."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data safe when using these online tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All file uploads are processed securely and automatically deleted from our servers after conversion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use these tools on mobile devices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all tools are fully responsive and work seamlessly on smartphones, tablets, and desktop computers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you store my files permanently?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All files are automatically deleted from our servers within 1 hour of processing."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- SCHEMA 6: WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free Online Tools - Image, PDF, URL Shortener &amp; More",
+      "description": "Free online tools: Image converter, PDF editor, URL shortener, QR code generator, file compressor, and more.",
+      "url": "https://toolshub.com/",
+      "inLanguage": "en-US",
+      "about": {
+        "@type": "Thing",
+        "name": "Online Tools and Utilities"
+      }
+    }
+    </script>
+    
+    
+    <!-- ============================================================ -->
+    <!-- 11. PERFORMANCE (Preload & Preconnect)                       -->
+    <!-- ============================================================ -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://toolshub.com/css/main.css" as="style">
+    <link rel="preload" href="https://toolshub.com/images/hero-banner.jpg" as="image">
+    <link rel="dns-prefetch" href="//google-analytics.com">
+    <link rel="dns-prefetch" href="//googletagmanager.com">
+    <link rel="dns-prefetch" href="//facebook.com">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Cropper.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" />
+
 
 <!-- Style page goes here-->
 <link rel="stylesheet" href="assets/css/style.css" >
 <!--End Style page goes here-->
 
-
 <style>
 
-  /*Page style goes here....................*/
+
+/* Main section styles */
+    .app {
+      max-width: 1400px;
+      width: 100%;
+    }
+
+    /* ----- TOOL GRID (cards) ----- */
+    .tool-section {
+      margin: 1rem 0 1.5rem;
+    }
+    .tool-section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #0b1a2f;
+      border-left: 6px solid #2b5b8a;
+      padding-left: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+    .tool-card {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.2rem 0.8rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #e9eef3;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .tool-card:hover {
+      transform: translateY(-6px);
+      border-color: #aac2db;
+      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
+    }
+    .tool-card i {
+      font-size: 2.2rem;
+      color: #1e3a5f;
+    }
+    .tool-card span {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #1e2f44;
+    }
 
 
 
-  /* End Page style goes here....................*/
+    /* responsive */
+    @media (max-width: 600px) {
+      .tool-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+     
+    }
+    @media (min-width: 900px) {
+      .tool-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    
+
+/* End of main */
 </style>
 </head>
 <body>
@@ -217,6 +631,7 @@
   </div>
 </header>
 
+
 <!-- ============================================================
      MOBILE DRAWER
 ============================================================ -->
@@ -307,11 +722,71 @@
 </aside>
 
 <!-- demo filler so the footer isn't glued to the nav -->
+
+
+
+
 <main class="wrap demo-hero">
 
 
+  <div class="app">
+    <!-- ===== MAIN TOOLS SECTION ===== -->
+    <div class="main-tools">
+      <!-- Image Tools -->
+      <div class="tool-section">
+        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Image  Tools</h2>
+        <div class="tool-grid">
+          <a href="crop-image.html" class="tool-card"><i class="fas fa-crop-alt"></i><span>Crop Image</span></a>
+          <a href="compress-image.html" class="tool-card"><i class="fas fa-compress-alt"></i><span>Compress</span></a>
+         
+          <a href="watermark-image.html" class="tool-card"><i class="fas fa-water"></i><span>Watermark</span></a>
+          <a href="qr-code-generator.html" class="tool-card"><i class="fa-solid fa-qrcode"></i><span>QR Code Generator</span></a>   
+          <a href="resize-image.html" class="tool-card"><i class="fas fa-arrows-alt"></i><span>Resize</span></a>
+          <a href="convert-image.html" class="tool-card"><i class="fas fa-exchange-alt"></i><span>Convert</span></a>
+          <a href="rotate-image.html" class="tool-card"><i class="fas fa-undo-alt"></i><span>Rotate</span></a>
+          <a href="flip-image.html" class="tool-card"><i class="fas fa-arrows-alt-h"></i><span>Flip</span></a>     
+          <a href="social-media-image-resizer.html" class="tool-card"><i class="fa-solid fa-crop-simple"></i><span>Social Media Image Resizer</span></a>   
+          <a href="metadata.html" class="tool-card"><i class="fas fa-info-circle"></i><span>Metadata</span></a>
+          <a href="enhance-image.html" class="tool-card"><i class="fas fa-sliders-h"></i><span>Enhance</span></a>          
+          <a href="convert-jpg-to-png.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>Jpg to Png</span></a>
+          <a href="convert-jpg-to-jpeg.html" class="tool-card"><i class="fa-solid fa-arrows-rotate"></i><span>Jpg to jpeg</span></a>
+          <a href="convert-jpg-to-webp.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>Jpg to webp</span></a>
+          <a href="convert-png-to-jpg.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>Png to Jpg</span></a>
+          <a href="convert-png-to-jpeg.html" class="tool-card"><i class="fa-solid fa-arrows-rotate"></i><span>Png to Jpeg</span></a>
+          <a href="convert-png-to-webp.html" class="tool-card"><i class="fa-solid fa-image"></i><span>Png to Webp</span></a>
+          <a href="convert-webp-to-jpg.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>Webp to Jpg</span></a>
+          <a href="convert-webp-to-png.html" class="tool-card"><i class="fa-solid fa-image"></i><span>Webp to Png</span></a>
+          <a href="convert-webp-to-jpeg.html" class="tool-card"><i class="fa-solid fa-arrows-rotate"></i><span>Webp to Jpeg</span></a>
+          <a href="image-to-base64.html" class="tool-card"><i class="fa-solid fa-file-code"></i><span>Image to Base64 Converter</span></a>
+          <a href="gif-to-jpg.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>GIF to JPG Converter</span></a>
+          <a href="png-to-webp.html" class="tool-card"><i class="fa-solid fa-images"></i><span>PNG To Webp </span></a>
+          <a href="add-border.html" class="tool-card"><i class="fa-solid fa-border-all"></i><span>Add Border</span></a>
+          <a href="image-color-picker.html" class="tool-card"><i class="fa-solid fa-eye-dropper"></i><span>Image Color Picker</span></a>
+          <a href="blur-face-area.html" class="tool-card"><i class="fa-solid fa-user-secret"></i><span>Blur Face / Area</span></a>
+          <a href="meme-generator.html" class="tool-card"><i class="fa-solid fa-face-laugh"></i><span>Meme Generator</span></a>
+          <a href="photo-collage-maker.html" class="tool-card"><i class="fa-solid fa-table-cells-large"></i><span>Photo Collage Maker</span></a>
+         
+
+        </div>
+      </div>
+
     
 
+
+      <!-- Other Tools 
+      <div class="tool-section">
+        <h2><i class="fas fa-cog" style="margin-right:10px;"></i>Other Tools</h2>
+        <div class="tool-grid">
+          <a href="batch-processing.html" class="tool-card"><i class="fas fa-layer-group"></i><span>Batch Processing</span></a>
+          <a href="zip-download.html" class="tool-card"><i class="fas fa-file-archive"></i><span>ZIP Download</span></a>
+          <a href="file-info.html" class="tool-card"><i class="fas fa-file-alt"></i><span>File Info</span></a>
+        </div>
+      </div>
+      -->
+
+    </div>
+
+  </div>
 
 
 
@@ -453,11 +928,6 @@
 <script src="assets/javascript/myJavascript.js"></script>
 <!--End of header and footer scripts-->
 
-
-<!-- PAge Script Herer-->
-
-
-<!--End page script-->
 
 </body>
 </html>

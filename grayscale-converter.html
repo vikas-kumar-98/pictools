@@ -347,15 +347,372 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 <!-- Style page goes here-->
 <link rel="stylesheet" href="assets/css/style.css" >
 <!--End Style page goes here-->
 
 <style>
   /*Page style goes here....................*/
+    :root {
+      --gsc-bg: #f6f8fc;
+      --gsc-surface: #ffffff;
+      --gsc-border: #e2e8f0;
+      --gsc-text: #0b1b33;
+      --gsc-muted: #5b6f8c;
+      --gsc-primary: #2563eb;
+      --gsc-primary-hover: #1d4ed8;
+      --gsc-primary-light: #dbeafe;
+      --gsc-shadow: 0 12px 30px rgba(0, 20, 40, 0.08);
+      --gsc-radius: 24px;
+      --gsc-radius-sm: 16px;
+      --gsc-transition: 0.2s ease;
+    }
 
 
+
+    /* main card – no header/footer/nav */
+    .gsc-converter {
+      max-width: 1260px;
+      width: 100%;
+      background: var(--gsc-surface);
+      border-radius: var(--gsc-radius);
+      box-shadow: var(--gsc-shadow);
+      padding: 2rem 2rem 2.2rem;
+      transition: padding 0.2s;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    /* ---- empty state / upload ---- */
+    .gsc-upload-zone {
+      border: 2px dashed var(--gsc-border);
+      border-radius: var(--gsc-radius-sm);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border 0.2s, background 0.2s;
+      background: #fafcff;
+      position: relative;
+    }
+    .gsc-upload-zone.gsc-dragover {
+      border-color: var(--gsc-primary);
+      background: var(--gsc-primary-light);
+    }
+    .gsc-upload-zone i {
+      font-size: 2.8rem;
+      color: var(--gsc-primary);
+      margin-bottom: 0.6rem;
+    }
+    .gsc-upload-zone h3 {
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+    }
+    .gsc-upload-zone p {
+      color: var(--gsc-muted);
+      margin-top: 0.3rem;
+      font-size: 0.95rem;
+    }
+    .gsc-upload-zone .gsc-formats {
+      font-size: 0.8rem;
+      background: var(--gsc-bg);
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      margin-top: 0.8rem;
+      color: var(--gsc-muted);
+      border: 1px solid var(--gsc-border);
+    }
+    .gsc-upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    /* ---- image preview & controls ---- */
+    .gsc-preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 1.8rem 0 1.5rem;
+    }
+    @media (max-width: 800px) {
+      .gsc-preview-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+
+    .gsc-preview-card {
+      background: #f9fbfe;
+      border-radius: var(--gsc-radius-sm);
+      border: 1px solid var(--gsc-border);
+      overflow: hidden;
+      padding: 0.8rem 0.8rem 0.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .gsc-preview-card .gsc-img-wrap {
+      position: relative;
+      background: #eef2f6;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      max-height: 400px;
+    }
+    .gsc-preview-card .gsc-img-wrap img {
+      max-width: 100%;
+      max-height: 400px;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .gsc-preview-card .gsc-img-wrap canvas {
+      max-width: 100%;
+      max-height: 400px;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .gsc-preview-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      padding: 0.5rem 0.2rem 0;
+      font-size: 0.8rem;
+      color: var(--gsc-muted);
+    }
+    .gsc-preview-meta span {
+      background: white;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      border: 1px solid var(--gsc-border);
+    }
+
+    /* comparison slider overlay (before/after) */
+    .gsc-compare-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #eef2f6;
+      min-height: 200px;
+      max-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gsc-compare-container img,
+    .gsc-compare-container canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .gsc-compare-container .gsc-after-canvas {
+      clip-path: inset(0 50% 0 0);
+      z-index: 2;
+    }
+    .gsc-compare-container .gsc-before-img {
+      z-index: 1;
+    }
+    .gsc-compare-slider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: white;
+      z-index: 5;
+      transform: translateX(-50%);
+      cursor: ew-resize;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      touch-action: none;
+    }
+    .gsc-compare-slider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: 32px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* toggle buttons */
+    .gsc-toggle-group {
+      display: flex;
+      gap: 0.5rem;
+      margin: 0.5rem 0 0.2rem;
+      flex-wrap: wrap;
+    }
+    .gsc-toggle-group button {
+      background: white;
+      border: 1px solid var(--gsc-border);
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gsc-muted);
+      cursor: pointer;
+      transition: 0.15s;
+      flex: 1 0 auto;
+    }
+    .gsc-toggle-group button.gsc-active {
+      background: var(--gsc-primary);
+      border-color: var(--gsc-primary);
+      color: white;
+    }
+    .gsc-toggle-group button:focus-visible {
+      outline: 2px solid var(--gsc-primary);
+      outline-offset: 2px;
+    }
+
+    /* controls row */
+    .gsc-controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.2rem 1.5rem;
+      background: #f9fbfe;
+      padding: 1.2rem 1.2rem;
+      border-radius: var(--gsc-radius-sm);
+      border: 1px solid var(--gsc-border);
+      margin: 1rem 0 1.2rem;
+    }
+    .gsc-control-item label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gsc-muted);
+      margin-bottom: 0.2rem;
+    }
+    .gsc-control-item input[type="range"] {
+      width: 100%;
+      accent-color: var(--gsc-primary);
+      background: transparent;
+      cursor: pointer;
+    }
+    .gsc-control-item .gsc-value {
+      color: var(--gsc-text);
+      font-weight: 600;
+    }
+
+    .gsc-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      justify-content: space-between;
+      margin: 1rem 0 0.5rem;
+    }
+    .gsc-action-row .gsc-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .gsc-action-row .gsc-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .gsc-btn {
+      background: white;
+      border: 1px solid var(--gsc-border);
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--gsc-text);
+      cursor: pointer;
+      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .gsc-btn-primary {
+      background: var(--gsc-primary);
+      border-color: var(--gsc-primary);
+      color: white;
+    }
+    .gsc-btn-primary:hover:not(:disabled) {
+      background: var(--gsc-primary-hover);
+      border-color: var(--gsc-primary-hover);
+    }
+    .gsc-btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .gsc-btn-outline {
+      background: transparent;
+      border: 1px solid var(--gsc-border);
+    }
+    .gsc-btn-outline:hover:not(:disabled) {
+      background: var(--gsc-bg);
+    }
+    .gsc-btn:focus-visible {
+      outline: 2px solid var(--gsc-primary);
+      outline-offset: 2px;
+    }
+    .gsc-btn:active:not(:disabled) {
+      transform: scale(0.96);
+    }
+
+    .gsc-badge-privacy {
+      font-size: 0.75rem;
+      color: var(--gsc-muted);
+      background: var(--gsc-bg);
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      border: 1px solid var(--gsc-border);
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .gsc-converter { padding: 1rem; }
+      .gsc-controls-grid { grid-template-columns: 1fr 1fr; }
+      .gsc-action-row { flex-direction: column; align-items: stretch; }
+      .gsc-action-row .gsc-left, .gsc-action-row .gsc-right { justify-content: center; }
+      .gsc-btn { white-space: normal; }
+    }
+    @media (max-width: 400px) {
+      .gsc-controls-grid { grid-template-columns: 1fr; }
+    }
+
+    .gsc-hidden { display: none !important; }
+    .gsc-text-center { text-align: center; }
+    .gsc-mt-1 { margin-top: 0.6rem; }
+    .gsc-w-full { width: 100%; }
+
+    /* loading / processing */
+    .gsc-spinner {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 2px solid var(--gsc-border);
+      border-top-color: var(--gsc-primary);
+      border-radius: 50%;
+      animation: gsc-spin 0.7s linear infinite;
+    }
+    @keyframes gsc-spin { to { transform: rotate(360deg); } }
 
   /* End Page style goes here....................*/
 </style>
@@ -647,6 +1004,87 @@
 <!-- demo filler so the footer isn't glued to the nav -->
 <main class="wrap demo-hero">
 
+<div class="gsc-converter" role="main">
+  <!-- upload zone -->
+  <div id="gscUploadZone" class="gsc-upload-zone" role="button" tabindex="0" aria-label="Upload image">
+    <i class="fas fa-cloud-upload-alt"></i>
+    <h3>Drop your image here</h3>
+    <p>or click to browse</p>
+    <div class="gsc-formats">JPG · JPEG · PNG · WebP (max 20MB)</div>
+    <input type="file" id="gscFileInput" accept="image/jpeg,image/png,image/webp" />
+  </div>
+
+  <!-- image preview & compare -->
+  <div id="gscPreviewArea" class="gsc-hidden">
+    <div class="gsc-preview-grid">
+      <div class="gsc-preview-card">
+        <div class="gsc-img-wrap" id="gscOriginalWrap">
+          <img id="gscOriginalImg" src="#" alt="Original color image" />
+        </div>
+        <div class="gsc-preview-meta" id="gscOriginalMeta">
+          <span id="gscOrigDim">—</span>
+          <span id="gscOrigSize">—</span>
+          <span id="gscOrigFormat">—</span>
+        </div>
+        <div class="gsc-toggle-group">
+          <button id="gscViewOriginal" class="gsc-active" aria-pressed="true"><i class="fas fa-image"></i> Original</button>
+          <button id="gscViewGrayscale" aria-pressed="false"><i class="fas fa-circle"></i> Grayscale</button>
+        </div>
+      </div>
+
+      <div class="gsc-preview-card">
+        <div class="gsc-compare-container" id="gscCompareContainer">
+          <img id="gscCompareBefore" class="gsc-before-img" src="#" alt="Original" />
+          <canvas id="gscCompareAfterCanvas" class="gsc-after-canvas"></canvas>
+          <div class="gsc-compare-slider" id="gscCompareSlider" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0" aria-label="Comparison slider"></div>
+        </div>
+        <div class="gsc-preview-meta">
+          <span id="gscGrayMeta">Grayscale</span>
+          <span id="gscGrayDim">—</span>
+        </div>
+        <div style="display:flex; gap:0.5rem; margin-top:0.3rem;">
+          <button id="gscToggleCompareView" class="gsc-btn gsc-btn-outline" style="flex:1;"><i class="fas fa-arrows-left-right"></i> Split</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- controls -->
+    <div class="gsc-controls-grid" id="gscControlsPanel">
+      <div class="gsc-control-item"><label>Intensity <span class="gsc-value" id="gscIntensityVal">100</span></label><input type="range" id="gscIntensity" min="0" max="200" value="100" step="1" /></div>
+      <div class="gsc-control-item"><label>Brightness <span class="gsc-value" id="gscBrightnessVal">0</span></label><input type="range" id="gscBrightness" min="-100" max="100" value="0" step="1" /></div>
+      <div class="gsc-control-item"><label>Contrast <span class="gsc-value" id="gscContrastVal">0</span></label><input type="range" id="gscContrast" min="-100" max="100" value="0" step="1" /></div>
+      <div class="gsc-control-item"><label>Exposure <span class="gsc-value" id="gscExposureVal">0</span></label><input type="range" id="gscExposure" min="-50" max="50" value="0" step="1" /></div>
+    </div>
+
+    <!-- actions -->
+    <div class="gsc-action-row">
+      <div class="gsc-left">
+        <button id="gscResetBtn" class="gsc-btn gsc-btn-outline"><i class="fas fa-undo-alt"></i> Reset</button>
+        <button id="gscAutoEnhanceBtn" class="gsc-btn gsc-btn-outline"><i class="fas fa-magic"></i> Auto‑enhance</button>
+        <button id="gscRemoveBtn" class="gsc-btn gsc-btn-outline"><i class="fas fa-trash-alt"></i> Remove</button>
+      </div>
+      <div class="gsc-right">
+        <select id="gscFormatSelect" class="gsc-btn" style="background:white; padding:0.4rem 1rem; border-radius:60px; border:1px solid var(--gsc-border);">
+          <option value="png">PNG</option>
+          <option value="jpeg">JPG</option>
+          <option value="webp">WebP</option>
+        </select>
+        <span style="display:flex; align-items:center; gap:0.2rem; font-size:0.8rem; color:var(--gsc-muted);">
+          <span id="gscQualityLabel">Quality</span>
+          <input type="range" id="gscQualityRange" min="10" max="100" value="92" style="width:80px;" />
+          <span id="gscQualityVal">92%</span>
+        </span>
+        <button id="gscDownloadBtn" class="gsc-btn gsc-btn-primary" disabled><i class="fas fa-download"></i> Download</button>
+      </div>
+    </div>
+
+    <!-- status & privacy -->
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; margin-top:0.8rem;">
+      <span id="gscStatusMsg" style="font-size:0.85rem; color:var(--gsc-muted);"><i class="fas fa-info-circle"></i> Ready</span>
+      <span class="gsc-badge-privacy"><i class="fas fa-shield-alt"></i> Your images are processed locally in your browser. Files are never uploaded.</span>
+    </div>
+  </div>
+</div>
 
     
 
@@ -793,7 +1231,326 @@
 
 
 <!-- PAge Script Herer-->
+<script>
+  (function() {
+    "use strict";
 
+    // DOM refs with unique gsc prefix
+    const uploadZone = document.getElementById('gscUploadZone');
+    const fileInput = document.getElementById('gscFileInput');
+    const previewArea = document.getElementById('gscPreviewArea');
+    const originalImg = document.getElementById('gscOriginalImg');
+    const compareBefore = document.getElementById('gscCompareBefore');
+    const compareCanvas = document.getElementById('gscCompareAfterCanvas');
+    const ctx = compareCanvas.getContext('2d');
+    const slider = document.getElementById('gscCompareSlider');
+    const origDim = document.getElementById('gscOrigDim');
+    const origSize = document.getElementById('gscOrigSize');
+    const origFormat = document.getElementById('gscOrigFormat');
+    const grayDim = document.getElementById('gscGrayDim');
+    const intensity = document.getElementById('gscIntensity');
+    const brightness = document.getElementById('gscBrightness');
+    const contrast = document.getElementById('gscContrast');
+    const exposure = document.getElementById('gscExposure');
+    const intensityVal = document.getElementById('gscIntensityVal');
+    const brightnessVal = document.getElementById('gscBrightnessVal');
+    const contrastVal = document.getElementById('gscContrastVal');
+    const exposureVal = document.getElementById('gscExposureVal');
+    const resetBtn = document.getElementById('gscResetBtn');
+    const autoEnhanceBtn = document.getElementById('gscAutoEnhanceBtn');
+    const removeBtn = document.getElementById('gscRemoveBtn');
+    const downloadBtn = document.getElementById('gscDownloadBtn');
+    const formatSelect = document.getElementById('gscFormatSelect');
+    const qualityRange = document.getElementById('gscQualityRange');
+    const qualityVal = document.getElementById('gscQualityVal');
+    const statusMsg = document.getElementById('gscStatusMsg');
+    const viewOriginal = document.getElementById('gscViewOriginal');
+    const viewGrayscale = document.getElementById('gscViewGrayscale');
+    const toggleCompareView = document.getElementById('gscToggleCompareView');
+
+    // state
+    let originalFile = null;
+    let originalImageData = null;
+    let processedImageData = null;
+    let imageWidth = 0, imageHeight = 0;
+    let isGrayscaleView = false;
+    let splitMode = true;
+    let sliderPosition = 50;
+
+    function setStatus(msg, isError = false) {
+      statusMsg.innerHTML = `<i class="fas fa-${isError ? 'exclamation-triangle' : 'info-circle'}"></i> ${msg}`;
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+    function disableButtons(disabled) {
+      downloadBtn.disabled = disabled;
+      resetBtn.disabled = disabled;
+      autoEnhanceBtn.disabled = disabled;
+      removeBtn.disabled = disabled;
+    }
+
+    function loadImageFile(file) {
+      if (!file) return;
+      const valid = ['image/jpeg','image/png','image/webp'];
+      if (!valid.includes(file.type)) {
+        setStatus('Unsupported file type. Please use JPG, PNG, or WebP.', true);
+        return;
+      }
+      if (file.size > 20 * 1024 * 1024) {
+        setStatus('File too large. Maximum 20MB.', true);
+        return;
+      }
+      originalFile = file;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          imageWidth = img.width;
+          imageHeight = img.height;
+          originalImg.src = e.target.result;
+          compareBefore.src = e.target.result;
+          origDim.textContent = `${img.width} × ${img.height}`;
+          origSize.textContent = formatFileSize(file.size);
+          origFormat.textContent = file.type.split('/')[1].toUpperCase();
+          grayDim.textContent = `${img.width} × ${img.height}`;
+          compareCanvas.width = img.width;
+          compareCanvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          originalImageData = ctx.getImageData(0, 0, img.width, img.height);
+          processAndRender();
+          previewArea.classList.remove('gsc-hidden');
+          uploadZone.classList.add('gsc-hidden');
+          disableButtons(false);
+          setStatus('Image loaded. Adjust settings or download.');
+          isGrayscaleView = false;
+          viewOriginal.classList.add('gsc-active');
+          viewGrayscale.classList.remove('gsc-active');
+          viewOriginal.setAttribute('aria-pressed','true');
+          viewGrayscale.setAttribute('aria-pressed','false');
+          updateLeftPreview();
+        };
+        img.onerror = () => { setStatus('Corrupted or unreadable image.', true); };
+        img.src = e.target.result;
+      };
+      reader.onerror = () => { setStatus('Error reading file.', true); };
+      reader.readAsDataURL(file);
+    }
+
+    function processAndRender() {
+      if (!originalImageData) return;
+      const w = originalImageData.width, h = originalImageData.height;
+      const data = new Uint8ClampedArray(originalImageData.data);
+      const inten = parseFloat(intensity.value) / 100;
+      const bright = parseFloat(brightness.value);
+      const cont = parseFloat(contrast.value) / 100;
+      const expo = parseFloat(exposure.value) / 100;
+
+      for (let i = 0; i < data.length; i += 4) {
+        let r = data[i], g = data[i+1], b = data[i+2];
+        let gray = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        if (inten !== 1) {
+          const mix = inten;
+          const origR = r, origG = g, origB = b;
+          r = origR * (1 - inten) + gray * inten;
+          g = origG * (1 - inten) + gray * inten;
+          b = origB * (1 - inten) + gray * inten;
+        } else {
+          r = gray; g = gray; b = gray;
+        }
+        r += bright; g += bright; b += bright;
+        const factor = (259 * (cont * 100 + 255)) / (255 * (259 - cont * 100));
+        r = factor * (r - 128) + 128;
+        g = factor * (g - 128) + 128;
+        b = factor * (b - 128) + 128;
+        r *= (1 + expo); g *= (1 + expo); b *= (1 + expo);
+        data[i] = Math.min(255, Math.max(0, r));
+        data[i+1] = Math.min(255, Math.max(0, g));
+        data[i+2] = Math.min(255, Math.max(0, b));
+      }
+      processedImageData = new ImageData(data, w, h);
+      ctx.putImageData(processedImageData, 0, 0);
+      updateCompareView();
+      updateLeftPreview();
+      updateQualityEstimate();
+    }
+
+    function updateCompareView() {
+      if (!splitMode) {
+        compareCanvas.style.clipPath = 'inset(0 0% 0 0)';
+        slider.style.display = 'none';
+      } else {
+        compareCanvas.style.clipPath = `inset(0 ${100 - sliderPosition}% 0 0)`;
+        slider.style.display = 'block';
+        slider.style.left = sliderPosition + '%';
+      }
+    }
+
+    function updateLeftPreview() {
+      if (isGrayscaleView && processedImageData) {
+        const canvas = document.createElement('canvas');
+        canvas.width = processedImageData.width;
+        canvas.height = processedImageData.height;
+        const tmpCtx = canvas.getContext('2d');
+        tmpCtx.putImageData(processedImageData, 0, 0);
+        originalImg.src = canvas.toDataURL('image/png');
+      } else if (originalImageData) {
+        const canvas = document.createElement('canvas');
+        canvas.width = originalImageData.width;
+        canvas.height = originalImageData.height;
+        const tmpCtx = canvas.getContext('2d');
+        tmpCtx.putImageData(originalImageData, 0, 0);
+        originalImg.src = canvas.toDataURL('image/png');
+      }
+    }
+
+    function updateQualityEstimate() {
+      qualityVal.textContent = qualityRange.value + '%';
+    }
+
+    function downloadImage() {
+      if (!processedImageData) return;
+      const canvas = document.createElement('canvas');
+      canvas.width = processedImageData.width;
+      canvas.height = processedImageData.height;
+      const tmpCtx = canvas.getContext('2d');
+      tmpCtx.putImageData(processedImageData, 0, 0);
+      const format = formatSelect.value;
+      const quality = parseInt(qualityRange.value) / 100;
+      let mimeType = 'image/png';
+      if (format === 'jpeg') mimeType = 'image/jpeg';
+      else if (format === 'webp') mimeType = 'image/webp';
+      const dataURL = canvas.toDataURL(mimeType, quality);
+      const link = document.createElement('a');
+      link.download = `image-grayscale.${format === 'jpeg' ? 'jpg' : format}`;
+      link.href = dataURL;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setStatus('Download started!');
+    }
+
+    function resetAdjustments() {
+      intensity.value = '100'; brightness.value = '0'; contrast.value = '0'; exposure.value = '0';
+      intensityVal.textContent = '100'; brightnessVal.textContent = '0'; contrastVal.textContent = '0'; exposureVal.textContent = '0';
+      processAndRender();
+      setStatus('Settings reset.');
+    }
+
+    function autoEnhance() {
+      brightness.value = '15';
+      contrast.value = '15';
+      brightnessVal.textContent = '15';
+      contrastVal.textContent = '15';
+      processAndRender();
+      setStatus('Auto-enhance applied (brightness +15, contrast +15).');
+    }
+
+    function removeImage() {
+      originalFile = null;
+      originalImageData = null;
+      processedImageData = null;
+      previewArea.classList.add('gsc-hidden');
+      uploadZone.classList.remove('gsc-hidden');
+      fileInput.value = '';
+      disableButtons(true);
+      setStatus('Image removed. Upload a new one.');
+    }
+
+    // events
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) loadImageFile(e.target.files[0]);
+    });
+
+    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('gsc-dragover'); });
+    uploadZone.addEventListener('dragleave', () => { uploadZone.classList.remove('gsc-dragover'); });
+    uploadZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadZone.classList.remove('gsc-dragover');
+      if (e.dataTransfer.files.length) loadImageFile(e.dataTransfer.files[0]);
+    });
+    uploadZone.addEventListener('click', () => { fileInput.click(); });
+
+    // slider
+    function setSlider(pos) {
+      sliderPosition = Math.min(100, Math.max(0, pos));
+      slider.setAttribute('aria-valuenow', Math.round(sliderPosition));
+      updateCompareView();
+    }
+
+    const sliderMove = (clientX) => {
+      const rect = compareCanvas.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const percent = (x / rect.width) * 100;
+      setSlider(percent);
+    };
+
+    slider.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      const move = (ev) => sliderMove(ev.clientX);
+      const up = () => { document.removeEventListener('mousemove', move); document.removeEventListener('mouseup', up); };
+      document.addEventListener('mousemove', move);
+      document.addEventListener('mouseup', up);
+    });
+    slider.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const move = (ev) => { ev.preventDefault(); sliderMove(ev.touches[0].clientX); };
+      const up = () => { document.removeEventListener('touchmove', move); document.removeEventListener('touchend', up); };
+      document.addEventListener('touchmove', move, { passive: false });
+      document.addEventListener('touchend', up);
+    }, { passive: false });
+
+    // view toggle left
+    viewOriginal.addEventListener('click', () => {
+      isGrayscaleView = false;
+      viewOriginal.classList.add('gsc-active'); viewGrayscale.classList.remove('gsc-active');
+      viewOriginal.setAttribute('aria-pressed','true'); viewGrayscale.setAttribute('aria-pressed','false');
+      updateLeftPreview();
+    });
+    viewGrayscale.addEventListener('click', () => {
+      isGrayscaleView = true;
+      viewGrayscale.classList.add('gsc-active'); viewOriginal.classList.remove('gsc-active');
+      viewGrayscale.setAttribute('aria-pressed','true'); viewOriginal.setAttribute('aria-pressed','false');
+      updateLeftPreview();
+    });
+
+    toggleCompareView.addEventListener('click', () => {
+      splitMode = !splitMode;
+      toggleCompareView.innerHTML = splitMode ? '<i class="fas fa-arrows-left-right"></i> Split' : '<i class="fas fa-square"></i> Full';
+      updateCompareView();
+    });
+
+    [intensity, brightness, contrast, exposure].forEach((el) => {
+      el.addEventListener('input', () => {
+        const id = el.id;
+        const val = el.value;
+        if (id === 'gscIntensity') intensityVal.textContent = val;
+        else if (id === 'gscBrightness') brightnessVal.textContent = val;
+        else if (id === 'gscContrast') contrastVal.textContent = val;
+        else if (id === 'gscExposure') exposureVal.textContent = val;
+        processAndRender();
+      });
+    });
+
+    qualityRange.addEventListener('input', updateQualityEstimate);
+
+    resetBtn.addEventListener('click', resetAdjustments);
+    autoEnhanceBtn.addEventListener('click', autoEnhance);
+    removeBtn.addEventListener('click', removeImage);
+    downloadBtn.addEventListener('click', downloadImage);
+
+    // init
+    disableButtons(true);
+    setStatus('Upload an image to begin.');
+    updateQualityEstimate();
+    setSlider(50);
+  })();
+</script>
 
 <!--End page script-->
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -345,6 +344,9 @@
     <link rel="dns-prefetch" href="//googletagmanager.com">
     <link rel="dns-prefetch" href="//facebook.com">
 
+
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
@@ -354,12 +356,56 @@
 
 <style>
 
+  /* Page specifi style.................................*/
 
-  /*Page style goes here....................*/
+      .container{max-width:1100px;margin:0 auto;}
+    h1{font-size:2.2rem;font-weight:800;text-align:center;margin-bottom:0.5rem;}
+    .sub{text-align:center;color:#475569;margin-bottom:1.5rem;}
+    .upload-zone{background:#fff;border:2px dashed #cbd5e1;border-radius:2rem;padding:2.5rem 1.5rem;text-align:center;transition:.2s;margin:1rem 0;}
+    .upload-zone.dragover{border-color:#2563eb;background:#eef6ff;}
+    .upload-zone .icon{font-size:3rem;}
+    .upload-btn{background:#2563eb;color:#fff;padding:0.7rem 2rem;border-radius:60px;font-weight:600;font-size:1rem;border:none;cursor:pointer;margin:0.5rem 0;}
+    .upload-btn:hover{background:#1d4ed8;}
+    .small{font-size:0.85rem;color:#64748b;margin-top:0.3rem;}
+    .settings-panel{background:#fff;border-radius:1.5rem;padding:1.5rem;box-shadow:0 4px 12px rgba(0,0,0,.04);margin:1.5rem 0;display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;}
+    .settings-group{flex:1 1 180px;}
+    .settings-group label{display:block;font-weight:500;margin-bottom:0.2rem;}
+    .range-wrap{display:flex;align-items:center;gap:0.8rem;}
+    input[type=range]{flex:1;accent-color:#2563eb;}
+    .preset-btns{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.3rem;}
+    .preset-btns button{background:#eef2f6;padding:0.2rem 1rem;border-radius:40px;border:none;font-size:0.75rem;font-weight:500;cursor:pointer;}
+    .preset-btns button.active{background:#2563eb;color:#fff;}
+    select{background:#fff;padding:0.3rem 1rem;border:1px solid #cbd5e1;border-radius:40px;font-size:0.95rem;}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem;margin:1.5rem 0;}
+    .card{background:#fff;border-radius:1.5rem;padding:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.04);display:flex;flex-direction:column;}
+    .card .thumb{width:100%;aspect-ratio:1/1;object-fit:contain;background:#f1f5f9;border-radius:1rem;margin-bottom:0.8rem;}
+    .card .info{font-size:0.9rem;}
+    .card .actions{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem;}
+    .card .actions button{background:#eef2f6;padding:0.2rem 0.9rem;border-radius:40px;border:none;font-size:0.75rem;font-weight:500;cursor:pointer;}
+    .card .actions button.primary{background:#2563eb;color:#fff;}
+    .card .actions button.primary:hover{background:#1d4ed8;}
+    .card .actions button:disabled{opacity:0.4;pointer-events:none;}
+    .compress-main{text-align:center;margin:1.5rem 0;}
+    .compress-main .btn{background:#2563eb;color:#fff;padding:0.9rem 2.8rem;border-radius:60px;font-weight:700;font-size:1.2rem;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,.25);}
+    .compress-main .btn:disabled{opacity:0.5;pointer-events:none;}
+    .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:0.8rem;font-size:0.9rem;}
+    .stats span{background:#f1f5f9;padding:0.2rem 1.2rem;border-radius:40px;}
+    .compare-section{background:#fff;border-radius:1.5rem;padding:1.5rem;margin:1.5rem 0;box-shadow:0 4px 12px rgba(0,0,0,.04);}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+    @media (max-width:640px){.compare-grid{grid-template-columns:1fr;}}
+    .compare-item{text-align:center;}
+    .compare-item img{max-width:100%;max-height:250px;border-radius:1rem;background:#f1f5f9;object-fit:contain;}
+    .toast{position:fixed;bottom:30px;right:20px;background:#0b1a2e;color:#fff;padding:0.6rem 1.5rem;border-radius:60px;box-shadow:0 8px 24px rgba(0,0,0,.2);transform:translateY(120px);transition:.3s;opacity:0;z-index:300;}
+    .toast.show{transform:translateY(0);opacity:1;}
+    .flex-row{display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;margin:0.5rem 0;}
+    .clear-btn{background:#eef2f6;padding:0.2rem 1.2rem;border-radius:40px;border:none;font-weight:500;cursor:pointer;}
+    .file-count{font-weight:500;}
+    .target-size{display:flex;align-items:center;gap:0.6rem;background:#f1f5f9;padding:0.2rem 1rem;border-radius:40px;}
+    .target-size input{width:70px;padding:0.2rem 0.4rem;border:1px solid #cbd5e1;border-radius:30px;font-size:0.9rem;}
+    .empty-state{text-align:center;padding:2.5rem 0;color:#64748b;}
+    button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #2563eb;outline-offset:2px;}
 
-
-
-  /* End Page style goes here....................*/
+    /**/
 </style>
 </head>
 <body>
@@ -649,6 +695,83 @@
 <!-- demo filler so the footer isn't glued to the nav -->
 <main class="wrap demo-hero">
 
+<div class="container">
+  <h1>📁 ImageCompress</h1>
+  <div class="sub">Shrink your images to fit a target size (e.g. under 100 KB)</div>
+
+  <!-- upload -->
+  <div class="upload-zone" id="uploadZone">
+    <div class="icon">🖼️</div>
+    <p><strong>Drag & Drop</strong> or</p>
+    <button class="upload-btn" id="filePicker">Choose Images</button>
+    <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" multiple style="display:none">
+    <div class="small">Supported: JPG, PNG, WebP • Max 20 MB per file</div>
+  </div>
+
+  <div class="flex-row">
+    <span class="file-count" id="fileCount">0 images</span>
+    <button class="clear-btn" id="clearAllBtn">🗑️ Clear all</button>
+    <button class="clear-btn" id="downloadAllBtn">📦 Download All (ZIP)</button>
+    <div class="target-size">
+      <span>🎯 Target max:</span>
+      <input type="number" id="targetSizeInput" value="100" min="10" max="2000" step="10">
+      <span>KB</span>
+    </div>
+  </div>
+
+  <!-- settings -->
+  <div class="settings-panel">
+    <div class="settings-group">
+      <label for="qualitySlider">Quality</label>
+      <div class="range-wrap">
+        <input type="range" id="qualitySlider" min="10" max="100" value="75">
+        <span id="qualityDisplay">75%</span>
+      </div>
+      <div class="preset-btns">
+        <button data-quality="30">Max</button>
+        <button data-quality="60">Balanced</button>
+        <button data-quality="85">High</button>
+      </div>
+    </div>
+    <div class="settings-group">
+      <label for="formatSelect">Format</label>
+      <select id="formatSelect">
+        <option value="auto">Auto</option>
+        <option value="image/jpeg">JPG</option>
+        <option value="image/png">PNG</option>
+        <option value="image/webp">WebP</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- cards -->
+  <div id="cardsContainer"></div>
+
+  <!-- compare -->
+  <div class="compare-section" id="compareSection" style="display:none;">
+    <div class="compare-grid">
+      <div class="compare-item"><h3>Original</h3><img id="origPreview" alt="original"><p id="origInfo"></p></div>
+      <div class="compare-item"><h3>Compressed</h3><img id="compPreview" alt="compressed"><p id="compInfo"></p></div>
+    </div>
+  </div>
+
+  <!-- compress button -->
+  <div class="compress-main">
+    <button class="btn" id="compressAllBtn">Compress Images</button>
+    <div id="progressArea" style="margin-top:0.6rem;font-weight:500;"></div>
+    <div class="stats" id="statsArea"></div>
+  </div>
+
+  <!-- features mini -->
+  <div style="padding:1rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1rem;">
+    <div><strong>⚡ Fast</strong><br>in-browser</div>
+    <div><strong>🔒 Private</strong><br>local only</div>
+    <div><strong>🎯 Target size</strong><br>under 100KB</div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
 
     
 
@@ -789,15 +912,354 @@
   </div>
 </footer>
 
+
 <!--header and footer scripts-->
 <script src="assets/javascript/myJavascript.js"></script>
 <!--End of header and footer scripts-->
 
 
-<!-- PAge Script Herer-->
+<!-- Page specific scripts -->
+<script>
+  (function() {
+    "use strict";
 
+    // ----- state -----
+    const state = { files: [], results: [] };
 
-<!--End page script-->
+    // ----- DOM -----
+    const uploadZone = document.getElementById('uploadZone');
+    const fileInput = document.getElementById('fileInput');
+    const filePicker = document.getElementById('filePicker');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityDisplay = document.getElementById('qualityDisplay');
+    const formatSelect = document.getElementById('formatSelect');
+    const cardsContainer = document.getElementById('cardsContainer');
+    const compressAllBtn = document.getElementById('compressAllBtn');
+    const progressArea = document.getElementById('progressArea');
+    const statsArea = document.getElementById('statsArea');
+    const compareSection = document.getElementById('compareSection');
+    const origPreview = document.getElementById('origPreview');
+    const compPreview = document.getElementById('compPreview');
+    const origInfo = document.getElementById('origInfo');
+    const compInfo = document.getElementById('compInfo');
+    const fileCount = document.getElementById('fileCount');
+    const toast = document.getElementById('toast');
+    const clearAllBtn = document.getElementById('clearAllBtn');
+    const downloadAllBtn = document.getElementById('downloadAllBtn');
+    const targetSizeInput = document.getElementById('targetSizeInput');
+    let toastTimer = null;
 
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    // ----- upload -----
+    filePicker.addEventListener('click', ()=>fileInput.click());
+    fileInput.addEventListener('change', (e)=>handleFiles(e.target.files));
+    uploadZone.addEventListener('dragover', (e)=>{e.preventDefault();uploadZone.classList.add('dragover');});
+    uploadZone.addEventListener('dragleave', ()=>{uploadZone.classList.remove('dragover');});
+    uploadZone.addEventListener('drop', (e)=>{
+      e.preventDefault();
+      uploadZone.classList.remove('dragover');
+      if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
+    });
+
+    // ----- quality -----
+    qualitySlider.addEventListener('input', ()=>{
+      qualityDisplay.textContent = qualitySlider.value + '%';
+      document.querySelectorAll('.preset-btns button').forEach(b=>b.classList.remove('active'));
+    });
+    document.querySelectorAll('.preset-btns button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const q = parseInt(btn.dataset.quality);
+        qualitySlider.value = q;
+        qualityDisplay.textContent = q + '%';
+        document.querySelectorAll('.preset-btns button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // ----- handle files -----
+    function handleFiles(files) {
+      const valid = [];
+      for (const f of files) {
+        if (f.size > 20*1024*1024) { showToast('File too large (max 20MB): '+f.name); continue; }
+        if (!['image/jpeg','image/png','image/webp'].includes(f.type)) { showToast('Unsupported format: '+f.name); continue; }
+        valid.push(f);
+      }
+      if (!valid.length) return;
+      state.files = state.files.concat(valid);
+      state.results = [];
+      renderCards();
+      updateFileCount();
+      showToast(`${valid.length} file(s) added`);
+    }
+
+    // ----- render cards -----
+    function renderCards() {
+      if (!state.files.length) {
+        cardsContainer.innerHTML = '<div class="empty-state">No images uploaded</div>';
+        return;
+      }
+      let html = '<div class="cards-grid">';
+      state.files.forEach((f, idx) => {
+        const url = URL.createObjectURL(f);
+        const sizeStr = formatSize(f.size);
+        html += `<div class="card" data-index="${idx}">
+          <img class="thumb" src="${url}" alt="${sanitize(f.name)}" loading="lazy">
+          <div class="info"><strong>${sanitize(f.name)}</strong> <span>Original: ${sizeStr}</span>
+          <span id="status_${idx}">⏳ Not compressed</span>
+          <span id="result_${idx}"></span></div>
+          <div class="actions">
+            <button class="primary" data-compress="${idx}">Compress</button>
+            <button data-download="${idx}" disabled>Download</button>
+            <button data-remove="${idx}">Remove</button>
+          </div>
+        </div>`;
+      });
+      html += '</div>';
+      cardsContainer.innerHTML = html;
+
+      cardsContainer.querySelectorAll('[data-compress]').forEach(btn=>{
+        btn.addEventListener('click', ()=>compressSingle(parseInt(btn.dataset.compress)));
+      });
+      cardsContainer.querySelectorAll('[data-remove]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const idx = parseInt(btn.dataset.remove);
+          state.files.splice(idx,1);
+          state.results = [];
+          renderCards();
+          updateFileCount();
+          compareSection.style.display='none';
+        });
+      });
+      cardsContainer.querySelectorAll('[data-download]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const idx = parseInt(btn.dataset.download);
+          const res = state.results[idx];
+          if (res) downloadBlob(res.blob, res.name || 'compressed.'+res.ext);
+        });
+      });
+    }
+
+    function updateFileCount() {
+      fileCount.textContent = `${state.files.length} image(s)`;
+    }
+
+    // ----- compress single (with target size loop) -----
+    async function compressSingle(idx) {
+      const file = state.files[idx];
+      if (!file) return;
+      const targetKB = parseInt(targetSizeInput.value) || 100;
+      const targetBytes = targetKB * 1024;
+
+      let format = formatSelect.value;
+      if (format === 'auto') format = file.type;
+      const ext = format.split('/')[1] || 'jpg';
+
+      try {
+        // first attempt with current quality
+        let quality = parseInt(qualitySlider.value)/100;
+        let result = await compressImage(file, quality, format);
+        // if already under target, done
+        if (result.size <= targetBytes) {
+          state.results[idx] = result;
+          updateCardResult(idx, result);
+          updateCompare(idx, result);
+          showToast(`✅ ${sanitize(file.name)} under ${targetKB}KB`);
+          return;
+        }
+
+        // binary search for quality that fits target (quality 0.1 ~ 1.0)
+        let lo = 0.05, hi = quality;
+        let bestResult = result;
+        let found = false;
+
+        for (let iter = 0; iter < 12; iter++) { // 12 iterations gives good precision
+          const mid = (lo + hi) / 2;
+          const testResult = await compressImage(file, mid, format);
+          if (testResult.size <= targetBytes) {
+            bestResult = testResult;
+            found = true;
+            lo = mid + 0.02; // try higher quality
+          } else {
+            hi = mid - 0.02;
+          }
+          if (hi < 0.05) break;
+        }
+
+        // if still not found, use the best we have (lowest quality)
+        if (!found) {
+          // try lowest possible
+          const lowResult = await compressImage(file, 0.05, format);
+          if (lowResult.size <= targetBytes) {
+            bestResult = lowResult;
+          } else {
+            // even lowest quality is too big -> warn
+            showToast(`⚠️ Cannot compress ${sanitize(file.name)} under ${targetKB}KB (try reducing dimensions)`);
+            // still store the lowest result
+            bestResult = lowResult;
+          }
+        }
+
+        state.results[idx] = bestResult;
+        updateCardResult(idx, bestResult);
+        updateCompare(idx, bestResult);
+        showToast(`✅ ${sanitize(file.name)} → ${formatSize(bestResult.size)}`);
+
+      } catch (e) {
+        showToast('Compression error: '+e.message);
+      }
+    }
+
+    // ----- compress all -----
+    compressAllBtn.addEventListener('click', async ()=>{
+      if (!state.files.length) { showToast('No images to compress'); return; }
+      compressAllBtn.disabled = true;
+      progressArea.textContent = 'Compressing... 0%';
+      let done = 0;
+      for (let i=0;i<state.files.length;i++) {
+        if (!state.results[i]) {
+          await compressSingle(i);
+        }
+        done++;
+        progressArea.textContent = `Compressing... ${Math.round(done/state.files.length*100)}%`;
+      }
+      progressArea.textContent = '✅ Compression completed';
+      compressAllBtn.disabled = false;
+      // stats
+      let origTotal=0, compTotal=0;
+      state.results.forEach(r=>{ if(r){ origTotal+=r.originalSize; compTotal+=r.size; } });
+      statsArea.innerHTML = `<span>Original: ${formatSize(origTotal)}</span><span>Compressed: ${formatSize(compTotal)}</span><span>Saved: ${origTotal?Math.round((1-compTotal/origTotal)*100):0}%</span>`;
+      if (state.results.length) {
+        const lastIdx = state.results.length-1;
+        if (state.results[lastIdx]) updateCompare(lastIdx, state.results[lastIdx]);
+      }
+    });
+
+    // ----- compression engine (canvas) -----
+    function compressImage(file, quality, outputMime) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            if (file.type === 'image/png') ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.drawImage(img,0,0);
+            let mime = outputMime;
+            let ext = mime.split('/')[1] || 'jpg';
+            canvas.toBlob((blob) => {
+              if (!blob) return reject(new Error('Compression failed'));
+              const res = { blob, size: blob.size, originalSize: file.size, name: file.name.replace(/\.[^.]+$/, '')+'.'+ext, ext };
+              resolve(res);
+            }, mime, quality);
+          };
+          img.onerror = () => reject(new Error('Unable to decode image'));
+          img.src = e.target.result;
+        };
+        reader.onerror = () => reject(new Error('File read error'));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // ----- helpers -----
+    function updateCardResult(idx, res) {
+      const status = document.getElementById('status_'+idx);
+      if (status) status.textContent = '✅ Compressed: '+formatSize(res.size);
+      const resultSpan = document.getElementById('result_'+idx);
+      if (resultSpan) resultSpan.textContent = `Saved: ${Math.round((1-res.size/res.originalSize)*100)}%`;
+      const dlBtn = cardsContainer.querySelector(`[data-download="${idx}"]`);
+      if (dlBtn) dlBtn.disabled = false;
+    }
+
+    function updateCompare(idx, res) {
+      const file = state.files[idx];
+      if (!file) return;
+      compareSection.style.display = 'block';
+      origPreview.src = URL.createObjectURL(file);
+      origInfo.textContent = `Original: ${formatSize(file.size)} • ${file.type}`;
+      compPreview.src = URL.createObjectURL(res.blob);
+      compInfo.textContent = `Compressed: ${formatSize(res.size)} • ${res.blob.type}`;
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(()=>URL.revokeObjectURL(url), 5000);
+    }
+
+    // ----- download all ZIP (with JSZip CDN) -----
+    downloadAllBtn.addEventListener('click', async ()=>{
+      const compressed = state.results.filter(r => r !== undefined);
+      if (!compressed.length) { showToast('No compressed images to download'); return; }
+      try {
+        if (typeof JSZip === 'undefined') {
+          await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        }
+        const zip = new JSZip();
+        for (let i=0; i<compressed.length; i++) {
+          const r = compressed[i];
+          const name = r.name || `compressed_${i}.${r.ext}`;
+          zip.file(name, r.blob);
+        }
+        const zipBlob = await zip.generateAsync({type:'blob'});
+        downloadBlob(zipBlob, 'compressed_images.zip');
+        showToast('Downloaded all as ZIP');
+      } catch (e) {
+        showToast('ZIP download failed: '+e.message);
+      }
+    });
+
+    // ----- clear all -----
+    function resetCompressor() {
+      state.files = [];
+      state.results = [];
+      renderCards();
+      updateFileCount();
+      compareSection.style.display='none';
+      statsArea.innerHTML='';
+      progressArea.textContent='';
+      showToast('All images cleared');
+    }
+    clearAllBtn.addEventListener('click', resetCompressor);
+
+    // ----- utilities -----
+    function formatSize(bytes) {
+      if (bytes < 1024) return bytes+' B';
+      if (bytes < 1048576) return (bytes/1024).toFixed(1)+' KB';
+      return (bytes/1048576).toFixed(1)+' MB';
+    }
+
+    function sanitize(str) {
+      const el = document.createElement('span');
+      el.textContent = str;
+      return el.textContent;
+    }
+
+    // init
+    renderCards();
+    updateFileCount();
+  })();
+</script>
+
+<!-- End Page specific scripts -->
 </body>
 </html>

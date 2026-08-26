@@ -357,7 +357,693 @@
 
 
   /*Page style goes here....................*/
+    .p2w-app {
+      --p2w-font: 'Inter', system-ui, -apple-system, sans-serif;
+      --p2w-bg-start: #f0f4ff;
+      --p2w-bg-end: #e6edfe;
+      --p2w-surface: rgba(255, 255, 255, 0.85);
+      --p2w-surface-solid: #ffffff;
+      --p2w-border: rgba(255, 255, 255, 0.5);
+      --p2w-shadow: 0 20px 60px rgba(37, 99, 235, 0.12), 0 8px 24px rgba(0, 0, 0, 0.04);
+      --p2w-shadow-hover: 0 30px 80px rgba(37, 99, 235, 0.18);
+      --p2w-primary: #2563eb;
+      --p2w-primary-hover: #1d4ed8;
+      --p2w-primary-glow: rgba(37, 99, 235, 0.25);
+      --p2w-primary-soft: #dbeafe;
+      --p2w-text: #0b1b33;
+      --p2w-text-secondary: #2c3e5c;
+      --p2w-text-muted: #64748b;
+      --p2w-success: #16a34a;
+      --p2w-error: #dc2626;
+      --p2w-radius-lg: 32px;
+      --p2w-radius: 20px;
+      --p2w-radius-sm: 14px;
+      --p2w-radius-xs: 10px;
+      --p2w-transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      font-family: var(--p2w-font);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: linear-gradient(145deg, var(--p2w-bg-start), var(--p2w-bg-end));
+      color: var(--p2w-text);
+    }
 
+    /* Glass container */
+    .p2w-container {
+      max-width: 1360px;
+      width: 100%;
+      background: var(--p2w-surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--p2w-radius-lg);
+      box-shadow: var(--p2w-shadow);
+      padding: 2.2rem 2.5rem 2.8rem;
+      border: 1px solid var(--p2w-border);
+      transition: var(--p2w-transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .p2w-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .p2w-container::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* ----- scoped elements ----- */
+    .p2w-app * {
+      font-family: var(--p2w-font);
+    }
+
+    .p2w-app button {
+      font-family: var(--p2w-font);
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--p2w-transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 60px;
+      padding: 0.6rem 1.6rem;
+    }
+
+    .p2w-app input,
+    .p2w-app select {
+      font-family: var(--p2w-font);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 60px;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--p2w-transition);
+      width: 100%;
+      color: var(--p2w-text);
+    }
+
+    .p2w-app input:focus,
+    .p2w-app select:focus {
+      border-color: var(--p2w-primary);
+      box-shadow: 0 0 0 4px var(--p2w-primary-glow);
+      background: white;
+    }
+
+    /* ----- UPLOAD ZONE (glass + animated) ----- */
+    .p2w-upload-zone {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px dashed rgba(37, 99, 235, 0.25);
+      border-radius: var(--p2w-radius);
+      padding: 3.2rem 1.5rem;
+      text-align: center;
+      transition: var(--p2w-transition);
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    }
+
+    .p2w-upload-zone:hover {
+      border-color: var(--p2w-primary);
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .p2w-upload-zone.p2w-dragover {
+      border-color: var(--p2w-primary);
+      background: rgba(37, 99, 235, 0.06);
+      box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.08);
+      transform: scale(1.01);
+    }
+
+    .p2w-upload-icon {
+      font-size: 4rem;
+      background: linear-gradient(135deg, var(--p2w-primary), #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      animation: p2w-float 3s ease-in-out infinite;
+    }
+
+    @keyframes p2w-float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .p2w-upload-heading {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--p2w-text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
+    }
+
+    .p2w-upload-sub {
+      color: var(--p2w-text-secondary);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .p2w-upload-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--p2w-text-muted);
+      background: rgba(255, 255, 255, 0.4);
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .p2w-upload-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .p2w-file-input {
+      display: none;
+    }
+
+    .p2w-error-msg {
+      color: var(--p2w-error);
+      background: rgba(220, 38, 38, 0.08);
+      backdrop-filter: blur(4px);
+      padding: 0.6rem 1.4rem;
+      border-radius: 60px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      display: inline-block;
+      border: 1px solid rgba(220, 38, 38, 0.15);
+    }
+
+    /* ----- file info card (glass) ----- */
+    .p2w-file-info {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: var(--p2w-radius-sm);
+      padding: 1.2rem 1.8rem;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    }
+
+    .p2w-file-details {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem 2rem;
+    }
+
+    .p2w-file-details span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--p2w-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .p2w-file-details strong {
+      color: var(--p2w-text);
+      font-weight: 600;
+    }
+
+    .p2w-file-actions {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .p2w-btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      color: var(--p2w-text-secondary);
+      font-weight: 500;
+      transition: var(--p2w-transition);
+    }
+
+    .p2w-btn-outline:hover {
+      background: white;
+      border-color: var(--p2w-primary);
+      color: var(--p2w-primary);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+    }
+
+    .p2w-btn-primary {
+      background: linear-gradient(135deg, var(--p2w-primary), #4f46e5);
+      color: white;
+      padding: 0.7rem 2.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+      transition: var(--p2w-transition);
+      border: none;
+    }
+
+    .p2w-btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.4);
+      background: linear-gradient(135deg, #1d4ed8, #4338ca);
+    }
+
+    .p2w-btn-primary:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      transform: none !important;
+    }
+
+    .p2w-btn-success {
+      background: linear-gradient(135deg, #16a34a, #059669);
+      color: white;
+      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3);
+    }
+    .p2w-btn-success:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(22, 163, 74, 0.4);
+    }
+
+    /* ----- preview panel (glass) ----- */
+    .p2w-preview-panel {
+      margin-top: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--p2w-radius);
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
+    }
+
+    .p2w-preview-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 0.8rem;
+      padding: 0.7rem 1.2rem;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .p2w-preview-toolbar button {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 40px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      color: var(--p2w-text-secondary);
+      min-height: 38px;
+    }
+
+    .p2w-preview-toolbar button:hover {
+      background: white;
+      border-color: var(--p2w-primary);
+      color: var(--p2w-primary);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+    }
+
+    .p2w-preview-toolbar .p2w-page-counter {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--p2w-text);
+      margin-left: auto;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+    }
+
+    .p2w-preview-container {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.2);
+      min-height: 280px;
+      justify-content: center;
+    }
+
+    .p2w-preview-canvas-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: auto;
+      max-height: 560px;
+      border-radius: var(--p2w-radius-xs);
+    }
+
+    .p2w-preview-canvas-wrapper canvas {
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
+      background: white;
+      transition: var(--p2w-transition);
+    }
+
+    .p2w-thumbnails {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.8rem 1.2rem;
+      overflow-x: auto;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .p2w-thumb-item {
+      width: 60px;
+      height: 78px;
+      background: white;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      flex-shrink: 0;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .p2w-thumb-item:hover {
+      transform: scale(1.04);
+    }
+
+    .p2w-thumb-item.p2w-active {
+      border-color: var(--p2w-primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    }
+
+    .p2w-thumb-item canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ----- settings panel (glass) ----- */
+    .p2w-settings-panel {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      padding: 1.5rem 2rem;
+      border-radius: var(--p2w-radius);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      align-items: flex-end;
+    }
+
+    .p2w-setting-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1 1 150px;
+    }
+
+    .p2w-setting-group label {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--p2w-text-secondary);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .p2w-setting-group select,
+    .p2w-setting-group input {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 60px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      outline: none;
+      width: 100%;
+      transition: var(--p2w-transition);
+    }
+
+    .p2w-setting-group select:focus,
+    .p2w-setting-group input:focus {
+      border-color: var(--p2w-primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+      background: white;
+    }
+
+    .p2w-ocr-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 0.2rem;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 0.2rem 1rem 0.2rem 0.8rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+    }
+
+    .p2w-ocr-toggle input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--p2w-primary);
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .p2w-ocr-info {
+      font-size: 0.8rem;
+      color: var(--p2w-text-muted);
+    }
+
+    /* ----- progress (glass) ----- */
+    .p2w-progress-wrap {
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: var(--p2w-radius);
+      padding: 1.5rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .p2w-progress-bar-bg {
+      background: rgba(226, 232, 240, 0.6);
+      height: 8px;
+      border-radius: 40px;
+      overflow: hidden;
+      margin-top: 0.6rem;
+    }
+
+    .p2w-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--p2w-primary), #7c3aed);
+      border-radius: 40px;
+      transition: width 0.4s ease;
+    }
+
+    .p2w-progress-steps {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--p2w-text-muted);
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .p2w-progress-steps span {
+      background: rgba(255, 255, 255, 0.3);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ----- result card (glass) ----- */
+    .p2w-result-card {
+      margin-top: 2rem;
+      background: rgba(240, 253, 244, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(187, 247, 208, 0.6);
+      border-radius: var(--p2w-radius);
+      padding: 2.2rem 2rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(22, 163, 74, 0.06);
+    }
+
+    .p2w-result-icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .p2w-result-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem 2.5rem;
+      margin: 1rem 0 1.8rem;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+    }
+
+    .p2w-result-details span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .p2w-result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    /* privacy */
+    .p2w-privacy {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--p2w-text-muted);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(4px);
+      padding: 0.6rem 1.5rem;
+      border-radius: 60px;
+      display: inline-block;
+      width: auto;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 768px) {
+      .p2w-container {
+        padding: 1.2rem;
+        border-radius: 24px;
+      }
+      .p2w-upload-zone {
+        padding: 2rem 1rem;
+      }
+      .p2w-upload-heading {
+        font-size: 1.4rem;
+      }
+      .p2w-file-info {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+      }
+      .p2w-file-actions {
+        justify-content: flex-start;
+      }
+      .p2w-settings-panel {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem;
+      }
+      .p2w-preview-toolbar {
+        gap: 0.3rem;
+      }
+      .p2w-preview-toolbar .p2w-page-counter {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .p2w-thumbnails {
+        padding: 0.6rem;
+      }
+      .p2w-result-details {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        border-radius: 30px;
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .p2w-app {
+        padding: 0.5rem;
+      }
+      .p2w-container {
+        padding: 0.8rem;
+        border-radius: 18px;
+      }
+      .p2w-upload-meta {
+        gap: 0.8rem;
+        font-size: 0.75rem;
+        padding: 0.3rem 1rem;
+      }
+      .p2w-upload-heading {
+        font-size: 1.2rem;
+      }
+      .p2w-btn-primary {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* utils */
+    .p2w-hidden {
+      display: none !important;
+    }
+    .p2w-mt-1 {
+      margin-top: 1.2rem;
+    }
+    .p2w-text-center {
+      text-align: center;
+    }
+    .p2w-gap-1 {
+      gap: 0.6rem;
+    }
+    .p2w-flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
 
   /* End Page style goes here....................*/
@@ -651,7 +1337,132 @@
 <main class="wrap demo-hero">
 
 
-    
+  <div class="p2w-app">
+  <div class="p2w-container" id="p2wAppContainer">
+
+    <!-- UPLOAD ZONE -->
+    <div class="p2w-upload-zone" id="p2wUploadZone">
+      <span class="p2w-upload-icon material-symbols-outlined">upload_file</span>
+      <div class="p2w-upload-heading">Drop your PDF here</div>
+      <div class="p2w-upload-sub">or click to browse</div>
+      <div class="p2w-upload-meta">
+        <span><span class="material-symbols-outlined" style="font-size:1rem;">description</span> PDF only</span>
+        <span><span class="material-symbols-outlined" style="font-size:1rem;">maximize</span> Max 20 MB</span>
+        <span><span class="material-symbols-outlined" style="font-size:1rem;">lock</span> Local processing</span>
+      </div>
+      <input type="file" class="p2w-file-input" id="p2wFileInput" accept=".pdf,application/pdf" />
+      <div id="p2wUploadError" class="p2w-error-msg p2w-hidden"></div>
+    </div>
+
+    <!-- FILE INFO -->
+    <div id="p2wFileInfo" class="p2w-file-info p2w-hidden">
+      <div class="p2w-file-details">
+        <span><strong id="p2wFileName">document.pdf</strong></span>
+        <span><span class="material-symbols-outlined">straighten</span> <span id="p2wFileSize">0 KB</span></span>
+        <span><span class="material-symbols-outlined">description</span> <span id="p2wFilePages">0</span> pages</span>
+        <span><span class="material-symbols-outlined">info</span> <span id="p2wFileType">PDF</span></span>
+      </div>
+      <div class="p2w-file-actions">
+        <button class="p2w-btn-outline" id="p2wReplaceBtn"><span class="material-symbols-outlined">refresh</span> Replace</button>
+        <button class="p2w-btn-outline" id="p2wRemoveBtn"><span class="material-symbols-outlined">delete</span> Remove</button>
+      </div>
+    </div>
+
+    <!-- PREVIEW PANEL -->
+    <div id="p2wPreviewPanel" class="p2w-preview-panel p2w-hidden">
+      <div class="p2w-preview-toolbar">
+        <button id="p2wPrevPage" aria-label="Previous page"><span class="material-symbols-outlined">chevron_left</span></button>
+        <button id="p2wNextPage" aria-label="Next page"><span class="material-symbols-outlined">chevron_right</span></button>
+        <button id="p2wZoomIn" aria-label="Zoom in"><span class="material-symbols-outlined">zoom_in</span></button>
+        <button id="p2wZoomOut" aria-label="Zoom out"><span class="material-symbols-outlined">zoom_out</span></button>
+        <button id="p2wFitScreen" aria-label="Fit to screen"><span class="material-symbols-outlined">fit_screen</span></button>
+        <button id="p2wRotate" aria-label="Rotate"><span class="material-symbols-outlined">rotate_right</span></button>
+        <span class="p2w-page-counter" id="p2wPageCounter">1 / 1</span>
+      </div>
+      <div class="p2w-preview-container">
+        <div class="p2w-preview-canvas-wrapper" id="p2wCanvasWrapper">
+          <canvas id="p2wPreviewCanvas"></canvas>
+        </div>
+      </div>
+      <div class="p2w-thumbnails" id="p2wThumbnails"></div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="p2wSettingsPanel" class="p2w-settings-panel p2w-hidden">
+      <div class="p2w-setting-group">
+        <label>Output format</label>
+        <select id="p2wOutputFormat"><option value="docx">DOCX</option><option value="doc">DOC</option></select>
+      </div>
+      <div class="p2w-setting-group">
+        <label>Page selection</label>
+        <select id="p2wPageSelection">
+          <option value="all">All pages</option>
+          <option value="selected">Selected pages</option>
+          <option value="range">Page range</option>
+        </select>
+      </div>
+      <div class="p2w-setting-group">
+        <label>Page range (e.g. 1-5, 8, 10-12)</label>
+        <input type="text" id="p2wPageRange" placeholder="All pages" disabled />
+      </div>
+      <div class="p2w-setting-group" style="flex:0 1 auto;">
+        <label>OCR Mode</label>
+        <div class="p2w-ocr-toggle">
+          <input type="checkbox" id="p2wOcrToggle" /> <span>Enable OCR</span>
+          <span class="p2w-ocr-info">(scanned PDFs)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONVERT ACTION -->
+    <div class="p2w-text-center p2w-mt-1" id="p2wConvertWrap">
+      <button class="p2w-btn-primary" id="p2wConvertBtn" style="padding:0.9rem 3.5rem; font-size:1.1rem;" disabled>
+        <span class="material-symbols-outlined">autorenew</span> Convert to Word
+      </button>
+    </div>
+
+    <!-- PROGRESS -->
+    <div id="p2wProgressWrap" class="p2w-progress-wrap p2w-hidden">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span id="p2wProgressLabel" style="font-weight:600;">Reading PDF…</span>
+        <span id="p2wProgressPercent" style="font-weight:700; color:var(--p2w-primary);">0%</span>
+      </div>
+      <div class="p2w-progress-bar-bg"><div class="p2w-progress-fill" id="p2wProgressFill"></div></div>
+      <div class="p2w-progress-steps">
+        <span id="p2wStep1">📄 Reading PDF</span>
+        <span id="p2wStep2">⚙️ Extracting</span>
+        <span id="p2wStep3">📝 Formatting</span>
+        <span id="p2wStep4">📦 Generating</span>
+        <span id="p2wStep5">⬇️ Preparing</span>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="p2wResultCard" class="p2w-result-card p2w-hidden">
+      <span class="p2w-result-icon">✅</span>
+      <h3 style="margin:0.2rem 0 0.2rem; font-size:1.6rem; font-weight:700;">Conversion complete</h3>
+      <p style="color:var(--p2w-text-muted); margin-bottom:0.8rem;">Your Word document is ready to download</p>
+      <div class="p2w-result-details">
+        <span><strong>Original:</strong> <span id="p2wResultOriginal">file.pdf</span></span>
+        <span><strong>Output:</strong> <span id="p2wResultOutput">document-converted.docx</span></span>
+        <span><strong>Size:</strong> <span id="p2wResultSize">0 KB</span></span>
+        <span><strong>Time:</strong> <span id="p2wResultTime">0 s</span></span>
+      </div>
+      <div class="p2w-result-actions">
+        <button class="p2w-btn-primary p2w-btn-success" id="p2wDownloadBtn"><span class="material-symbols-outlined">download</span> Download Word</button>
+        <button class="p2w-btn-outline" id="p2wConvertAnotherBtn"><span class="material-symbols-outlined">refresh</span> Convert another</button>
+        <button class="p2w-btn-outline" id="p2wStartOverBtn"><span class="material-symbols-outlined">restart_alt</span> Start over</button>
+      </div>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="p2w-privacy" style="margin-top:1.8rem;">
+      <span class="material-symbols-outlined" style="font-size:1.1rem;">lock</span>
+      Your PDF is processed locally in your browser and is never uploaded.
+    </div>
+  </div>
+</div>
+  
 
 
 
@@ -796,7 +1607,276 @@
 
 
 <!-- PAge Script Herer-->
+<script>
+  (function() {
+    "use strict";
 
+    // ---------- state ----------
+    const p2wState = {
+      file: null,
+      fileName: '',
+      fileSize: 0,
+      numPages: 0,
+      currentPage: 0,
+      scale: 1.2,
+      rotation: 0,
+      isConverting: false,
+      resultBlob: null,
+      resultFilename: 'document-converted.docx',
+    };
+
+    // DOM refs
+    const $ = (id) => document.getElementById(id);
+    const uploadZone = $('p2wUploadZone');
+    const fileInput = $('p2wFileInput');
+    const uploadError = $('p2wUploadError');
+    const fileInfo = $('p2wFileInfo');
+    const fileNameEl = $('p2wFileName');
+    const fileSizeEl = $('p2wFileSize');
+    const filePagesEl = $('p2wFilePages');
+    const fileTypeEl = $('p2wFileType');
+    const replaceBtn = $('p2wReplaceBtn');
+    const removeBtn = $('p2wRemoveBtn');
+    const previewPanel = $('p2wPreviewPanel');
+    const canvas = $('p2wPreviewCanvas');
+    const canvasWrapper = $('p2wCanvasWrapper');
+    const thumbnails = $('p2wThumbnails');
+    const prevPageBtn = $('p2wPrevPage');
+    const nextPageBtn = $('p2wNextPage');
+    const zoomInBtn = $('p2wZoomIn');
+    const zoomOutBtn = $('p2wZoomOut');
+    const fitScreenBtn = $('p2wFitScreen');
+    const rotateBtn = $('p2wRotate');
+    const pageCounter = $('p2wPageCounter');
+    const settingsPanel = $('p2wSettingsPanel');
+    const outputFormat = $('p2wOutputFormat');
+    const pageSelection = $('p2wPageSelection');
+    const pageRange = $('p2wPageRange');
+    const ocrToggle = $('p2wOcrToggle');
+    const convertBtn = $('p2wConvertBtn');
+    const progressWrap = $('p2wProgressWrap');
+    const progressLabel = $('p2wProgressLabel');
+    const progressPercent = $('p2wProgressPercent');
+    const progressFill = $('p2wProgressFill');
+    const stepEls = {
+      s1: $('p2wStep1'),
+      s2: $('p2wStep2'),
+      s3: $('p2wStep3'),
+      s4: $('p2wStep4'),
+      s5: $('p2wStep5'),
+    };
+    const resultCard = $('p2wResultCard');
+    const resultOriginal = $('p2wResultOriginal');
+    const resultOutput = $('p2wResultOutput');
+    const resultSize = $('p2wResultSize');
+    const resultTime = $('p2wResultTime');
+    const downloadBtn = $('p2wDownloadBtn');
+    const convertAnotherBtn = $('p2wConvertAnotherBtn');
+    const startOverBtn = $('p2wStartOverBtn');
+
+    // helpers
+    function formatSize(bytes) {
+      if (!bytes) return '0 KB';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+
+    function resetAll(keepFile = false) {
+      if (!keepFile) {
+        p2wState.file = null;
+        p2wState.fileName = '';
+        p2wState.fileSize = 0;
+        p2wState.numPages = 0;
+        p2wState.currentPage = 0;
+        p2wState.resultBlob = null;
+        fileInput.value = '';
+        uploadError.classList.add('p2w-hidden');
+        uploadError.textContent = '';
+        fileInfo.classList.add('p2w-hidden');
+        previewPanel.classList.add('p2w-hidden');
+        settingsPanel.classList.add('p2w-hidden');
+        convertBtn.disabled = true;
+        resultCard.classList.add('p2w-hidden');
+        progressWrap.classList.add('p2w-hidden');
+        thumbnails.innerHTML = '';
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pageCounter.textContent = '0 / 0';
+        p2wState.scale = 1.2;
+        p2wState.rotation = 0;
+      }
+      progressFill.style.width = '0%';
+      progressPercent.textContent = '0%';
+      Object.values(stepEls).forEach(el => el.style.color = '#64748b');
+      if (p2wState.file) convertBtn.disabled = false;
+    }
+
+    // ----- upload handlers -----
+    function handleFile(file) {
+      if (!file || file.type !== 'application/pdf') {
+        uploadError.classList.remove('p2w-hidden');
+        uploadError.textContent = '❌ Invalid file. Please select a PDF.';
+        return;
+      }
+      if (file.size > 20 * 1024 * 1024) {
+        uploadError.classList.remove('p2w-hidden');
+        uploadError.textContent = '❌ File too large. Maximum size is 20 MB.';
+        return;
+      }
+      uploadError.classList.add('p2w-hidden');
+      p2wState.file = file;
+      p2wState.fileName = file.name;
+      p2wState.fileSize = file.size;
+      // mock page count (in real app use pdf.js)
+      p2wState.numPages = Math.floor(Math.random() * 8) + 2;
+      p2wState.currentPage = 0;
+      updateFileInfo();
+      showPreviewMock();
+      settingsPanel.classList.remove('p2w-hidden');
+      convertBtn.disabled = false;
+      resultCard.classList.add('p2w-hidden');
+      progressWrap.classList.add('p2w-hidden');
+    }
+
+    function updateFileInfo() {
+      fileInfo.classList.remove('p2w-hidden');
+      fileNameEl.textContent = p2wState.fileName;
+      fileSizeEl.textContent = formatSize(p2wState.fileSize);
+      filePagesEl.textContent = p2wState.numPages;
+      fileTypeEl.textContent = 'PDF';
+    }
+
+    function showPreviewMock() {
+      previewPanel.classList.remove('p2w-hidden');
+      const ctx = canvas.getContext('2d');
+      canvas.width = 400;
+      canvas.height = 560;
+      ctx.fillStyle = '#f8fafc';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // gradient background
+      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, '#eef2ff');
+      grad.addColorStop(1, '#e0e7ff');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#2563eb';
+      ctx.font = 'bold 28px Inter';
+      ctx.fillText('📄 PDF', 140, 220);
+      ctx.font = '18px Inter';
+      ctx.fillStyle = '#334155';
+      ctx.fillText(`Page ${p2wState.currentPage+1} of ${p2wState.numPages}`, 140, 280);
+      ctx.font = '14px Inter';
+      ctx.fillStyle = '#64748b';
+      ctx.fillText(p2wState.fileName, 120, 330);
+
+      // thumbnails
+      thumbnails.innerHTML = '';
+      for (let i = 0; i < p2wState.numPages; i++) {
+        const thumb = document.createElement('div');
+        thumb.className = 'p2w-thumb-item' + (i === p2wState.currentPage ? ' p2w-active' : '');
+        const c = document.createElement('canvas');
+        c.width = 60;
+        c.height = 78;
+        const tctx = c.getContext('2d');
+        const bg = i === p2wState.currentPage ? '#dbeafe' : '#ffffff';
+        tctx.fillStyle = bg;
+        tctx.fillRect(0, 0, 60, 78);
+        tctx.fillStyle = '#1e293b';
+        tctx.font = 'bold 14px Inter';
+        tctx.textAlign = 'center';
+        tctx.fillText(`${i+1}`, 30, 46);
+        thumb.appendChild(c);
+        thumb.addEventListener('click', (idx => () => { p2wState.currentPage = idx; showPreviewMock(); })(i));
+        thumbnails.appendChild(thumb);
+      }
+      pageCounter.textContent = `${p2wState.currentPage+1} / ${p2wState.numPages}`;
+    }
+
+    // ----- events -----
+    uploadZone.addEventListener('click', () => fileInput.click());
+    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('p2w-dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('p2w-dragover'));
+    uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.classList.remove('p2w-dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+    fileInput.addEventListener('change', (e) => { if (e.target.files.length) handleFile(e.target.files[0]); });
+
+    replaceBtn.addEventListener('click', () => fileInput.click());
+    removeBtn.addEventListener('click', () => { resetAll(false); });
+
+    prevPageBtn.addEventListener('click', () => { if (p2wState.numPages && p2wState.currentPage > 0) { p2wState.currentPage--; showPreviewMock(); } });
+    nextPageBtn.addEventListener('click', () => { if (p2wState.numPages && p2wState.currentPage < p2wState.numPages - 1) { p2wState.currentPage++; showPreviewMock(); } });
+    zoomInBtn.addEventListener('click', () => { p2wState.scale = Math.min(2.5, p2wState.scale + 0.2); });
+    zoomOutBtn.addEventListener('click', () => { p2wState.scale = Math.max(0.5, p2wState.scale - 0.2); });
+    rotateBtn.addEventListener('click', () => { p2wState.rotation = (p2wState.rotation + 90) % 360; });
+    fitScreenBtn.addEventListener('click', () => { p2wState.scale = 1.2; p2wState.rotation = 0; });
+
+    pageSelection.addEventListener('change', () => {
+      pageRange.disabled = pageSelection.value !== 'range';
+    });
+
+    // ----- conversion (mock) -----
+    convertBtn.addEventListener('click', function() {
+      if (p2wState.isConverting || !p2wState.file) return;
+      p2wState.isConverting = true;
+      convertBtn.disabled = true;
+      resultCard.classList.add('p2w-hidden');
+      progressWrap.classList.remove('p2w-hidden');
+      progressFill.style.width = '0%';
+      progressPercent.textContent = '0%';
+      const steps = ['Reading PDF', 'Extracting content', 'Formatting document', 'Generating DOCX', 'Preparing download'];
+      let stepIdx = 0;
+      const totalSteps = steps.length;
+      const interval = setInterval(() => {
+        if (stepIdx < totalSteps) {
+          const pct = Math.min(100, Math.round(((stepIdx + 1) / totalSteps) * 100));
+          progressFill.style.width = pct + '%';
+          progressPercent.textContent = pct + '%';
+          progressLabel.textContent = steps[stepIdx] + '…';
+          Object.values(stepEls).forEach((el, i) => { el.style.color = i <= stepIdx ? '#2563eb' : '#64748b'; });
+          stepIdx++;
+        } else {
+          clearInterval(interval);
+          progressFill.style.width = '100%';
+          progressPercent.textContent = '100%';
+          progressLabel.textContent = '✅ Conversion complete!';
+          // mock result
+          p2wState.resultBlob = new Blob(['mock docx content'], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+          p2wState.resultFilename = p2wState.fileName.replace('.pdf', '-converted.docx');
+          setTimeout(() => {
+            progressWrap.classList.add('p2w-hidden');
+            resultCard.classList.remove('p2w-hidden');
+            resultOriginal.textContent = p2wState.fileName;
+            resultOutput.textContent = p2wState.resultFilename;
+            resultSize.textContent = formatSize(p2wState.resultBlob.size);
+            resultTime.textContent = (Math.random() * 1.8 + 0.6).toFixed(1) + ' s';
+            p2wState.isConverting = false;
+            convertBtn.disabled = false;
+          }, 400);
+        }
+      }, 450);
+    });
+
+    downloadBtn.addEventListener('click', function() {
+      if (p2wState.resultBlob) {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(p2wState.resultBlob);
+        link.download = p2wState.resultFilename;
+        link.click();
+        URL.revokeObjectURL(link.href);
+      }
+    });
+
+    convertAnotherBtn.addEventListener('click', () => {
+      resetAll(false);
+      fileInput.click();
+    });
+    startOverBtn.addEventListener('click', () => resetAll(false));
+
+    // init
+    resetAll(false);
+  })();
+</script>
 
 <!--End page script-->
 

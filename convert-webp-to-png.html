@@ -344,6 +344,12 @@
     <link rel="dns-prefetch" href="//googletagmanager.com">
     <link rel="dns-prefetch" href="//facebook.com">
 
+  <!-- Font & icons (clean, fast) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -356,7 +362,401 @@
 
   /*Page style goes here....................*/
 
+    /* main tool wrapper – unique prefix */
+    .webpPngToolWrapper {
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 48px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.5);
+      transition: all 0.2s ease;
+    }
 
+    /* ----- headings & text ----- */
+    .webpPngMainHeading {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+
+
+    /* ----- upload zone (drag & drop) ----- */
+    .webpPngUploadZone {
+      background: rgba(255,255,255,0.6);
+      border: 2px dashed #cbd5e1;
+      border-radius: 40px;
+      padding: 2.8rem 1.5rem;
+      text-align: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 1.8rem;
+      backdrop-filter: blur(2px);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+  .webpPngUploadZone:hover {
+    border-color: #94a3b8;
+    background: rgba(255,255,255,0.8);
+  }
+
+  .webpPngUploadZone.webpPngDragOver {
+    border-color: #2563eb;
+    background: rgba(37, 99, 235, 0.06);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+  }
+
+  .webpPngUploadIcon {
+    font-size: 3.8rem;
+    color: #3b82f6;
+    margin-bottom: 0.6rem;
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.08);
+    padding: 0.8rem 1.2rem;
+    border-radius: 60px;
+    line-height: 1;
+  }
+
+  .webpPngUploadZone h3 {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+  }
+
+  .webpPngUploadZone p {
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+
+  .webpPngFileInput {
+    display: none;
+  }
+
+  .webpPngSelectButton {
+    background: #1e293b;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.7rem 2rem;
+    border-radius: 60px;
+    margin-top: 1.2rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  }
+
+  .webpPngSelectButton i {
+    font-size: 1rem;
+  }
+
+  .webpPngSelectButton:hover {
+    background: #0f172a;
+    transform: scale(1.02);
+    box-shadow: 0 8px 12px -4px rgba(0,0,0,0.15);
+  }
+
+  .webpPngSelectButton:active {
+    transform: scale(0.97);
+  }
+
+  /* ----- action bar (clear / add) ----- */
+  .webpPngActionBar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 0.8rem;
+  }
+
+  .webpPngActionLeft {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .webpPngSecondaryBtn {
+    background: transparent;
+    border: 1px solid #d1d9e6;
+    padding: 0.45rem 1.2rem;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #334155;
+    transition: all 0.15s;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: white;
+  }
+
+  .webpPngSecondaryBtn i {
+    font-size: 0.9rem;
+    color: #475569;
+  }
+
+  .webpPngSecondaryBtn:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+  }
+  .webpPngSecondaryBtn:active { transform: scale(0.96); }
+
+  .webpPngConvertBtn {
+    background: #2563eb;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.6rem 2.2rem;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 8px 16px -6px rgba(37, 99, 235, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: 0.3px;
+  }
+
+  .webpPngConvertBtn i { font-size: 1rem; }
+
+  .webpPngConvertBtn:hover:not(:disabled) {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px -8px rgba(37, 99, 235, 0.4);
+  }
+
+  .webpPngConvertBtn:active:not(:disabled) { transform: scale(0.96); }
+  .webpPngConvertBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* ----- preview grid ----- */
+  .webpPngPreviewGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+  }
+
+  .webpPngFilePreviewCard {
+    background: white;
+    border-radius: 28px;
+    padding: 1rem 0.8rem 0.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.15s ease;
+    border: 1px solid rgba(203, 213, 225, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(2px);
+    position: relative;
+  }
+
+  .webpPngFilePreviewCard:hover {
+    border-color: #b9c7db;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+  }
+
+  .webpPngPreviewThumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+    background: #f1f5f9;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e9edf3;
+  }
+
+  .webpPngFileName {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    padding: 0 0.2rem;
+  }
+
+  .webpPngFileSize {
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+  }
+
+  .webpPngCardActions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+  }
+
+  .webpPngRemoveBtn {
+    background: #fee2e2;
+    border: none;
+    color: #b91c1c;
+    border-radius: 40px;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.1s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .webpPngRemoveBtn:hover { background: #fecaca; }
+
+  .webpPngDownloadSingleBtn {
+    background: #e6f0ff;
+    border: none;
+    color: #1d4ed8;
+    border-radius: 40px;
+    padding: 0.2rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.1s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .webpPngDownloadSingleBtn:hover { background: #dbeafe; }
+
+  /* progress & states */
+  .webpPngProgressWrap {
+    margin: 1.2rem 0 0.5rem;
+    background: #e9eef3;
+    border-radius: 60px;
+    height: 6px;
+    overflow: hidden;
+  }
+
+  .webpPngProgressBar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    border-radius: 60px;
+    transition: width 0.2s ease;
+  }
+
+  .webpPngStatusMsg {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1e293b;
+    text-align: center;
+    margin: 0.8rem 0 0.2rem;
+  }
+
+  /* download all */
+  .webpPngDownloadAllWrap {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .webpPngDownloadAllBtn {
+    background: #0f172a;
+    border: none;
+    color: white;
+    padding: 0.65rem 2.4rem;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  }
+
+  .webpPngDownloadAllBtn:hover { background: #1e293b; transform: scale(1.02); }
+  .webpPngDownloadAllBtn:active { transform: scale(0.97); }
+
+  /* toast notifications */
+  .webpPngToastContainer {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    max-width: 340px;
+    z-index: 999;
+  }
+
+  .webpPngToast {
+    background: #1e293b;
+    color: white;
+    padding: 0.9rem 1.2rem;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    backdrop-filter: blur(6px);
+    animation: webpPngSlideIn 0.25s ease;
+  }
+
+  .webpPngToast.success { background: #065f46; }
+  .webpPngToast.error { background: #991b1b; }
+
+  @keyframes webpPngSlideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* responsive */
+  @media (max-width: 640px) {
+    .webpPngToolWrapper { padding: 1.5rem 1rem; }
+    .webpPngMainHeading { font-size: 2rem; }
+    .webpPngUploadZone { padding: 1.8rem 1rem; }
+    .webpPngPreviewGrid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .webpPngActionBar { flex-direction: column; align-items: stretch; }
+    .webpPngActionLeft { justify-content: center; }
+    .webpPngConvertBtn { justify-content: center; }
+  }
+
+  @media (max-width: 480px) {
+    .webpPngMainHeading { font-size: 1.8rem; }
+  }
+
+  /* empty state */
+  .webpPngEmptyState {
+    text-align: center;
+    color: #94a3b8;
+    padding: 2rem 0 1rem;
+  }
+  .webpPngEmptyState i { font-size: 2.4rem; opacity: 0.3; }
 
   /* End Page style goes here....................*/
 </style>
@@ -649,7 +1049,47 @@
 <main class="wrap demo-hero">
 
 
-    
+  <div class="webpPngToolWrapper" role="main">
+    <h1 class="webpPngMainHeading">WebP to PNG <span style="background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent;">Online</span></h1>
+   
+    <!-- Upload Zone -->
+    <div class="webpPngUploadZone" id="webpPngDropZone">
+      <div class="webpPngUploadIcon"><i class="fas fa-cloud-upload-alt"></i></div>
+      <h3>Drop WebP files here</h3>
+      <p>or click to browse</p>
+      <button class="webpPngSelectButton" id="webpPngSelectTrigger" type="button"><i class="fas fa-folder-open"></i> Choose images</button>
+      <input type="file" class="webpPngFileInput" id="webpPngFileInput" accept=".webp,image/webp" multiple>
+    </div>
+
+    <!-- action bar -->
+    <div class="webpPngActionBar">
+      <div class="webpPngActionLeft">
+        <button class="webpPngSecondaryBtn" id="webpPngAddMoreBtn"><i class="fas fa-plus-circle"></i> Add more</button>
+        <button class="webpPngSecondaryBtn" id="webpPngClearAllBtn"><i class="fas fa-trash-alt"></i> Clear all</button>
+      </div>
+      <button class="webpPngConvertBtn" id="webpPngConvertButton" disabled><i class="fas fa-sync-alt"></i> Convert to PNG</button>
+    </div>
+
+    <!-- preview grid -->
+    <div id="webpPngPreviewGrid" class="webpPngPreviewGrid">
+      <!-- cards injected -->
+    </div>
+
+    <!-- progress & status -->
+    <div id="webpPngProgressWrap" class="webpPngProgressWrap" style="display:none;">
+      <div id="webpPngProgressBar" class="webpPngProgressBar" style="width:0%"></div>
+    </div>
+    <div id="webpPngStatusMsg" class="webpPngStatusMsg"></div>
+
+    <!-- Download All -->
+    <div id="webpPngDownloadAllWrap" class="webpPngDownloadAllWrap" style="display:none;">
+      <button class="webpPngDownloadAllBtn" id="webpPngDownloadAllBtn"><i class="fas fa-file-archive"></i> Download All PNG</button>
+    </div>
+  </div>
+
+  <!-- toast container -->
+  <div class="webpPngToastContainer" id="webpPngToastContainer"></div>
+
 
 
 
@@ -794,7 +1234,277 @@
 
 
 <!-- PAge Script Herer-->
+  <script>
+    (function(){
+      // ----- state -----
+      const state = {
+        files: [],           // Array of { file, id, webpUrl, pngDataUrl?, name, size }
+        converted: new Map(), // id -> png data url
+        isProcessing: false,
+      };
 
+      let idCounter = 0;
+
+      // DOM refs (unique)
+      const dropZone = document.getElementById('webpPngDropZone');
+      const fileInput = document.getElementById('webpPngFileInput');
+      const selectTrigger = document.getElementById('webpPngSelectTrigger');
+      const addMoreBtn = document.getElementById('webpPngAddMoreBtn');
+      const clearAllBtn = document.getElementById('webpPngClearAllBtn');
+      const convertBtn = document.getElementById('webpPngConvertButton');
+      const previewGrid = document.getElementById('webpPngPreviewGrid');
+      const progressWrap = document.getElementById('webpPngProgressWrap');
+      const progressBar = document.getElementById('webpPngProgressBar');
+      const statusMsg = document.getElementById('webpPngStatusMsg');
+      const downloadAllWrap = document.getElementById('webpPngDownloadAllWrap');
+      const downloadAllBtn = document.getElementById('webpPngDownloadAllBtn');
+      const toastContainer = document.getElementById('webpPngToastContainer');
+
+      // ----- helpers -----
+      function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1048576).toFixed(1) + ' MB';
+      }
+
+      function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.className = `webpPngToast ${type}`;
+        toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${message}`;
+        toastContainer.appendChild(toast);
+        setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 3000);
+      }
+
+      function updateUI() {
+        renderPreviews();
+        const hasFiles = state.files.length > 0;
+        convertBtn.disabled = hasFiles ? false : true;
+        if (state.files.length === 0) {
+          statusMsg.textContent = '';
+          progressWrap.style.display = 'none';
+          downloadAllWrap.style.display = 'none';
+        }
+        // download all visibility
+        const anyConverted = state.files.some(f => f.pngDataUrl);
+        downloadAllWrap.style.display = (anyConverted && state.files.length > 0) ? 'flex' : 'none';
+      }
+
+      // ----- render preview cards -----
+      function renderPreviews() {
+        if (state.files.length === 0) {
+          previewGrid.innerHTML = `<div class="webpPngEmptyState"><i class="fas fa-image"></i><p>No images uploaded</p></div>`;
+          return;
+        }
+        let html = '';
+        state.files.forEach((item) => {
+          const isConverted = !!item.pngDataUrl;
+          const downloadBtn = isConverted 
+            ? `<button class="webpPngDownloadSingleBtn" data-id="${item.id}"><i class="fas fa-download"></i> PNG</button>`
+            : `<span style="font-size:0.65rem;color:#94a3b8;">waiting</span>`;
+          html += `
+            <div class="webpPngFilePreviewCard" data-id="${item.id}">
+              <img class="webpPngPreviewThumb" src="${item.webpUrl}" alt="${item.name}" loading="lazy">
+              <div class="webpPngFileName" title="${item.name}">${item.name}</div>
+              <div class="webpPngFileSize">${formatSize(item.size)}</div>
+              <div class="webpPngCardActions">
+                <button class="webpPngRemoveBtn" data-id="${item.id}"><i class="fas fa-times"></i> remove</button>
+                ${downloadBtn}
+              </div>
+            </div>
+          `;
+        });
+        previewGrid.innerHTML = html;
+
+        // attach remove events
+        document.querySelectorAll('.webpPngRemoveBtn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const id = Number(btn.dataset.id);
+            removeFile(id);
+          });
+        });
+
+        // attach download single events
+        document.querySelectorAll('.webpPngDownloadSingleBtn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const id = Number(btn.dataset.id);
+            const item = state.files.find(f => f.id === id);
+            if (item && item.pngDataUrl) {
+              downloadSingle(item);
+            } else {
+              showToast('PNG not ready', 'error');
+            }
+          });
+        });
+      }
+
+      // ----- file handling -----
+      function addFiles(fileList) {
+        const validFiles = Array.from(fileList).filter(f => f.type === 'image/webp' || f.name.toLowerCase().endsWith('.webp'));
+        if (validFiles.length === 0) {
+          showToast('Only WebP images are supported', 'error');
+          return;
+        }
+        validFiles.forEach(file => {
+          const id = ++idCounter;
+          const url = URL.createObjectURL(file);
+          state.files.push({ file, id, name: file.name, size: file.size, webpUrl: url, pngDataUrl: null });
+        });
+        updateUI();
+        showToast(`Added ${validFiles.length} WebP file${validFiles.length>1?'s':''}`);
+      }
+
+      function removeFile(id) {
+        const idx = state.files.findIndex(f => f.id === id);
+        if (idx === -1) return;
+        const removed = state.files[idx];
+        URL.revokeObjectURL(removed.webpUrl);
+        if (removed.pngDataUrl) URL.revokeObjectURL(removed.pngDataUrl);
+        state.files.splice(idx, 1);
+        updateUI();
+      }
+
+      function clearAll() {
+        state.files.forEach(f => { URL.revokeObjectURL(f.webpUrl); if(f.pngDataUrl) URL.revokeObjectURL(f.pngDataUrl); });
+        state.files = [];
+        state.converted.clear();
+        updateUI();
+        progressWrap.style.display = 'none';
+        statusMsg.textContent = '';
+        showToast('All files cleared', 'success');
+      }
+
+      // ----- conversion -----
+      async function convertAll() {
+        if (state.isProcessing || state.files.length === 0) return;
+        state.isProcessing = true;
+        convertBtn.disabled = true;
+        progressWrap.style.display = 'block';
+        statusMsg.textContent = 'Converting...';
+        let completed = 0;
+        const total = state.files.length;
+
+        for (const item of state.files) {
+          try {
+            const pngDataUrl = await convertWebPtoPNG(item.file);
+            item.pngDataUrl = pngDataUrl;
+            completed++;
+            const pct = Math.round((completed / total) * 100);
+            progressBar.style.width = pct + '%';
+            statusMsg.textContent = `Converted ${completed} of ${total}`;
+            renderPreviews(); // refresh cards
+          } catch (err) {
+            console.warn('conversion error', err);
+            showToast(`Error converting ${item.name}`, 'error');
+          }
+        }
+
+        progressBar.style.width = '100%';
+        statusMsg.textContent = `✨ All ${total} images converted!`;
+        state.isProcessing = false;
+        convertBtn.disabled = false;
+        updateUI();
+        if (state.files.some(f => f.pngDataUrl)) {
+          downloadAllWrap.style.display = 'flex';
+        }
+        showToast('Conversion complete!', 'success');
+      }
+
+      function convertWebPtoPNG(file) {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            try {
+              const pngData = canvas.toDataURL('image/png');
+              resolve(pngData);
+            } catch (e) { reject(e); }
+          };
+          img.onerror = () => reject(new Error('load failed'));
+          img.src = URL.createObjectURL(file);
+        });
+      }
+
+      // ----- downloads -----
+      function downloadSingle(item) {
+        if (!item.pngDataUrl) return;
+        const a = document.createElement('a');
+        a.href = item.pngDataUrl;
+        a.download = item.name.replace(/\.webp$/i, '') + '.png';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+
+      function downloadAll() {
+        const convertedItems = state.files.filter(f => f.pngDataUrl);
+        if (convertedItems.length === 0) {
+          showToast('No converted images', 'error');
+          return;
+        }
+        // if multiple, download one by one (browser limitation)
+        convertedItems.forEach((item, index) => {
+          setTimeout(() => {
+            const a = document.createElement('a');
+            a.href = item.pngDataUrl;
+            a.download = item.name.replace(/\.webp$/i, '') + '.png';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+          }, index * 300);
+        });
+        showToast(`Downloading ${convertedItems.length} PNGs`, 'success');
+      }
+
+      // ----- event listeners -----
+      selectTrigger.addEventListener('click', () => fileInput.click());
+      addMoreBtn.addEventListener('click', () => fileInput.click());
+
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length) {
+          addFiles(e.target.files);
+          fileInput.value = '';
+        }
+      });
+
+      clearAllBtn.addEventListener('click', clearAll);
+
+      convertBtn.addEventListener('click', convertAll);
+
+      downloadAllBtn.addEventListener('click', downloadAll);
+
+      // drag & drop
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('webpPngDragOver');
+      });
+      dropZone.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('webpPngDragOver');
+      });
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('webpPngDragOver');
+        if (e.dataTransfer.files.length) {
+          addFiles(e.dataTransfer.files);
+        }
+      });
+
+      // click drop zone triggers file input
+      dropZone.addEventListener('click', (e) => {
+        if (e.target === dropZone || e.target.closest('.webpPngUploadIcon') || e.target.closest('h3') || e.target.closest('p')) {
+          fileInput.click();
+        }
+      });
+
+      // init empty state
+      updateUI();
+    })();
+  </script>
 
 <!--End page script-->
 

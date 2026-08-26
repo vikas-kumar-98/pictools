@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -345,8 +346,14 @@
     <link rel="dns-prefetch" href="//facebook.com">
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Cropper.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" />
+
 
 <!-- Style page goes here-->
 <link rel="stylesheet" href="assets/css/style.css" >
@@ -354,367 +361,79 @@
 
 <style>
 
-  /*Page style goes here....................*/
 
-        .app {
-            max-width: 1600px;
-            width: 100%;
-        }
-        /* dark mode */
-        body.dark {
-            background: #0f172a;
-            color: #e2e8f0;
-        }
-        body.dark .card,
-        body.dark .editor-panel,
-        body.dark .control-group,
-        body.dark .stats-grid,
-        body.dark .history-panel,
-        body.dark .drop-zone {
-            background: #1e293b;
-            border-color: #334155;
-            color: #e2e8f0;
-        }
-        body.dark textarea,
-        body.dark input,
-        body.dark select {
-            background: #0f172a;
-            color: #f1f5f9;
-            border-color: #334155;
-        }
-        body.dark .btn-outline {
-            border-color: #475569;
-            color: #cbd5e1;
-        }
-        body.dark .btn-outline:hover {
-            background: #334155;
-        }
-        body.dark .match-highlight {
-            background: #facc15;
-            color: #0f172a;
-        }
-        body.dark .current-match {
-            background: #38bdf8;
-            color: #0f172a;
-            outline: 2px solid #0ea5e9;
-        }
-        body.dark .replaced-highlight {
-            background: #a7f3d0;
-            color: #064e3b;
-        }
-        body.dark .stat-label {
-            color: #94a3b8;
-        }
+/* Main section styles */
+    .app {
+      max-width: 1400px;
+      width: 100%;
+    }
 
-        /* cards */
-        .card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 1.25rem 1.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02), 0 1px 4px rgba(0,0,0,0.04);
-            border: 1px solid #e9edf2;
-            transition: all 0.15s;
-            margin-bottom: 1rem;
-        }
-        .flex-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem 1rem;
-            align-items: center;
-        }
-        .flex-between {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .gap-1 { gap: 0.5rem; }
-        .mt-1 { margin-top: 0.75rem; }
-        .mb-1 { margin-bottom: 0.75rem; }
-        .w-full { width: 100%; }
+    /* ----- TOOL GRID (cards) ----- */
+    .tool-section {
+      margin: 1rem 0 1.5rem;
+    }
+    .tool-section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #0b1a2f;
+      border-left: 6px solid #2b5b8a;
+      padding-left: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+    .tool-card {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.2rem 0.8rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #e9eef3;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .tool-card:hover {
+      transform: translateY(-6px);
+      border-color: #aac2db;
+      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
+    }
+    .tool-card i {
+      font-size: 2.2rem;
+      color: #1e3a5f;
+    }
+    .tool-card span {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #1e2f44;
+    }
 
-        /* headings */
-        h1 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .subtitle {
-            font-size: 0.95rem;
-            color: #475569;
-            margin-top: 0.1rem;
-        }
-        body.dark .subtitle { color: #94a3b8; }
 
-        /* editors */
-        .editor-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-        .editor-panel {
-            background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid #e9edf2;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        .editor-panel .panel-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            background: #f1f5f9;
-            border-bottom: 1px solid #e2e8f0;
-            letter-spacing: 0.02em;
-            color: #1e293b;
-        }
-        body.dark .editor-panel .panel-label {
-            background: #1e293b;
-            border-color: #334155;
-            color: #e2e8f0;
-        }
-        .editor-panel textarea {
-            width: 100%;
-            min-height: 300px;
-            height: 60vh;
-            padding: 1rem;
-            border: none;
-            resize: vertical;
-            font-family: 'JetBrains Mono', 'Fira Code', monospace;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            background: transparent;
-            color: inherit;
-            outline: none;
-            tab-size: 2;
-        }
-        .editor-panel textarea:focus {
-            outline: 2px solid #3b82f6;
-            outline-offset: -2px;
-        }
-        .preview-area {
-            position: relative;
-        }
-        .preview-area .match-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            padding: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            white-space: pre-wrap;
-            word-break: break-word;
-            color: transparent;
-        }
 
-        /* controls */
-        .control-group {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 1rem 1.25rem;
-            border: 1px solid #e9edf2;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.75rem 1rem;
-        }
-        .control-group .field {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            flex: 1 1 180px;
-        }
-        .control-group .field label {
-            font-weight: 500;
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-        .control-group input, .control-group select {
-            padding: 0.5rem 0.75rem;
-            border-radius: 12px;
-            border: 1px solid #d1d9e6;
-            background: #f8fafc;
-            font-size: 0.9rem;
-            width: 100%;
-            transition: 0.1s;
-        }
-        .control-group input:focus {
-            border-color: #3b82f6;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
-        }
-        .btn {
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            border: none;
-            background: #f1f5f9;
-            color: #1e293b;
-            cursor: pointer;
-            transition: 0.15s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            white-space: nowrap;
-        }
-        .btn-primary {
-            background: #1e293b;
-            color: white;
-        }
-        .btn-primary:hover { background: #0f172a; }
-        .btn-success {
-            background: #0b8a5e;
-            color: white;
-        }
-        .btn-success:hover { background: #0a6f4a; }
-        .btn-danger {
-            background: #b91c1c;
-            color: white;
-        }
-        .btn-danger:hover { background: #991b1b; }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #cbd5e1;
-        }
-        .btn-outline:hover { background: #f1f5f9; }
-        .btn-sm { padding: 0.3rem 0.8rem; font-size: 0.8rem; }
-        .icon-btn { background: transparent; border: none; font-size: 1.2rem; cursor: pointer; padding: 0.2rem 0.4rem; border-radius: 8px; }
+    /* responsive */
+    @media (max-width: 600px) {
+      .tool-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+     
+    }
+    @media (min-width: 900px) {
+      .tool-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
 
-        /* match info */
-        .match-info {
-            font-size: 0.9rem;
-            background: #f1f5f9;
-            padding: 0.25rem 1rem;
-            border-radius: 40px;
-            font-weight: 500;
-        }
-        body.dark .match-info { background: #1e293b; }
+    
 
-        .badge {
-            background: #3b82f6;
-            color: white;
-            border-radius: 40px;
-            padding: 0.1rem 0.8rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        /* highlight system */
-        .match-highlight {
-            background: #fde68a;
-            color: #0f172a;
-            border-radius: 2px;
-            padding: 0 1px;
-        }
-        .current-match {
-            background: #60a5fa;
-            color: #0f172a;
-            outline: 2px solid #2563eb;
-            border-radius: 2px;
-            padding: 0 1px;
-        }
-        .replaced-highlight {
-            background: #6ee7b7;
-            color: #064e3b;
-            border-radius: 2px;
-            padding: 0 1px;
-        }
-
-        /* stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 0.75rem;
-            background: #f8fafc;
-            padding: 0.75rem 1rem;
-            border-radius: 16px;
-            border: 1px solid #e9edf2;
-            margin-top: 0.5rem;
-        }
-        .stat-item {
-            font-size: 0.8rem;
-        }
-        .stat-item .stat-label { color: #64748b; font-weight: 500; }
-        .stat-item .stat-value { font-weight: 700; font-size: 1.1rem; }
-
-        /* collapse */
-        .collapse-toggle {
-            background: none;
-            border: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            padding: 0.3rem 0;
-            color: #2563eb;
-        }
-        .collapse-content {
-            display: none;
-            padding-top: 0.75rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .collapse-content.open { display: flex; }
-
-        /* drop zone */
-        .drop-zone {
-            border: 2px dashed #cbd5e1;
-            border-radius: 24px;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            background: #f8fafc;
-            transition: 0.15s;
-            cursor: pointer;
-        }
-        .drop-zone.dragover { border-color: #3b82f6; background: #e0edff; }
-
-        /* history */
-        .history-panel {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 0.75rem 1rem;
-            border: 1px solid #e9edf2;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        .history-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.3rem 0;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 0.85rem;
-        }
-
-        /* responsive */
-        @media (max-width: 768px) {
-            .editor-grid { grid-template-columns: 1fr; }
-            .control-group .field { flex: 1 1 100%; }
-            .flex-between { flex-direction: column; align-items: stretch; gap: 0.5rem; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-            .card { padding: 1rem; }
-            .app { padding: 1px 7px; }
-        }
-        @media (max-width: 480px) {
-            h1 { font-size: 1.3rem; }
-            .btn { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
-        }
-
-        /* accessibility */
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; }
-        .focus-ring:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
-        [aria-live="polite"] { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-
-  /* End Page style goes here....................*/
+/* End of main */
 </style>
 </head>
 <body>
@@ -912,6 +631,7 @@
   </div>
 </header>
 
+
 <!-- ============================================================
      MOBILE DRAWER
 ============================================================ -->
@@ -1002,142 +722,53 @@
 </aside>
 
 <!-- demo filler so the footer isn't glued to the nav -->
+
+
+
+
 <main class="wrap demo-hero">
 
 
-    <div class="app" id="app">
-    <!-- hero -->
-    <div class="flex-between">
-        <div>
-            <h1>🔍 Find & Replace</h1>
-            <div class="subtitle">Find words, phrases, or patterns and replace them instantly with powerful search options.</div>
+  <div class="app">
+    <!-- ===== MAIN TOOLS SECTION ===== -->
+    <div class="main-tools">
+
+                  <!-- Others Tools -->
+      <div class="tool-section">
+        <h2><i class="fas fa-palette" style="margin-right:10px;"></i>Others Tools</h2>
+        <div class="tool-grid">          
+          <a href="image-to-base64.html" class="tool-card"><i class="fa-solid fa-file-code"></i><span>Image to Base64 Converter</span></a>
+          <a href="gif-to-jpg.html" class="tool-card"><i class="fa-solid fa-file-image"></i><span>GIF to JPG Converter</span></a>
+          <a href="png-to-webp.html" class="tool-card"><i class="fa-solid fa-images"></i><span>PNG To Webp </span></a>
+          <a href="add-border.html" class="tool-card"><i class="fa-solid fa-border-all"></i><span>Add Border</span></a>
+          <a href="image-color-picker.html" class="tool-card"><i class="fa-solid fa-eye-dropper"></i><span>Image Color Picker</span></a>
+          <a href="blur-face-area.html" class="tool-card"><i class="fa-solid fa-user-secret"></i><span>Blur Face / Area</span></a>
+          <a href="meme-generator.html" class="tool-card"><i class="fa-solid fa-face-laugh"></i><span>Meme Generator</span></a>
+          <a href="photo-collage-maker.html" class="tool-card"><i class="fa-solid fa-table-cells-large"></i><span>Photo Collage Maker</span></a>
+          <a href="pdf-page-reorder.html" class="tool-card"><i class="fa-solid fa-file-pdf"></i><span>PDF Page Reorder</span></a>
+          <a href="pdf-to-word.html" class="tool-card"><i class="fa-solid fa-file-word"></i><span>PDF to Word</span></a>
+          <a href="grayscale-converter.html" class="tool-card"><i class="fa-solid fa-circle-half-stroke"></i><span>Grayscale Converter</span></a>
+          <a href="image-compressor.html" class="tool-card"><i class="fa-solid fa-compress"></i><span>Image Compressor</span></a>
+
         </div>
-        <div class="flex-row">
-            <button class="btn btn-outline btn-sm" id="darkToggle" aria-label="Toggle dark mode">🌙 Dark</button>
-            <span class="badge" style="background:#2d6a4f;">🔒 100% browser</span>
+      </div>
+
+
+
+      <!-- Other Tools 
+      <div class="tool-section">
+        <h2><i class="fas fa-cog" style="margin-right:10px;"></i>Other Tools</h2>
+        <div class="tool-grid">
+          <a href="batch-processing.html" class="tool-card"><i class="fas fa-layer-group"></i><span>Batch Processing</span></a>
+          <a href="zip-download.html" class="tool-card"><i class="fas fa-file-archive"></i><span>ZIP Download</span></a>
+          <a href="file-info.html" class="tool-card"><i class="fas fa-file-alt"></i><span>File Info</span></a>
         </div>
+      </div>
+      -->
+
     </div>
 
-    <!-- main controls -->
-    <div class="card" style="padding-bottom: 0.75rem;">
-        <div class="control-group">
-            <div class="field"><label for="findInput">Find</label><input type="text" id="findInput" placeholder="Find text…" aria-label="Find text"></div>
-            <div class="field"><label for="replaceInput">Replace</label><input type="text" id="replaceInput" placeholder="Replace with…" aria-label="Replace with"></div>
-            <div class="flex-row" style="flex-wrap: wrap;">
-                <button class="btn btn-primary" id="findBtn">🔎 Find</button>
-                <button class="btn btn-success" id="replaceAllBtn">Replace All</button>
-                <button class="btn btn-outline" id="replaceNextBtn">Replace Next</button>
-                <button class="btn btn-outline" id="replacePrevBtn">Replace Previous</button>
-            </div>
-        </div>
-
-        <!-- options expandable -->
-        <div style="margin-top: 0.5rem;">
-            <button class="collapse-toggle" id="optionsToggle" aria-expanded="false">⚙️ Search Options</button>
-            <div class="collapse-content" id="optionsContent">
-                <label><input type="checkbox" id="matchCase"> Match Case</label>
-                <label><input type="checkbox" id="wholeWord"> Whole Word</label>
-                <label><input type="checkbox" id="wholeLine"> Whole Line</label>
-                <label><input type="checkbox" id="searchFromStart"> Search From Start</label>
-                <label><input type="checkbox" id="highlightMatches" checked> Highlight Matches</label>
-                <label><input type="checkbox" id="regexMode"> Regex Mode <span style="font-size:0.7rem; color:#64748b;">(JS regex)</span></label>
-                <span style="font-size:0.75rem; color:#b91c1c;" id="regexWarning">⚠️ Uses JavaScript regex syntax</span>
-            </div>
-        </div>
-
-        <!-- match navigation & counter -->
-        <div class="flex-between mt-1">
-            <div class="flex-row">
-                <span class="match-info" id="matchCounter">0 matches</span>
-                <span class="match-info" id="matchPosition">—</span>
-            </div>
-            <div class="flex-row">
-                <button class="btn btn-outline btn-sm" id="firstMatchBtn">⏮ First</button>
-                <button class="btn btn-outline btn-sm" id="prevMatchBtn">◀ Prev</button>
-                <button class="btn btn-outline btn-sm" id="nextMatchBtn">Next ▶</button>
-                <button class="btn btn-outline btn-sm" id="lastMatchBtn">Last ⏭</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- editors -->
-    <div class="editor-grid">
-        <div class="editor-panel">
-            <div class="panel-label">📄 Original</div>
-            <textarea id="originalText" placeholder="Type or paste your text here…" spellcheck="true"></textarea>
-        </div>
-        <div class="editor-panel">
-            <div class="panel-label">✨ Result</div>
-            <textarea id="resultText" placeholder="Modified text appears here…" spellcheck="false" readonly></textarea>
-        </div>
-    </div>
-
-    <!-- action row: swap, clear, file, export -->
-    <div class="flex-row" style="justify-content: space-between; flex-wrap: wrap; margin: 0.5rem 0;">
-        <div class="flex-row">
-            <button class="btn btn-outline btn-sm" id="swapBtn">🔄 Swap</button>
-            <button class="btn btn-outline btn-sm" id="clearBtn">🗑 Clear</button>
-            <button class="btn btn-outline btn-sm" id="undoBtn">↩ Undo</button>
-            <button class="btn btn-outline btn-sm" id="redoBtn">↪ Redo</button>
-        </div>
-        <div class="flex-row">
-            <button class="btn btn-outline btn-sm" id="copyBtn">📋 Copy Result</button>
-            <button class="btn btn-outline btn-sm" id="downloadTxtBtn">⬇ .txt</button>
-            <button class="btn btn-outline btn-sm" id="downloadCsvBtn">⬇ .csv</button>
-        </div>
-    </div>
-
-    <!-- stats -->
-    <div class="stats-grid" id="statsGrid">
-        <div class="stat-item"><span class="stat-label">Original</span><br><span class="stat-value" id="origChars">0</span> chars</div>
-        <div class="stat-item"><span class="stat-label">Words</span><br><span class="stat-value" id="origWords">0</span></div>
-        <div class="stat-item"><span class="stat-label">Lines</span><br><span class="stat-value" id="origLines">0</span></div>
-        <div class="stat-item"><span class="stat-label">Result</span><br><span class="stat-value" id="resultChars">0</span> chars</div>
-        <div class="stat-item"><span class="stat-label">Words</span><br><span class="stat-value" id="resultWords">0</span></div>
-        <div class="stat-item"><span class="stat-label">Lines</span><br><span class="stat-value" id="resultLines">0</span></div>
-        <div class="stat-item"><span class="stat-label">Matches</span><br><span class="stat-value" id="totalMatchesStat">0</span></div>
-        <div class="stat-item"><span class="stat-label">Replaced</span><br><span class="stat-value" id="totalReplacedStat">0</span></div>
-    </div>
-
-    <!-- advanced tools collapsible -->
-    <div class="card" style="padding: 0.75rem 1rem;">
-        <button class="collapse-toggle" id="advancedToggle">🛠 Advanced Tools</button>
-        <div class="collapse-content" id="advancedContent" style="display: none;">
-            <button class="btn btn-outline btn-sm" data-clean="trim">Trim lines</button>
-            <button class="btn btn-outline btn-sm" data-clean="removeEmpty">Remove empty lines</button>
-            <button class="btn btn-outline btn-sm" data-clean="normalizeNL">Normalize line breaks</button>
-            <button class="btn btn-outline btn-sm" data-clean="removeDup">Remove duplicate lines</button>
-            <button class="btn btn-outline btn-sm" data-clean="removeTabs">Remove tabs</button>
-            <button class="btn btn-outline btn-sm" data-clean="tabsToSpaces">Tabs → spaces</button>
-            <span style="margin-left: auto; font-size:0.75rem; color:#64748b;">Case conversion: </span>
-            <select id="caseSelect" style="padding:0.2rem 0.5rem; border-radius:20px; border:1px solid #d1d9e6;">
-                <option value="preserve">Preserve</option>
-                <option value="upper">UPPERCASE</option>
-                <option value="lower">lowercase</option>
-                <option value="title">Title Case</option>
-                <option value="sentence">Sentence case</option>
-            </select>
-        </div>
-    </div>
-
-    <!-- file drop + history -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem;">
-        <div class="drop-zone" id="dropZone" role="button" tabindex="0" aria-label="Drop file or browse">
-            <div>📁 Drop a text file here or <strong>Browse Files</strong></div>
-            <div style="font-size:0.75rem; color:#64748b;">.txt .csv .log .md .html .css .js .json</div>
-            <div id="fileInfo" style="font-size:0.85rem; margin-top:0.5rem;"></div>
-            <input type="file" id="fileInput" accept=".txt,.csv,.log,.md,.html,.css,.js,.json" style="display:none">
-        </div>
-        <div>
-            <div class="flex-between"><span style="font-weight:600;">📜 History</span><button class="btn btn-outline btn-sm" id="clearHistoryBtn">Clear</button></div>
-            <div class="history-panel" id="historyPanel"></div>
-        </div>
-    </div>
-
-    <!-- live status -->
-    <div aria-live="polite" id="liveStatus"></div>
-</div>
-
+  </div>
 
 
 
@@ -1279,423 +910,6 @@
 <script src="assets/javascript/myJavascript.js"></script>
 <!--End of header and footer scripts-->
 
-
-<!-- PAge Script Herer-->
-<script>
-    (function() {
-        // ----- state -----
-        let original = '';
-        let result = '';
-        let matchPositions = []; // [{index, length, text}]
-        let currentMatchIdx = -1;
-        let totalReplaced = 0;
-        let history = []; // array of {original, result, timestamp, description}
-        let historyIndex = -1;
-        let replaceHistory = []; // for panel
-        let darkMode = localStorage.getItem('darkMode') === 'true';
-
-        // DOM refs
-        const origText = document.getElementById('originalText');
-        const resultText = document.getElementById('resultText');
-        const findInput = document.getElementById('findInput');
-        const replaceInput = document.getElementById('replaceInput');
-        const findBtn = document.getElementById('findBtn');
-        const replaceAllBtn = document.getElementById('replaceAllBtn');
-        const replaceNextBtn = document.getElementById('replaceNextBtn');
-        const replacePrevBtn = document.getElementById('replacePrevBtn');
-        const matchCounter = document.getElementById('matchCounter');
-        const matchPosition = document.getElementById('matchPosition');
-        const totalMatchesStat = document.getElementById('totalMatchesStat');
-        const totalReplacedStat = document.getElementById('totalReplacedStat');
-        const liveStatus = document.getElementById('liveStatus');
-
-        const matchCase = document.getElementById('matchCase');
-        const wholeWord = document.getElementById('wholeWord');
-        const wholeLine = document.getElementById('wholeLine');
-        const searchFromStart = document.getElementById('searchFromStart');
-        const highlightMatches = document.getElementById('highlightMatches');
-        const regexMode = document.getElementById('regexMode');
-
-        const undoBtn = document.getElementById('undoBtn');
-        const redoBtn = document.getElementById('redoBtn');
-        const swapBtn = document.getElementById('swapBtn');
-        const clearBtn = document.getElementById('clearBtn');
-        const copyBtn = document.getElementById('copyBtn');
-        const downloadTxtBtn = document.getElementById('downloadTxtBtn');
-        const downloadCsvBtn = document.getElementById('downloadCsvBtn');
-        const darkToggle = document.getElementById('darkToggle');
-        const dropZone = document.getElementById('dropZone');
-        const fileInput = document.getElementById('fileInput');
-        const fileInfo = document.getElementById('fileInfo');
-        const historyPanel = document.getElementById('historyPanel');
-        const clearHistoryBtn = document.getElementById('clearHistoryBtn');
-
-        // stats
-        const origChars = document.getElementById('origChars');
-        const origWords = document.getElementById('origWords');
-        const origLines = document.getElementById('origLines');
-        const resultChars = document.getElementById('resultChars');
-        const resultWords = document.getElementById('resultWords');
-        const resultLines = document.getElementById('resultLines');
-
-        // collapsibles
-        const optionsToggle = document.getElementById('optionsToggle');
-        const optionsContent = document.getElementById('optionsContent');
-        const advancedToggle = document.getElementById('advancedToggle');
-        const advancedContent = document.getElementById('advancedContent');
-
-        // ----- helpers -----
-        function updateStats() {
-            const o = original, r = result;
-            origChars.textContent = o.length;
-            origWords.textContent = o.split(/\s+/).filter(w=>w).length;
-            origLines.textContent = o.split('\n').length;
-            resultChars.textContent = r.length;
-            resultWords.textContent = r.split(/\s+/).filter(w=>w).length;
-            resultLines.textContent = r.split('\n').length;
-        }
-
-        function updateMatchUI() {
-            const total = matchPositions.length;
-            matchCounter.textContent = total + ' matches found';
-            totalMatchesStat.textContent = total;
-            if (total === 0) { matchPosition.textContent = '—'; return; }
-            const idx = currentMatchIdx >= 0 ? currentMatchIdx : 0;
-            matchPosition.textContent = `Match ${idx+1} of ${total}`;
-            if (highlightMatches.checked) highlightInResult();
-        }
-
-        function highlightInResult() {
-            // we use a simple approach: apply classes via textarea replacement (visual only)
-            // for large text we use a lightweight method: we create a highlighted version in resultText
-            if (!highlightMatches.checked || matchPositions.length === 0) {
-                resultText.value = result;
-                return;
-            }
-            let highlighted = result;
-            // build from end to start to preserve indices
-            let offsets = matchPositions.map((m, i) => ({...m, idx: i})).sort((a,b) => b.index - a.index);
-            for (let m of offsets) {
-                const cls = (m.idx === currentMatchIdx) ? 'current-match' : 'match-highlight';
-                const before = highlighted.slice(0, m.index);
-                const after = highlighted.slice(m.index + m.length);
-                highlighted = before + `<span class="${cls}">` + highlighted.slice(m.index, m.index + m.length) + `</span>` + after;
-            }
-            // we can't use innerHTML on textarea, so we use a div overlay? Instead use a simpler approach:
-            // for real highlighting we'd need a contenteditable or overlay. For simplicity, we update resultText with plain text
-            // but we show match count. We'll skip visual highlighting in textarea to keep it fast, but we show current match via background.
-            // Instead we'll use a small indicator: current match index.
-            resultText.value = result;
-            // show current match in status
-        }
-
-        function findMatches() {
-            const pattern = findInput.value;
-            if (!pattern) { matchPositions = []; currentMatchIdx = -1; updateMatchUI(); updateStats(); return; }
-            const text = original;
-            let flags = 'g';
-            if (!matchCase.checked) flags += 'i';
-            let regex;
-            try {
-                if (regexMode.checked) {
-                    regex = new RegExp(pattern, flags);
-                } else {
-                    const escaped = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                    let wordBoundary = wholeWord.checked ? '\\b' : '';
-                    let lineBoundary = wholeLine.checked ? '^' : '';
-                    let endLine = wholeLine.checked ? '$' : '';
-                    regex = new RegExp(lineBoundary + wordBoundary + escaped + wordBoundary + endLine, flags);
-                }
-            } catch(e) {
-                liveStatus.textContent = '⚠️ Invalid regular expression. Please check your pattern.';
-                matchPositions = []; currentMatchIdx = -1; updateMatchUI(); return;
-            }
-            const matches = [];
-            let m;
-            while ((m = regex.exec(text)) !== null) {
-                matches.push({ index: m.index, length: m[0].length, text: m[0] });
-                if (m.index === regex.lastIndex) regex.lastIndex++;
-            }
-            matchPositions = matches;
-            currentMatchIdx = matchPositions.length > 0 ? 0 : -1;
-            updateMatchUI();
-            updateStats();
-            liveStatus.textContent = `Found ${matchPositions.length} matches.`;
-        }
-
-        function replaceCurrent() {
-            if (matchPositions.length === 0 || currentMatchIdx < 0) return;
-            const m = matchPositions[currentMatchIdx];
-            const replacement = replaceInput.value || '';
-            let newResult = result.slice(0, m.index) + replacement + result.slice(m.index + m.length);
-            // update result
-            result = newResult;
-            // update original? no, we keep original separate
-            // update match positions: remove this match and shift subsequent
-            const shift = replacement.length - m.length;
-            matchPositions.splice(currentMatchIdx, 1);
-            for (let i = currentMatchIdx; i < matchPositions.length; i++) {
-                matchPositions[i].index += shift;
-            }
-            totalReplaced++;
-            totalReplacedStat.textContent = totalReplaced;
-            resultText.value = result;
-            if (matchPositions.length === 0) currentMatchIdx = -1;
-            else if (currentMatchIdx >= matchPositions.length) currentMatchIdx = matchPositions.length - 1;
-            updateMatchUI();
-            updateStats();
-            pushHistory('Replace Next');
-        }
-
-        function replaceAll() {
-            if (matchPositions.length === 0) return;
-            const replacement = replaceInput.value || '';
-            let newResult = result;
-            // from end to start
-            let offsets = matchPositions.map((m,i) => ({...m, idx:i})).sort((a,b) => b.index - a.index);
-            for (let m of offsets) {
-                newResult = newResult.slice(0, m.index) + replacement + newResult.slice(m.index + m.length);
-            }
-            const count = matchPositions.length;
-            totalReplaced += count;
-            totalReplacedStat.textContent = totalReplaced;
-            result = newResult;
-            matchPositions = [];
-            currentMatchIdx = -1;
-            resultText.value = result;
-            updateMatchUI();
-            updateStats();
-            pushHistory(`Replace All (${count} matches)`);
-            liveStatus.textContent = `Replaced ${count} matches.`;
-        }
-
-        function pushHistory(desc) {
-            history.push({ original: original, result: result, timestamp: Date.now(), description: desc });
-            historyIndex = history.length - 1;
-            if (history.length > 50) history.shift();
-            updateHistoryPanel();
-        }
-
-        function undo() {
-            if (historyIndex <= 0) return;
-            historyIndex--;
-            const entry = history[historyIndex];
-            original = entry.original;
-            result = entry.result;
-            origText.value = original;
-            resultText.value = result;
-            findMatches();
-            updateStats();
-            updateHistoryPanel();
-        }
-
-        function redo() {
-            if (historyIndex >= history.length - 1) return;
-            historyIndex++;
-            const entry = history[historyIndex];
-            original = entry.original;
-            result = entry.result;
-            origText.value = original;
-            resultText.value = result;
-            findMatches();
-            updateStats();
-            updateHistoryPanel();
-        }
-
-        function updateHistoryPanel() {
-            historyPanel.innerHTML = '';
-            const items = history.slice(-10).reverse();
-            for (let h of items) {
-                const div = document.createElement('div');
-                div.className = 'history-item';
-                div.innerHTML = `<span>${h.description}</span><span>${new Date(h.timestamp).toLocaleTimeString()}</span>`;
-                historyPanel.appendChild(div);
-            }
-        }
-
-        // ----- events -----
-        origText.addEventListener('input', function() {
-            original = this.value;
-            result = original;
-            resultText.value = result;
-            totalReplaced = 0;
-            totalReplacedStat.textContent = '0';
-            findMatches();
-            updateStats();
-            pushHistory('Edit');
-        });
-
-        findBtn.addEventListener('click', findMatches);
-        replaceAllBtn.addEventListener('click', function() {
-            if (matchPositions.length === 0) return;
-            if (confirm(`Replace ${matchPositions.length} matches with "${replaceInput.value || ''}"?`)) {
-                replaceAll();
-            }
-        });
-        replaceNextBtn.addEventListener('click', function() {
-            if (matchPositions.length === 0) { findMatches(); if (matchPositions.length===0) return; }
-            if (currentMatchIdx < 0) currentMatchIdx = 0;
-            replaceCurrent();
-            // move to next
-            if (matchPositions.length > 0) {
-                currentMatchIdx = (currentMatchIdx + 1) % matchPositions.length;
-                updateMatchUI();
-            }
-        });
-        replacePrevBtn.addEventListener('click', function() {
-            if (matchPositions.length === 0) { findMatches(); if (matchPositions.length===0) return; }
-            if (currentMatchIdx < 0) currentMatchIdx = matchPositions.length - 1;
-            replaceCurrent();
-            if (matchPositions.length > 0) {
-                currentMatchIdx = (currentMatchIdx - 1 + matchPositions.length) % matchPositions.length;
-                updateMatchUI();
-            }
-        });
-
-        // navigation
-        document.getElementById('firstMatchBtn').addEventListener('click', function() { if (matchPositions.length) { currentMatchIdx = 0; updateMatchUI(); } });
-        document.getElementById('lastMatchBtn').addEventListener('click', function() { if (matchPositions.length) { currentMatchIdx = matchPositions.length-1; updateMatchUI(); } });
-        document.getElementById('prevMatchBtn').addEventListener('click', function() { if (matchPositions.length) { currentMatchIdx = (currentMatchIdx-1+matchPositions.length)%matchPositions.length; updateMatchUI(); } });
-        document.getElementById('nextMatchBtn').addEventListener('click', function() { if (matchPositions.length) { currentMatchIdx = (currentMatchIdx+1)%matchPositions.length; updateMatchUI(); } });
-
-        // undo/redo
-        undoBtn.addEventListener('click', undo);
-        redoBtn.addEventListener('click', redo);
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
-                e.preventDefault();
-                if (e.shiftKey) redo(); else undo();
-            }
-        });
-
-        // swap
-        swapBtn.addEventListener('click', function() {
-            const temp = original;
-            original = result;
-            result = temp;
-            origText.value = original;
-            resultText.value = result;
-            totalReplaced = 0;
-            totalReplacedStat.textContent = '0';
-            findMatches();
-            updateStats();
-            pushHistory('Swap');
-        });
-
-        // clear
-        clearBtn.addEventListener('click', function() {
-            if (original || result) {
-                if (!confirm('Clear all text?')) return;
-            }
-            original = ''; result = ''; matchPositions = []; currentMatchIdx = -1; totalReplaced = 0;
-            origText.value = ''; resultText.value = '';
-            updateMatchUI(); updateStats(); totalReplacedStat.textContent = '0';
-            pushHistory('Clear');
-        });
-
-        // copy
-        copyBtn.addEventListener('click', function() {
-            navigator.clipboard?.writeText(result).then(() => liveStatus.textContent = '✓ Copied successfully');
-        });
-
-        // download
-        downloadTxtBtn.addEventListener('click', function() {
-            const blob = new Blob([result], {type: 'text/plain'});
-            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'result.txt'; a.click();
-        });
-        downloadCsvBtn.addEventListener('click', function() {
-            const blob = new Blob([result], {type: 'text/csv'});
-            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'result.csv'; a.click();
-        });
-
-        // dark mode
-        darkToggle.addEventListener('click', function() {
-            darkMode = !darkMode;
-            document.body.classList.toggle('dark', darkMode);
-            localStorage.setItem('darkMode', darkMode);
-            darkToggle.textContent = darkMode ? '☀️ Light' : '🌙 Dark';
-        });
-        if (darkMode) { document.body.classList.add('dark'); darkToggle.textContent = '☀️ Light'; }
-
-        // collapse
-        optionsToggle.addEventListener('click', function() {
-            const open = optionsContent.style.display === 'flex';
-            optionsContent.style.display = open ? 'none' : 'flex';
-            optionsToggle.setAttribute('aria-expanded', !open);
-        });
-        advancedToggle.addEventListener('click', function() {
-            advancedContent.style.display = advancedContent.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // file drop
-        dropZone.addEventListener('click', () => fileInput.click());
-        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
-        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault(); dropZone.classList.remove('dragover');
-            const file = e.dataTransfer.files[0];
-            if (file) handleFile(file);
-        });
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length) handleFile(e.target.files[0]);
-        });
-        function handleFile(file) {
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                original = ev.target.result;
-                result = original;
-                origText.value = original;
-                resultText.value = result;
-                totalReplaced = 0; totalReplacedStat.textContent = '0';
-                findMatches(); updateStats(); pushHistory('File loaded');
-                fileInfo.textContent = `${file.name} • ${(file.size/1024).toFixed(1)}KB • ${original.split('\n').length} lines`;
-                liveStatus.textContent = `Loaded ${file.name}`;
-            };
-            reader.readAsText(file);
-        }
-
-        // advanced cleanup
-        document.querySelectorAll('[data-clean]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const action = this.dataset.clean;
-                let text = result;
-                switch(action) {
-                    case 'trim': text = text.split('\n').map(l=>l.trim()).join('\n'); break;
-                    case 'removeEmpty': text = text.split('\n').filter(l=>l.trim()).join('\n'); break;
-                    case 'normalizeNL': text = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n'); break;
-                    case 'removeDup': text = [...new Set(text.split('\n'))].join('\n'); break;
-                    case 'removeTabs': text = text.replace(/\t/g,''); break;
-                    case 'tabsToSpaces': text = text.replace(/\t/g,'    '); break;
-                }
-                result = text; resultText.value = result; origText.value = original;
-                findMatches(); updateStats(); pushHistory('Cleanup: '+action);
-            });
-        });
-
-        // case conversion on replace
-        document.getElementById('caseSelect').addEventListener('change', function() {
-            // we apply to current result? we'll apply on next replace via replaceInput? 
-            // For simplicity, we can apply to selection: we'll convert replacement text.
-            // we'll just set replaceInput value to transformed version of replaceInput
-            const val = replaceInput.value;
-            const mode = this.value;
-            if (mode === 'upper') replaceInput.value = val.toUpperCase();
-            else if (mode === 'lower') replaceInput.value = val.toLowerCase();
-            else if (mode === 'title') replaceInput.value = val.replace(/\w\S*/g, w => w[0].toUpperCase()+w.slice(1).toLowerCase());
-            else if (mode === 'sentence') replaceInput.value = val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
-        });
-
-        // init
-        original = ''; result = ''; origText.value = ''; resultText.value = '';
-        findMatches(); updateStats(); pushHistory('Start');
-        updateHistoryPanel();
-        // show options open by default? no.
-        optionsContent.style.display = 'none';
-        advancedContent.style.display = 'none';
-    })();
-</script>
-
-<!--End page script-->
 
 </body>
 </html>

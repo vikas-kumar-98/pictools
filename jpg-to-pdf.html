@@ -348,13 +348,434 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-
+  <!-- jsPDF library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <!-- Style page goes here-->
 <link rel="stylesheet" href="assets/css/style.css" >
 <!--End Style page goes here-->
 
 <style>
+    /* main card – glassmorphism / premium SaaS */
+    .jpgPdfStudioShell {
+      max-width: 1280px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      padding: 40px 36px;
+      box-shadow: 0 25px 50px -10px rgba(0, 20, 40, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+      transition: all 0.2s ease;
+    }
 
+    /* headings & text */
+    .jpgPdfHeroTitle {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0b1e33, #1d3b5c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .jpgPdfSubDesc {
+      font-size: 1.1rem;
+      color: #2c3e4f;
+      opacity: 0.85;
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 2rem auto;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    /* two‑column layout: preview + settings */
+    .jpgPdfGridLayout {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr;
+      gap: 28px;
+      margin-top: 8px;
+    }
+
+    /* ---------- left panel: upload & preview ---------- */
+    .jpgPdfUploadZone {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 24px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 8px 20px -8px rgba(0,0,0,0.08);
+    }
+
+    /* drag‑and‑drop area */
+    .jpgPdfDropPanel {
+      border: 2px dashed #b7cdde;
+      border-radius: 28px;
+      padding: 32px 20px 28px;
+      text-align: center;
+      background: rgba(245, 250, 255, 0.4);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+
+    .jpgPdfDropPanel:hover {
+      background: rgba(235, 244, 252, 0.7);
+      border-color: #6a8eaa;
+    }
+
+    .jpgPdfDropPanel.jpgPdfDragOver {
+      background: rgba(210, 230, 248, 0.7);
+      border-color: #1e5b8a;
+      transform: scale(0.99);
+    }
+
+    .jpgPdfUploadIcon {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 8px;
+      display: block;
+      color: #1e4b6e;
+      opacity: 0.8;
+    }
+
+    .jpgPdfDropTitle {
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #173349;
+    }
+
+    .jpgPdfDropSub {
+      color: #3a5770;
+      margin: 8px 0 14px;
+      font-size: 0.95rem;
+    }
+
+    .jpgPdfSelectBtn {
+      background: #1f4b6e;
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 36px;
+      border-radius: 60px;
+      box-shadow: 0 8px 18px -6px rgba(20, 60, 100, 0.3);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+    }
+
+    .jpgPdfSelectBtn:hover {
+      background: #143953;
+      box-shadow: 0 10px 22px -8px rgba(10, 40, 70, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .jpgPdfSelectBtn:active {
+      transform: scale(0.96);
+    }
+
+    /* image preview grid */
+    .jpgPdfPreviewGridWrap {
+      margin-top: 24px;
+    }
+
+    .jpgPdfPreviewHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .jpgPdfCountBadge {
+      background: #d3e2f0;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #0e2b41;
+    }
+
+    .jpgPdfClearAllBtn {
+      background: transparent;
+      border: 1px solid #b6cbd9;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #2f4b62;
+      transition: 0.15s;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .jpgPdfClearAllBtn:hover {
+      background: #e5edf5;
+      border-color: #7b9bb3;
+    }
+
+    .jpgPdfGridContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 14px;
+      max-height: 340px;
+      overflow-y: auto;
+      padding: 4px 2px 8px;
+    }
+
+    .jpgPdfGridContainer::-webkit-scrollbar {
+      width: 5px;
+    }
+    .jpgPdfGridContainer::-webkit-scrollbar-track {
+      background: #dfeaf3;
+      border-radius: 10px;
+    }
+    .jpgPdfGridContainer::-webkit-scrollbar-thumb {
+      background: #a5bccf;
+      border-radius: 10px;
+    }
+
+    .jpgPdfThumbItem {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(200, 215, 230, 0.5);
+      transition: 0.15s;
+      cursor: grab;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .jpgPdfThumbItem:active {
+      cursor: grabbing;
+      opacity: 0.7;
+    }
+
+    .jpgPdfThumbItem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .jpgPdfRemoveBtn {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(20, 30, 45, 0.7);
+      backdrop-filter: blur(4px);
+      border: none;
+      color: white;
+      width: 26px;
+      height: 26px;
+      border-radius: 40px;
+      font-size: 1rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.15s;
+      opacity: 0;
+    }
+
+    .jpgPdfThumbItem:hover .jpgPdfRemoveBtn {
+      opacity: 1;
+    }
+
+    .jpgPdfRemoveBtn:hover {
+      background: #b13e3e;
+      transform: scale(1.08);
+    }
+
+    /* ---------- right panel: settings ---------- */
+    .jpgPdfSettingsPanel {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 24px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 8px 20px -8px rgba(0,0,0,0.08);
+    }
+
+    .jpgPdfSettingsGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .jpgPdfSettingRow {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .jpgPdfSettingRow label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #1d3d57;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .jpgPdfSettingRow select,
+    .jpgPdfSettingRow input {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid #c8dae9;
+      border-radius: 40px;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+      color: #142b3f;
+      transition: 0.15s;
+      outline: none;
+      width: 100%;
+    }
+
+    .jpgPdfSettingRow select:focus,
+    .jpgPdfSettingRow input:focus {
+      border-color: #1f5b85;
+      box-shadow: 0 0 0 3px rgba(30, 80, 130, 0.15);
+      background: white;
+    }
+
+    .jpgPdfSettingRow input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    .jpgPdfFilenameInput {
+      font-weight: 500;
+    }
+
+    /* convert button */
+    .jpgPdfConvertBtn {
+      background: linear-gradient(145deg, #0d334f, #1b4b6e);
+      border: none;
+      padding: 16px 20px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+      transition: 0.2s;
+      box-shadow: 0 12px 24px -10px rgba(15, 50, 80, 0.4);
+      cursor: pointer;
+      width: 100%;
+      letter-spacing: 0.5px;
+    }
+
+    .jpgPdfConvertBtn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+      background: #809bb0;
+    }
+
+    .jpgPdfConvertBtn:not(:disabled):hover {
+      background: linear-gradient(145deg, #0b2940, #123b57);
+      transform: scale(1.01);
+    }
+
+    .jpgPdfConvertBtn:active:not(:disabled) {
+      transform: scale(0.97);
+    }
+
+    /* loading spinner */
+    .jpgPdfSpinner {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top: 3px solid white;
+      animation: jpgPdfSpin 0.9s linear infinite;
+    }
+
+    @keyframes jpgPdfSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* toast notifications */
+    .jpgPdfToastContainer {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .jpgPdfToast {
+      background: #1b3143;
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 16px 24px;
+      border-radius: 60px;
+      font-weight: 500;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      animation: jpgPdfSlideIn 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .jpgPdfToastSuccess { background: #0f5530; }
+    .jpgPdfToastError { background: #883333; }
+
+    @keyframes jpgPdfSlideIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* responsive */
+    @media (max-width: 880px) {
+      .jpgPdfGridLayout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .jpgPdfHeroTitle {
+        font-size: 2.2rem;
+      }
+      .jpgPdfStudioShell {
+        padding: 28px 18px;
+        border-radius: 32px;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .jpgPdfHeroTitle {
+        font-size: 1.8rem;
+      }
+      .jpgPdfSubDesc {
+        font-size: 0.95rem;
+      }
+      .jpgPdfSelectBtn {
+        width: 100%;
+      }
+    }
+
+    /* empty state */
+    .jpgPdfEmptyHint {
+      color: #4e6e86;
+      font-size: 0.9rem;
+      padding: 10px 0;
+    }
 </style>
 </head>
 <body>
@@ -646,6 +1067,79 @@
 
 
     
+<div class="jpgPdfStudioShell">
+  <!-- main heading & desc -->
+  <h1 class="jpgPdfHeroTitle">Convert JPG to PDF Online</h1>
+  <p class="jpgPdfSubDesc">Upload multiple JPG/JPEG images, reorder, and merge into a single polished PDF — instantly.</p>
+
+  <!-- grid: left (upload/preview) + right (settings) -->
+  <div class="jpgPdfGridLayout">
+    <!-- left panel -->
+    <div class="jpgPdfUploadZone">
+      <div class="jpgPdfDropPanel" id="jpgPdfDropPanel">
+        <span class="jpgPdfUploadIcon">🖼️</span>
+        <div class="jpgPdfDropTitle">Drop images here</div>
+        <div class="jpgPdfDropSub">or click to browse</div>
+        <button class="jpgPdfSelectBtn" id="jpgPdfSelectTrigger">Choose images</button>
+        <input type="file" accept="image/jpeg,image/jpg" multiple id="jpgPdfFileInput" style="display:none">
+      </div>
+
+      <!-- preview grid -->
+      <div class="jpgPdfPreviewGridWrap">
+        <div class="jpgPdfPreviewHeader">
+          <span class="jpgPdfCountBadge" id="jpgPdfCountDisplay">0 images</span>
+          <button class="jpgPdfClearAllBtn" id="jpgPdfClearAllBtn">✕ Clear all</button>
+        </div>
+        <div class="jpgPdfGridContainer" id="jpgPdfGridContainer"></div>
+        <div id="jpgPdfEmptyHint" class="jpgPdfEmptyHint">No images added yet</div>
+      </div>
+    </div>
+
+    <!-- right panel: settings -->
+    <div class="jpgPdfSettingsPanel">
+      <div class="jpgPdfSettingsGroup">
+        <div class="jpgPdfSettingRow">
+          <label for="jpgPdfPageSize">Page size</label>
+          <select id="jpgPdfPageSize">
+            <option value="a4">A4</option>
+            <option value="letter">Letter</option>
+            <option value="legal">Legal</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div class="jpgPdfSettingRow">
+          <label for="jpgPdfOrientation">Orientation</label>
+          <select id="jpgPdfOrientation">
+            <option value="portrait">Portrait</option>
+            <option value="landscape">Landscape</option>
+          </select>
+        </div>
+        <div class="jpgPdfSettingRow">
+          <label for="jpgPdfMargin">Margin (mm)</label>
+          <input type="number" id="jpgPdfMargin" value="5" min="0" max="30" step="1">
+        </div>
+        <div class="jpgPdfSettingRow">
+          <label for="jpgPdfFitMode">Image fit</label>
+          <select id="jpgPdfFitMode">
+            <option value="contain">Contain</option>
+            <option value="cover">Cover</option>
+            <option value="stretch">Stretch</option>
+          </select>
+        </div>
+        <div class="jpgPdfSettingRow">
+          <label for="jpgPdfFileName">PDF filename</label>
+          <input type="text" id="jpgPdfFileName" value="converted-images" class="jpgPdfFilenameInput">
+        </div>
+        <button class="jpgPdfConvertBtn" id="jpgPdfConvertBtn" disabled>
+          <span>⬇️ Convert to PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- toast container -->
+<div class="jpgPdfToastContainer" id="jpgPdfToastContainer"></div>
 
 
 
@@ -788,6 +1282,265 @@
 <script src="assets/javascript/myJavascript.js"></script>
 <!--End of header and footer scripts-->
 
+<!--Script file-->
+<script>
+  (function() {
+    "use strict";
 
+    // ----- DOM refs (unique) -----
+    const fileInput = document.getElementById('jpgPdfFileInput');
+    const dropPanel = document.getElementById('jpgPdfDropPanel');
+    const gridContainer = document.getElementById('jpgPdfGridContainer');
+    const countDisplay = document.getElementById('jpgPdfCountDisplay');
+    const clearAllBtn = document.getElementById('jpgPdfClearAllBtn');
+    const convertBtn = document.getElementById('jpgPdfConvertBtn');
+    const emptyHint = document.getElementById('jpgPdfEmptyHint');
+    const selectTrigger = document.getElementById('jpgPdfSelectTrigger');
+
+    // settings
+    const pageSizeSelect = document.getElementById('jpgPdfPageSize');
+    const orientationSelect = document.getElementById('jpgPdfOrientation');
+    const marginInput = document.getElementById('jpgPdfMargin');
+    const fitModeSelect = document.getElementById('jpgPdfFitMode');
+    const fileNameInput = document.getElementById('jpgPdfFileName');
+
+    // state
+    let imageFiles = []; // array of File objects
+    let imageDataURLs = []; // parallel array for preview
+
+    // ----- helpers -----
+    function updateUI() {
+      const count = imageFiles.length;
+      countDisplay.textContent = count + ' image' + (count !== 1 ? 's' : '');
+      emptyHint.style.display = count === 0 ? 'block' : 'none';
+      convertBtn.disabled = count === 0;
+
+      // render thumbnails
+      gridContainer.innerHTML = '';
+      for (let i = 0; i < imageDataURLs.length; i++) {
+        const div = document.createElement('div');
+        div.className = 'jpgPdfThumbItem';
+        div.draggable = true;
+        div.dataset.index = i;
+
+        const img = document.createElement('img');
+        img.src = imageDataURLs[i];
+        img.alt = 'JPG preview';
+        div.appendChild(img);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'jpgPdfRemoveBtn';
+        removeBtn.innerHTML = '✕';
+        removeBtn.type = 'button';
+        removeBtn.setAttribute('aria-label', 'Remove image');
+        removeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          removeImage(i);
+        });
+        div.appendChild(removeBtn);
+
+        // drag & drop reorder
+        div.addEventListener('dragstart', handleDragStart);
+        div.addEventListener('dragend', handleDragEnd);
+        div.addEventListener('dragover', handleDragOver);
+        div.addEventListener('drop', handleDrop);
+
+        gridContainer.appendChild(div);
+      }
+    }
+
+    function removeImage(index) {
+      imageFiles.splice(index, 1);
+      imageDataURLs.splice(index, 1);
+      updateUI();
+      showToast('Image removed', 'success');
+    }
+
+    // drag reorder state
+    let draggedIndex = null;
+
+    function handleDragStart(e) {
+      draggedIndex = parseInt(e.target.closest('.jpgPdfThumbItem').dataset.index);
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', draggedIndex);
+    }
+
+    function handleDragEnd(e) {
+      draggedIndex = null;
+    }
+
+    function handleDragOver(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+    }
+
+    function handleDrop(e) {
+      e.preventDefault();
+      const targetItem = e.target.closest('.jpgPdfThumbItem');
+      if (!targetItem) return;
+      const targetIndex = parseInt(targetItem.dataset.index);
+      if (draggedIndex === null || draggedIndex === targetIndex) return;
+
+      // reorder arrays
+      const [fileMoved] = imageFiles.splice(draggedIndex, 1);
+      const [urlMoved] = imageDataURLs.splice(draggedIndex, 1);
+      imageFiles.splice(targetIndex, 0, fileMoved);
+      imageDataURLs.splice(targetIndex, 0, urlMoved);
+      updateUI();
+      showToast('Image reordered', 'success');
+    }
+
+    // ----- file handling -----
+    function processFiles(files) {
+      if (!files || files.length === 0) return;
+      const valid = Array.from(files).filter(f => f.type === 'image/jpeg' || f.type === 'image/jpg');
+      if (valid.length === 0) {
+        showToast('Only JPG/JPEG images allowed', 'error');
+        return;
+      }
+      let loaded = 0;
+      const total = valid.length;
+      for (const file of valid) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          imageFiles.push(file);
+          imageDataURLs.push(e.target.result);
+          loaded++;
+          if (loaded === total) {
+            updateUI();
+            showToast(`Added ${total} image${total > 1 ? 's' : ''}`, 'success');
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function clearAllImages() {
+      if (imageFiles.length === 0) return;
+      imageFiles = [];
+      imageDataURLs = [];
+      updateUI();
+      showToast('All images cleared', 'success');
+    }
+
+    // ----- drag & drop panel -----
+    dropPanel.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropPanel.classList.add('jpgPdfDragOver');
+    });
+    dropPanel.addEventListener('dragleave', (e) => {
+      dropPanel.classList.remove('jpgPdfDragOver');
+    });
+    dropPanel.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropPanel.classList.remove('jpgPdfDragOver');
+      const files = e.dataTransfer.files;
+      processFiles(files);
+    });
+
+    selectTrigger.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+      processFiles(e.target.files);
+      fileInput.value = ''; // reset
+    });
+
+    clearAllBtn.addEventListener('click', clearAllImages);
+
+    // ----- convert PDF -----
+    convertBtn.addEventListener('click', async function() {
+      if (imageFiles.length === 0) return;
+      const btn = this;
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<span class="jpgPdfSpinner"></span> Processing…';
+
+      try {
+        const { jsPDF } = window.jspdf;
+        const orientation = orientationSelect.value;
+        const margin = parseFloat(marginInput.value) || 5;
+        const fit = fitModeSelect.value;
+        let pageSize = pageSizeSelect.value;
+        let pdfWidth, pdfHeight;
+        if (pageSize === 'custom') {
+          pdfWidth = 210; pdfHeight = 297; // fallback A4
+        } else {
+          const sizes = { a4: [210, 297], letter: [216, 279], legal: [216, 356] };
+          const size = sizes[pageSize] || sizes.a4;
+          pdfWidth = size[0]; pdfHeight = size[1];
+        }
+        if (orientation === 'landscape') {
+          [pdfWidth, pdfHeight] = [pdfHeight, pdfWidth];
+        }
+
+        const pdf = new jsPDF({
+          orientation: orientation,
+          unit: 'mm',
+          format: [pdfWidth, pdfHeight]
+        });
+
+        const contentWidth = pdfWidth - 2 * margin;
+        const contentHeight = pdfHeight - 2 * margin;
+
+        for (let i = 0; i < imageDataURLs.length; i++) {
+          if (i > 0) pdf.addPage();
+
+          const imgData = imageDataURLs[i];
+          const img = new Image();
+          img.src = imgData;
+          await new Promise((resolve) => {
+            img.onload = () => resolve();
+            img.onerror = () => resolve();
+          });
+
+          let imgW = img.width, imgH = img.height;
+          let finalW, finalH;
+          if (fit === 'contain') {
+            const scale = Math.min(contentWidth / imgW, contentHeight / imgH);
+            finalW = imgW * scale;
+            finalH = imgH * scale;
+          } else if (fit === 'cover') {
+            const scale = Math.max(contentWidth / imgW, contentHeight / imgH);
+            finalW = imgW * scale;
+            finalH = imgH * scale;
+          } else { // stretch
+            finalW = contentWidth;
+            finalH = contentHeight;
+          }
+          const x = margin + (contentWidth - finalW) / 2;
+          const y = margin + (contentHeight - finalH) / 2;
+          pdf.addImage(imgData, 'JPEG', x, y, finalW, finalH);
+        }
+
+        const filename = (fileNameInput.value.trim() || 'converted-images') + '.pdf';
+        pdf.save(filename);
+        showToast('PDF downloaded successfully!', 'success');
+      } catch (err) {
+        console.error(err);
+        showToast('Conversion error: ' + err.message, 'error');
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = imageFiles.length === 0;
+      }
+    });
+
+    // ----- toast system -----
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('jpgPdfToastContainer');
+      const toast = document.createElement('div');
+      toast.className = `jpgPdfToast ${type === 'success' ? 'jpgPdfToastSuccess' : 'jpgPdfToastError'}`;
+      toast.textContent = message;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(30px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 2600);
+    }
+
+    // init
+    updateUI();
+  })();
+</script>
+<!--End of script file-->
 </body>
 </html>
