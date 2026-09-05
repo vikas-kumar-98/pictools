@@ -801,6 +801,662 @@
     .btn-group { display: flex; gap: 0.2rem; flex-wrap: wrap; }
 
   /* End Page style goes here....................*/
+          .ccount-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .ccount-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .ccount-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .ccount-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .ccount-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .ccount-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .ccount-intro-text strong {
+            color: #1e293b;
+        }
+
+        .ccount-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .ccount-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-about-title::before {
+            content: '🔢';
+            font-size: 1.8rem;
+        }
+        .ccount-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .ccount-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .ccount-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ccount-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .ccount-howto-section {
+            margin: 2.5rem 0;
+        }
+        .ccount-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .ccount-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .ccount-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .ccount-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .ccount-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .ccount-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .ccount-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .ccount-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .ccount-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .ccount-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .ccount-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .ccount-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .ccount-benefit-card .ccount-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .ccount-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .ccount-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ccount-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .ccount-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .ccount-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .ccount-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .ccount-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .ccount-feature-card .ccount-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .ccount-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .ccount-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ccount-metrics-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .ccount-metrics-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-metrics-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .ccount-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .ccount-metric-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .ccount-metric-card .ccount-metric-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .ccount-metric-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .ccount-metric-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ccount-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .ccount-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .ccount-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .ccount-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ccount-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .ccount-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .ccount-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .ccount-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .ccount-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .ccount-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .ccount-usecase-card .ccount-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .ccount-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .ccount-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ccount-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .ccount-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .ccount-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .ccount-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ccount-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .ccount-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .ccount-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .ccount-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .ccount-faq-item:last-child {
+            border-bottom: none;
+        }
+        .ccount-faq-item:hover {
+            background: #f8fafc;
+        }
+        .ccount-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .ccount-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .ccount-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .ccount-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .ccount-faq-question[aria-expanded="true"] .ccount-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .ccount-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .ccount-faq-answer p {
+            margin: 0;
+        }
+        .ccount-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .ccount-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .ccount-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .ccount-privacy-section p,
+        .ccount-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .ccount-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .ccount-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .ccount-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .ccount-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .ccount-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccount-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .ccount-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .ccount-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .ccount-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .ccount-related-card .ccount-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .ccount-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccount-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccount-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccount-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccount-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccount-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .ccount-content-wrapper { padding: 0 16px; }
+            .ccount-intro-title { font-size: 2.2rem; }
+            .ccount-howto-steps { grid-template-columns: 1fr; }
+            .ccount-benefit-grid { grid-template-columns: 1fr; }
+            .ccount-features-grid { grid-template-columns: 1fr; }
+            .ccount-metrics-grid { grid-template-columns: 1fr; }
+            .ccount-usecases-grid { grid-template-columns: 1fr; }
+            .ccount-tips-list { grid-template-columns: 1fr; }
+            .ccount-checklist-list { grid-template-columns: 1fr; }
+            .ccount-related-grid { grid-template-columns: 1fr 1fr; }
+            .ccount-about-list { grid-template-columns: 1fr; }
+            .ccount-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .ccount-intro-title { font-size: 1.8rem; }
+            .ccount-related-grid { grid-template-columns: 1fr; }
+        }
+        
 </style>
 </head>
 <body>
@@ -1182,7 +1838,580 @@
   </div>
 </div>
 
+    <div class="ccount-content-wrapper">
 
+        <!-- 1. INTRODUCTION -->
+        <section class="ccount-intro-section" id="ccount-intro">
+            <h1 class="ccount-intro-title">Free Online Character Counter</h1>
+            <p class="ccount-intro-text">
+                A <strong>character counter</strong> is an essential tool that counts the number of characters, letters, numbers, spaces, and punctuation in any text. Whether you're writing for social media, SEO, or academic purposes, our tool provides instant, accurate metrics to help you stay within limits.
+            </p>
+            <p class="ccount-intro-text">
+                Our <strong>free online character counter</strong> offers real-time counting, including characters with and without spaces, word count, sentence count, and more. Perfect for Twitter, LinkedIn, meta descriptions, and any content with character limits. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 2. WHAT IS A CHARACTER COUNTER? -->
+        <section class="ccount-about-section" id="ccount-about">
+            <h2 class="ccount-about-title">What Is a Character Counter?</h2>
+            <p class="ccount-about-text">
+                A character counter is a tool that analyzes text and provides detailed metrics about its content. It counts characters (with and without spaces), words, sentences, paragraphs, and more, making it essential for meeting text limits and optimizing content.
+            </p>
+            <p class="ccount-about-text">Key metrics include:</p>
+            <ul class="ccount-about-list">
+                <li><strong>Characters (with spaces)</strong> — Total characters including spaces</li>
+                <li><strong>Characters (without spaces)</strong> — Total characters excluding spaces</li>
+                <li><strong>Letters</strong> — Alphabet characters only</li>
+                <li><strong>Numbers</strong> — Numeric digits</li>
+                <li><strong>Words</strong> — Total word count</li>
+            </ul>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 3. HOW TO USE THE CHARACTER COUNTER -->
+        <section class="ccount-howto-section" id="ccount-how-to-use">
+            <h2 class="ccount-howto-title">How to Use the Character Counter</h2>
+            <div class="ccount-howto-steps">
+                <div class="ccount-howto-step">
+                    <h3>Type or Paste Text</h3>
+                    <p>Enter your text in the input area by typing or pasting.</p>
+                </div>
+                <div class="ccount-howto-step">
+                    <h3>Real-Time Analysis</h3>
+                    <p>See instant metrics update as you type.</p>
+                </div>
+                <div class="ccount-howto-step">
+                    <h3>Review Results</h3>
+                    <p>Check character count, words, sentences, and more.</p>
+                </div>
+                <div class="ccount-howto-step">
+                    <h3>Copy or Clear</h3>
+                    <p>Copy your text or clear the input with one click.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 4. WHY USE A CHARACTER COUNTER? -->
+        <section class="ccount-benefits-section" id="ccount-benefits">
+            <h2 class="ccount-benefits-title">Why Use a Character Counter?</h2>
+            <div class="ccount-benefit-grid">
+                <div class="ccount-benefit-card">
+                    <span class="ccount-benefit-icon">📱</span>
+                    <h3>Social Media Limits</h3>
+                    <p>Stay within character limits.</p>
+                </div>
+                <div class="ccount-benefit-card">
+                    <span class="ccount-benefit-icon">🔍</span>
+                    <h3>SEO Optimization</h3>
+                    <p>Perfect meta descriptions and titles.</p>
+                </div>
+                <div class="ccount-benefit-card">
+                    <span class="ccount-benefit-icon">📝</span>
+                    <h3>Writing Precision</h3>
+                    <p>Track your content length.</p>
+                </div>
+                <div class="ccount-benefit-card">
+                    <span class="ccount-benefit-icon">📊</span>
+                    <h3>Content Analysis</h3>
+                    <p>Understand your text structure.</p>
+                </div>
+                <div class="ccount-benefit-card">
+                    <span class="ccount-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Count characters in seconds.</p>
+                </div>
+                <div class="ccount-benefit-card">
+                    <span class="ccount-benefit-icon">🎯</span>
+                    <h3>Accuracy</h3>
+                    <p>Get precise text analysis.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 5. CHARACTER COUNTER FEATURES -->
+        <section class="ccount-features-section">
+            <h2 class="ccount-features-title">Character Counter Features</h2>
+            <div class="ccount-features-grid">
+                <div class="ccount-feature-card">
+                    <span class="ccount-feature-icon">🔢</span>
+                    <h3>Characters (with spaces)</h3>
+                    <p>Total characters including spaces.</p>
+                </div>
+                <div class="ccount-feature-card">
+                    <span class="ccount-feature-icon">🔤</span>
+                    <h3>Characters (without spaces)</h3>
+                    <p>Total characters excluding spaces.</p>
+                </div>
+                <div class="ccount-feature-card">
+                    <span class="ccount-feature-icon">📝</span>
+                    <h3>Word Count</h3>
+                    <p>Total number of words.</p>
+                </div>
+                <div class="ccount-feature-card">
+                    <span class="ccount-feature-icon">📄</span>
+                    <h3>Sentence Count</h3>
+                    <p>Number of sentences.</p>
+                </div>
+                <div class="ccount-feature-card">
+                    <span class="ccount-feature-icon">📋</span>
+                    <h3>Paragraph Count</h3>
+                    <p>Number of paragraphs.</p>
+                </div>
+                <div class="ccount-feature-card">
+                    <span class="ccount-feature-icon">📊</span>
+                    <h3>Real-Time Updates</h3>
+                    <p>Count as you type.</p>
+                </div>
+                <div class="ccount-feature-card">
+                    <span class="ccount-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy text management.</p>
+                </div>
+                <div class="ccount-feature-card">
+                    <span class="ccount-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your text is safe.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 6. KEY METRICS -->
+        <section class="ccount-metrics-section">
+            <h2 class="ccount-metrics-title">Key Metrics You'll Get</h2>
+            <div class="ccount-metrics-grid">
+                <div class="ccount-metric-card">
+                    <span class="ccount-metric-icon">🔢</span>
+                    <h3>Characters (with spaces)</h3>
+                    <p>Total characters including all spaces in your text.</p>
+                </div>
+                <div class="ccount-metric-card">
+                    <span class="ccount-metric-icon">🔤</span>
+                    <h3>Characters (without spaces)</h3>
+                    <p>Total characters excluding all spaces.</p>
+                </div>
+                <div class="ccount-metric-card">
+                    <span class="ccount-metric-icon">📝</span>
+                    <h3>Words</h3>
+                    <p>Total number of words in your text.</p>
+                </div>
+                <div class="ccount-metric-card">
+                    <span class="ccount-metric-icon">📄</span>
+                    <h3>Sentences</h3>
+                    <p>Number of sentences based on punctuation.</p>
+                </div>
+                <div class="ccount-metric-card">
+                    <span class="ccount-metric-icon">📋</span>
+                    <h3>Paragraphs</h3>
+                    <p>Number of paragraphs based on line breaks.</p>
+                </div>
+                <div class="ccount-metric-card">
+                    <span class="ccount-metric-icon">📊</span>
+                    <h3>Average Length</h3>
+                    <p>Average word and sentence length.</p>
+                </div>
+                <div class="ccount-metric-card">
+                    <span class="ccount-metric-icon">⏱️</span>
+                    <h3>Reading Time</h3>
+                    <p>Estimated time to read your text.</p>
+                </div>
+                <div class="ccount-metric-card">
+                    <span class="ccount-metric-icon">🗣️</span>
+                    <h3>Speaking Time</h3>
+                    <p>Estimated time to speak your text aloud.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="ccount-tips-section">
+            <h2 class="ccount-tips-title">Character Counting Best Practices</h2>
+            <ul class="ccount-tips-list">
+                <li>Use character count for social media posts</li>
+                <li>Check meta descriptions (155-160 characters)</li>
+                <li>Monitor title tags (50-60 characters)</li>
+                <li>Use word count for content requirements</li>
+                <li>Count sentences for readability assessment</li>
+                <li>Check paragraphs for content structure</li>
+                <li>Use the tool for SEO content optimization</li>
+                <li>Save and edit text for future use</li>
+                <li>Clear the text area before new analysis</li>
+                <li>Copy results for sharing or documentation</li>
+            </ul>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="ccount-usecases-section">
+            <h2 class="ccount-usecases-title">Character Counter Use Cases</h2>
+            <div class="ccount-usecases-grid">
+                <div class="ccount-usecase-card">
+                    <span class="ccount-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Twitter, LinkedIn, Instagram limits.</p>
+                </div>
+                <div class="ccount-usecase-card">
+                    <span class="ccount-usecase-icon">🔍</span>
+                    <h3>SEO Professionals</h3>
+                    <p>Optimize meta tags and titles.</p>
+                </div>
+                <div class="ccount-usecase-card">
+                    <span class="ccount-usecase-icon">📝</span>
+                    <h3>Writers &amp; Authors</h3>
+                    <p>Track content length.</p>
+                </div>
+                <div class="ccount-usecase-card">
+                    <span class="ccount-usecase-icon">🎓</span>
+                    <h3>Students</h3>
+                    <p>Meet assignment requirements.</p>
+                </div>
+                <div class="ccount-usecase-card">
+                    <span class="ccount-usecase-icon">📊</span>
+                    <h3>Marketers</h3>
+                    <p>Create effective copy.</p>
+                </div>
+                <div class="ccount-usecase-card">
+                    <span class="ccount-usecase-icon">📧</span>
+                    <h3>Email Marketing</h3>
+                    <p>Optimize subject lines.</p>
+                </div>
+                <div class="ccount-usecase-card">
+                    <span class="ccount-usecase-icon">🎤</span>
+                    <h3>Public Speakers</h3>
+                    <p>Prepare speeches.</p>
+                </div>
+                <div class="ccount-usecase-card">
+                    <span class="ccount-usecase-icon">📚</span>
+                    <h3>Content Creators</h3>
+                    <p>Plan and structure content.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="ccount-checklist-section" id="ccount-checklist">
+            <h2 class="ccount-checklist-title">Before Finalizing Your Text</h2>
+            <ul class="ccount-checklist-list">
+                <li>Is the character count within your target range?</li>
+                <li>Is the word count suitable for your purpose?</li>
+                <li>Are sentences well-structured and clear?</li>
+                <li>Is the reading time appropriate for your audience?</li>
+                <li>Are paragraphs well-organized?</li>
+                <li>Is the content optimized for your platform?</li>
+                <li>Have you proofread your text?</li>
+                <li>Is the text formatted correctly?</li>
+                <li>Have you saved your final version?</li>
+                <li>Is the text ready for sharing or publication?</li>
+            </ul>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="ccount-faq-section" id="ccount-faq">
+            <h2 class="ccount-faq-title">Frequently Asked Questions</h2>
+            <div class="ccount-faq-accordion">
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        What is a character counter?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>A character counter is a tool that counts the number of characters, words, sentences, and paragraphs in any text.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Is the character counter free?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>Yes, our character counter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        What metrics does the character counter provide?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>It provides character count (with and without spaces), word count, sentence count, paragraph count, reading time, and more.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Does the character counter count spaces?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>Yes, we provide both counts — characters with spaces and characters without spaces.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Can I paste text into the character counter?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>Yes, you can paste any text into the input area for instant analysis.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Is my text saved or stored?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>No, your text is not saved or stored. It's processed locally in your browser and automatically cleared.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Can I use the character counter for social media?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>Yes, you can use it to check character limits for platforms like Twitter (280 characters), LinkedIn, and more.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Does the character counter work in real-time?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>Yes, the character counter updates metrics in real-time as you type or paste text.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Can I use the character counter for SEO?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>Yes, the character counter helps optimize meta descriptions (155-160 characters) and title tags (50-60 characters).</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Is the character counter mobile-friendly?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>Yes, our character counter works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        What is the difference between characters with and without spaces?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>Characters with spaces include every character including spaces. Characters without spaces exclude spaces from the count.</p>
+                    </div>
+                </div>
+                <div class="ccount-faq-item">
+                    <button class="ccount-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="ccount-faq-icon">+</span>
+                    </button>
+                    <div class="ccount-faq-answer" style="display:none;">
+                        <p>No, you can use the character counter without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="ccount-privacy-section">
+            <h2 class="ccount-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your text is handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All text analysis happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your text is never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your text after analysis.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your text is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="ccount-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="ccount-related-section" id="ccount-related-tools">
+            <h2 class="ccount-related-title">Related Tools</h2>
+            <div class="ccount-related-grid">
+                <a href="#" class="ccount-related-card">
+                    <span class="ccount-related-icon">📝</span> Word Counter
+                </a>
+                <a href="#" class="ccount-related-card">
+                    <span class="ccount-related-icon">📄</span> Paragraph Counter
+                </a>
+                <a href="#" class="ccount-related-card">
+                    <span class="ccount-related-icon">⏱️</span> Reading Time Calculator
+                </a>
+                <a href="#" class="ccount-related-card">
+                    <span class="ccount-related-icon">📊</span> Keyword Density Checker
+                </a>
+                <a href="#" class="ccount-related-card">
+                    <span class="ccount-related-icon">📋</span> Copywriting Assistant
+                </a>
+                <a href="#" class="ccount-related-card">
+                    <span class="ccount-related-icon">📝</span> Essay Word Counter
+                </a>
+                <a href="#" class="ccount-related-card">
+                    <span class="ccount-related-icon">📱</span> Social Media Counter
+                </a>
+                <a href="#" class="ccount-related-card">
+                    <span class="ccount-related-icon">📊</span> Readability Checker
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a character counter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A character counter is a tool that counts the number of characters, words, sentences, and paragraphs in any text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the character counter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our character counter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What metrics does the character counter provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It provides character count (with and without spaces), word count, sentence count, paragraph count, reading time, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the character counter count spaces?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we provide both counts — characters with spaces and characters without spaces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I paste text into the character counter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can paste any text into the input area for instant analysis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my text saved or stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, your text is not saved or stored. It's processed locally in your browser and automatically cleared."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the character counter for social media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use it to check character limits for platforms like Twitter (280 characters), LinkedIn, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the character counter work in real-time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the character counter updates metrics in real-time as you type or paste text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the character counter for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the character counter helps optimize meta descriptions (155-160 characters) and title tags (50-60 characters)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the character counter mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our character counter works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between characters with and without spaces?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Characters with spaces include every character including spaces. Characters without spaces exclude spaces from the count."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the character counter without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.ccount-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 </main>
 

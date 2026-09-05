@@ -773,6 +773,716 @@
         }
 
   /* End Page style goes here....................*/
+
+          .imgpdf-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .imgpdf-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .imgpdf-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .imgpdf-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+            border-radius: 2px;
+        }
+        .imgpdf-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .imgpdf-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .imgpdf-intro-text strong {
+            color: #1e293b;
+        }
+
+        .imgpdf-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .imgpdf-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-about-title::before {
+            content: '🖼️';
+            font-size: 1.8rem;
+        }
+        .imgpdf-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .imgpdf-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .imgpdf-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .imgpdf-about-list li::before {
+            content: '✓';
+            color: #f59e0b;
+            font-weight: 700;
+        }
+
+        .imgpdf-howto-section {
+            margin: 2.5rem 0;
+        }
+        .imgpdf-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .imgpdf-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .imgpdf-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .imgpdf-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .imgpdf-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .imgpdf-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .imgpdf-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .imgpdf-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .imgpdf-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .imgpdf-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .imgpdf-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .imgpdf-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .imgpdf-benefit-card .imgpdf-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .imgpdf-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .imgpdf-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .imgpdf-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .imgpdf-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .imgpdf-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .imgpdf-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .imgpdf-feature-card:hover {
+            border-color: #ef4444;
+            background: #fee2e2;
+        }
+        .imgpdf-feature-card .imgpdf-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .imgpdf-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .imgpdf-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .imgpdf-formats-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 16px;
+        }
+        .imgpdf-formats-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-formats-title::before {
+            content: '📁';
+            font-size: 1.8rem;
+        }
+        .imgpdf-formats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .imgpdf-format-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .imgpdf-format-card .imgpdf-format-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .imgpdf-format-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .imgpdf-format-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .imgpdf-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .imgpdf-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .imgpdf-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .imgpdf-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .imgpdf-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .imgpdf-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .imgpdf-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .imgpdf-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .imgpdf-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .imgpdf-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .imgpdf-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .imgpdf-tips-list li::before {
+            content: '●';
+            color: #ef4444;
+        }
+
+        .imgpdf-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .imgpdf-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .imgpdf-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .imgpdf-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .imgpdf-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .imgpdf-usecase-card .imgpdf-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .imgpdf-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .imgpdf-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .imgpdf-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .imgpdf-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .imgpdf-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .imgpdf-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .imgpdf-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .imgpdf-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .imgpdf-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .imgpdf-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .imgpdf-faq-item:last-child {
+            border-bottom: none;
+        }
+        .imgpdf-faq-item:hover {
+            background: #f8fafc;
+        }
+        .imgpdf-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .imgpdf-faq-question:hover {
+            color: #ef4444;
+        }
+        .imgpdf-faq-question:focus {
+            outline: 2px solid #ef4444;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .imgpdf-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .imgpdf-faq-question[aria-expanded="true"] .imgpdf-faq-icon {
+            transform: rotate(45deg);
+            color: #ef4444;
+        }
+        .imgpdf-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .imgpdf-faq-answer p {
+            margin: 0;
+        }
+        .imgpdf-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .imgpdf-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .imgpdf-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .imgpdf-privacy-section p,
+        .imgpdf-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .imgpdf-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .imgpdf-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .imgpdf-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .imgpdf-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .imgpdf-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .imgpdf-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .imgpdf-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .imgpdf-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .imgpdf-related-card:hover {
+            background: #ef4444;
+            color: white;
+            border-color: #ef4444;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239,68,68,0.3);
+        }
+        .imgpdf-related-card .imgpdf-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .imgpdf-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .imgpdf-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .imgpdf-formats-grid { grid-template-columns: repeat(2, 1fr); }
+            .imgpdf-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .imgpdf-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .imgpdf-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .imgpdf-content-wrapper { padding: 0 16px; }
+            .imgpdf-intro-title { font-size: 2.2rem; }
+            .imgpdf-howto-steps { grid-template-columns: 1fr; }
+            .imgpdf-benefit-grid { grid-template-columns: 1fr; }
+            .imgpdf-features-grid { grid-template-columns: 1fr; }
+            .imgpdf-formats-grid { grid-template-columns: 1fr; }
+            .imgpdf-compare-grid { grid-template-columns: 1fr; }
+            .imgpdf-usecases-grid { grid-template-columns: 1fr; }
+            .imgpdf-tips-list { grid-template-columns: 1fr; }
+            .imgpdf-checklist-list { grid-template-columns: 1fr; }
+            .imgpdf-related-grid { grid-template-columns: 1fr 1fr; }
+            .imgpdf-about-list { grid-template-columns: 1fr; }
+            .imgpdf-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .imgpdf-intro-title { font-size: 1.8rem; }
+            .imgpdf-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1171,6 +1881,578 @@
 </div>
 
 
+    <div class="imgpdf-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="imgpdf-intro-section" id="imgpdf-intro">
+            <h1 class="imgpdf-intro-title">Free PDF Image Extractor</h1>
+            <p class="imgpdf-intro-text">
+                A <strong>PDF image extractor</strong> is a tool that extracts all images from a PDF document and saves them as separate image files. Whether you need to reuse images from a PDF, create image archives, or repurpose visual content, our tool makes it simple.
+            </p>
+            <p class="imgpdf-intro-text">
+                Our <strong>free online PDF image extractor</strong> allows you to extract images from any PDF file. You can download images individually or as a ZIP file. Supports JPG and PNG formats. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 2. WHAT IS PDF IMAGE EXTRACTION? -->
+        <section class="imgpdf-about-section" id="imgpdf-about">
+            <h2 class="imgpdf-about-title">What Is PDF Image Extraction?</h2>
+            <p class="imgpdf-about-text">
+                PDF image extraction is the process of identifying and extracting image data from PDF documents and saving them as individual image files. This allows you to reuse images without having to recreate them.
+            </p>
+            <p class="imgpdf-about-text">Key features include:</p>
+            <ul class="imgpdf-about-list">
+                <li><strong>Extract All Images</strong> — Get every image from the PDF</li>
+                <li><strong>Multiple Formats</strong> — JPG or PNG output</li>
+                <li><strong>Batch Extraction</strong> — Extract from multiple PDFs</li>
+                <li><strong>Preserve Quality</strong> — Maintain image quality</li>
+                <li><strong>ZIP Download</strong> — Download all images at once</li>
+            </ul>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 3. HOW TO EXTRACT IMAGES FROM A PDF -->
+        <section class="imgpdf-howto-section" id="imgpdf-how-to-use">
+            <h2 class="imgpdf-howto-title">How to Extract Images from a PDF</h2>
+            <div class="imgpdf-howto-steps">
+                <div class="imgpdf-howto-step">
+                    <h3>Upload Your PDF</h3>
+                    <p>Select the PDF file you want to extract images from.</p>
+                </div>
+                <div class="imgpdf-howto-step">
+                    <h3>Choose Output Format</h3>
+                    <p>Select JPG or PNG for your extracted images.</p>
+                </div>
+                <div class="imgpdf-howto-step">
+                    <h3>Extract Images</h3>
+                    <p>Click extract to find and save all images.</p>
+                </div>
+                <div class="imgpdf-howto-step">
+                    <h3>Preview Images</h3>
+                    <p>See all extracted images before downloading.</p>
+                </div>
+                <div class="imgpdf-howto-step">
+                    <h3>Download Your Images</h3>
+                    <p>Save images individually or as a ZIP file.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 4. WHY EXTRACT IMAGES FROM PDF? -->
+        <section class="imgpdf-benefits-section" id="imgpdf-benefits">
+            <h2 class="imgpdf-benefits-title">Why Extract Images from PDF?</h2>
+            <div class="imgpdf-benefit-grid">
+                <div class="imgpdf-benefit-card">
+                    <span class="imgpdf-benefit-icon">🖼️</span>
+                    <h3>Reuse Images</h3>
+                    <p>Use PDF images in other projects.</p>
+                </div>
+                <div class="imgpdf-benefit-card">
+                    <span class="imgpdf-benefit-icon">📁</span>
+                    <h3>Create Archives</h3>
+                    <p>Build image libraries from PDFs.</p>
+                </div>
+                <div class="imgpdf-benefit-card">
+                    <span class="imgpdf-benefit-icon">📊</span>
+                    <h3>Repurpose Content</h3>
+                    <p>Use images for presentations.</p>
+                </div>
+                <div class="imgpdf-benefit-card">
+                    <span class="imgpdf-benefit-icon">📱</span>
+                    <h3>Mobile Sharing</h3>
+                    <p>Share images from PDFs easily.</p>
+                </div>
+                <div class="imgpdf-benefit-card">
+                    <span class="imgpdf-benefit-icon">🎨</span>
+                    <h3>Design Projects</h3>
+                    <p>Use images in design work.</p>
+                </div>
+                <div class="imgpdf-benefit-card">
+                    <span class="imgpdf-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Extract images in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 5. PDF IMAGE EXTRACTION FEATURES -->
+        <section class="imgpdf-features-section">
+            <h2 class="imgpdf-features-title">Image Extraction Features</h2>
+            <div class="imgpdf-features-grid">
+                <div class="imgpdf-feature-card">
+                    <span class="imgpdf-feature-icon">🖼️</span>
+                    <h3>Extract All Images</h3>
+                    <p>Get every image from the PDF.</p>
+                </div>
+                <div class="imgpdf-feature-card">
+                    <span class="imgpdf-feature-icon">📸</span>
+                    <h3>JPG Output</h3>
+                    <p>Save as JPG format.</p>
+                </div>
+                <div class="imgpdf-feature-card">
+                    <span class="imgpdf-feature-icon">🖼️</span>
+                    <h3>PNG Output</h3>
+                    <p>Save as PNG with transparency.</p>
+                </div>
+                <div class="imgpdf-feature-card">
+                    <span class="imgpdf-feature-icon">📁</span>
+                    <h3>ZIP Download</h3>
+                    <p>Download all images as ZIP.</p>
+                </div>
+                <div class="imgpdf-feature-card">
+                    <span class="imgpdf-feature-icon">👁️</span>
+                    <h3>Image Preview</h3>
+                    <p>See images before downloading.</p>
+                </div>
+                <div class="imgpdf-feature-card">
+                    <span class="imgpdf-feature-icon">🔒</span>
+                    <h3>Secure Processing</h3>
+                    <p>Your files are handled securely.</p>
+                </div>
+                <div class="imgpdf-feature-card">
+                    <span class="imgpdf-feature-icon">⚡</span>
+                    <h3>Fast Extraction</h3>
+                    <p>Quick processing for any PDF.</p>
+                </div>
+                <div class="imgpdf-feature-card">
+                    <span class="imgpdf-feature-icon">📱</span>
+                    <h3>Works on Mobile</h3>
+                    <p>Extract images on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 6. OUTPUT FORMATS -->
+        <section class="imgpdf-formats-section">
+            <h2 class="imgpdf-formats-title">Available Output Formats</h2>
+            <div class="imgpdf-formats-grid">
+                <div class="imgpdf-format-card">
+                    <span class="imgpdf-format-icon">📸</span>
+                    <h3>JPG / JPEG</h3>
+                    <p>Best for photographs and complex images. Smaller file size with good quality. Ideal for web and sharing.</p>
+                </div>
+                <div class="imgpdf-format-card">
+                    <span class="imgpdf-format-icon">🖼️</span>
+                    <h3>PNG</h3>
+                    <p>Best for graphics with text, logos, and images requiring transparency. Lossless quality with larger file size.</p>
+                </div>
+                <div class="imgpdf-format-card">
+                    <span class="imgpdf-format-icon">📊</span>
+                    <h3>Original Quality</h3>
+                    <p>Both formats preserve the original image quality. Choose based on your specific needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 7. EXTRACT VS EXPORT -->
+        <section class="imgpdf-compare-section">
+            <h2 class="imgpdf-compare-title">Extract vs Export: What's the Difference?</h2>
+            <div class="imgpdf-compare-grid">
+                <div class="imgpdf-compare-card">
+                    <h3>🖼️ Extract Images</h3>
+                    <p>Extracts images from the PDF and saves them as separate image files. Preserves the original image data and quality.</p>
+                </div>
+                <div class="imgpdf-compare-card">
+                    <h3>📄 Export PDF to Image</h3>
+                    <p>Converts entire PDF pages into images. This creates images of whole pages, not individual images within the document.</p>
+                </div>
+            </div>
+            <p class="imgpdf-compare-text">Use Extract to get individual images from a PDF. Use Export to convert whole pages into images. Extract is more selective, while Export captures entire pages.</p>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="imgpdf-tips-section">
+            <h2 class="imgpdf-tips-title">PDF Image Extraction Best Practices</h2>
+            <ul class="imgpdf-tips-list">
+                <li>Use high-quality PDFs for best image extraction</li>
+                <li>Choose JPG for photos and complex images</li>
+                <li>Choose PNG for graphics with text and logos</li>
+                <li>Preview images before downloading to verify</li>
+                <li>Download as ZIP for multiple images</li>
+                <li>Keep a backup of your original PDF</li>
+                <li>Check image quality after extraction</li>
+                <li>Use the right format for your needs</li>
+                <li>Organize extracted images for easy access</li>
+                <li>Verify all images have been extracted</li>
+            </ul>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="imgpdf-usecases-section">
+            <h2 class="imgpdf-usecases-title">PDF Image Extraction Use Cases</h2>
+            <div class="imgpdf-usecases-grid">
+                <div class="imgpdf-usecase-card">
+                    <span class="imgpdf-usecase-icon">🎨</span>
+                    <h3>Graphic Design</h3>
+                    <p>Extract images for design projects.</p>
+                </div>
+                <div class="imgpdf-usecase-card">
+                    <span class="imgpdf-usecase-icon">📊</span>
+                    <h3>Business Reports</h3>
+                    <p>Extract charts and graphics.</p>
+                </div>
+                <div class="imgpdf-usecase-card">
+                    <span class="imgpdf-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Extract diagrams for study materials.</p>
+                </div>
+                <div class="imgpdf-usecase-card">
+                    <span class="imgpdf-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Extract photos from portfolios.</p>
+                </div>
+                <div class="imgpdf-usecase-card">
+                    <span class="imgpdf-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Extract images for social posts.</p>
+                </div>
+                <div class="imgpdf-usecase-card">
+                    <span class="imgpdf-usecase-icon">🏢</span>
+                    <h3>Legal Documents</h3>
+                    <p>Extract images from legal PDFs.</p>
+                </div>
+                <div class="imgpdf-usecase-card">
+                    <span class="imgpdf-usecase-icon">📧</span>
+                    <h3>Email Attachments</h3>
+                    <p>Extract images from email PDFs.</p>
+                </div>
+                <div class="imgpdf-usecase-card">
+                    <span class="imgpdf-usecase-icon">🖨️</span>
+                    <h3>Print Materials</h3>
+                    <p>Extract images for printing.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 10. EXTRACTION QUALITY CHECKLIST -->
+        <section class="imgpdf-checklist-section" id="imgpdf-checklist">
+            <h2 class="imgpdf-checklist-title">Before Downloading Your Extracted Images</h2>
+            <ul class="imgpdf-checklist-list">
+                <li>Is the image format correct for your use?</li>
+                <li>Is the image quality acceptable?</li>
+                <li>Are all images extracted?</li>
+                <li>Are the images clear and readable?</li>
+                <li>Is the file size reasonable?</li>
+                <li>Have you previewed the images?</li>
+                <li>Are the images ready for sharing?</li>
+                <li>Have you kept your original PDF?</li>
+                <li>Is the ZIP file organized correctly?</li>
+                <li>Are the images suitable for your use?</li>
+            </ul>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="imgpdf-faq-section" id="imgpdf-faq">
+            <h2 class="imgpdf-faq-title">Frequently Asked Questions</h2>
+            <div class="imgpdf-faq-accordion">
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        What is a PDF image extractor?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>A PDF image extractor extracts all images from a PDF document and saves them as separate image files.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        Is the PDF image extractor free?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>Yes, our PDF image extractor is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        What formats can I export images to?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>You can export extracted images as JPG or PNG formats.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        Does extraction preserve image quality?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>Yes, images are extracted in their original quality without any compression or quality loss.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>We accept PDFs up to 50MB in size for image extraction.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        Can I extract images from multiple PDFs?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can upload and process multiple PDF files for image extraction.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        Can I extract images from password-protected PDFs?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>Currently, we only support extracting images from password-protected PDFs if you provide the password during upload.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        Is my data secure when extracting images?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>Yes, your PDFs are processed securely and automatically deleted after extraction. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        Can I extract images on mobile?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>Yes, our PDF image extractor works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        What is the difference between extract and export?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>Extract gets individual images from a PDF. Export converts entire PDF pages into images.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        Can I preview images before downloading?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can preview all extracted images before downloading them.</p>
+                    </div>
+                </div>
+                <div class="imgpdf-faq-item">
+                    <button class="imgpdf-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="imgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="imgpdf-faq-answer" style="display:none;">
+                        <p>No, you can extract images from PDFs without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="imgpdf-privacy-section">
+            <h2 class="imgpdf-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your PDFs are handled:</p>
+            <ul>
+                <li><strong>☁️ Temporary processing:</strong> PDFs are temporarily uploaded for image extraction.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your PDFs or images after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>🖥️ No client-side storage:</strong> Your files are never stored on your device without your consent.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="imgpdf-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="imgpdf-related-section" id="imgpdf-related-tools">
+            <h2 class="imgpdf-related-title">Related Tools</h2>
+            <div class="imgpdf-related-grid">
+                <a href="#" class="imgpdf-related-card">
+                    <span class="imgpdf-related-icon">📄</span> PDF to Image
+                </a>
+                <a href="#" class="imgpdf-related-card">
+                    <span class="imgpdf-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="imgpdf-related-card">
+                    <span class="imgpdf-related-icon">✂️</span> Extract Pages
+                </a>
+                <a href="#" class="imgpdf-related-card">
+                    <span class="imgpdf-related-icon">📄</span> Merge PDF
+                </a>
+                <a href="#" class="imgpdf-related-card">
+                    <span class="imgpdf-related-icon">✂️</span> Split PDF
+                </a>
+                <a href="#" class="imgpdf-related-card">
+                    <span class="imgpdf-related-icon">🔄</span> Rotate PDF
+                </a>
+                <a href="#" class="imgpdf-related-card">
+                    <span class="imgpdf-related-icon">🗜️</span> Compress PDF
+                </a>
+                <a href="#" class="imgpdf-related-card">
+                    <span class="imgpdf-related-icon">🏷️</span> PDF Watermark
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PDF image extractor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PDF image extractor extracts all images from a PDF document and saves them as separate image files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the PDF image extractor free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF image extractor is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What formats can I export images to?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can export extracted images as JPG or PNG formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does extraction preserve image quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, images are extracted in their original quality without any compression or quality loss."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept PDFs up to 50MB in size for image extraction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extract images from multiple PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can upload and process multiple PDF files for image extraction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extract images from password-protected PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, we only support extracting images from password-protected PDFs if you provide the password during upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure when extracting images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your PDFs are processed securely and automatically deleted after extraction. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extract images on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF image extractor works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between extract and export?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Extract gets individual images from a PDF. Export converts entire PDF pages into images."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I preview images before downloading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can preview all extracted images before downloading them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can extract images from PDFs without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.imgpdf-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

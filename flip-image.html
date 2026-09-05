@@ -709,6 +709,732 @@
     }
 
   /* End Page style goes here....................*/
+
+          /* --- Wrapper --- */
+        .flip-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* --- Section Dividers --- */
+        .flip-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        /* --- Intro Section --- */
+        .flip-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .flip-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+            border-radius: 2px;
+        }
+        .flip-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .flip-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .flip-intro-text strong {
+            color: #1e293b;
+        }
+
+        /* --- About Section --- */
+        .flip-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #cffafe, #a5f3fc);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .flip-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-about-title::before {
+            content: '🪞';
+            font-size: 1.8rem;
+        }
+        .flip-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .flip-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .flip-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .flip-about-list li::before {
+            content: '✓';
+            color: #06b6d4;
+            font-weight: 700;
+        }
+
+        /* --- How-To Section --- */
+        .flip-howto-section {
+            margin: 2.5rem 0;
+        }
+        .flip-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .flip-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .flip-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .flip-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .flip-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .flip-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .flip-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Benefits Section --- */
+        .flip-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .flip-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .flip-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .flip-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .flip-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .flip-benefit-card .flip-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .flip-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .flip-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Flip Types --- */
+        .flip-types-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .flip-types-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-types-title::before {
+            content: '🔄';
+            font-size: 1.8rem;
+        }
+        .flip-types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .flip-type-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .flip-type-card:hover {
+            border-color: #8b5cf6;
+            background: #f5f3ff;
+        }
+        .flip-type-card .flip-type-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .flip-type-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .flip-type-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Flip vs Rotate --- */
+        .flip-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .flip-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .flip-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .flip-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .flip-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .flip-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .flip-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+        }
+
+        /* --- Creative Uses --- */
+        .flip-creative-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+            border-radius: 16px;
+        }
+        .flip-creative-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-creative-title::before {
+            content: '🎨';
+            font-size: 1.8rem;
+        }
+        .flip-creative-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .flip-creative-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .flip-creative-card .flip-creative-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .flip-creative-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .flip-creative-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Best Practices --- */
+        .flip-practices-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .flip-practices-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-practices-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .flip-practices-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .flip-practices-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .flip-practices-list li::before {
+            content: '●';
+            color: #8b5cf6;
+        }
+
+        /* --- Use Cases --- */
+        .flip-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .flip-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .flip-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .flip-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .flip-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .flip-usecase-card .flip-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .flip-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .flip-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Quality Checklist --- */
+        .flip-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .flip-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .flip-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .flip-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .flip-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        /* --- FAQ --- */
+        .flip-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .flip-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .flip-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .flip-faq-item:last-child {
+            border-bottom: none;
+        }
+        .flip-faq-item:hover {
+            background: #f8fafc;
+        }
+        .flip-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .flip-faq-question:hover {
+            color: #06b6d4;
+        }
+        .flip-faq-question:focus {
+            outline: 2px solid #06b6d4;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .flip-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .flip-faq-question[aria-expanded="true"] .flip-faq-icon {
+            transform: rotate(45deg);
+            color: #06b6d4;
+        }
+        .flip-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .flip-faq-answer p {
+            margin: 0;
+        }
+        .flip-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Privacy --- */
+        .flip-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .flip-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .flip-privacy-section p,
+        .flip-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .flip-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .flip-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .flip-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        /* --- Related Tools --- */
+        .flip-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .flip-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .flip-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .flip-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .flip-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .flip-related-card:hover {
+            background: #06b6d4;
+            color: white;
+            border-color: #06b6d4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6,182,212,0.3);
+        }
+        .flip-related-card .flip-related-icon {
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .flip-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .flip-types-grid { grid-template-columns: repeat(2, 1fr); }
+            .flip-creative-grid { grid-template-columns: repeat(2, 1fr); }
+            .flip-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .flip-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .flip-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .flip-content-wrapper { padding: 0 16px; }
+            .flip-intro-title { font-size: 2.2rem; }
+            .flip-howto-steps { grid-template-columns: 1fr; }
+            .flip-benefit-grid { grid-template-columns: 1fr; }
+            .flip-types-grid { grid-template-columns: 1fr; }
+            .flip-compare-grid { grid-template-columns: 1fr; }
+            .flip-creative-grid { grid-template-columns: 1fr; }
+            .flip-usecases-grid { grid-template-columns: 1fr; }
+            .flip-practices-list { grid-template-columns: 1fr; }
+            .flip-checklist-list { grid-template-columns: 1fr; }
+            .flip-related-grid { grid-template-columns: 1fr 1fr; }
+            .flip-about-list { grid-template-columns: 1fr; }
+            .flip-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .flip-intro-title { font-size: 1.8rem; }
+            .flip-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1091,6 +1817,570 @@
 <div class="toast-container" id="toastContainer"></div>
 
 
+    <div class="flip-content-wrapper">
+
+        <!-- ============================================ -->
+        <!-- IMAGE FLIPPER INFORMATIONAL CONTENT          -->
+        <!-- ============================================ -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="flip-intro-section" id="flip-intro">
+            <h1 class="flip-intro-title">Free Online Image Flipper</h1>
+            <p class="flip-intro-text">
+                An <strong>image flipper</strong> is a tool that creates a mirror image by reversing an image horizontally (left-to-right) or vertically (top-to-bottom). Whether you need to correct orientation, create creative reflections, or design symmetrical compositions, our tool makes it effortless.
+            </p>
+            <p class="flip-intro-text">
+                Our <strong>free online image flipper</strong> lets you flip images horizontally or vertically with a single click. Perfect for photographers, designers, content creators, and anyone who needs to create mirror effects quickly.
+            </p>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 2. WHAT IS IMAGE FLIPPING? -->
+        <section class="flip-about-section" id="flip-about">
+            <h2 class="flip-about-title">What Is Image Flipping?</h2>
+            <p class="flip-about-text">
+                Image flipping is the process of creating a mirror image by reversing the image along a horizontal or vertical axis. Unlike rotation, which turns the image, flipping creates a reflection effect.
+            </p>
+            <p class="flip-about-text">Key aspects of image flipping include:</p>
+            <ul class="flip-about-list">
+                <li><strong>Horizontal Flip</strong> — Mirror left to right</li>
+                <li><strong>Vertical Flip</strong> — Mirror top to bottom</li>
+                <li><strong>Both Axes</strong> — Flip both horizontally and vertically</li>
+                <li><strong>Zero Quality Loss</strong> — No compression or quality degradation</li>
+                <li><strong>Instant Preview</strong> — See results immediately</li>
+            </ul>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 3. HOW TO FLIP AN IMAGE -->
+        <section class="flip-howto-section" id="flip-how-to-use">
+            <h2 class="flip-howto-title">How to Flip an Image</h2>
+            <div class="flip-howto-steps">
+                <div class="flip-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select the image you want to flip from your device.</p>
+                </div>
+                <div class="flip-howto-step">
+                    <h3>Choose Flip Direction</h3>
+                    <p>Select horizontal flip, vertical flip, or both.</p>
+                </div>
+                <div class="flip-howto-step">
+                    <h3>Preview the Effect</h3>
+                    <p>See the flipped image instantly before downloading.</p>
+                </div>
+                <div class="flip-howto-step">
+                    <h3>Download Your Image</h3>
+                    <p>Save your flipped image in high quality instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 4. WHY FLIP IMAGES? -->
+        <section class="flip-benefits-section" id="flip-benefits">
+            <h2 class="flip-benefits-title">Why Flip Your Images?</h2>
+            <div class="flip-benefit-grid">
+                <div class="flip-benefit-card">
+                    <span class="flip-benefit-icon">🎨</span>
+                    <h3>Creative Effects</h3>
+                    <p>Create artistic mirror images and reflections.</p>
+                </div>
+                <div class="flip-benefit-card">
+                    <span class="flip-benefit-icon">🪞</span>
+                    <h3>Mirror Reflections</h3>
+                    <p>Design symmetrical compositions easily.</p>
+                </div>
+                <div class="flip-benefit-card">
+                    <span class="flip-benefit-icon">📐</span>
+                    <h3>Orientation Fix</h3>
+                    <p>Correct mirrored or backwards images.</p>
+                </div>
+                <div class="flip-benefit-card">
+                    <span class="flip-benefit-icon">📊</span>
+                    <h3>Visual Balance</h3>
+                    <p>Improve composition and symmetry.</p>
+                </div>
+                <div class="flip-benefit-card">
+                    <span class="flip-benefit-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Create unique photographic perspectives.</p>
+                </div>
+                <div class="flip-benefit-card">
+                    <span class="flip-benefit-icon">🌐</span>
+                    <h3>Web Design</h3>
+                    <p>Design mirrored elements for websites.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 5. FLIP OPTIONS -->
+        <section class="flip-types-section">
+            <h2 class="flip-types-title">Flip Options</h2>
+            <div class="flip-types-grid">
+                <div class="flip-type-card">
+                    <span class="flip-type-icon">↔</span>
+                    <h3>Horizontal Flip</h3>
+                    <p>Mirror left to right (like a mirror).</p>
+                </div>
+                <div class="flip-type-card">
+                    <span class="flip-type-icon">↕</span>
+                    <h3>Vertical Flip</h3>
+                    <p>Mirror top to bottom (upside down mirror).</p>
+                </div>
+                <div class="flip-type-card">
+                    <span class="flip-type-icon">🔄</span>
+                    <h3>Flip Both Axes</h3>
+                    <p>Mirror both horizontally and vertically.</p>
+                </div>
+                <div class="flip-type-card">
+                    <span class="flip-type-icon">🔁</span>
+                    <h3>Reset to Original</h3>
+                    <p>Revert to the original orientation.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 6. FLIP VS ROTATE -->
+        <section class="flip-compare-section">
+            <h2 class="flip-compare-title">Flip vs Rotate</h2>
+            <div class="flip-compare-grid">
+                <div class="flip-compare-card">
+                    <h3>🪞 Flip / Mirror</h3>
+                    <p>Creates a reflection by reversing the image horizontally or vertically. Does not change the angle but reverses the content completely.</p>
+                </div>
+                <div class="flip-compare-card">
+                    <h3>🔄 Rotation</h3>
+                    <p>Rotates the image around its center at any angle. Changes orientation but preserves the content layout.</p>
+                </div>
+            </div>
+            <p class="flip-compare-text">Flipping creates a mirror image that reverses text and objects, while rotation simply turns the image. Use flipping for creative mirror effects and rotation for correcting tilted photos.</p>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 7. CREATIVE APPLICATIONS -->
+        <section class="flip-creative-section">
+            <h2 class="flip-creative-title">Creative Applications of Image Flipping</h2>
+            <div class="flip-creative-grid">
+                <div class="flip-creative-card">
+                    <span class="flip-creative-icon">🪞</span>
+                    <h3>Mirror Reflections</h3>
+                    <p>Create realistic water or glass reflections.</p>
+                </div>
+                <div class="flip-creative-card">
+                    <span class="flip-creative-icon">🎭</span>
+                    <h3>Symmetrical Designs</h3>
+                    <p>Design perfectly balanced compositions.</p>
+                </div>
+                <div class="flip-creative-card">
+                    <span class="flip-creative-icon">📸</span>
+                    <h3>Creative Photography</h3>
+                    <p>Create unique and artistic perspectives.</p>
+                </div>
+                <div class="flip-creative-card">
+                    <span class="flip-creative-icon">🎨</span>
+                    <h3>Graphic Design</h3>
+                    <p>Create mirrored logos and brand elements.</p>
+                </div>
+                <div class="flip-creative-card">
+                    <span class="flip-creative-icon">🖼️</span>
+                    <h3>Digital Art</h3>
+                    <p>Create surreal and abstract artwork.</p>
+                </div>
+                <div class="flip-creative-card">
+                    <span class="flip-creative-icon">📐</span>
+                    <h3>Layout Design</h3>
+                    <p>Create balanced magazine and brochure layouts.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="flip-practices-section">
+            <h2 class="flip-practices-title">Image Flipping Best Practices</h2>
+            <ul class="flip-practices-list">
+                <li>Always keep a backup of your original image</li>
+                <li>Use horizontal flip for mirror effects</li>
+                <li>Use vertical flip for upside-down effects</li>
+                <li>Check if text appears correctly after flipping</li>
+                <li>Consider the composition after flipping</li>
+                <li>Use both axes for complex symmetrical designs</li>
+                <li>Preview the result before downloading</li>
+                <li>Ensure the image looks natural (if intended)</li>
+                <li>Use for creative and purposeful effects</li>
+                <li>Test flipped images across different platforms</li>
+            </ul>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="flip-usecases-section">
+            <h2 class="flip-usecases-title">Image Flipping Use Cases</h2>
+            <div class="flip-usecases-grid">
+                <div class="flip-usecase-card">
+                    <span class="flip-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Create mirror reflections and artistic effects.</p>
+                </div>
+                <div class="flip-usecase-card">
+                    <span class="flip-usecase-icon">🎨</span>
+                    <h3>Graphic Design</h3>
+                    <p>Design symmetrical logos and graphics.</p>
+                </div>
+                <div class="flip-usecase-card">
+                    <span class="flip-usecase-icon">🌐</span>
+                    <h3>Web Design</h3>
+                    <p>Create mirrored UI elements and backgrounds.</p>
+                </div>
+                <div class="flip-usecase-card">
+                    <span class="flip-usecase-icon">🖼️</span>
+                    <h3>Digital Art</h3>
+                    <p>Create surreal and abstract compositions.</p>
+                </div>
+                <div class="flip-usecase-card">
+                    <span class="flip-usecase-icon">📊</span>
+                    <h3>Presentations</h3>
+                    <p>Create balanced visual layouts.</p>
+                </div>
+                <div class="flip-usecase-card">
+                    <span class="flip-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Create engaging mirrored content.</p>
+                </div>
+                <div class="flip-usecase-card">
+                    <span class="flip-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Create symmetrical product displays.</p>
+                </div>
+                <div class="flip-usecase-card">
+                    <span class="flip-usecase-icon">📧</span>
+                    <h3>Email Marketing</h3>
+                    <p>Design mirrored headers and graphics.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 10. FLIP QUALITY CHECKLIST -->
+        <section class="flip-checklist-section" id="flip-checklist">
+            <h2 class="flip-checklist-title">Before Downloading Your Flipped Image</h2>
+            <ul class="flip-checklist-list">
+                <li>Is the flip direction correct?</li>
+                <li>Does the flipped image look natural (if intended)?</li>
+                <li>Is the composition improved after flipping?</li>
+                <li>Are text and content correctly oriented?</li>
+                <li>Is the image quality preserved?</li>
+                <li>Does the image serve its intended purpose?</li>
+                <li>Have you kept the original image?</li>
+                <li>Is the image optimized for its use case?</li>
+            </ul>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="flip-faq-section" id="flip-faq">
+            <h2 class="flip-faq-title">Frequently Asked Questions</h2>
+            <div class="flip-faq-accordion">
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        What is image flipping?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Image flipping is the process of creating a mirror image by reversing the image horizontally or vertically.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        What is the difference between horizontal and vertical flip?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Horizontal flip mirrors left to right, while vertical flip mirrors top to bottom.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        Does flipping affect image quality?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>No, flipping does not affect image quality. It simply rearranges the pixels without any loss.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        Is the image flipper free?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Yes, our image flipper is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        Can I flip multiple images at once?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Yes, you can batch flip multiple images simultaneously.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        What formats are supported?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>We support JPG, PNG, WebP, GIF, SVG, BMP, TIFF, and HEIC formats.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>We accept images up to 50MB in size for flipping.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        What is the difference between flipping and rotating?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Flipping creates a mirror image, while rotating turns the image at an angle.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        Can I create mirror effects with flipping?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Yes, horizontal flipping creates a mirror reflection effect.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        Does flipping affect text in images?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Yes, flipping will reverse text, making it unreadable. This is important for images containing text.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        Is my image data secure?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed securely and automatically deleted after processing.</p>
+                    </div>
+                </div>
+                <div class="flip-faq-item">
+                    <button class="flip-faq-question" aria-expanded="false">
+                        Can I undo a flip?
+                        <span class="flip-faq-icon">+</span>
+                    </button>
+                    <div class="flip-faq-answer" style="display:none;">
+                        <p>Yes, you can use the reset option or flip again to restore the original orientation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="flip-privacy-section">
+            <h2 class="flip-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> Images are processed locally in your browser where possible.</li>
+                <li><strong>☁️ Temporary server upload:</strong> Images may be temporarily uploaded for processing.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images after flipping.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="flip-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="flip-related-section" id="flip-related-tools">
+            <h2 class="flip-related-title">Related Tools</h2>
+            <div class="flip-related-grid">
+                <a href="#" class="flip-related-card">
+                    <span class="flip-related-icon">🔄</span> Image Rotator
+                </a>
+                <a href="#" class="flip-related-card">
+                    <span class="flip-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="flip-related-card">
+                    <span class="flip-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="flip-related-card">
+                    <span class="flip-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="flip-related-card">
+                    <span class="flip-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="flip-related-card">
+                    <span class="flip-related-icon">🎨</span> Image Editor
+                </a>
+                <a href="#" class="flip-related-card">
+                    <span class="flip-related-icon">🔍</span> Image Viewer
+                </a>
+                <a href="#" class="flip-related-card">
+                    <span class="flip-related-icon">📄</span> Image to PDF
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is image flipping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Image flipping is the process of creating a mirror image by reversing the image horizontally or vertically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between horizontal and vertical flip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Horizontal flip mirrors left to right, while vertical flip mirrors top to bottom."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does flipping affect image quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, flipping does not affect image quality. It simply rearranges the pixels without any loss."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the image flipper free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image flipper is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I flip multiple images at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can batch flip multiple images simultaneously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support JPG, PNG, WebP, GIF, SVG, BMP, TIFF, and HEIC formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept images up to 50MB in size for flipping."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between flipping and rotating?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flipping creates a mirror image, while rotating turns the image at an angle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I create mirror effects with flipping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, horizontal flipping creates a mirror reflection effect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does flipping affect text in images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, flipping will reverse text, making it unreadable. This is important for images containing text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed securely and automatically deleted after processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I undo a flip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use the reset option or flip again to restore the original orientation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.flip-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

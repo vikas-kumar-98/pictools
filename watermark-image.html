@@ -544,6 +544,900 @@
     }
 
   /*End of page style*/
+
+          /* ================================================== */
+        /* ADVANCED WATERMARK TOOL - SCOPED STYLES            */
+        /* All selectors are scoped to .watermark-* classes   */
+        /* ================================================== */
+
+        /* --- Smooth scroll & base isolation --- */
+        .watermark-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* --- Section Dividers --- */
+        .watermark-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        /* --- Intro Section --- */
+        .watermark-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .watermark-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .watermark-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .watermark-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .watermark-intro-text strong {
+            color: #1e293b;
+        }
+
+        /* --- About Section --- */
+        .watermark-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .watermark-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-about-title::before {
+            content: 'ℹ️';
+            font-size: 1.8rem;
+        }
+        .watermark-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .watermark-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .watermark-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .watermark-about-list li::before {
+            content: '✓';
+            color: #3b82f6;
+            font-weight: 700;
+        }
+
+        /* --- How-To Section --- */
+        .watermark-howto-section {
+            margin: 2.5rem 0;
+        }
+        .watermark-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .watermark-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .watermark-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            counter-increment: step-counter;
+        }
+        .watermark-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .watermark-howto-step::before {
+            content: counter(step-counter);
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .watermark-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .watermark-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .watermark-howto-steps {
+            counter-reset: step-counter;
+        }
+
+        /* --- Benefits Section --- */
+        .watermark-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+            border-radius: 16px;
+        }
+        .watermark-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .watermark-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .watermark-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .watermark-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .watermark-benefit-card .watermark-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .watermark-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .watermark-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Compare Section --- */
+        .watermark-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .watermark-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .watermark-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .watermark-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: border-color 0.2s;
+        }
+        .watermark-compare-card:hover {
+            border-color: #3b82f6;
+        }
+        .watermark-compare-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .watermark-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .watermark-compare-card .watermark-compare-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .watermark-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        /* --- Placement Section --- */
+        .watermark-placement-section {
+            margin: 2.5rem 0;
+        }
+        .watermark-placement-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-placement-title::before {
+            content: '📍';
+            font-size: 1.8rem;
+        }
+        .watermark-placement-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .watermark-placement-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .watermark-placement-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59,130,246,0.1);
+        }
+        .watermark-placement-card .watermark-placement-icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .watermark-placement-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .watermark-placement-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+        .watermark-placement-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: #f1f5f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* --- Size & Opacity --- */
+        .watermark-size-opacity-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+            border-radius: 16px;
+        }
+        .watermark-size-opacity-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-size-opacity-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .watermark-size-opacity-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+        }
+        .watermark-size-opacity-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .watermark-size-opacity-list li {
+            background: white;
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+        }
+        .watermark-size-opacity-list li strong {
+            color: #0f172a;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        /* --- Tips Section --- */
+        .watermark-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .watermark-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .watermark-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .watermark-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .watermark-tips-list li::before {
+            content: '●';
+            color: #8b5cf6;
+        }
+
+        /* --- Use Cases --- */
+        .watermark-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .watermark-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-usecases-title::before {
+            content: '🎨';
+            font-size: 1.8rem;
+        }
+        .watermark-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .watermark-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .watermark-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .watermark-usecase-card .watermark-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .watermark-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .watermark-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Image Types --- */
+        .watermark-imagetypes-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .watermark-imagetypes-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-imagetypes-title::before {
+            content: '🖼️';
+            font-size: 1.8rem;
+        }
+        .watermark-imagetypes-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .watermark-imagetypes-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+        }
+        .watermark-imagetypes-list li strong {
+            color: #0f172a;
+        }
+
+        /* --- Copyright & Theft --- */
+        .watermark-copyright-section,
+        .watermark-theft-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+        .watermark-copyright-section {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+        }
+        .watermark-theft-section {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        }
+        .watermark-copyright-title,
+        .watermark-theft-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-copyright-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .watermark-theft-title::before {
+            content: '🛡️';
+            font-size: 1.8rem;
+        }
+        .watermark-copyright-section p,
+        .watermark-theft-section p {
+            font-size: 1rem;
+            color: #1e293b;
+            line-height: 1.8;
+            max-width: 70ch;
+        }
+        .watermark-copyright-section p strong,
+        .watermark-theft-section p strong {
+            color: #0f172a;
+        }
+
+        /* --- Mistakes --- */
+        .watermark-mistakes-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .watermark-mistakes-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-mistakes-title::before {
+            content: '⚠️';
+            font-size: 1.8rem;
+        }
+        .watermark-mistake-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .watermark-mistake-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #fecaca;
+            background: #fef2f2;
+            transition: border-color 0.2s;
+        }
+        .watermark-mistake-card:hover {
+            border-color: #ef4444;
+        }
+        .watermark-mistake-card .watermark-mistake-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .watermark-mistake-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #991b1b;
+            margin: 0 0 0.3rem;
+        }
+        .watermark-mistake-card p {
+            font-size: 0.9rem;
+            color: #7f1d1d;
+            margin: 0;
+        }
+        .watermark-mistake-card .watermark-mistake-solution {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #fecaca;
+            font-size: 0.85rem;
+            color: #b91c1c;
+        }
+        .watermark-mistake-card .watermark-mistake-solution::before {
+            content: '✅ ';
+        }
+
+        /* --- Checklist --- */
+        .watermark-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .watermark-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .watermark-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .watermark-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .watermark-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        /* --- FAQ --- */
+        .watermark-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .watermark-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .watermark-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .watermark-faq-item:last-child {
+            border-bottom: none;
+        }
+        .watermark-faq-item:hover {
+            background: #f8fafc;
+        }
+        .watermark-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .watermark-faq-question:hover {
+            color: #2563eb;
+        }
+        .watermark-faq-question:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .watermark-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .watermark-faq-question[aria-expanded="true"] .watermark-faq-icon {
+            transform: rotate(45deg);
+            color: #3b82f6;
+        }
+        .watermark-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .watermark-faq-answer p {
+            margin: 0;
+        }
+        .watermark-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Privacy --- */
+        .watermark-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .watermark-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .watermark-privacy-section p,
+        .watermark-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .watermark-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .watermark-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .watermark-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        /* --- Related Tools --- */
+        .watermark-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .watermark-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .watermark-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .watermark-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .watermark-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .watermark-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .watermark-related-card .watermark-related-icon {
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .watermark-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .watermark-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .watermark-mistake-grid { grid-template-columns: repeat(2, 1fr); }
+            .watermark-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .watermark-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .watermark-content-wrapper { padding: 0 16px; }
+            .watermark-intro-title { font-size: 2.2rem; }
+            .watermark-howto-steps { grid-template-columns: 1fr; }
+            .watermark-benefit-grid { grid-template-columns: 1fr; }
+            .watermark-compare-grid { grid-template-columns: 1fr; }
+            .watermark-placement-grid { grid-template-columns: 1fr 1fr; }
+            .watermark-usecases-grid { grid-template-columns: 1fr; }
+            .watermark-mistake-grid { grid-template-columns: 1fr; }
+            .watermark-tips-list { grid-template-columns: 1fr; }
+            .watermark-checklist-list { grid-template-columns: 1fr; }
+            .watermark-related-grid { grid-template-columns: 1fr 1fr; }
+            .watermark-size-opacity-list { grid-template-columns: 1fr; }
+            .watermark-about-list { grid-template-columns: 1fr; }
+            .watermark-imagetypes-list { grid-template-columns: 1fr; }
+            .watermark-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .watermark-intro-title { font-size: 1.8rem; }
+            .watermark-placement-grid { grid-template-columns: 1fr; }
+            .watermark-related-grid { grid-template-columns: 1fr; }
+            .watermark-benefit-grid { grid-template-columns: 1fr; }
+            .watermark-usecases-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -933,6 +1827,670 @@
 </div>
 
     
+    <div class="watermark-content-wrapper">
+
+        <!-- ============================================ -->
+        <!-- WATERMARK TOOL INFORMATIONAL CONTENT SECTIONS -->
+        <!-- ============================================ -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="watermark-intro-section" id="watermark-intro">
+            <h1 class="watermark-intro-title">Free Online Watermark Tool</h1>
+            <p class="watermark-intro-text">
+                A <strong>watermark</strong> is a recognizable image, pattern, or piece of text that is superimposed onto another image. It is a powerful way to assert ownership, promote your brand, and communicate the purpose of your visual content.
+            </p>
+            <p class="watermark-intro-text">
+                Photographers, graphic designers, product sellers, and content creators use watermarks to <strong>protect their work</strong>, reinforce brand identity, and ensure their images are associated with the right name. The placement, size, and opacity of your watermark are crucial for making it effective without detracting from the image itself. While a watermark is a strong deterrent, it's important to remember that it is <strong>not an impenetrable barrier</strong> against image theft.
+            </p>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 2. WHAT IS A WATERMARK? -->
+        <section class="watermark-about-section" id="watermark-about">
+            <h2 class="watermark-about-title">What Is a Watermark?</h2>
+            <p class="watermark-about-text">
+                At its core, a watermark is a digital stamp placed on an image to communicate ownership or branding. It can be:
+            </p>
+            <ul class="watermark-about-list">
+                <li><strong>Text Watermark:</strong> Your name, website, or a copyright statement.</li>
+                <li><strong>Logo Watermark:</strong> A company or brand logo.</li>
+                <li><strong>Symbols &amp; Branding:</strong> Visual icons or patterns representing your brand.</li>
+            </ul>
+            <p class="watermark-about-text">
+                Its primary purpose is to provide <strong>attribution and visual identification</strong>, making it clear who the image belongs to. It's a form of branding that communicates ownership to viewers. While it can help deter unauthorized use, it is <strong>not a foolproof technical solution</strong> against copying.
+            </p>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 3. HOW TO USE A WATERMARK TOOL -->
+        <section class="watermark-howto-section" id="watermark-how-to-use">
+            <h2 class="watermark-howto-title">How to Use This Watermark Tool</h2>
+            <div class="watermark-howto-steps">
+                <div class="watermark-howto-step">
+                    <h3>Choose an Image</h3>
+                    <p>Select the photo, artwork, or graphic you want to brand or identify.</p>
+                </div>
+                <div class="watermark-howto-step">
+                    <h3>Add Your Watermark</h3>
+                    <p>Add your text, logo, or visual branding element using the tool's interface.</p>
+                </div>
+                <div class="watermark-howto-step">
+                    <h3>Adjust the Watermark</h3>
+                    <p>Fine-tune the position, size, opacity, and rotation to achieve the perfect look.</p>
+                </div>
+                <div class="watermark-howto-step">
+                    <h3>Preview the Result</h3>
+                    <p>Always preview the final appearance to ensure it's professional and doesn't obscure key details.</p>
+                </div>
+                <div class="watermark-howto-step">
+                    <h3>Save the Watermarked Image</h3>
+                    <p>Download your watermarked image securely using the tool's save function.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 4. WHY WATERMARK IMAGES? -->
+        <section class="watermark-benefits-section" id="watermark-benefits">
+            <h2 class="watermark-benefits-title">Why Watermark Your Images?</h2>
+            <div class="watermark-benefit-grid">
+                <div class="watermark-benefit-card">
+                    <span class="watermark-benefit-icon">🏷️</span>
+                    <h3>Brand Recognition</h3>
+                    <p>Keep your brand visible and memorable.</p>
+                </div>
+                <div class="watermark-benefit-card">
+                    <span class="watermark-benefit-icon">📸</span>
+                    <h3>Image Attribution</h3>
+                    <p>Ensure proper credit is given to you as the creator.</p>
+                </div>
+                <div class="watermark-benefit-card">
+                    <span class="watermark-benefit-icon">🎨</span>
+                    <h3>Portfolio Presentation</h3>
+                    <p>Maintain a professional look across your work.</p>
+                </div>
+                <div class="watermark-benefit-card">
+                    <span class="watermark-benefit-icon">📦</span>
+                    <h3>Product Branding</h3>
+                    <p>Associate your products with your brand identity.</p>
+                </div>
+                <div class="watermark-benefit-card">
+                    <span class="watermark-benefit-icon">🔍</span>
+                    <h3>Content Identification</h3>
+                    <p>Make it clear who owns the content.</p>
+                </div>
+                <div class="watermark-benefit-card">
+                    <span class="watermark-benefit-icon">📢</span>
+                    <h3>Marketing Materials</h3>
+                    <p>Reinforce your brand in all promotional visuals.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 5. TEXT VS LOGO WATERMARK -->
+        <section class="watermark-compare-section">
+            <h2 class="watermark-compare-title">Text Watermark vs Logo Watermark</h2>
+            <div class="watermark-compare-grid">
+                <div class="watermark-compare-card">
+                    <span class="watermark-compare-icon">✏️</span>
+                    <h3>Text Watermark</h3>
+                    <p>Ideal for simple attribution and clarity. Works best for photographers and bloggers where a name or website is key.</p>
+                </div>
+                <div class="watermark-compare-card">
+                    <span class="watermark-compare-icon">🖌️</span>
+                    <h3>Logo Watermark</h3>
+                    <p>Excellent for building a visual brand identity. Best for businesses and professionals looking to reinforce their logo.</p>
+                </div>
+            </div>
+            <p class="watermark-compare-text">The choice depends on your goal. Use a text watermark for clear, straightforward attribution, and a logo watermark for strong visual branding.</p>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 6. WATERMARK PLACEMENT -->
+        <section class="watermark-placement-section" id="watermark-placement">
+            <h2 class="watermark-placement-title">Watermark Placement</h2>
+            <div class="watermark-placement-grid">
+                <div class="watermark-placement-card">
+                    <span class="watermark-placement-icon">↗️</span>
+                    <h3>Corner</h3>
+                    <p>Subtle and non-intrusive, ideal for subtle branding.</p>
+                </div>
+                <div class="watermark-placement-card">
+                    <span class="watermark-placement-icon">⭕</span>
+                    <h3>Center</h3>
+                    <p>Highly visible but can interfere with the main image subject.</p>
+                </div>
+                <div class="watermark-placement-card">
+                    <span class="watermark-placement-icon">➡️</span>
+                    <h3>Edge</h3>
+                    <p>Provides identification while preserving the central subject.</p>
+                </div>
+                <div class="watermark-placement-card">
+                    <span class="watermark-placement-icon">🔁</span>
+                    <h3>Repeated</h3>
+                    <p>Offers broader coverage but may affect visual quality.</p>
+                </div>
+            </div>
+            <p class="watermark-placement-text">There is no universally perfect position; it depends on the image's composition and your objective.</p>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 7. WATERMARK SIZE AND OPACITY -->
+        <section class="watermark-size-opacity-section">
+            <h2 class="watermark-size-opacity-title">Watermark Size and Opacity</h2>
+            <p class="watermark-size-opacity-text">Finding the right balance is key. Your watermark should be readable and visible but not overpowering.</p>
+            <ul class="watermark-size-opacity-list">
+                <li>
+                    <strong>📐 Size</strong>
+                    Large enough to be read, but small enough to not obscure the image's main subject.
+                </li>
+                <li>
+                    <strong>🎨 Opacity</strong>
+                    A lower opacity (30-50%) often creates a more professional, subtle look.
+                </li>
+                <li>
+                    <strong>🎯 Contrast</strong>
+                    Ensure your watermark stands out against the image background.
+                </li>
+            </ul>
+            <p class="watermark-size-opacity-text">The ideal settings are image-dependent. A product photo might need a different opacity than a landscape photo.</p>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 8. WATERMARKING TIPS -->
+        <section class="watermark-tips-section" id="watermark-tips">
+            <h2 class="watermark-tips-title">Watermarking Tips</h2>
+            <ul class="watermark-tips-list">
+                <li>Keep the watermark readable</li>
+                <li>Avoid covering important details</li>
+                <li>Use suitable opacity</li>
+                <li>Maintain logo proportions</li>
+                <li>Choose an appropriate position</li>
+                <li>Use consistent branding</li>
+                <li>Preview before downloading</li>
+                <li>Keep an original copy</li>
+                <li>Match watermark style to the image</li>
+                <li>Avoid making the watermark overpower the subject</li>
+            </ul>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 9. WATERMARK USE CASES -->
+        <section class="watermark-usecases-section">
+            <h2 class="watermark-usecases-title">Watermark Use Cases</h2>
+            <div class="watermark-usecases-grid">
+                <div class="watermark-usecase-card">
+                    <span class="watermark-usecase-icon">📷</span>
+                    <h3>Photographers</h3>
+                    <p>Protect and brand your portfolio.</p>
+                </div>
+                <div class="watermark-usecase-card">
+                    <span class="watermark-usecase-icon">🎨</span>
+                    <h3>Graphic Designers</h3>
+                    <p>Showcase your work with your signature.</p>
+                </div>
+                <div class="watermark-usecase-card">
+                    <span class="watermark-usecase-icon">🖌️</span>
+                    <h3>Digital Artists</h3>
+                    <p>Claim your digital creations.</p>
+                </div>
+                <div class="watermark-usecase-card">
+                    <span class="watermark-usecase-icon">🎬</span>
+                    <h3>Content Creators</h3>
+                    <p>Keep your content identifiable.</p>
+                </div>
+                <div class="watermark-usecase-card">
+                    <span class="watermark-usecase-icon">🏢</span>
+                    <h3>Businesses</h3>
+                    <p>Brand all promotional imagery.</p>
+                </div>
+                <div class="watermark-usecase-card">
+                    <span class="watermark-usecase-icon">🛒</span>
+                    <h3>Online Stores</h3>
+                    <p>Protect product images from misuse.</p>
+                </div>
+                <div class="watermark-usecase-card">
+                    <span class="watermark-usecase-icon">✍️</span>
+                    <h3>Bloggers</h3>
+                    <p>Maintain brand consistency.</p>
+                </div>
+                <div class="watermark-usecase-card">
+                    <span class="watermark-usecase-icon">📈</span>
+                    <h3>Marketing Agencies</h3>
+                    <p>Professional branding for clients.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 10. WATERMARK FOR DIFFERENT IMAGE TYPES -->
+        <section class="watermark-imagetypes-section">
+            <h2 class="watermark-imagetypes-title">Watermark for Different Image Types</h2>
+            <ul class="watermark-imagetypes-list">
+                <li><strong>📸 Photos:</strong> Subtle corner or edge placement.</li>
+                <li><strong>📦 Product Images:</strong> Clear branding without obscuring the product.</li>
+                <li><strong>🎨 Artwork:</strong> Minimalist watermark to avoid distracting.</li>
+                <li><strong>📱 Social Media Graphics:</strong> Bold but integrated.</li>
+                <li><strong>🖼️ Portfolio Previews:</strong> Professional and consistent.</li>
+            </ul>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 11. WATERMARK VS COPYRIGHT NOTICE -->
+        <section class="watermark-copyright-section">
+            <h2 class="watermark-copyright-title">Watermark vs Copyright Notice</h2>
+            <p><strong>Watermark:</strong> A visible, aesthetic element placed on the image itself to indicate ownership or branding.</p>
+            <p><strong>Copyright Notice:</strong> A legal statement asserting your rights, often found in metadata or as a separate footer.</p>
+            <p>These are complementary but different concepts. A watermark is <strong>not a replacement</strong> for broader copyright protection.</p>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 12. CAN A WATERMARK PREVENT IMAGE THEFT? -->
+        <section class="watermark-theft-section">
+            <h2 class="watermark-theft-title">Can a Watermark Prevent Image Theft?</h2>
+            <p>Watermarks can <strong>make attribution more visible</strong>, discourage casual misuse, and identify the creator. However, they can sometimes be cropped, covered, or removed. They are <strong>not an absolute security solution</strong>.</p>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 13. COMMON WATERMARK MISTAKES -->
+        <section class="watermark-mistakes-section">
+            <h2 class="watermark-mistakes-title">Common Watermark Mistakes</h2>
+            <div class="watermark-mistake-grid">
+                <div class="watermark-mistake-card">
+                    <span class="watermark-mistake-icon">🔲</span>
+                    <h3>Too Large</h3>
+                    <p>Watermark overpowers the image.</p>
+                    <div class="watermark-mistake-solution">Reduce size to not overpower the subject.</div>
+                </div>
+                <div class="watermark-mistake-card">
+                    <span class="watermark-mistake-icon">🔳</span>
+                    <h3>Too Small</h3>
+                    <p>Watermark is barely visible.</p>
+                    <div class="watermark-mistake-solution">Increase size for readability.</div>
+                </div>
+                <div class="watermark-mistake-card">
+                    <span class="watermark-mistake-icon">🎛️</span>
+                    <h3>Opacity Too High</h3>
+                    <p>Watermark distracts from the image.</p>
+                    <div class="watermark-mistake-solution">Lower opacity for a subtler effect.</div>
+                </div>
+                <div class="watermark-mistake-card">
+                    <span class="watermark-mistake-icon">🎛️</span>
+                    <h3>Opacity Too Low</h3>
+                    <p>Watermark is invisible.</p>
+                    <div class="watermark-mistake-solution">Increase opacity to ensure visibility.</div>
+                </div>
+                <div class="watermark-mistake-card">
+                    <span class="watermark-mistake-icon">📍</span>
+                    <h3>Poor Placement</h3>
+                    <p>Watermark covers key details.</p>
+                    <div class="watermark-mistake-solution">Choose a strategic position like a corner.</div>
+                </div>
+                <div class="watermark-mistake-card">
+                    <span class="watermark-mistake-icon">🔄</span>
+                    <h3>Distorted Logo</h3>
+                    <p>Logo looks stretched or squashed.</p>
+                    <div class="watermark-mistake-solution">Maintain correct aspect ratio.</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 14. WATERMARK QUALITY CHECKLIST -->
+        <section class="watermark-checklist-section" id="watermark-checklist">
+            <h2 class="watermark-checklist-title">Before Downloading Your Watermarked Image</h2>
+            <ul class="watermark-checklist-list">
+                <li>Is the watermark readable?</li>
+                <li>Is the logo correctly proportioned?</li>
+                <li>Is the opacity appropriate?</li>
+                <li>Is the position suitable?</li>
+                <li>Does it avoid important image details?</li>
+                <li>Does the branding look professional?</li>
+                <li>Is the image still visually appealing?</li>
+                <li>Have you kept the original image?</li>
+            </ul>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 15. FREQUENTLY ASKED QUESTIONS -->
+        <section class="watermark-faq-section" id="watermark-faq">
+            <h2 class="watermark-faq-title">Frequently Asked Questions</h2>
+            <div class="watermark-faq-accordion">
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        What is a watermark?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>A watermark is a visible marker placed on an image to identify its owner or brand.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Why should I watermark an image?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>To claim ownership, promote your brand, and ensure proper attribution.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Can I add a text watermark?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>Yes, this tool allows you to add a text watermark.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Can I add a logo watermark?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>Yes, you can upload and use your logo as a watermark.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Where should I place a watermark?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>Place it in a corner, edge, or center, depending on the image and your preference.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        What opacity should I use?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>An opacity between 30-50% is often a good balance for visibility and subtlety.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Should a watermark be large or small?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>It should be large enough to be read but not so large that it distracts from the subject.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Can a watermark prevent image theft?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>It can discourage casual use but is not a guaranteed protection.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Does watermarking reduce image quality?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>With a high-quality tool, the impact on image quality is negligible.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Can I watermark product images?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>Absolutely, product images are commonly watermarked to protect branding.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Can photographers use watermarks?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>Yes, it's a standard practice for photographers to use watermarks.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Should I keep the original image?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>Yes, always keep an original copy without a watermark.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        What is the difference between a watermark and a copyright notice?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>A watermark is a visible branding element on the image, while a copyright notice is a legal statement asserting your rights.</p>
+                    </div>
+                </div>
+                <div class="watermark-faq-item">
+                    <button class="watermark-faq-question" aria-expanded="false">
+                        Can a watermark be removed?
+                        <span class="watermark-faq-icon">+</span>
+                    </button>
+                    <div class="watermark-faq-answer" style="display:none;">
+                        <p>In many cases, a watermark can be cropped, covered, or digitally removed by a skilled user. It is a deterrent, not a security measure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 16. PRIVACY AND FILE HANDLING -->
+        <section class="watermark-privacy-section">
+            <h2 class="watermark-privacy-title">Privacy and File Handling</h2>
+            <p>How your images are handled depends on this tool's implementation. In a typical scenario:</p>
+            <ul>
+                <li><strong>🖥️ Browser-based processing:</strong> Your images may be processed locally in your browser for speed and privacy.</li>
+                <li><strong>☁️ Server-side processing:</strong> Files may be temporarily uploaded to a server for processing.</li>
+                <li><strong>🗑️ Data retention:</strong> We do not permanently store your images; they are processed and then made available for download.</li>
+            </ul>
+            <p>We are committed to your privacy. For specific details, please refer to our full Privacy Policy.</p>
+        </section>
+
+        <div class="watermark-section-divider"></div>
+
+        <!-- 17. RELATED TOOLS -->
+        <section class="watermark-related-section" id="watermark-related-tools">
+            <h2 class="watermark-related-title">Related Tools</h2>
+            <div class="watermark-related-grid">
+                <a href="#" class="watermark-related-card">
+                    <span class="watermark-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="watermark-related-card">
+                    <span class="watermark-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="watermark-related-card">
+                    <span class="watermark-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="watermark-related-card">
+                    <span class="watermark-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="watermark-related-card">
+                    <span class="watermark-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="watermark-related-card">
+                    <span class="watermark-related-icon">🖼️</span> JPG to PNG
+                </a>
+                <a href="#" class="watermark-related-card">
+                    <span class="watermark-related-icon">🖼️</span> PNG to JPG
+                </a>
+                <a href="#" class="watermark-related-card">
+                    <span class="watermark-related-icon">🧹</span> Background Remover
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A watermark is a visible marker placed on an image to identify its owner or brand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why should I watermark an image?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To claim ownership, promote your brand, and ensure proper attribution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add a text watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this tool allows you to add a text watermark."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add a logo watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can upload and use your logo as a watermark."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should I place a watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Place it in a corner, edge, or center, depending on the image and your preference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What opacity should I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An opacity between 30-50% is often a good balance for visibility and subtlety."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should a watermark be large or small?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It should be large enough to be read but not so large that it distracts from the subject."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a watermark prevent image theft?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can discourage casual use but is not a guaranteed protection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does watermarking reduce image quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With a high-quality tool, the impact on image quality is negligible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I watermark product images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely, product images are commonly watermarked to protect branding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can photographers use watermarks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it's a standard practice for photographers to use watermarks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I keep the original image?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, always keep an original copy without a watermark."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a watermark and a copyright notice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A watermark is a visible branding element on the image, while a copyright notice is a legal statement asserting your rights."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a watermark be removed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In many cases, a watermark can be cropped, covered, or digitally removed by a skilled user. It is a deterrent, not a security measure."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.watermark-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

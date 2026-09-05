@@ -670,6 +670,662 @@
     }
 
   /* End Page style goes here....................*/
+          .tsort-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .tsort-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .tsort-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .tsort-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .tsort-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .tsort-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .tsort-intro-text strong {
+            color: #1e293b;
+        }
+
+        .tsort-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .tsort-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-about-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .tsort-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .tsort-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .tsort-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tsort-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .tsort-howto-section {
+            margin: 2.5rem 0;
+        }
+        .tsort-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .tsort-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .tsort-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .tsort-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .tsort-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .tsort-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .tsort-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .tsort-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .tsort-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .tsort-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .tsort-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .tsort-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .tsort-benefit-card .tsort-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .tsort-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .tsort-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .tsort-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .tsort-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .tsort-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .tsort-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .tsort-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .tsort-feature-card .tsort-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .tsort-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .tsort-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .tsort-methods-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .tsort-methods-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-methods-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .tsort-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .tsort-method-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .tsort-method-card .tsort-method-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .tsort-method-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .tsort-method-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .tsort-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .tsort-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .tsort-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .tsort-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tsort-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .tsort-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .tsort-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .tsort-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .tsort-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .tsort-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .tsort-usecase-card .tsort-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .tsort-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .tsort-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .tsort-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .tsort-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .tsort-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .tsort-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tsort-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .tsort-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .tsort-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .tsort-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .tsort-faq-item:last-child {
+            border-bottom: none;
+        }
+        .tsort-faq-item:hover {
+            background: #f8fafc;
+        }
+        .tsort-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .tsort-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .tsort-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .tsort-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .tsort-faq-question[aria-expanded="true"] .tsort-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .tsort-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .tsort-faq-answer p {
+            margin: 0;
+        }
+        .tsort-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .tsort-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .tsort-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .tsort-privacy-section p,
+        .tsort-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .tsort-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .tsort-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .tsort-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .tsort-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .tsort-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tsort-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .tsort-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .tsort-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .tsort-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .tsort-related-card .tsort-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .tsort-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .tsort-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .tsort-methods-grid { grid-template-columns: repeat(2, 1fr); }
+            .tsort-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .tsort-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .tsort-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .tsort-content-wrapper { padding: 0 16px; }
+            .tsort-intro-title { font-size: 2.2rem; }
+            .tsort-howto-steps { grid-template-columns: 1fr; }
+            .tsort-benefit-grid { grid-template-columns: 1fr; }
+            .tsort-features-grid { grid-template-columns: 1fr; }
+            .tsort-methods-grid { grid-template-columns: 1fr; }
+            .tsort-usecases-grid { grid-template-columns: 1fr; }
+            .tsort-tips-list { grid-template-columns: 1fr; }
+            .tsort-checklist-list { grid-template-columns: 1fr; }
+            .tsort-related-grid { grid-template-columns: 1fr 1fr; }
+            .tsort-about-list { grid-template-columns: 1fr; }
+            .tsort-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .tsort-intro-title { font-size: 1.8rem; }
+            .tsort-related-grid { grid-template-columns: 1fr; }
+        }
+        
 </style>
 </head>
 <body>
@@ -1107,6 +1763,564 @@
 </div>
 
 
+    <div class="tsort-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="tsort-intro-section" id="tsort-intro">
+            <h1 class="tsort-intro-title">Free Online Text Sorter</h1>
+            <p class="tsort-intro-text">
+                A <strong>text sorter</strong> is an essential tool that organizes lines of text in alphabetical or other logical orders. Whether you're managing lists, sorting data, or organizing content, our tool helps you sort text quickly and efficiently.
+            </p>
+            <p class="tsort-intro-text">
+                Our <strong>free online text sorter</strong> offers multiple sorting methods including A-Z, Z-A, by length, and more. Perfect for list management, data organization, and content preparation. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 2. WHAT IS A TEXT SORTER? -->
+        <section class="tsort-about-section" id="tsort-about">
+            <h2 class="tsort-about-title">What Is a Text Sorter?</h2>
+            <p class="tsort-about-text">
+                A text sorter is a utility that organizes lines of text according to specific criteria. It can sort alphabetically (A-Z or Z-A), by length, numerically, or in reverse order, making it essential for list management and data organization.
+            </p>
+            <p class="tsort-about-text">Key features include:</p>
+            <ul class="tsort-about-list">
+                <li><strong>Alphabetical Sort (A-Z)</strong> — Standard alphabetical order</li>
+                <li><strong>Reverse Alphabetical (Z-A)</strong> — Reverse alphabetical order</li>
+                <li><strong>Sort by Length</strong> — Shortest to longest</li>
+                <li><strong>Reverse Sort</strong> — Longest to shortest</li>
+                <li><strong>Numeric Sort</strong> — Sort numerically</li>
+            </ul>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 3. HOW TO SORT TEXT -->
+        <section class="tsort-howto-section" id="tsort-how-to-use">
+            <h2 class="tsort-howto-title">How to Sort Text</h2>
+            <div class="tsort-howto-steps">
+                <div class="tsort-howto-step">
+                    <h3>Paste Your Text</h3>
+                    <p>Enter your text lines to sort.</p>
+                </div>
+                <div class="tsort-howto-step">
+                    <h3>Choose Sort Method</h3>
+                    <p>Select A-Z, Z-A, by length, etc.</p>
+                </div>
+                <div class="tsort-howto-step">
+                    <h3>Process Text</h3>
+                    <p>Click to sort your lines.</p>
+                </div>
+                <div class="tsort-howto-step">
+                    <h3>View Results</h3>
+                    <p>See your sorted text instantly.</p>
+                </div>
+                <div class="tsort-howto-step">
+                    <h3>Copy or Download</h3>
+                    <p>Save your sorted text.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 4. WHY SORT TEXT? -->
+        <section class="tsort-benefits-section" id="tsort-benefits">
+            <h2 class="tsort-benefits-title">Why Sort Text?</h2>
+            <div class="tsort-benefit-grid">
+                <div class="tsort-benefit-card">
+                    <span class="tsort-benefit-icon">📊</span>
+                    <h3>Organization</h3>
+                    <p>Keep lists organized.</p>
+                </div>
+                <div class="tsort-benefit-card">
+                    <span class="tsort-benefit-icon">🔍</span>
+                    <h3>Easy Navigation</h3>
+                    <p>Find items quickly.</p>
+                </div>
+                <div class="tsort-benefit-card">
+                    <span class="tsort-benefit-icon">⏱️</span>
+                    <h3>Save Time</h3>
+                    <p>Sort instantly.</p>
+                </div>
+                <div class="tsort-benefit-card">
+                    <span class="tsort-benefit-icon">📋</span>
+                    <h3>Clean Data</h3>
+                    <p>Organize your data.</p>
+                </div>
+                <div class="tsort-benefit-card">
+                    <span class="tsort-benefit-icon">🎯</span>
+                    <h3>Accuracy</h3>
+                    <p>Get precise results.</p>
+                </div>
+                <div class="tsort-benefit-card">
+                    <span class="tsort-benefit-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on mobile and desktop.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 5. FEATURES -->
+        <section class="tsort-features-section">
+            <h2 class="tsort-features-title">Text Sorter Features</h2>
+            <div class="tsort-features-grid">
+                <div class="tsort-feature-card">
+                    <span class="tsort-feature-icon">🔤</span>
+                    <h3>Alphabetical (A-Z)</h3>
+                    <p>Sort in standard order.</p>
+                </div>
+                <div class="tsort-feature-card">
+                    <span class="tsort-feature-icon">🔤</span>
+                    <h3>Reverse (Z-A)</h3>
+                    <p>Sort in reverse order.</p>
+                </div>
+                <div class="tsort-feature-card">
+                    <span class="tsort-feature-icon">📏</span>
+                    <h3>By Length</h3>
+                    <p>Shortest to longest.</p>
+                </div>
+                <div class="tsort-feature-card">
+                    <span class="tsort-feature-icon">📏</span>
+                    <h3>Reverse by Length</h3>
+                    <p>Longest to shortest.</p>
+                </div>
+                <div class="tsort-feature-card">
+                    <span class="tsort-feature-icon">🔢</span>
+                    <h3>Numeric Sort</h3>
+                    <p>Sort by numbers.</p>
+                </div>
+                <div class="tsort-feature-card">
+                    <span class="tsort-feature-icon">⚡</span>
+                    <h3>Instant Processing</h3>
+                    <p>Get results immediately.</p>
+                </div>
+                <div class="tsort-feature-card">
+                    <span class="tsort-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy text management.</p>
+                </div>
+                <div class="tsort-feature-card">
+                    <span class="tsort-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your text is safe.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 6. SORTING METHODS -->
+        <section class="tsort-methods-section">
+            <h2 class="tsort-methods-title">Available Sorting Methods</h2>
+            <div class="tsort-methods-grid">
+                <div class="tsort-method-card">
+                    <span class="tsort-method-icon">🔤</span>
+                    <h3>Alphabetical (A-Z)</h3>
+                    <p>Sorts lines alphabetically from A to Z. Ideal for lists, directories, and indexes.</p>
+                </div>
+                <div class="tsort-method-card">
+                    <span class="tsort-method-icon">🔤</span>
+                    <h3>Reverse (Z-A)</h3>
+                    <p>Sorts lines alphabetically from Z to A. Useful for reverse chronological lists and top-to-bottom lists.</p>
+                </div>
+                <div class="tsort-method-card">
+                    <span class="tsort-method-icon">📏</span>
+                    <h3>By Length</h3>
+                    <p>Sorts lines from shortest to longest. Perfect for organizing content by word count or line length.</p>
+                </div>
+                <div class="tsort-method-card">
+                    <span class="tsort-method-icon">📏</span>
+                    <h3>Reverse by Length</h3>
+                    <p>Sorts lines from longest to shortest. Useful for prioritizing longer content or detailed entries.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="tsort-tips-section">
+            <h2 class="tsort-tips-title">Best Practices for Sorting Text</h2>
+            <ul class="tsort-tips-list">
+                <li>Choose the right sort method for your data</li>
+                <li>Use A-Z for alphabetical lists</li>
+                <li>Use Z-A for reverse lists</li>
+                <li>Use by length for content organization</li>
+                <li>Preview your text before and after</li>
+                <li>Keep a backup of your original text</li>
+                <li>Use for cleaning and organizing data</li>
+                <li>Sort before removing duplicates</li>
+                <li>Check results before saving</li>
+                <li>Use for preparing sorted lists</li>
+            </ul>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="tsort-usecases-section">
+            <h2 class="tsort-usecases-title">Text Sorter Use Cases</h2>
+            <div class="tsort-usecases-grid">
+                <div class="tsort-usecase-card">
+                    <span class="tsort-usecase-icon">📊</span>
+                    <h3>Data Organization</h3>
+                    <p>Sort CSV and data sets.</p>
+                </div>
+                <div class="tsort-usecase-card">
+                    <span class="tsort-usecase-icon">📝</span>
+                    <h3>Content Editing</h3>
+                    <p>Organize article content.</p>
+                </div>
+                <div class="tsort-usecase-card">
+                    <span class="tsort-usecase-icon">📧</span>
+                    <h3>Email Lists</h3>
+                    <p>Sort email addresses.</p>
+                </div>
+                <div class="tsort-usecase-card">
+                    <span class="tsort-usecase-icon">🏢</span>
+                    <h3>Business Data</h3>
+                    <p>Organize business records.</p>
+                </div>
+                <div class="tsort-usecase-card">
+                    <span class="tsort-usecase-icon">📚</span>
+                    <h3>Academic Work</h3>
+                    <p>Sort references and citations.</p>
+                </div>
+                <div class="tsort-usecase-card">
+                    <span class="tsort-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Organize hashtags and mentions.</p>
+                </div>
+                <div class="tsort-usecase-card">
+                    <span class="tsort-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Sort product lists.</p>
+                </div>
+                <div class="tsort-usecase-card">
+                    <span class="tsort-usecase-icon">📋</span>
+                    <h3>List Management</h3>
+                    <p>Organize and sort lists.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="tsort-checklist-section" id="tsort-checklist">
+            <h2 class="tsort-checklist-title">Before Using Your Sorted Text</h2>
+            <ul class="tsort-checklist-list">
+                <li>Is the text sorted correctly?</li>
+                <li>Is the sort method appropriate?</li>
+                <li>Is the content ready for use?</li>
+                <li>Have you previewed the result?</li>
+                <li>Is the text formatted correctly?</li>
+                <li>Have you saved your final version?</li>
+                <li>Is the text ready for sharing?</li>
+                <li>Have you kept your original text?</li>
+                <li>Is the sorting accurate?</li>
+                <li>Is the text organized as needed?</li>
+            </ul>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="tsort-faq-section" id="tsort-faq">
+            <h2 class="tsort-faq-title">Frequently Asked Questions</h2>
+            <div class="tsort-faq-accordion">
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        What is a text sorter?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>A text sorter organizes lines of text alphabetically, by length, or using other criteria to create structured lists.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Is the text sorter free?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>Yes, our text sorter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        What sorting methods are available?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>You can sort alphabetically (A-Z or Z-A), by length (shortest to longest or longest to shortest).</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Does the tool preserve line breaks?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>Yes, line breaks are preserved while the order of lines is sorted according to your chosen method.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Can I paste text into the tool?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>Yes, you can paste any text into the input area for instant sorting.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Is my text saved or stored?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>No, your text is not saved or stored. It's processed locally in your browser and automatically cleared.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Can I use the tool for large text?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>Yes, the tool can handle large text inputs efficiently.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        What is the difference between A-Z and Z-A sort?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>A-Z sorts lines alphabetically from A to Z. Z-A sorts from Z to A (reverse alphabetical).</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Does the tool sort numerically?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>Currently, we offer alphabetical and by length sorting. Numeric sorting is available in advanced modes.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Is the tool mobile-friendly?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>Yes, our text sorter works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Can I use the tool for sorting lists?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>Yes, this tool is perfect for sorting lists, data sets, and any text with line breaks.</p>
+                    </div>
+                </div>
+                <div class="tsort-faq-item">
+                    <button class="tsort-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="tsort-faq-icon">+</span>
+                    </button>
+                    <div class="tsort-faq-answer" style="display:none;">
+                        <p>No, you can use the text sorter without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="tsort-privacy-section">
+            <h2 class="tsort-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your text is handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All text analysis happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your text is never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your text after analysis.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your text is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="tsort-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="tsort-related-section" id="tsort-related-tools">
+            <h2 class="tsort-related-title">Related Tools</h2>
+            <div class="tsort-related-grid">
+                <a href="#" class="tsort-related-card">
+                    <span class="tsort-related-icon">📝</span> Word Counter
+                </a>
+                <a href="#" class="tsort-related-card">
+                    <span class="tsort-related-icon">🔢</span> Character Counter
+                </a>
+                <a href="#" class="tsort-related-card">
+                    <span class="tsort-related-icon">🔤</span> Case Converter
+                </a>
+                <a href="#" class="tsort-related-card">
+                    <span class="tsort-related-icon">🧹</span> Remove Duplicate Lines
+                </a>
+                <a href="#" class="tsort-related-card">
+                    <span class="tsort-related-icon">🧹</span> Remove Extra Spaces
+                </a>
+                <a href="#" class="tsort-related-card">
+                    <span class="tsort-related-icon">📝</span> Text Cleaner
+                </a>
+                <a href="#" class="tsort-related-card">
+                    <span class="tsort-related-icon">📱</span> Social Media Counter
+                </a>
+                <a href="#" class="tsort-related-card">
+                    <span class="tsort-related-icon">📊</span> Readability Checker
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a text sorter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A text sorter organizes lines of text alphabetically, by length, or using other criteria to create structured lists."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the text sorter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our text sorter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What sorting methods are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can sort alphabetically (A-Z or Z-A), by length (shortest to longest or longest to shortest)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the tool preserve line breaks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, line breaks are preserved while the order of lines is sorted according to your chosen method."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I paste text into the tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can paste any text into the input area for instant sorting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my text saved or stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, your text is not saved or stored. It's processed locally in your browser and automatically cleared."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the tool for large text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the tool can handle large text inputs efficiently."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between A-Z and Z-A sort?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A-Z sorts lines alphabetically from A to Z. Z-A sorts from Z to A (reverse alphabetical)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the tool sort numerically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, we offer alphabetical and by length sorting. Numeric sorting is available in advanced modes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tool mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our text sorter works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the tool for sorting lists?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this tool is perfect for sorting lists, data sets, and any text with line breaks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the text sorter without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.tsort-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

@@ -725,6 +725,713 @@
       .pngPdfMainHeading { font-size: 1.8rem; }
       .pngPdfSettingsPanel { grid-template-columns: 1fr; }
     }
+
+    /*End of this style page*/
+
+            .pngpdf-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .pngpdf-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .pngpdf-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .pngpdf-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+            border-radius: 2px;
+        }
+        .pngpdf-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .pngpdf-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .pngpdf-intro-text strong {
+            color: #1e293b;
+        }
+
+        .pngpdf-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .pngpdf-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-about-title::before {
+            content: '🖼️';
+            font-size: 1.8rem;
+        }
+        .pngpdf-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .pngpdf-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .pngpdf-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pngpdf-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .pngpdf-howto-section {
+            margin: 2.5rem 0;
+        }
+        .pngpdf-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .pngpdf-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .pngpdf-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .pngpdf-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .pngpdf-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .pngpdf-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .pngpdf-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .pngpdf-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .pngpdf-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .pngpdf-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .pngpdf-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .pngpdf-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .pngpdf-benefit-card .pngpdf-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .pngpdf-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .pngpdf-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .pngpdf-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .pngpdf-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .pngpdf-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .pngpdf-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .pngpdf-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .pngpdf-feature-card .pngpdf-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .pngpdf-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .pngpdf-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .pngpdf-sizes-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 16px;
+        }
+        .pngpdf-sizes-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-sizes-title::before {
+            content: '📐';
+            font-size: 1.8rem;
+        }
+        .pngpdf-sizes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .pngpdf-size-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .pngpdf-size-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .pngpdf-size-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .pngpdf-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .pngpdf-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .pngpdf-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .pngpdf-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .pngpdf-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .pngpdf-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .pngpdf-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .pngpdf-practices-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .pngpdf-practices-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-practices-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .pngpdf-practices-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .pngpdf-practices-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pngpdf-practices-list li::before {
+            content: '●';
+            color: #8b5cf6;
+        }
+
+        .pngpdf-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .pngpdf-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .pngpdf-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .pngpdf-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .pngpdf-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .pngpdf-usecase-card .pngpdf-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .pngpdf-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .pngpdf-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .pngpdf-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .pngpdf-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .pngpdf-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .pngpdf-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pngpdf-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .pngpdf-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .pngpdf-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .pngpdf-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .pngpdf-faq-item:last-child {
+            border-bottom: none;
+        }
+        .pngpdf-faq-item:hover {
+            background: #f8fafc;
+        }
+        .pngpdf-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .pngpdf-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .pngpdf-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .pngpdf-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .pngpdf-faq-question[aria-expanded="true"] .pngpdf-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .pngpdf-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .pngpdf-faq-answer p {
+            margin: 0;
+        }
+        .pngpdf-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .pngpdf-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .pngpdf-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .pngpdf-privacy-section p,
+        .pngpdf-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .pngpdf-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .pngpdf-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .pngpdf-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .pngpdf-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .pngpdf-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pngpdf-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .pngpdf-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .pngpdf-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .pngpdf-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .pngpdf-related-card .pngpdf-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .pngpdf-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .pngpdf-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .pngpdf-sizes-grid { grid-template-columns: repeat(2, 1fr); }
+            .pngpdf-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .pngpdf-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .pngpdf-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .pngpdf-content-wrapper { padding: 0 16px; }
+            .pngpdf-intro-title { font-size: 2.2rem; }
+            .pngpdf-howto-steps { grid-template-columns: 1fr; }
+            .pngpdf-benefit-grid { grid-template-columns: 1fr; }
+            .pngpdf-features-grid { grid-template-columns: 1fr; }
+            .pngpdf-sizes-grid { grid-template-columns: 1fr; }
+            .pngpdf-compare-grid { grid-template-columns: 1fr; }
+            .pngpdf-usecases-grid { grid-template-columns: 1fr; }
+            .pngpdf-practices-list { grid-template-columns: 1fr; }
+            .pngpdf-checklist-list { grid-template-columns: 1fr; }
+            .pngpdf-related-grid { grid-template-columns: 1fr 1fr; }
+            .pngpdf-about-list { grid-template-columns: 1fr; }
+            .pngpdf-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .pngpdf-intro-title { font-size: 1.8rem; }
+            .pngpdf-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1098,7 +1805,595 @@
 
     
 
+    <div class="pngpdf-content-wrapper">
 
+        <!-- 1. INTRODUCTION -->
+        <section class="pngpdf-intro-section" id="pngpdf-intro">
+            <h1 class="pngpdf-intro-title">Free PNG to PDF Converter</h1>
+            <p class="pngpdf-intro-text">
+                A <strong>PNG to PDF converter</strong> is a specialized tool that transforms PNG image files into PDF documents. PNG (Portable Network Graphics) is a lossless image format that supports transparency, making it ideal for logos, graphics, and images with sharp edges.
+            </p>
+            <p class="pngpdf-intro-text">
+                Our <strong>free online PNG to PDF converter</strong> allows you to convert single or multiple PNG images into a PDF file. You can choose page size, orientation, and merge all your PNGs into one polished document. Perfect for business, graphic design, and personal use.
+            </p>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 2. WHAT IS PNG TO PDF CONVERSION? -->
+        <section class="pngpdf-about-section" id="pngpdf-about">
+            <h2 class="pngpdf-about-title">What Is PNG to PDF Conversion?</h2>
+            <p class="pngpdf-about-text">
+                PNG to PDF conversion is the process of embedding PNG images into a PDF document. This creates a standardized, portable format that preserves image quality, including transparency, and can be shared universally across all devices.
+            </p>
+            <p class="pngpdf-about-text">Key features include:</p>
+            <ul class="pngpdf-about-list">
+                <li><strong>Single or Multiple PNGs</strong> — Convert one or many images</li>
+                <li><strong>Transparency Support</strong> — Preserve PNG transparency in PDF</li>
+                <li><strong>Page Size Options</strong> — A4, Letter, Legal, and more</li>
+                <li><strong>Orientation Control</strong> — Portrait or landscape</li>
+                <li><strong>Merge Capability</strong> — Combine PNGs into one PDF</li>
+            </ul>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 3. HOW TO CONVERT PNG TO PDF -->
+        <section class="pngpdf-howto-section" id="pngpdf-how-to-use">
+            <h2 class="pngpdf-howto-title">How to Convert PNG to PDF</h2>
+            <div class="pngpdf-howto-steps">
+                <div class="pngpdf-howto-step">
+                    <h3>Upload Your PNG Images</h3>
+                    <p>Select one or multiple PNG images from your device.</p>
+                </div>
+                <div class="pngpdf-howto-step">
+                    <h3>Choose Page Settings</h3>
+                    <p>Select page size, orientation, and margins.</p>
+                </div>
+                <div class="pngpdf-howto-step">
+                    <h3>Arrange Image Order</h3>
+                    <p>Drag and drop images to arrange them in the desired order.</p>
+                </div>
+                <div class="pngpdf-howto-step">
+                    <h3>Preview Your PDF</h3>
+                    <p>Check how your PDF will look before downloading.</p>
+                </div>
+                <div class="pngpdf-howto-step">
+                    <h3>Download Your PDF</h3>
+                    <p>Save your new PDF document instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 4. WHY CONVERT PNG TO PDF? -->
+        <section class="pngpdf-benefits-section" id="pngpdf-benefits">
+            <h2 class="pngpdf-benefits-title">Why Convert PNG to PDF?</h2>
+            <div class="pngpdf-benefit-grid">
+                <div class="pngpdf-benefit-card">
+                    <span class="pngpdf-benefit-icon">📄</span>
+                    <h3>Universal Format</h3>
+                    <p>PDFs work on any device and platform.</p>
+                </div>
+                <div class="pngpdf-benefit-card">
+                    <span class="pngpdf-benefit-icon">📦</span>
+                    <h3>Single File</h3>
+                    <p>Combine multiple PNGs into one document.</p>
+                </div>
+                <div class="pngpdf-benefit-card">
+                    <span class="pngpdf-benefit-icon">🔒</span>
+                    <h3>Professional Look</h3>
+                    <p>Create polished, professional documents.</p>
+                </div>
+                <div class="pngpdf-benefit-card">
+                    <span class="pngpdf-benefit-icon">📱</span>
+                    <h3>Easy Sharing</h3>
+                    <p>Share PDFs easily via email or cloud.</p>
+                </div>
+                <div class="pngpdf-benefit-card">
+                    <span class="pngpdf-benefit-icon">🖨️</span>
+                    <h3>Print Ready</h3>
+                    <p>PDFs are optimized for printing.</p>
+                </div>
+                <div class="pngpdf-benefit-card">
+                    <span class="pngpdf-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Convert PNGs in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 5. PNG TO PDF FEATURES -->
+        <section class="pngpdf-features-section">
+            <h2 class="pngpdf-features-title">PNG to PDF Features</h2>
+            <div class="pngpdf-features-grid">
+                <div class="pngpdf-feature-card">
+                    <span class="pngpdf-feature-icon">📐</span>
+                    <h3>Page Size</h3>
+                    <p>Choose from A4, Letter, Legal, and more.</p>
+                </div>
+                <div class="pngpdf-feature-card">
+                    <span class="pngpdf-feature-icon">🔄</span>
+                    <h3>Orientation</h3>
+                    <p>Portrait or landscape mode.</p>
+                </div>
+                <div class="pngpdf-feature-card">
+                    <span class="pngpdf-feature-icon">📏</span>
+                    <h3>Margins</h3>
+                    <p>Adjustable page margins.</p>
+                </div>
+                <div class="pngpdf-feature-card">
+                    <span class="pngpdf-feature-icon">📋</span>
+                    <h3>Image Order</h3>
+                    <p>Arrange PNGs in any order.</p>
+                </div>
+                <div class="pngpdf-feature-card">
+                    <span class="pngpdf-feature-icon">🎨</span>
+                    <h3>Transparency</h3>
+                    <p>Preserve PNG transparency.</p>
+                </div>
+                <div class="pngpdf-feature-card">
+                    <span class="pngpdf-feature-icon">📁</span>
+                    <h3>Batch Processing</h3>
+                    <p>Convert multiple PNGs at once.</p>
+                </div>
+                <div class="pngpdf-feature-card">
+                    <span class="pngpdf-feature-icon">🖼️</span>
+                    <h3>Image Fit</h3>
+                    <p>Auto-fit PNGs to page.</p>
+                </div>
+                <div class="pngpdf-feature-card">
+                    <span class="pngpdf-feature-icon">🔒</span>
+                    <h3>Secure Output</h3>
+                    <p>Your files are processed securely.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 6. PAGE SIZE GUIDE -->
+        <section class="pngpdf-sizes-section">
+            <h2 class="pngpdf-sizes-title">Available Page Sizes</h2>
+            <div class="pngpdf-sizes-grid">
+                <div class="pngpdf-size-card">
+                    <h3>A4</h3>
+                    <p>210 × 297 mm<br/>8.27 × 11.69 inches</p>
+                </div>
+                <div class="pngpdf-size-card">
+                    <h3>Letter</h3>
+                    <p>215.9 × 279.4 mm<br/>8.5 × 11 inches</p>
+                </div>
+                <div class="pngpdf-size-card">
+                    <h3>Legal</h3>
+                    <p>215.9 × 355.6 mm<br/>8.5 × 14 inches</p>
+                </div>
+                <div class="pngpdf-size-card">
+                    <h3>A5</h3>
+                    <p>148 × 210 mm<br/>5.83 × 8.27 inches</p>
+                </div>
+                <div class="pngpdf-size-card">
+                    <h3>A3</h3>
+                    <p>297 × 420 mm<br/>11.69 × 16.54 inches</p>
+                </div>
+                <div class="pngpdf-size-card">
+                    <h3>Executive</h3>
+                    <p>184.2 × 266.7 mm<br/>7.25 × 10.5 inches</p>
+                </div>
+                <div class="pngpdf-size-card">
+                    <h3>B5</h3>
+                    <p>176 × 250 mm<br/>6.93 × 9.84 inches</p>
+                </div>
+                <div class="pngpdf-size-card">
+                    <h3>Custom</h3>
+                    <p>Set your own page dimensions</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 7. PNG VS JPG FOR PDF -->
+        <section class="pngpdf-compare-section">
+            <h2 class="pngpdf-compare-title">PNG vs JPG for PDF</h2>
+            <div class="pngpdf-compare-grid">
+                <div class="pngpdf-compare-card">
+                    <h3>🖼️ PNG to PDF</h3>
+                    <p>Best for graphics with transparency, logos, and images with sharp edges. PNG is lossless and preserves details perfectly in PDF output.</p>
+                </div>
+                <div class="pngpdf-compare-card">
+                    <h3>📸 JPG to PDF</h3>
+                    <p>Best for photographs and complex images. JPG offers good compression with minimal quality loss for photos.</p>
+                </div>
+            </div>
+            <p class="pngpdf-compare-text">PNG is ideal for PDFs containing logos, screenshots, illustrations, and images that require transparency. JPG is better for photo-heavy documents.</p>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="pngpdf-practices-section">
+            <h2 class="pngpdf-practices-title">PNG to PDF Best Practices</h2>
+            <ul class="pngpdf-practices-list">
+                <li>Use high-resolution PNGs for best quality</li>
+                <li>Arrange images in logical order before converting</li>
+                <li>Choose the right page size for your content</li>
+                <li>Use portrait orientation for documents with vertical images</li>
+                <li>Use landscape for wide images and presentations</li>
+                <li>Check image alignment within the PDF</li>
+                <li>Keep file size reasonable for easy sharing</li>
+                <li>Add a cover page if needed</li>
+                <li>Use consistent page formatting</li>
+                <li>Preview your PDF before final download</li>
+            </ul>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="pngpdf-usecases-section">
+            <h2 class="pngpdf-usecases-title">PNG to PDF Use Cases</h2>
+            <div class="pngpdf-usecases-grid">
+                <div class="pngpdf-usecase-card">
+                    <span class="pngpdf-usecase-icon">🎨</span>
+                    <h3>Graphic Design</h3>
+                    <p>Create professional design portfolios.</p>
+                </div>
+                <div class="pngpdf-usecase-card">
+                    <span class="pngpdf-usecase-icon">🏢</span>
+                    <h3>Business Documents</h3>
+                    <p>Create logo and branding documents.</p>
+                </div>
+                <div class="pngpdf-usecase-card">
+                    <span class="pngpdf-usecase-icon">📊</span>
+                    <h3>Presentations</h3>
+                    <p>Compile visual presentations with transparency.</p>
+                </div>
+                <div class="pngpdf-usecase-card">
+                    <span class="pngpdf-usecase-icon">📧</span>
+                    <h3>Email Attachments</h3>
+                    <p>Send multiple PNGs as a single PDF.</p>
+                </div>
+                <div class="pngpdf-usecase-card">
+                    <span class="pngpdf-usecase-icon">🖨️</span>
+                    <h3>Print Documents</h3>
+                    <p>Prepare PNGs for professional printing.</p>
+                </div>
+                <div class="pngpdf-usecase-card">
+                    <span class="pngpdf-usecase-icon">📚</span>
+                    <h3>Educational Materials</h3>
+                    <p>Compile diagram-based learning resources.</p>
+                </div>
+                <div class="pngpdf-usecase-card">
+                    <span class="pngpdf-usecase-icon">📱</span>
+                    <h3>Digital Sharing</h3>
+                    <p>Share graphic collections easily.</p>
+                </div>
+                <div class="pngpdf-usecase-card">
+                    <span class="pngpdf-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Create product catalogs with transparent images.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 10. PNG TO PDF QUALITY CHECKLIST -->
+        <section class="pngpdf-checklist-section" id="pngpdf-checklist">
+            <h2 class="pngpdf-checklist-title">Before Downloading Your PNG to PDF</h2>
+            <ul class="pngpdf-checklist-list">
+                <li>Is the page size appropriate for your content?</li>
+                <li>Is the orientation correct (portrait/landscape)?</li>
+                <li>Are the PNGs in the correct order?</li>
+                <li>Is the image quality acceptable?</li>
+                <li>Is transparency preserved correctly?</li>
+                <li>Are the margins and spacing suitable?</li>
+                <li>Does the PDF look professional?</li>
+                <li>Is the file size reasonable?</li>
+                <li>Have you previewed the full document?</li>
+                <li>Have you kept your original PNGs?</li>
+            </ul>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="pngpdf-faq-section" id="pngpdf-faq">
+            <h2 class="pngpdf-faq-title">Frequently Asked Questions</h2>
+            <div class="pngpdf-faq-accordion">
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        What is a PNG to PDF converter?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>A PNG to PDF converter transforms PNG image files into a PDF document for easy sharing and printing.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        Is the PNG to PDF converter free?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>Yes, our PNG to PDF converter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        Can I convert multiple PNGs to one PDF?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can upload multiple PNGs and merge them into a single PDF document.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        Does PNG transparency work in PDF?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>Yes, PNG transparency is preserved in the PDF output, making it perfect for logos and graphics.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        What page sizes are available?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>We offer A4, Letter, Legal, A5, A3, Executive, B5, and custom page sizes.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        Does the conversion preserve PNG quality?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>Yes, PNG is a lossless format, and we preserve full quality in the PDF output.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        Can I change the order of PNGs?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can drag and drop images to arrange them in any order before converting.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>We accept individual PNGs up to 50MB and total uploads up to 200MB.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        Can I convert PNG to PDF on mobile?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>Yes, our tool works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        What is the difference between PNG and PDF?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>PNG is an image format with transparency support, while PDF is a document format that can contain multiple pages and images.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        Is my data secure?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>Yes, your PNGs are processed securely and automatically deleted after conversion. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="pngpdf-faq-item">
+                    <button class="pngpdf-faq-question" aria-expanded="false">
+                        Can I convert a single PNG to PDF?
+                        <span class="pngpdf-faq-icon">+</span>
+                    </button>
+                    <div class="pngpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can convert a single PNG to a PDF page. Multiple PNGs will create a multi-page PDF.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="pngpdf-privacy-section">
+            <h2 class="pngpdf-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your PNGs are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> Images are processed locally in your browser where possible.</li>
+                <li><strong>☁️ Temporary server upload:</strong> Images may be temporarily uploaded for PDF generation.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images or PDFs after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="pngpdf-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="pngpdf-related-section" id="pngpdf-related-tools">
+            <h2 class="pngpdf-related-title">Related Tools</h2>
+            <div class="pngpdf-related-grid">
+                <a href="#" class="pngpdf-related-card">
+                    <span class="pngpdf-related-icon">📄</span> JPG to PDF
+                </a>
+                <a href="#" class="pngpdf-related-card">
+                    <span class="pngpdf-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="pngpdf-related-card">
+                    <span class="pngpdf-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="pngpdf-related-card">
+                    <span class="pngpdf-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="pngpdf-related-card">
+                    <span class="pngpdf-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="pngpdf-related-card">
+                    <span class="pngpdf-related-icon">🪞</span> Image Flipper
+                </a>
+                <a href="#" class="pngpdf-related-card">
+                    <span class="pngpdf-related-icon">🔄</span> Image Rotator
+                </a>
+                <a href="#" class="pngpdf-related-card">
+                    <span class="pngpdf-related-icon">✨</span> Image Enhancer
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PNG to PDF converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PNG to PDF converter transforms PNG image files into a PDF document for easy sharing and printing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the PNG to PDF converter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PNG to PDF converter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert multiple PNGs to one PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can upload multiple PNGs and merge them into a single PDF document."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PNG transparency work in PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, PNG transparency is preserved in the PDF output, making it perfect for logos and graphics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What page sizes are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer A4, Letter, Legal, A5, A3, Executive, B5, and custom page sizes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the conversion preserve PNG quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, PNG is a lossless format, and we preserve full quality in the PDF output."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I change the order of PNGs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can drag and drop images to arrange them in any order before converting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept individual PNGs up to 50MB and total uploads up to 200MB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert PNG to PDF on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our tool works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between PNG and PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PNG is an image format with transparency support, while PDF is a document format that can contain multiple pages and images."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your PNGs are processed securely and automatically deleted after conversion. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert a single PNG to PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can convert a single PNG to a PDF page. Multiple PNGs will create a multi-page PDF."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.pngpdf-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

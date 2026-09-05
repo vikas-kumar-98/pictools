@@ -398,6 +398,732 @@
 
 
   /* End Page style goes here....................*/
+
+          /* --- Wrapper --- */
+        .qrcode-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* --- Section Dividers --- */
+        .qrcode-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        /* --- Intro Section --- */
+        .qrcode-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .qrcode-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+            border-radius: 2px;
+        }
+        .qrcode-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .qrcode-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .qrcode-intro-text strong {
+            color: #1e293b;
+        }
+
+        /* --- About Section --- */
+        .qrcode-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .qrcode-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-about-title::before {
+            content: '📱';
+            font-size: 1.8rem;
+        }
+        .qrcode-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .qrcode-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .qrcode-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .qrcode-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        /* --- How-To Section --- */
+        .qrcode-howto-section {
+            margin: 2.5rem 0;
+        }
+        .qrcode-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .qrcode-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .qrcode-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .qrcode-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .qrcode-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .qrcode-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .qrcode-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Benefits Section --- */
+        .qrcode-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+            border-radius: 16px;
+        }
+        .qrcode-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .qrcode-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .qrcode-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .qrcode-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .qrcode-benefit-card .qrcode-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .qrcode-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .qrcode-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Types Section --- */
+        .qrcode-types-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .qrcode-types-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-types-title::before {
+            content: '🔲';
+            font-size: 1.8rem;
+        }
+        .qrcode-types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .qrcode-type-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .qrcode-type-card:hover {
+            border-color: #8b5cf6;
+            background: #f5f3ff;
+        }
+        .qrcode-type-card .qrcode-type-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .qrcode-type-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .qrcode-type-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Compare Section --- */
+        .qrcode-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fefce8, #fef3c7);
+            border-radius: 16px;
+        }
+        .qrcode-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .qrcode-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .qrcode-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .qrcode-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .qrcode-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .qrcode-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        /* --- Customization Section --- */
+        .qrcode-customization-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+            border-radius: 16px;
+        }
+        .qrcode-customization-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-customization-title::before {
+            content: '🎨';
+            font-size: 1.8rem;
+        }
+        .qrcode-customization-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .qrcode-customization-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .qrcode-customization-card .qrcode-custom-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .qrcode-customization-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .qrcode-customization-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Best Practices --- */
+        .qrcode-practices-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .qrcode-practices-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-practices-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .qrcode-practices-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .qrcode-practices-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .qrcode-practices-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        /* --- Use Cases --- */
+        .qrcode-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .qrcode-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .qrcode-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .qrcode-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .qrcode-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .qrcode-usecase-card .qrcode-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .qrcode-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .qrcode-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Quality Checklist --- */
+        .qrcode-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .qrcode-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .qrcode-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .qrcode-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .qrcode-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        /* --- FAQ --- */
+        .qrcode-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .qrcode-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .qrcode-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .qrcode-faq-item:last-child {
+            border-bottom: none;
+        }
+        .qrcode-faq-item:hover {
+            background: #f8fafc;
+        }
+        .qrcode-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .qrcode-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .qrcode-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .qrcode-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .qrcode-faq-question[aria-expanded="true"] .qrcode-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .qrcode-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .qrcode-faq-answer p {
+            margin: 0;
+        }
+        .qrcode-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Privacy --- */
+        .qrcode-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .qrcode-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .qrcode-privacy-section p,
+        .qrcode-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .qrcode-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .qrcode-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .qrcode-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        /* --- Related Tools --- */
+        .qrcode-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .qrcode-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .qrcode-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .qrcode-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .qrcode-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .qrcode-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .qrcode-related-card .qrcode-related-icon {
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .qrcode-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .qrcode-types-grid { grid-template-columns: repeat(2, 1fr); }
+            .qrcode-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .qrcode-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .qrcode-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .qrcode-content-wrapper { padding: 0 16px; }
+            .qrcode-intro-title { font-size: 2.2rem; }
+            .qrcode-howto-steps { grid-template-columns: 1fr; }
+            .qrcode-benefit-grid { grid-template-columns: 1fr; }
+            .qrcode-types-grid { grid-template-columns: 1fr; }
+            .qrcode-compare-grid { grid-template-columns: 1fr; }
+            .qrcode-customization-grid { grid-template-columns: 1fr; }
+            .qrcode-usecases-grid { grid-template-columns: 1fr; }
+            .qrcode-practices-list { grid-template-columns: 1fr; }
+            .qrcode-checklist-list { grid-template-columns: 1fr; }
+            .qrcode-related-grid { grid-template-columns: 1fr 1fr; }
+            .qrcode-about-list { grid-template-columns: 1fr; }
+            .qrcode-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .qrcode-intro-title { font-size: 1.8rem; }
+            .qrcode-related-grid { grid-template-columns: 1fr; }
+        }
+
 </style>
 </head>
 <body>
@@ -781,6 +1507,593 @@
   </div>
 </div>
 
+
+    <div class="qrcode-content-wrapper">
+
+        <!-- ============================================ -->
+        <!-- QR CODE GENERATOR INFORMATIONAL CONTENT       -->
+        <!-- ============================================ -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="qrcode-intro-section" id="qrcode-intro">
+            <h1 class="qrcode-intro-title">Free Online QR Code Generator</h1>
+            <p class="qrcode-intro-text">
+                A <strong>QR Code (Quick Response Code)</strong> is a two-dimensional barcode that can be scanned by smartphones to instantly access information. It's the fastest way to connect the physical world with digital content.
+            </p>
+            <p class="qrcode-intro-text">
+                Whether you're a marketer, business owner, educator, or content creator, our <strong>free QR code generator</strong> helps you create custom QR codes for URLs, text, contact information, Wi-Fi networks, and more. With options to customize colors, sizes, and shapes, you can create QR codes that align with your brand identity.
+            </p>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 2. WHAT IS A QR CODE? -->
+        <section class="qrcode-about-section" id="qrcode-about">
+            <h2 class="qrcode-about-title">What Is a QR Code?</h2>
+            <p class="qrcode-about-text">
+                A QR code is a machine-readable optical label that contains data about the item to which it is attached. It consists of black squares arranged in a square grid on a white background, which can be read by an imaging device like a smartphone camera.
+            </p>
+            <p class="qrcode-about-text">QR codes can store various types of information:</p>
+            <ul class="qrcode-about-list">
+                <li><strong>Website URLs</strong> — Direct users to your site</li>
+                <li><strong>Contact Details</strong> — vCard or meCard data</li>
+                <li><strong>Wi-Fi Credentials</strong> — Connect devices instantly</li>
+                <li><strong>Email Addresses</strong> — Pre-fill email messages</li>
+                <li><strong>Phone Numbers</strong> — Call or SMS</li>
+                <li><strong>Plain Text</strong> — Any short message</li>
+            </ul>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 3. HOW TO GENERATE A QR CODE -->
+        <section class="qrcode-howto-section" id="qrcode-how-to-use">
+            <h2 class="qrcode-howto-title">How to Generate a QR Code</h2>
+            <div class="qrcode-howto-steps">
+                <div class="qrcode-howto-step">
+                    <h3>Choose Your Content</h3>
+                    <p>Select what type of data you want to encode — URL, text, email, Wi-Fi, or contact info.</p>
+                </div>
+                <div class="qrcode-howto-step">
+                    <h3>Enter Your Data</h3>
+                    <p>Type or paste the information you want your QR code to contain.</p>
+                </div>
+                <div class="qrcode-howto-step">
+                    <h3>Customize Your QR Code</h3>
+                    <p>Adjust colors, size, and add your logo for a branded look.</p>
+                </div>
+                <div class="qrcode-howto-step">
+                    <h3>Preview Your QR Code</h3>
+                    <p>Check the appearance and scan it with your phone to verify it works.</p>
+                </div>
+                <div class="qrcode-howto-step">
+                    <h3>Download &amp; Share</h3>
+                    <p>Download your QR code in high resolution (PNG, SVG, or PDF) and start sharing.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 4. WHY USE QR CODES? -->
+        <section class="qrcode-benefits-section" id="qrcode-benefits">
+            <h2 class="qrcode-benefits-title">Why Use QR Codes?</h2>
+            <div class="qrcode-benefit-grid">
+                <div class="qrcode-benefit-card">
+                    <span class="qrcode-benefit-icon">🚀</span>
+                    <h3>Instant Access</h3>
+                    <p>Users can scan and access information in seconds.</p>
+                </div>
+                <div class="qrcode-benefit-card">
+                    <span class="qrcode-benefit-icon">📊</span>
+                    <h3>Trackable</h3>
+                    <p>Monitor scans, location, and engagement with analytics.</p>
+                </div>
+                <div class="qrcode-benefit-card">
+                    <span class="qrcode-benefit-icon">🔄</span>
+                    <h3>Dynamic Updates</h3>
+                    <p>Change the destination URL without reprinting the code.</p>
+                </div>
+                <div class="qrcode-benefit-card">
+                    <span class="qrcode-benefit-icon">🌐</span>
+                    <h3>Versatile</h3>
+                    <p>Works for marketing, education, retail, and more.</p>
+                </div>
+                <div class="qrcode-benefit-card">
+                    <span class="qrcode-benefit-icon">💼</span>
+                    <h3>Professional</h3>
+                    <p>Enhance your brand with custom-designed QR codes.</p>
+                </div>
+                <div class="qrcode-benefit-card">
+                    <span class="qrcode-benefit-icon">📱</span>
+                    <h3>Mobile-Friendly</h3>
+                    <p>Scannable by all modern smartphones without extra apps.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 5. TYPES OF QR CODES -->
+        <section class="qrcode-types-section">
+            <h2 class="qrcode-types-title">Types of QR Codes You Can Generate</h2>
+            <div class="qrcode-types-grid">
+                <div class="qrcode-type-card">
+                    <span class="qrcode-type-icon">🔗</span>
+                    <h3>URL</h3>
+                    <p>Link to any website or landing page.</p>
+                </div>
+                <div class="qrcode-type-card">
+                    <span class="qrcode-type-icon">✉️</span>
+                    <h3>Email</h3>
+                    <p>Open a pre-addressed email message.</p>
+                </div>
+                <div class="qrcode-type-card">
+                    <span class="qrcode-type-icon">📞</span>
+                    <h3>Phone</h3>
+                    <p>Dial a phone number with one tap.</p>
+                </div>
+                <div class="qrcode-type-card">
+                    <span class="qrcode-type-icon">📇</span>
+                    <h3>Contact (vCard)</h3>
+                    <p>Save contact details to a phone.</p>
+                </div>
+                <div class="qrcode-type-card">
+                    <span class="qrcode-type-icon">📶</span>
+                    <h3>Wi-Fi</h3>
+                    <p>Connect to networks without typing passwords.</p>
+                </div>
+                <div class="qrcode-type-card">
+                    <span class="qrcode-type-icon">📝</span>
+                    <h3>Text</h3>
+                    <p>Display any plain text message.</p>
+                </div>
+                <div class="qrcode-type-card">
+                    <span class="qrcode-type-icon">📅</span>
+                    <h3>Calendar Event</h3>
+                    <p>Add events to your calendar instantly.</p>
+                </div>
+                <div class="qrcode-type-card">
+                    <span class="qrcode-type-icon">📍</span>
+                    <h3>Location</h3>
+                    <p>Open a map with coordinates or address.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 6. STATIC VS DYNAMIC QR CODES -->
+        <section class="qrcode-compare-section">
+            <h2 class="qrcode-compare-title">Static vs Dynamic QR Codes</h2>
+            <div class="qrcode-compare-grid">
+                <div class="qrcode-compare-card">
+                    <h3>📦 Static QR Codes</h3>
+                    <p>Contain fixed, unchangeable data. Once generated, the content cannot be modified. Perfect for permanent information like business cards or product labels.</p>
+                </div>
+                <div class="qrcode-compare-card">
+                    <h3>🔄 Dynamic QR Codes</h3>
+                    <p>Redirect to a short URL that can be changed anytime. Ideal for marketing campaigns, A/B testing, and situations where content may need updating.</p>
+                </div>
+            </div>
+            <p class="qrcode-compare-text">Dynamic QR codes offer more flexibility and analytics but require a service to manage the redirection. Static codes are simpler and don't rely on external services.</p>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 7. CUSTOMIZATION OPTIONS -->
+        <section class="qrcode-customization-section">
+            <h2 class="qrcode-customization-title">Customize Your QR Code</h2>
+            <div class="qrcode-customization-grid">
+                <div class="qrcode-customization-card">
+                    <span class="qrcode-custom-icon">🎨</span>
+                    <h3>Colors</h3>
+                    <p>Match your brand with custom foreground and background colors.</p>
+                </div>
+                <div class="qrcode-customization-card">
+                    <span class="qrcode-custom-icon">🖼️</span>
+                    <h3>Logo Embedding</h3>
+                    <p>Add your company logo to the center of the QR code.</p>
+                </div>
+                <div class="qrcode-customization-card">
+                    <span class="qrcode-custom-icon">📐</span>
+                    <h3>Size &amp; Resolution</h3>
+                    <p>Choose from small to large sizes for any application.</p>
+                </div>
+                <div class="qrcode-customization-card">
+                    <span class="qrcode-custom-icon">🔲</span>
+                    <h3>Shape Options</h3>
+                    <p>Select from standard, rounded, or unique corner styles.</p>
+                </div>
+                <div class="qrcode-customization-card">
+                    <span class="qrcode-custom-icon">📄</span>
+                    <h3>File Formats</h3>
+                    <p>Download as PNG, SVG, PDF, or EPS for any use case.</p>
+                </div>
+                <div class="qrcode-customization-card">
+                    <span class="qrcode-custom-icon">🌓</span>
+                    <h3>Error Correction</h3>
+                    <p>Choose correction levels for damaged or dirty codes.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="qrcode-practices-section">
+            <h2 class="qrcode-practices-title">QR Code Best Practices</h2>
+            <ul class="qrcode-practices-list">
+                <li>Ensure high contrast between foreground and background</li>
+                <li>Test your QR code on multiple devices before printing</li>
+                <li>Provide a call-to-action near the QR code</li>
+                <li>Use high-resolution images for print applications</li>
+                <li>Keep sufficient white space (quiet zone) around the code</li>
+                <li>Consider dynamic QR codes for marketing campaigns</li>
+                <li>Use error correction for codes that may be damaged</li>
+                <li>Monitor QR code performance with analytics</li>
+            </ul>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="qrcode-usecases-section">
+            <h2 class="qrcode-usecases-title">QR Code Use Cases</h2>
+            <div class="qrcode-usecases-grid">
+                <div class="qrcode-usecase-card">
+                    <span class="qrcode-usecase-icon">🏪</span>
+                    <h3>Retail</h3>
+                    <p>Product information and promotions.</p>
+                </div>
+                <div class="qrcode-usecase-card">
+                    <span class="qrcode-usecase-icon">🎫</span>
+                    <h3>Events</h3>
+                    <p>Tickets, check-in, and schedules.</p>
+                </div>
+                <div class="qrcode-usecase-card">
+                    <span class="qrcode-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Learning materials and resources.</p>
+                </div>
+                <div class="qrcode-usecase-card">
+                    <span class="qrcode-usecase-icon">🍽️</span>
+                    <h3>Restaurants</h3>
+                    <p>Digital menus and ordering.</p>
+                </div>
+                <div class="qrcode-usecase-card">
+                    <span class="qrcode-usecase-icon">🏢</span>
+                    <h3>Business</h3>
+                    <p>Contact cards and directories.</p>
+                </div>
+                <div class="qrcode-usecase-card">
+                    <span class="qrcode-usecase-icon">📱</span>
+                    <h3>Marketing</h3>
+                    <p>Campaigns and special offers.</p>
+                </div>
+                <div class="qrcode-usecase-card">
+                    <span class="qrcode-usecase-icon">🏠</span>
+                    <h3>Real Estate</h3>
+                    <p>Property details and virtual tours.</p>
+                </div>
+                <div class="qrcode-usecase-card">
+                    <span class="qrcode-usecase-icon">⚕️</span>
+                    <h3>Healthcare</h3>
+                    <p>Patient information and appointment scheduling.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 10. QR CODE QUALITY CHECKLIST -->
+        <section class="qrcode-checklist-section" id="qrcode-checklist">
+            <h2 class="qrcode-checklist-title">Before Downloading Your QR Code</h2>
+            <ul class="qrcode-checklist-list">
+                <li>Is the data encoded correctly?</li>
+                <li>Have you tested it with multiple devices?</li>
+                <li>Is the contrast sufficient for scanning?</li>
+                <li>Is the error correction appropriate?</li>
+                <li>Is the quiet zone (white space) sufficient?</li>
+                <li>Is the size appropriate for your use case?</li>
+                <li>Is the logo visible and scannable (if added)?</li>
+                <li>Have you kept the original data for reference?</li>
+            </ul>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="qrcode-faq-section" id="qrcode-faq">
+            <h2 class="qrcode-faq-title">Frequently Asked Questions</h2>
+            <div class="qrcode-faq-accordion">
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        What is a QR code?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>A QR code is a two-dimensional barcode that stores information and can be scanned by smartphones to access it instantly.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        How do I scan a QR code?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>Most modern smartphones have built-in QR code scanners in the camera app. Simply point your camera at the QR code and tap the notification that appears.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        Can I generate a QR code for free?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>Yes, this QR code generator is completely free to use. You can create static QR codes without any cost.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        What is the difference between static and dynamic QR codes?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>Static QR codes contain fixed data that cannot be changed. Dynamic QR codes redirect to a short link that can be modified, making them more flexible.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        Can I add a logo to my QR code?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>Yes, our QR code generator allows you to add your logo to the center of the QR code while maintaining scannability.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        What file formats can I download QR codes in?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>You can download your QR codes as PNG, SVG, PDF, and EPS formats.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        What size should my QR code be?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>The size depends on your use case. For print, at least 2×2 cm is recommended. For digital use, 300×300 pixels works well.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        What is error correction in QR codes?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>Error correction allows QR codes to remain scannable even if they are partially damaged or obscured. Levels range from L (low) to H (high).</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        Can QR codes expire?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>Static QR codes don't expire. Dynamic QR codes can be set to expire if configured, but typically they remain active.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        Can I change the content of a QR code after generating it?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>Only dynamic QR codes allow you to change the content. Static QR codes contain the data directly and cannot be modified.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        Are QR codes secure?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>QR codes themselves are just data containers. Their security depends on what you encode. Avoid encoding sensitive information and be cautious of unknown QR codes.</p>
+                    </div>
+                </div>
+                <div class="qrcode-faq-item">
+                    <button class="qrcode-faq-question" aria-expanded="false">
+                        Can I track who scans my QR code?
+                        <span class="qrcode-faq-icon">+</span>
+                    </button>
+                    <div class="qrcode-faq-answer" style="display:none;">
+                        <p>Dynamic QR codes can provide analytics showing scan counts, locations, and device types. Static QR codes don't offer tracking.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="qrcode-privacy-section">
+            <h2 class="qrcode-privacy-title">Privacy and Data Handling</h2>
+            <p>We take your privacy seriously. Here's how your data is handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> QR codes are generated directly in your browser.</li>
+                <li><strong>☁️ No data storage:</strong> We do not store or track the data you encode.</li>
+                <li><strong>🔒 Secure connection:</strong> All data transfer is encrypted.</li>
+                <li><strong>🗑️ No log retention:</strong> We don't keep logs of generated QR codes or their content.</li>
+            </ul>
+            <p>Your privacy is important to us. For more information, please refer to our full Privacy Policy.</p>
+        </section>
+
+        <div class="qrcode-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="qrcode-related-section" id="qrcode-related-tools">
+            <h2 class="qrcode-related-title">Related Tools</h2>
+            <div class="qrcode-related-grid">
+                <a href="#" class="qrcode-related-card">
+                    <span class="qrcode-related-icon">🔗</span> URL Shortener
+                </a>
+                <a href="#" class="qrcode-related-card">
+                    <span class="qrcode-related-icon">📊</span> QR Code Analyzer
+                </a>
+                <a href="#" class="qrcode-related-card">
+                    <span class="qrcode-related-icon">🎨</span> QR Code Designer
+                </a>
+                <a href="#" class="qrcode-related-card">
+                    <span class="qrcode-related-icon">📱</span> Barcode Generator
+                </a>
+                <a href="#" class="qrcode-related-card">
+                    <span class="qrcode-related-icon">📋</span> QR Code Reader
+                </a>
+                <a href="#" class="qrcode-related-card">
+                    <span class="qrcode-related-icon">🔄</span> Link Management
+                </a>
+                <a href="#" class="qrcode-related-card">
+                    <span class="qrcode-related-icon">📸</span> Image to QR Code
+                </a>
+                <a href="#" class="qrcode-related-card">
+                    <span class="qrcode-related-icon">💳</span> Payment QR Code
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a QR code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A QR code is a two-dimensional barcode that stores information and can be scanned by smartphones to access it instantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I scan a QR code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most modern smartphones have built-in QR code scanners in the camera app. Simply point your camera at the QR code and tap the notification that appears."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I generate a QR code for free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this QR code generator is completely free to use. You can create static QR codes without any cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between static and dynamic QR codes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Static QR codes contain fixed data that cannot be changed. Dynamic QR codes redirect to a short link that can be modified, making them more flexible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add a logo to my QR code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our QR code generator allows you to add your logo to the center of the QR code while maintaining scannability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What file formats can I download QR codes in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can download your QR codes as PNG, SVG, PDF, and EPS formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What size should my QR code be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The size depends on your use case. For print, at least 2×2 cm is recommended. For digital use, 300×300 pixels works well."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is error correction in QR codes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Error correction allows QR codes to remain scannable even if they are partially damaged or obscured. Levels range from L (low) to H (high)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can QR codes expire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Static QR codes don't expire. Dynamic QR codes can be set to expire if configured, but typically they remain active."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I change the content of a QR code after generating it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only dynamic QR codes allow you to change the content. Static QR codes contain the data directly and cannot be modified."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are QR codes secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QR codes themselves are just data containers. Their security depends on what you encode. Avoid encoding sensitive information and be cautious of unknown QR codes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track who scans my QR code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dynamic QR codes can provide analytics showing scan counts, locations, and device types. Static QR codes don't offer tracking."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.qrcode-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

@@ -643,6 +643,641 @@
   
 
   /* End Page style goes here....................*/
+
+          /* --- Wrapper --- */
+        .metadata-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* --- Section Dividers --- */
+        .metadata-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        /* --- Intro Section --- */
+        .metadata-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .metadata-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .metadata-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .metadata-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .metadata-intro-text strong {
+            color: #1e293b;
+        }
+
+        /* --- About Section --- */
+        .metadata-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .metadata-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-about-title::before {
+            content: '🏷️';
+            font-size: 1.8rem;
+        }
+        .metadata-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .metadata-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .metadata-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .metadata-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        /* --- How-To Section --- */
+        .metadata-howto-section {
+            margin: 2.5rem 0;
+        }
+        .metadata-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .metadata-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .metadata-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .metadata-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .metadata-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .metadata-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .metadata-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Benefits Section --- */
+        .metadata-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .metadata-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .metadata-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .metadata-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .metadata-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .metadata-benefit-card .metadata-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .metadata-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .metadata-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Metadata Types Section --- */
+        .metadata-types-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .metadata-types-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-types-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .metadata-types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .metadata-type-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .metadata-type-card:hover {
+            border-color: #8b5cf6;
+            background: #f5f3ff;
+        }
+        .metadata-type-card .metadata-type-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .metadata-type-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .metadata-type-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- EXIF Guide --- */
+        .metadata-exif-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+            border-radius: 16px;
+        }
+        .metadata-exif-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-exif-title::before {
+            content: '📷';
+            font-size: 1.8rem;
+        }
+        .metadata-exif-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .metadata-exif-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .metadata-exif-card .metadata-exif-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .metadata-exif-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .metadata-exif-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Privacy & Security --- */
+        .metadata-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .metadata-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .metadata-privacy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+        .metadata-privacy-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .metadata-privacy-card .metadata-privacy-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .metadata-privacy-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .metadata-privacy-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Use Cases --- */
+        .metadata-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .metadata-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .metadata-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .metadata-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .metadata-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .metadata-usecase-card .metadata-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .metadata-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .metadata-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- FAQ --- */
+        .metadata-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .metadata-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .metadata-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .metadata-faq-item:last-child {
+            border-bottom: none;
+        }
+        .metadata-faq-item:hover {
+            background: #f8fafc;
+        }
+        .metadata-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .metadata-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .metadata-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .metadata-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .metadata-faq-question[aria-expanded="true"] .metadata-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .metadata-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .metadata-faq-answer p {
+            margin: 0;
+        }
+        .metadata-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Data Handling --- */
+        .metadata-data-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .metadata-data-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-data-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .metadata-data-section p,
+        .metadata-data-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .metadata-data-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .metadata-data-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .metadata-data-section ul li strong {
+            color: #0f172a;
+        }
+
+        /* --- Related Tools --- */
+        .metadata-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .metadata-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .metadata-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .metadata-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .metadata-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .metadata-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .metadata-related-card .metadata-related-icon {
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .metadata-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .metadata-types-grid { grid-template-columns: repeat(2, 1fr); }
+            .metadata-exif-grid { grid-template-columns: repeat(2, 1fr); }
+            .metadata-privacy-grid { grid-template-columns: 1fr; }
+            .metadata-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .metadata-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .metadata-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .metadata-content-wrapper { padding: 0 16px; }
+            .metadata-intro-title { font-size: 2.2rem; }
+            .metadata-howto-steps { grid-template-columns: 1fr; }
+            .metadata-benefit-grid { grid-template-columns: 1fr; }
+            .metadata-types-grid { grid-template-columns: 1fr; }
+            .metadata-exif-grid { grid-template-columns: 1fr; }
+            .metadata-usecases-grid { grid-template-columns: 1fr; }
+            .metadata-related-grid { grid-template-columns: 1fr 1fr; }
+            .metadata-about-list { grid-template-columns: 1fr; }
+            .metadata-data-section ul { grid-template-columns: 1fr; }
+            .metadata-privacy-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .metadata-intro-title { font-size: 1.8rem; }
+            .metadata-related-grid { grid-template-columns: 1fr; }
+        }
+        
 </style>
 </head>
 <body>
@@ -1028,7 +1663,570 @@
 
 
 
+    <div class="metadata-content-wrapper">
 
+        <!-- ============================================ -->
+        <!-- IMAGE METADATA TOOL CONTENT                  -->
+        <!-- ============================================ -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="metadata-intro-section" id="metadata-intro">
+            <h1 class="metadata-intro-title">Free Online Image Metadata Viewer</h1>
+            <p class="metadata-intro-text">
+                <strong>Image metadata</strong> is hidden information stored within image files that provides details about the image, including when and where it was taken, camera settings, and more. Also known as EXIF data, this information can be invaluable for photographers, content creators, and digital forensics.
+            </p>
+            <p class="metadata-intro-text">
+                Our <strong>free online metadata viewer</strong> allows you to extract and view EXIF data from your images instantly. Upload any image to see camera settings, GPS coordinates, date taken, and other hidden details. You can also remove sensitive metadata for privacy protection.
+            </p>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 2. WHAT IS IMAGE METADATA? -->
+        <section class="metadata-about-section" id="metadata-about">
+            <h2 class="metadata-about-title">What Is Image Metadata?</h2>
+            <p class="metadata-about-text">
+                Image metadata is embedded data that describes various aspects of an image file. It's automatically recorded by cameras and smartphones when a photo is taken.
+            </p>
+            <p class="metadata-about-text">Common types of metadata include:</p>
+            <ul class="metadata-about-list">
+                <li><strong>EXIF Data</strong> — Camera settings, date, time</li>
+                <li><strong>GPS Coordinates</strong> — Location where the photo was taken</li>
+                <li><strong>Camera Information</strong> — Make, model, and lens details</li>
+                <li><strong>Image Properties</strong> — Resolution, color space, bit depth</li>
+                <li><strong>Copyright Information</strong> — Creator and rights management</li>
+            </ul>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 3. HOW TO VIEW METADATA -->
+        <section class="metadata-howto-section" id="metadata-how-to-use">
+            <h2 class="metadata-howto-title">How to View Image Metadata</h2>
+            <div class="metadata-howto-steps">
+                <div class="metadata-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select the image you want to analyze from your device.</p>
+                </div>
+                <div class="metadata-howto-step">
+                    <h3>View EXIF Data</h3>
+                    <p>See all metadata including camera settings, date, and location.</p>
+                </div>
+                <div class="metadata-howto-step">
+                    <h3>Explore Details</h3>
+                    <p>Browse through all available metadata fields and values.</p>
+                </div>
+                <div class="metadata-howto-step">
+                    <h3>Remove Metadata</h3>
+                    <p>Remove sensitive information for privacy protection.</p>
+                </div>
+                <div class="metadata-howto-step">
+                    <h3>Download Clean Image</h3>
+                    <p>Save the image without metadata if needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 4. WHY VIEW METADATA? -->
+        <section class="metadata-benefits-section" id="metadata-benefits">
+            <h2 class="metadata-benefits-title">Why View Image Metadata?</h2>
+            <div class="metadata-benefit-grid">
+                <div class="metadata-benefit-card">
+                    <span class="metadata-benefit-icon">📷</span>
+                    <h3>Camera Settings</h3>
+                    <p>Learn aperture, shutter speed, and ISO used.</p>
+                </div>
+                <div class="metadata-benefit-card">
+                    <span class="metadata-benefit-icon">📍</span>
+                    <h3>GPS Location</h3>
+                    <p>See where your photos were taken.</p>
+                </div>
+                <div class="metadata-benefit-card">
+                    <span class="metadata-benefit-icon">📅</span>
+                    <h3>Date &amp; Time</h3>
+                    <p>Know exactly when the image was captured.</p>
+                </div>
+                <div class="metadata-benefit-card">
+                    <span class="metadata-benefit-icon">🔍</span>
+                    <h3>Image Properties</h3>
+                    <p>Check resolution, color space, and more.</p>
+                </div>
+                <div class="metadata-benefit-card">
+                    <span class="metadata-benefit-icon">🔒</span>
+                    <h3>Privacy Protection</h3>
+                    <p>Remove sensitive location data before sharing.</p>
+                </div>
+                <div class="metadata-benefit-card">
+                    <span class="metadata-benefit-icon">📊</span>
+                    <h3>Professional Analysis</h3>
+                    <p>Review and learn from your photography data.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 5. TYPES OF METADATA -->
+        <section class="metadata-types-section">
+            <h2 class="metadata-types-title">Types of Image Metadata</h2>
+            <div class="metadata-types-grid">
+                <div class="metadata-type-card">
+                    <span class="metadata-type-icon">📷</span>
+                    <h3>EXIF</h3>
+                    <p>Camera settings, date, and technical details.</p>
+                </div>
+                <div class="metadata-type-card">
+                    <span class="metadata-type-icon">📍</span>
+                    <h3>GPS</h3>
+                    <p>Geolocation coordinates and altitude.</p>
+                </div>
+                <div class="metadata-type-card">
+                    <span class="metadata-type-icon">📝</span>
+                    <h3>IPTC</h3>
+                    <p>Descriptive metadata for professional use.</p>
+                </div>
+                <div class="metadata-type-card">
+                    <span class="metadata-type-icon">©️</span>
+                    <h3>Copyright</h3>
+                    <p>Creator information and usage rights.</p>
+                </div>
+                <div class="metadata-type-card">
+                    <span class="metadata-type-icon">📊</span>
+                    <h3>XMP</h3>
+                    <p>Adobe's metadata standard for creative professionals.</p>
+                </div>
+                <div class="metadata-type-card">
+                    <span class="metadata-type-icon">🖼️</span>
+                    <h3>Image Properties</h3>
+                    <p>Resolution, bit depth, color profile.</p>
+                </div>
+                <div class="metadata-type-card">
+                    <span class="metadata-type-icon">🔧</span>
+                    <h3>Camera Info</h3>
+                    <p>Make, model, firmware, and lens details.</p>
+                </div>
+                <div class="metadata-type-card">
+                    <span class="metadata-type-icon">📋</span>
+                    <h3>Comments</h3>
+                    <p>User-added descriptions and tags.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 6. EXIF DATA GUIDE -->
+        <section class="metadata-exif-section">
+            <h2 class="metadata-exif-title">Understanding EXIF Data</h2>
+            <div class="metadata-exif-grid">
+                <div class="metadata-exif-card">
+                    <span class="metadata-exif-icon">📷</span>
+                    <h3>Camera Settings</h3>
+                    <p>View aperture (f-stop), shutter speed, ISO, and focal length used.</p>
+                </div>
+                <div class="metadata-exif-card">
+                    <span class="metadata-exif-icon">📱</span>
+                    <h3>Device Information</h3>
+                    <p>Camera make, model, and software used to capture the image.</p>
+                </div>
+                <div class="metadata-exif-card">
+                    <span class="metadata-exif-icon">📍</span>
+                    <h3>Geolocation</h3>
+                    <p>GPS coordinates showing where the photo was taken.</p>
+                </div>
+                <div class="metadata-exif-card">
+                    <span class="metadata-exif-icon">📅</span>
+                    <h3>Date &amp; Time</h3>
+                    <p>Exact timestamp when the image was captured.</p>
+                </div>
+                <div class="metadata-exif-card">
+                    <span class="metadata-exif-icon">🖼️</span>
+                    <h3>Image Properties</h3>
+                    <p>Resolution, color space, bit depth, and compression.</p>
+                </div>
+                <div class="metadata-exif-card">
+                    <span class="metadata-exif-icon">⚙️</span>
+                    <h3>Technical Details</h3>
+                    <p>Exposure bias, metering mode, white balance, and flash settings.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 7. METADATA PRIVACY CONCERNS -->
+        <section class="metadata-privacy-section">
+            <h2 class="metadata-privacy-title">Metadata Privacy Concerns</h2>
+            <div class="metadata-privacy-grid">
+                <div class="metadata-privacy-card">
+                    <span class="metadata-privacy-icon">📍</span>
+                    <h3>Location Exposure</h3>
+                    <p>GPS coordinates in photos can reveal your location history and current whereabouts.</p>
+                </div>
+                <div class="metadata-privacy-card">
+                    <span class="metadata-privacy-icon">📅</span>
+                    <h3>Timeline Exposure</h3>
+                    <p>Date and time stamps can show your schedule and movement patterns.</p>
+                </div>
+                <div class="metadata-privacy-card">
+                    <span class="metadata-privacy-icon">📷</span>
+                    <h3>Device Fingerprinting</h3>
+                    <p>Camera serial numbers and settings can uniquely identify your device.</p>
+                </div>
+                <div class="metadata-privacy-card">
+                    <span class="metadata-privacy-icon">🔒</span>
+                    <h3>Privacy Protection</h3>
+                    <p>Always remove metadata before sharing photos online, especially on public platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="metadata-usecases-section">
+            <h2 class="metadata-usecases-title">Image Metadata Use Cases</h2>
+            <div class="metadata-usecases-grid">
+                <div class="metadata-usecase-card">
+                    <span class="metadata-usecase-icon">📸</span>
+                    <h3>Photographers</h3>
+                    <p>Review camera settings and improve techniques.</p>
+                </div>
+                <div class="metadata-usecase-card">
+                    <span class="metadata-usecase-icon">🔍</span>
+                    <h3>Digital Forensics</h3>
+                    <p>Verify image authenticity and origin.</p>
+                </div>
+                <div class="metadata-usecase-card">
+                    <span class="metadata-usecase-icon">🏢</span>
+                    <h3>Copyright Protection</h3>
+                    <p>Embed and verify ownership information.</p>
+                </div>
+                <div class="metadata-usecase-card">
+                    <span class="metadata-usecase-icon">📍</span>
+                    <h3>Travel &amp; Tourism</h3>
+                    <p>Track and document travel locations.</p>
+                </div>
+                <div class="metadata-usecase-card">
+                    <span class="metadata-usecase-icon">📊</span>
+                    <h3>Analytics</h3>
+                    <p>Analyze photography patterns and preferences.</p>
+                </div>
+                <div class="metadata-usecase-card">
+                    <span class="metadata-usecase-icon">🔒</span>
+                    <h3>Privacy</h3>
+                    <p>Remove sensitive information before sharing.</p>
+                </div>
+                <div class="metadata-usecase-card">
+                    <span class="metadata-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Check and manage metadata before posting.</p>
+                </div>
+                <div class="metadata-usecase-card">
+                    <span class="metadata-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Manage product image metadata for SEO.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 9. FREQUENTLY ASKED QUESTIONS -->
+        <section class="metadata-faq-section" id="metadata-faq">
+            <h2 class="metadata-faq-title">Frequently Asked Questions</h2>
+            <div class="metadata-faq-accordion">
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        What is image metadata?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Image metadata is hidden information stored within an image file that includes details like camera settings, date, location, and more.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        What is EXIF data?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>EXIF (Exchangeable Image File Format) data is the most common type of image metadata, containing camera settings, date, time, and other technical details.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        Can I see GPS location in image metadata?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Yes, if your camera or phone has GPS enabled, the location coordinates will be stored in the metadata.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        Is metadata automatically added to all images?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Most cameras and smartphones automatically add metadata to images. Some apps may strip metadata during processing.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        Can I remove metadata from my images?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Yes, you can remove metadata using our tool. This is recommended for privacy protection before sharing images online.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        Is it safe to share images with metadata?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Sharing images with metadata can expose your location and personal information. It's safer to remove metadata before sharing publicly.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        What file formats support metadata?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>JPG, PNG, TIFF, and HEIC formats support metadata. GIF and WebP also support some metadata.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        Can metadata be edited or faked?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Yes, metadata can be edited using various tools. This means it should not be considered absolute proof of authenticity.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        What camera settings are stored in metadata?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Common settings include aperture, shutter speed, ISO, focal length, white balance, flash status, and exposure compensation.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        Do social media platforms keep metadata?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Most social media platforms strip metadata from uploaded images for privacy and storage optimization.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        Is my image data secure when using this tool?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed securely and automatically deleted after analysis. We do not store or share your data.</p>
+                    </div>
+                </div>
+                <div class="metadata-faq-item">
+                    <button class="metadata-faq-question" aria-expanded="false">
+                        Can I use this tool for professional photography?
+                        <span class="metadata-faq-icon">+</span>
+                    </button>
+                    <div class="metadata-faq-answer" style="display:none;">
+                        <p>Yes, this tool is ideal for professional photographers who want to review camera settings or manage metadata for their portfolio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 10. DATA HANDLING & PRIVACY -->
+        <section class="metadata-data-section">
+            <h2 class="metadata-data-title">Data Handling and Privacy</h2>
+            <p>Your privacy and data security are our priority. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> Metadata extraction occurs locally in your browser where possible.</li>
+                <li><strong>☁️ Temporary server upload:</strong> Images may be temporarily uploaded for processing.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images or metadata after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your metadata with third parties.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="metadata-section-divider"></div>
+
+        <!-- 11. RELATED TOOLS -->
+        <section class="metadata-related-section" id="metadata-related-tools">
+            <h2 class="metadata-related-title">Related Tools</h2>
+            <div class="metadata-related-grid">
+                <a href="#" class="metadata-related-card">
+                    <span class="metadata-related-icon">📷</span> Image Resizer
+                </a>
+                <a href="#" class="metadata-related-card">
+                    <span class="metadata-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="metadata-related-card">
+                    <span class="metadata-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="metadata-related-card">
+                    <span class="metadata-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="metadata-related-card">
+                    <span class="metadata-related-icon">🪞</span> Image Flipper
+                </a>
+                <a href="#" class="metadata-related-card">
+                    <span class="metadata-related-icon">🔄</span> Image Rotator
+                </a>
+                <a href="#" class="metadata-related-card">
+                    <span class="metadata-related-icon">📐</span> Social Media Resizer
+                </a>
+                <a href="#" class="metadata-related-card">
+                    <span class="metadata-related-icon">🏷️</span> Image Watermark
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is image metadata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Image metadata is hidden information stored within an image file that includes details like camera settings, date, location, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is EXIF data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EXIF (Exchangeable Image File Format) data is the most common type of image metadata, containing camera settings, date, time, and other technical details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see GPS location in image metadata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if your camera or phone has GPS enabled, the location coordinates will be stored in the metadata."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is metadata automatically added to all images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most cameras and smartphones automatically add metadata to images. Some apps may strip metadata during processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I remove metadata from my images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can remove metadata using our tool. This is recommended for privacy protection before sharing images online."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to share images with metadata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sharing images with metadata can expose your location and personal information. It's safer to remove metadata before sharing publicly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What file formats support metadata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JPG, PNG, TIFF, and HEIC formats support metadata. GIF and WebP also support some metadata."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can metadata be edited or faked?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, metadata can be edited using various tools. This means it should not be considered absolute proof of authenticity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What camera settings are stored in metadata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Common settings include aperture, shutter speed, ISO, focal length, white balance, flash status, and exposure compensation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do social media platforms keep metadata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most social media platforms strip metadata from uploaded images for privacy and storage optimization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure when using this tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed securely and automatically deleted after analysis. We do not store or share your data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this tool for professional photography?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this tool is ideal for professional photographers who want to review camera settings or manage metadata for their portfolio."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.metadata-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 </main>
 

@@ -733,6 +733,661 @@
     }
 
   /* End Page style goes here....................*/
+          .b64-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .b64-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .b64-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .b64-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .b64-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .b64-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .b64-intro-text strong {
+            color: #1e293b;
+        }
+
+        .b64-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .b64-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-about-title::before {
+            content: '🔄';
+            font-size: 1.8rem;
+        }
+        .b64-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .b64-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .b64-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .b64-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .b64-howto-section {
+            margin: 2.5rem 0;
+        }
+        .b64-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .b64-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .b64-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .b64-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .b64-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .b64-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .b64-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .b64-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .b64-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .b64-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .b64-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .b64-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .b64-benefit-card .b64-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .b64-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .b64-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .b64-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .b64-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .b64-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .b64-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .b64-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .b64-feature-card .b64-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .b64-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .b64-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .b64-uses-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .b64-uses-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-uses-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .b64-uses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .b64-use-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .b64-use-card .b64-use-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .b64-use-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .b64-use-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .b64-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .b64-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .b64-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .b64-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .b64-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .b64-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .b64-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .b64-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .b64-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .b64-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .b64-usecase-card .b64-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .b64-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .b64-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .b64-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .b64-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .b64-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .b64-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .b64-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .b64-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .b64-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .b64-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .b64-faq-item:last-child {
+            border-bottom: none;
+        }
+        .b64-faq-item:hover {
+            background: #f8fafc;
+        }
+        .b64-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .b64-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .b64-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .b64-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .b64-faq-question[aria-expanded="true"] .b64-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .b64-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .b64-faq-answer p {
+            margin: 0;
+        }
+        .b64-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .b64-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .b64-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .b64-privacy-section p,
+        .b64-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .b64-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .b64-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .b64-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .b64-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .b64-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .b64-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .b64-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .b64-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .b64-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .b64-related-card .b64-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .b64-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .b64-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .b64-uses-grid { grid-template-columns: repeat(2, 1fr); }
+            .b64-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .b64-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .b64-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .b64-content-wrapper { padding: 0 16px; }
+            .b64-intro-title { font-size: 2.2rem; }
+            .b64-howto-steps { grid-template-columns: 1fr; }
+            .b64-benefit-grid { grid-template-columns: 1fr; }
+            .b64-features-grid { grid-template-columns: 1fr; }
+            .b64-uses-grid { grid-template-columns: 1fr; }
+            .b64-usecases-grid { grid-template-columns: 1fr; }
+            .b64-tips-list { grid-template-columns: 1fr; }
+            .b64-checklist-list { grid-template-columns: 1fr; }
+            .b64-related-grid { grid-template-columns: 1fr 1fr; }
+            .b64-about-list { grid-template-columns: 1fr; }
+            .b64-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .b64-intro-title { font-size: 1.8rem; }
+            .b64-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1150,6 +1805,559 @@
     </section>
 
 
+    <div class="b64-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="b64-intro-section" id="b64-intro">
+            <h1 class="b64-intro-title">Free Image to Base64 Converter</h1>
+            <p class="b64-intro-text">
+                An <strong>image to Base64 converter</strong> is a tool that encodes images into Base64 strings. Base64 encoding allows images to be embedded directly into HTML, CSS, JSON, and other text-based formats, eliminating the need for separate image files.
+            </p>
+            <p class="b64-intro-text">
+                Our <strong>free online image to Base64 converter</strong> supports all major image formats including JPG, PNG, GIF, SVG, and more. Perfect for web developers, designers, and anyone who needs to embed images in code. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 2. WHAT IS BASE64 ENCODING? -->
+        <section class="b64-about-section" id="b64-about">
+            <h2 class="b64-about-title">What Is Base64 Encoding?</h2>
+            <p class="b64-about-text">
+                Base64 encoding is a method of converting binary data (like images) into text format using 64 ASCII characters. This allows images to be embedded in text-based formats like HTML, CSS, and JSON.
+            </p>
+            <p class="b64-about-text">Key features include:</p>
+            <ul class="b64-about-list">
+                <li><strong>Embed Images</strong> — No external files needed</li>
+                <li><strong>HTML &amp; CSS Friendly</strong> — Direct embedding</li>
+                <li><strong>JSON Compatible</strong> — Perfect for APIs</li>
+                <li><strong>Multiple Formats</strong> — JPG, PNG, GIF, SVG, etc.</li>
+                <li><strong>Quick Processing</strong> — Instant conversion</li>
+            </ul>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 3. HOW TO CONVERT IMAGE TO BASE64 -->
+        <section class="b64-howto-section" id="b64-how-to-use">
+            <h2 class="b64-howto-title">How to Convert Image to Base64</h2>
+            <div class="b64-howto-steps">
+                <div class="b64-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select an image from your device.</p>
+                </div>
+                <div class="b64-howto-step">
+                    <h3>Choose Output Format</h3>
+                    <p>Select HTML, CSS, JSON, or raw Base64.</p>
+                </div>
+                <div class="b64-howto-step">
+                    <h3>Generate Base64</h3>
+                    <p>Click to convert your image.</p>
+                </div>
+                <div class="b64-howto-step">
+                    <h3>Preview Result</h3>
+                    <p>See your Base64 string and preview.</p>
+                </div>
+                <div class="b64-howto-step">
+                    <h3>Copy or Download</h3>
+                    <p>Save your Base64 output.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 4. WHY USE AN IMAGE TO BASE64 CONVERTER? -->
+        <section class="b64-benefits-section" id="b64-benefits">
+            <h2 class="b64-benefits-title">Why Use an Image to Base64 Converter?</h2>
+            <div class="b64-benefit-grid">
+                <div class="b64-benefit-card">
+                    <span class="b64-benefit-icon">🖼️</span>
+                    <h3>Embed Images</h3>
+                    <p>No external files needed.</p>
+                </div>
+                <div class="b64-benefit-card">
+                    <span class="b64-benefit-icon">📝</span>
+                    <h3>HTML/CSS Ready</h3>
+                    <p>Direct code embedding.</p>
+                </div>
+                <div class="b64-benefit-card">
+                    <span class="b64-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Convert instantly.</p>
+                </div>
+                <div class="b64-benefit-card">
+                    <span class="b64-benefit-icon">📋</span>
+                    <h3>Multiple Formats</h3>
+                    <p>Support for all image types.</p>
+                </div>
+                <div class="b64-benefit-card">
+                    <span class="b64-benefit-icon">🎯</span>
+                    <h3>Accurate</h3>
+                    <p>Get precise Base64 strings.</p>
+                </div>
+                <div class="b64-benefit-card">
+                    <span class="b64-benefit-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on mobile and desktop.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 5. FEATURES -->
+        <section class="b64-features-section">
+            <h2 class="b64-features-title">Image to Base64 Features</h2>
+            <div class="b64-features-grid">
+                <div class="b64-feature-card">
+                    <span class="b64-feature-icon">🖼️</span>
+                    <h3>All Image Formats</h3>
+                    <p>JPG, PNG, GIF, SVG, and more.</p>
+                </div>
+                <div class="b64-feature-card">
+                    <span class="b64-feature-icon">📝</span>
+                    <h3>HTML Output</h3>
+                    <p>Ready-to-use HTML code.</p>
+                </div>
+                <div class="b64-feature-card">
+                    <span class="b64-feature-icon">🎨</span>
+                    <h3>CSS Output</h3>
+                    <p>CSS background-image format.</p>
+                </div>
+                <div class="b64-feature-card">
+                    <span class="b64-feature-icon">📊</span>
+                    <h3>JSON Output</h3>
+                    <p>JSON-compatible string.</p>
+                </div>
+                <div class="b64-feature-card">
+                    <span class="b64-feature-icon">⚡</span>
+                    <h3>Instant Processing</h3>
+                    <p>Get results immediately.</p>
+                </div>
+                <div class="b64-feature-card">
+                    <span class="b64-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy text management.</p>
+                </div>
+                <div class="b64-feature-card">
+                    <span class="b64-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your images are safe.</p>
+                </div>
+                <div class="b64-feature-card">
+                    <span class="b64-feature-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 6. USES OF BASE64 IMAGES -->
+        <section class="b64-uses-section">
+            <h2 class="b64-uses-title">What Can You Do with Base64 Images?</h2>
+            <div class="b64-uses-grid">
+                <div class="b64-use-card">
+                    <span class="b64-use-icon">🌐</span>
+                    <h3>HTML Embedding</h3>
+                    <p>Embed images directly in HTML using the data URI scheme. Perfect for email templates and single-file pages.</p>
+                </div>
+                <div class="b64-use-card">
+                    <span class="b64-use-icon">🎨</span>
+                    <h3>CSS Backgrounds</h3>
+                    <p>Use Base64 images as CSS background images. Great for icons, sprites, and small images.</p>
+                </div>
+                <div class="b64-use-card">
+                    <span class="b64-use-icon">📊</span>
+                    <h3>JSON APIs</h3>
+                    <p>Send images as Base64 strings in JSON responses. Perfect for REST APIs and mobile apps.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="b64-tips-section">
+            <h2 class="b64-tips-title">Best Practices for Base64 Images</h2>
+            <ul class="b64-tips-list">
+                <li>Use Base64 for small images (under 10KB)</li>
+                <li>Avoid Base64 for large images (increases file size)</li>
+                <li>Use for email templates and single-file pages</li>
+                <li>Great for icons, logos, and small graphics</li>
+                <li>Compress images before encoding</li>
+                <li>Cache Base64 strings for performance</li>
+                <li>Use for API responses and mobile apps</li>
+                <li>Consider performance impact on page load</li>
+                <li>Use appropriate image formats</li>
+                <li>Test in different browsers</li>
+            </ul>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="b64-usecases-section">
+            <h2 class="b64-usecases-title">Image to Base64 Use Cases</h2>
+            <div class="b64-usecases-grid">
+                <div class="b64-usecase-card">
+                    <span class="b64-usecase-icon">🌐</span>
+                    <h3>Web Development</h3>
+                    <p>Embed images in HTML/CSS.</p>
+                </div>
+                <div class="b64-usecase-card">
+                    <span class="b64-usecase-icon">📧</span>
+                    <h3>Email Templates</h3>
+                    <p>Embed images in emails.</p>
+                </div>
+                <div class="b64-usecase-card">
+                    <span class="b64-usecase-icon">📱</span>
+                    <h3>Mobile Apps</h3>
+                    <p>Send images via JSON.</p>
+                </div>
+                <div class="b64-usecase-card">
+                    <span class="b64-usecase-icon">📊</span>
+                    <h3>APIs</h3>
+                    <p>Return images in responses.</p>
+                </div>
+                <div class="b64-usecase-card">
+                    <span class="b64-usecase-icon">🎨</span>
+                    <h3>CSS Sprites</h3>
+                    <p>Create sprite sheets.</p>
+                </div>
+                <div class="b64-usecase-card">
+                    <span class="b64-usecase-icon">📝</span>
+                    <h3>Documentation</h3>
+                    <p>Embed images in docs.</p>
+                </div>
+                <div class="b64-usecase-card">
+                    <span class="b64-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Embed product images.</p>
+                </div>
+                <div class="b64-usecase-card">
+                    <span class="b64-usecase-icon">📋</span>
+                    <h3>Reporting</h3>
+                    <p>Include images in reports.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="b64-checklist-section" id="b64-checklist">
+            <h2 class="b64-checklist-title">Before Using Your Base64 Output</h2>
+            <ul class="b64-checklist-list">
+                <li>Is the Base64 string complete?</li>
+                <li>Is the image format correct?</li>
+                <li>Is the output format appropriate?</li>
+                <li>Is the image size suitable for Base64?</li>
+                <li>Have you previewed the image?</li>
+                <li>Is the Base64 string ready for use?</li>
+                <li>Have you tested the output?</li>
+                <li>Is the encoding accurate?</li>
+                <li>Is the output compatible with your use case?</li>
+                <li>Have you saved your final version?</li>
+            </ul>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="b64-faq-section" id="b64-faq">
+            <h2 class="b64-faq-title">Frequently Asked Questions</h2>
+            <div class="b64-faq-accordion">
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        What is Base64 encoding?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>Base64 encoding converts binary data (like images) into text format using 64 ASCII characters.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        Is the image to Base64 converter free?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>Yes, our image to Base64 converter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        What image formats are supported?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>We support JPG, PNG, GIF, SVG, BMP, WebP, and more formats.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        What output formats are available?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>You can output as HTML data URI, CSS background-image, JSON, or raw Base64 string.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        How do I embed Base64 images in HTML?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>Use the data URI format: <code>&lt;img src="data:image/png;base64,..."&gt;</code></p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        Is my image data secure?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed locally in your browser and are never sent to any server.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        Can I convert large images to Base64?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>Yes, but large images will produce long Base64 strings. Consider compressing images first.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>We accept images up to 50MB in size for conversion.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        Is the tool mobile-friendly?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>Yes, our image to Base64 converter works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        How do I use Base64 in CSS?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>Use: <code>background-image: url(data:image/png;base64,...);</code></p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        Can I convert SVG to Base64?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>Yes, SVG files can be converted to Base64 just like any other image format.</p>
+                    </div>
+                </div>
+                <div class="b64-faq-item">
+                    <button class="b64-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="b64-faq-icon">+</span>
+                    </button>
+                    <div class="b64-faq-answer" style="display:none;">
+                        <p>No, you can use the image to Base64 converter without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="b64-privacy-section">
+            <h2 class="b64-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All image processing happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your images are never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images or Base64 strings.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your data is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="b64-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="b64-related-section" id="b64-related-tools">
+            <h2 class="b64-related-title">Related Tools</h2>
+            <div class="b64-related-grid">
+                <a href="#" class="b64-related-card">
+                    <span class="b64-related-icon">🔄</span> Base64 to Image
+                </a>
+                <a href="#" class="b64-related-card">
+                    <span class="b64-related-icon">🖼️</span> Image Resizer
+                </a>
+                <a href="#" class="b64-related-card">
+                    <span class="b64-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="b64-related-card">
+                    <span class="b64-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="b64-related-card">
+                    <span class="b64-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="b64-related-card">
+                    <span class="b64-related-icon">🎨</span> Image Enhancer
+                </a>
+                <a href="#" class="b64-related-card">
+                    <span class="b64-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="b64-related-card">
+                    <span class="b64-related-icon">🏷️</span> Image Watermark
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Base64 encoding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Base64 encoding converts binary data (like images) into text format using 64 ASCII characters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the image to Base64 converter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image to Base64 converter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What image formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support JPG, PNG, GIF, SVG, BMP, WebP, and more formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What output formats are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can output as HTML data URI, CSS background-image, JSON, or raw Base64 string."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I embed Base64 images in HTML?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the data URI format: <img src='data:image/png;base64,...'>"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed locally in your browser and are never sent to any server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert large images to Base64?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but large images will produce long Base64 strings. Consider compressing images first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept images up to 50MB in size for conversion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tool mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image to Base64 converter works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I use Base64 in CSS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use: background-image: url(data:image/png;base64,...);"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert SVG to Base64?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, SVG files can be converted to Base64 just like any other image format."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the image to Base64 converter without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.b64-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

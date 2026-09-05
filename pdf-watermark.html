@@ -389,6 +389,711 @@
     }
 
   /* End Page style goes here....................*/
+
+          .wmpdf-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .wmpdf-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .wmpdf-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .wmpdf-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .wmpdf-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .wmpdf-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .wmpdf-intro-text strong {
+            color: #1e293b;
+        }
+
+        .wmpdf-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .wmpdf-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-about-title::before {
+            content: '🏷️';
+            font-size: 1.8rem;
+        }
+        .wmpdf-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .wmpdf-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .wmpdf-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .wmpdf-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .wmpdf-howto-section {
+            margin: 2.5rem 0;
+        }
+        .wmpdf-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .wmpdf-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .wmpdf-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .wmpdf-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .wmpdf-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .wmpdf-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .wmpdf-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .wmpdf-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .wmpdf-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .wmpdf-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .wmpdf-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .wmpdf-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .wmpdf-benefit-card .wmpdf-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .wmpdf-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .wmpdf-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wmpdf-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .wmpdf-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .wmpdf-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .wmpdf-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .wmpdf-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .wmpdf-feature-card .wmpdf-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .wmpdf-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .wmpdf-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wmpdf-types-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 16px;
+        }
+        .wmpdf-types-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-types-title::before {
+            content: '🎨';
+            font-size: 1.8rem;
+        }
+        .wmpdf-types-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .wmpdf-type-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .wmpdf-type-card .wmpdf-type-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .wmpdf-type-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .wmpdf-type-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wmpdf-placement-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+            border-radius: 16px;
+        }
+        .wmpdf-placement-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-placement-title::before {
+            content: '📍';
+            font-size: 1.8rem;
+        }
+        .wmpdf-placement-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .wmpdf-placement-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .wmpdf-placement-card .wmpdf-placement-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .wmpdf-placement-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .wmpdf-placement-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wmpdf-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .wmpdf-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .wmpdf-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .wmpdf-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .wmpdf-tips-list li::before {
+            content: '●';
+            color: #8b5cf6;
+        }
+
+        .wmpdf-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .wmpdf-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .wmpdf-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .wmpdf-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .wmpdf-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .wmpdf-usecase-card .wmpdf-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .wmpdf-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .wmpdf-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wmpdf-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .wmpdf-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .wmpdf-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .wmpdf-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .wmpdf-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .wmpdf-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .wmpdf-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .wmpdf-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .wmpdf-faq-item:last-child {
+            border-bottom: none;
+        }
+        .wmpdf-faq-item:hover {
+            background: #f8fafc;
+        }
+        .wmpdf-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .wmpdf-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .wmpdf-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .wmpdf-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .wmpdf-faq-question[aria-expanded="true"] .wmpdf-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .wmpdf-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .wmpdf-faq-answer p {
+            margin: 0;
+        }
+        .wmpdf-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .wmpdf-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .wmpdf-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .wmpdf-privacy-section p,
+        .wmpdf-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .wmpdf-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .wmpdf-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .wmpdf-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .wmpdf-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .wmpdf-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wmpdf-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .wmpdf-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .wmpdf-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .wmpdf-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .wmpdf-related-card .wmpdf-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .wmpdf-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .wmpdf-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .wmpdf-placement-grid { grid-template-columns: repeat(2, 1fr); }
+            .wmpdf-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .wmpdf-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .wmpdf-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .wmpdf-content-wrapper { padding: 0 16px; }
+            .wmpdf-intro-title { font-size: 2.2rem; }
+            .wmpdf-howto-steps { grid-template-columns: 1fr; }
+            .wmpdf-benefit-grid { grid-template-columns: 1fr; }
+            .wmpdf-features-grid { grid-template-columns: 1fr; }
+            .wmpdf-types-grid { grid-template-columns: 1fr; }
+            .wmpdf-placement-grid { grid-template-columns: 1fr; }
+            .wmpdf-usecases-grid { grid-template-columns: 1fr; }
+            .wmpdf-tips-list { grid-template-columns: 1fr; }
+            .wmpdf-checklist-list { grid-template-columns: 1fr; }
+            .wmpdf-related-grid { grid-template-columns: 1fr 1fr; }
+            .wmpdf-about-list { grid-template-columns: 1fr; }
+            .wmpdf-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .wmpdf-intro-title { font-size: 1.8rem; }
+            .wmpdf-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -782,6 +1487,607 @@
 </div>  
 
 
+    <div class="wmpdf-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="wmpdf-intro-section" id="wmpdf-intro">
+            <h1 class="wmpdf-intro-title">Free PDF Watermark</h1>
+            <p class="wmpdf-intro-text">
+                A <strong>PDF watermark</strong> is a visible or semi-transparent mark added to a document to indicate ownership, identify the creator, or prevent unauthorized use. Watermarks can be text-based (like "CONFIDENTIAL" or "DRAFT") or image-based (like a logo or signature). 
+            </p>
+            <p class="wmpdf-intro-text">
+                Our <strong>free online PDF watermark</strong> tool allows you to add text or image watermarks to any PDF document. You can customize the position, opacity, rotation, and size of your watermark. Perfect for protecting documents, branding, and indicating document status.
+            </p>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 2. WHAT IS A PDF WATERMARK? -->
+        <section class="wmpdf-about-section" id="wmpdf-about">
+            <h2 class="wmpdf-about-title">What Is a PDF Watermark?</h2>
+            <p class="wmpdf-about-text">
+                A PDF watermark is a mark embedded in a document to show ownership, status, or branding. It is typically semi-transparent so that the content remains readable. Watermarks are widely used to protect documents from unauthorized use and to establish ownership.
+            </p>
+            <p class="wmpdf-about-text">Key types of watermarks include:</p>
+            <ul class="wmpdf-about-list">
+                <li><strong>Text Watermarks</strong> — Words like "CONFIDENTIAL," "DRAFT," or "SAMPLE"</li>
+                <li><strong>Image Watermarks</strong> — Logos, signatures, or symbols</li>
+                <li><strong>Branding Watermarks</strong> — Company name or brand identity</li>
+                <li><strong>Status Indicators</strong> — Document status such as "APPROVED" or "REVIEW"</li>
+                <li><strong>Ownership Marks</strong> — Creator or copyright information</li>
+            </ul>
+            <p class="wmpdf-about-text">
+                <strong>Important:</strong> While watermarks can discourage unauthorized use and help identify ownership, they are not an absolute technical protection against copying or unauthorized distribution.
+            </p>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 3. HOW TO ADD A WATERMARK TO A PDF -->
+        <section class="wmpdf-howto-section" id="wmpdf-how-to-use">
+            <h2 class="wmpdf-howto-title">How to Add a Watermark to a PDF</h2>
+            <div class="wmpdf-howto-steps">
+                <div class="wmpdf-howto-step">
+                    <h3>Upload Your PDF</h3>
+                    <p>Select the PDF file you want to watermark.</p>
+                </div>
+                <div class="wmpdf-howto-step">
+                    <h3>Choose Watermark Type</h3>
+                    <p>Select text or image watermark.</p>
+                </div>
+                <div class="wmpdf-howto-step">
+                    <h3>Customize Your Watermark</h3>
+                    <p>Enter text or upload an image, set opacity, position, and rotation.</p>
+                </div>
+                <div class="wmpdf-howto-step">
+                    <h3>Preview the Watermark</h3>
+                    <p>See how your watermark looks on the document.</p>
+                </div>
+                <div class="wmpdf-howto-step">
+                    <h3>Download Your PDF</h3>
+                    <p>Save your watermarked PDF instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 4. WHY WATERMARK PDF DOCUMENTS? -->
+        <section class="wmpdf-benefits-section" id="wmpdf-benefits">
+            <h2 class="wmpdf-benefits-title">Why Watermark Your PDF Documents?</h2>
+            <div class="wmpdf-benefit-grid">
+                <div class="wmpdf-benefit-card">
+                    <span class="wmpdf-benefit-icon">🏷️</span>
+                    <h3>Brand Recognition</h3>
+                    <p>Keep your brand visible on every page.</p>
+                </div>
+                <div class="wmpdf-benefit-card">
+                    <span class="wmpdf-benefit-icon">🔒</span>
+                    <h3>Protect Content</h3>
+                    <p>Discourage unauthorized sharing.</p>
+                </div>
+                <div class="wmpdf-benefit-card">
+                    <span class="wmpdf-benefit-icon">📋</span>
+                    <h3>Document Status</h3>
+                    <p>Mark documents as DRAFT, CONFIDENTIAL, or APPROVED.</p>
+                </div>
+                <div class="wmpdf-benefit-card">
+                    <span class="wmpdf-benefit-icon">📊</span>
+                    <h3>Professional Look</h3>
+                    <p>Present documents professionally.</p>
+                </div>
+                <div class="wmpdf-benefit-card">
+                    <span class="wmpdf-benefit-icon">📱</span>
+                    <h3>Ownership Identification</h3>
+                    <p>Clearly identify the document owner.</p>
+                </div>
+                <div class="wmpdf-benefit-card">
+                    <span class="wmpdf-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Add watermarks in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 5. WATERMARK FEATURES -->
+        <section class="wmpdf-features-section">
+            <h2 class="wmpdf-features-title">PDF Watermark Features</h2>
+            <div class="wmpdf-features-grid">
+                <div class="wmpdf-feature-card">
+                    <span class="wmpdf-feature-icon">✏️</span>
+                    <h3>Text Watermark</h3>
+                    <p>Add custom text watermarks.</p>
+                </div>
+                <div class="wmpdf-feature-card">
+                    <span class="wmpdf-feature-icon">🖼️</span>
+                    <h3>Image Watermark</h3>
+                    <p>Upload logos or images.</p>
+                </div>
+                <div class="wmpdf-feature-card">
+                    <span class="wmpdf-feature-icon">📍</span>
+                    <h3>Position Control</h3>
+                    <p>Place watermark anywhere.</p>
+                </div>
+                <div class="wmpdf-feature-card">
+                    <span class="wmpdf-feature-icon">🎨</span>
+                    <h3>Opacity Control</h3>
+                    <p>Adjust transparency levels.</p>
+                </div>
+                <div class="wmpdf-feature-card">
+                    <span class="wmpdf-feature-icon">🔄</span>
+                    <h3>Rotation</h3>
+                    <p>Rotate watermark at any angle.</p>
+                </div>
+                <div class="wmpdf-feature-card">
+                    <span class="wmpdf-feature-icon">📏</span>
+                    <h3>Size Control</h3>
+                    <p>Adjust watermark size.</p>
+                </div>
+                <div class="wmpdf-feature-card">
+                    <span class="wmpdf-feature-icon">⚡</span>
+                    <h3>Fast Processing</h3>
+                    <p>Add watermarks quickly.</p>
+                </div>
+                <div class="wmpdf-feature-card">
+                    <span class="wmpdf-feature-icon">🔒</span>
+                    <h3>Secure Processing</h3>
+                    <p>Your files are handled securely.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 6. TEXT VS IMAGE WATERMARK -->
+        <section class="wmpdf-types-section">
+            <h2 class="wmpdf-types-title">Text vs Image Watermarks</h2>
+            <div class="wmpdf-types-grid">
+                <div class="wmpdf-type-card">
+                    <span class="wmpdf-type-icon">✏️</span>
+                    <h3>Text Watermark</h3>
+                    <p>Best for status indicators like "CONFIDENTIAL," "DRAFT," "SAMPLE," or "APPROVED." Easy to customize and ideal for legal and business documents. Text watermarks are simple to create and can be resized to any dimension.</p>
+                </div>
+                <div class="wmpdf-type-card">
+                    <span class="wmpdf-type-icon">🖼️</span>
+                    <h3>Image Watermark</h3>
+                    <p>Best for branding and logos. Use company logos, signatures, or any image to create a professional look. Ideal for marketing materials and documents that require brand recognition.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 7. WATERMARK PLACEMENT -->
+        <section class="wmpdf-placement-section">
+            <h2 class="wmpdf-placement-title">Watermark Placement Options</h2>
+            <div class="wmpdf-placement-grid">
+                <div class="wmpdf-placement-card">
+                    <span class="wmpdf-placement-icon">↗️</span>
+                    <h3>Top Left</h3>
+                    <p>Subtle and non-intrusive.</p>
+                </div>
+                <div class="wmpdf-placement-card">
+                    <span class="wmpdf-placement-icon">↖️</span>
+                    <h3>Top Right</h3>
+                    <p>Visible but professional.</p>
+                </div>
+                <div class="wmpdf-placement-card">
+                    <span class="wmpdf-placement-icon">⭕</span>
+                    <h3>Center</h3>
+                    <p>Most visible and impactful.</p>
+                </div>
+                <div class="wmpdf-placement-card">
+                    <span class="wmpdf-placement-icon">↘️</span>
+                    <h3>Bottom Left</h3>
+                    <p>Unobtrusive and professional.</p>
+                </div>
+                <div class="wmpdf-placement-card">
+                    <span class="wmpdf-placement-icon">↘️</span>
+                    <h3>Bottom Right</h3>
+                    <p>Common and widely accepted.</p>
+                </div>
+                <div class="wmpdf-placement-card">
+                    <span class="wmpdf-placement-icon">🔁</span>
+                    <h3>Diagonal / Tiled</h3>
+                    <p>Full coverage for maximum protection.</p>
+                </div>
+                <div class="wmpdf-placement-card">
+                    <span class="wmpdf-placement-icon">🎯</span>
+                    <h3>Custom Position</h3>
+                    <p>Place watermark anywhere.</p>
+                </div>
+                <div class="wmpdf-placement-card">
+                    <span class="wmpdf-placement-icon">📐</span>
+                    <h3>All Pages</h3>
+                    <p>Apply to every page.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="wmpdf-tips-section">
+            <h2 class="wmpdf-tips-title">PDF Watermark Best Practices</h2>
+            <ul class="wmpdf-tips-list">
+                <li>Keep watermark readable but not distracting</li>
+                <li>Use opacity between 30-50% for subtle effect</li>
+                <li>Place watermarks strategically to avoid obscuring content</li>
+                <li>Use consistent branding across all documents</li>
+                <li>Preview the watermark before final download</li>
+                <li>Keep a backup of your original PDF</li>
+                <li>Use text watermarks for document status</li>
+                <li>Use image watermarks for branding</li>
+                <li>Consider the final use of the document</li>
+                <li>Ensure the watermark doesn't make the document unreadable</li>
+            </ul>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="wmpdf-usecases-section">
+            <h2 class="wmpdf-usecases-title">PDF Watermark Use Cases</h2>
+            <div class="wmpdf-usecases-grid">
+                <div class="wmpdf-usecase-card">
+                    <span class="wmpdf-usecase-icon">🏢</span>
+                    <h3>Business Documents</h3>
+                    <p>Brand and protect business documents.</p>
+                </div>
+                <div class="wmpdf-usecase-card">
+                    <span class="wmpdf-usecase-icon">📋</span>
+                    <h3>Legal Documents</h3>
+                    <p>Mark as CONFIDENTIAL or DRAFT.</p>
+                </div>
+                <div class="wmpdf-usecase-card">
+                    <span class="wmpdf-usecase-icon">📊</span>
+                    <h3>Reports</h3>
+                    <p>Identify report owners and status.</p>
+                </div>
+                <div class="wmpdf-usecase-card">
+                    <span class="wmpdf-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Mark study materials and assignments.</p>
+                </div>
+                <div class="wmpdf-usecase-card">
+                    <span class="wmpdf-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Protect portfolio and proofs.</p>
+                </div>
+                <div class="wmpdf-usecase-card">
+                    <span class="wmpdf-usecase-icon">📧</span>
+                    <h3>Email Attachments</h3>
+                    <p>Identify document origin.</p>
+                </div>
+                <div class="wmpdf-usecase-card">
+                    <span class="wmpdf-usecase-icon">🖨️</span>
+                    <h3>Print Materials</h3>
+                    <p>Prepare watermarked documents for print.</p>
+                </div>
+                <div class="wmpdf-usecase-card">
+                    <span class="wmpdf-usecase-icon">📱</span>
+                    <h3>Digital Sharing</h3>
+                    <p>Protect documents before sharing.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 10. WATERMARK QUALITY CHECKLIST -->
+        <section class="wmpdf-checklist-section" id="wmpdf-checklist">
+            <h2 class="wmpdf-checklist-title">Before Downloading Your Watermarked PDF</h2>
+            <ul class="wmpdf-checklist-list">
+                <li>Is the watermark readable?</li>
+                <li>Is the opacity appropriate?</li>
+                <li>Is the position suitable?</li>
+                <li>Does it avoid obscuring important content?</li>
+                <li>Does the branding look professional?</li>
+                <li>Is the document still readable?</li>
+                <li>Is the watermark suitable for the intended platform?</li>
+                <li>Have you previewed the watermarked document?</li>
+                <li>Have you kept the original PDF?</li>
+                <li>Is the watermark applied to the correct pages?</li>
+            </ul>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="wmpdf-faq-section" id="wmpdf-faq">
+            <h2 class="wmpdf-faq-title">Frequently Asked Questions</h2>
+            <div class="wmpdf-faq-accordion">
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        What is a PDF watermark?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>A PDF watermark is a visible mark placed on a document to indicate ownership, status, or branding.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Why should I watermark a PDF?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>Watermarks help protect documents, indicate document status (DRAFT, CONFIDENTIAL), and reinforce branding.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Can I add a text watermark?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can add custom text watermarks with any text and font style.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Can I add an image watermark?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can upload logos, signatures, or any image as a watermark.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Where should I place a watermark?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>Common placements include corners, center, or diagonal across the page. Choose based on your document and preference.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        What opacity should I use?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>An opacity between 30-50% is often a good balance for visibility and subtlety.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Can a watermark prevent document theft?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>Watermarks can discourage casual misuse and identify the owner, but they are not an absolute security solution.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Does watermarking reduce document quality?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>No, adding a watermark does not reduce the quality of your PDF document.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Can I watermark a PDF on mobile?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>Yes, our PDF watermark tool works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Is my data secure when adding watermarks?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>Yes, your PDFs are processed securely and automatically deleted after processing. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Can I watermark password-protected PDFs?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>Currently, we only support watermarking password-protected PDFs if you provide the password during upload.</p>
+                    </div>
+                </div>
+                <div class="wmpdf-faq-item">
+                    <button class="wmpdf-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="wmpdf-faq-icon">+</span>
+                    </button>
+                    <div class="wmpdf-faq-answer" style="display:none;">
+                        <p>No, you can watermark PDFs without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="wmpdf-privacy-section">
+            <h2 class="wmpdf-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your PDFs are handled:</p>
+            <ul>
+                <li><strong>☁️ Temporary processing:</strong> PDFs are temporarily uploaded for watermarking.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your PDFs after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>🖥️ No client-side storage:</strong> Your files are never stored on your device without your consent.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="wmpdf-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="wmpdf-related-section" id="wmpdf-related-tools">
+            <h2 class="wmpdf-related-title">Related Tools</h2>
+            <div class="wmpdf-related-grid">
+                <a href="#" class="wmpdf-related-card">
+                    <span class="wmpdf-related-icon">📄</span> Merge PDF
+                </a>
+                <a href="#" class="wmpdf-related-card">
+                    <span class="wmpdf-related-icon">✂️</span> Split PDF
+                </a>
+                <a href="#" class="wmpdf-related-card">
+                    <span class="wmpdf-related-icon">📄</span> Extract Pages
+                </a>
+                <a href="#" class="wmpdf-related-card">
+                    <span class="wmpdf-related-icon">🔄</span> Rotate PDF
+                </a>
+                <a href="#" class="wmpdf-related-card">
+                    <span class="wmpdf-related-icon">🗜️</span> Compress PDF
+                </a>
+                <a href="#" class="wmpdf-related-card">
+                    <span class="wmpdf-related-icon">🔄</span> PDF to Image
+                </a>
+                <a href="#" class="wmpdf-related-card">
+                    <span class="wmpdf-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="wmpdf-related-card">
+                    <span class="wmpdf-related-icon">🔒</span> PDF Security
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PDF watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PDF watermark is a visible mark placed on a document to indicate ownership, status, or branding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why should I watermark a PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Watermarks help protect documents, indicate document status (DRAFT, CONFIDENTIAL), and reinforce branding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add a text watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can add custom text watermarks with any text and font style."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add an image watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can upload logos, signatures, or any image as a watermark."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should I place a watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Common placements include corners, center, or diagonal across the page. Choose based on your document and preference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What opacity should I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An opacity between 30-50% is often a good balance for visibility and subtlety."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a watermark prevent document theft?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Watermarks can discourage casual misuse and identify the owner, but they are not an absolute security solution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does watermarking reduce document quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, adding a watermark does not reduce the quality of your PDF document."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I watermark a PDF on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF watermark tool works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure when adding watermarks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your PDFs are processed securely and automatically deleted after processing. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I watermark password-protected PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, we only support watermarking password-protected PDFs if you provide the password during upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can watermark PDFs without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.wmpdf-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

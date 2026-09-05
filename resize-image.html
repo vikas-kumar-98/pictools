@@ -441,6 +441,737 @@
     .w-full { width: 100%; }
     .hidden { display: none !important; }
 /*End of page here...........*/
+
+        /* ================================================== */
+        /* ADVANCED IMAGE RESIZER - SCOPED STYLES             */
+        /* All selectors are scoped to .resize-* classes      */
+        /* ================================================== */
+
+        /* --- Wrapper --- */
+        .resize-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* --- Section Dividers --- */
+        .resize-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        /* --- Intro Section --- */
+        .resize-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .resize-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            border-radius: 2px;
+        }
+        .resize-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .resize-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .resize-intro-text strong {
+            color: #1e293b;
+        }
+
+        /* --- About Section --- */
+        .resize-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfeff, #cffafe);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .resize-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-about-title::before {
+            content: '🖼️';
+            font-size: 1.8rem;
+        }
+        .resize-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .resize-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .resize-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .resize-about-list li::before {
+            content: '✓';
+            color: #06b6d4;
+            font-weight: 700;
+        }
+
+        /* --- How-To Section --- */
+        .resize-howto-section {
+            margin: 2.5rem 0;
+        }
+        .resize-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .resize-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .resize-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .resize-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .resize-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .resize-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .resize-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Benefits Section --- */
+        .resize-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .resize-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .resize-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .resize-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .resize-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .resize-benefit-card .resize-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .resize-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .resize-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Formats Section --- */
+        .resize-formats-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .resize-formats-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-formats-title::before {
+            content: '📁';
+            font-size: 1.8rem;
+        }
+        .resize-formats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .resize-format-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .resize-format-card:hover {
+            border-color: #06b6d4;
+            background: #ecfeff;
+        }
+        .resize-format-card .resize-format-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .resize-format-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .resize-format-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Compare Section --- */
+        .resize-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .resize-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .resize-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .resize-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .resize-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .resize-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .resize-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+        }
+
+        /* --- Dimensions Section --- */
+        .resize-dimensions-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .resize-dimensions-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-dimensions-title::before {
+            content: '📐';
+            font-size: 1.8rem;
+        }
+        .resize-dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .resize-dimensions-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .resize-dimensions-card .resize-dimension-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .resize-dimensions-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .resize-dimensions-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Best Practices --- */
+        .resize-practices-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .resize-practices-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-practices-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .resize-practices-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .resize-practices-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .resize-practices-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        /* --- Use Cases --- */
+        .resize-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .resize-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .resize-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .resize-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .resize-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .resize-usecase-card .resize-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .resize-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .resize-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Quality Checklist --- */
+        .resize-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .resize-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .resize-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .resize-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .resize-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        /* --- FAQ --- */
+        .resize-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .resize-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .resize-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .resize-faq-item:last-child {
+            border-bottom: none;
+        }
+        .resize-faq-item:hover {
+            background: #f8fafc;
+        }
+        .resize-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .resize-faq-question:hover {
+            color: #06b6d4;
+        }
+        .resize-faq-question:focus {
+            outline: 2px solid #06b6d4;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .resize-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .resize-faq-question[aria-expanded="true"] .resize-faq-icon {
+            transform: rotate(45deg);
+            color: #06b6d4;
+        }
+        .resize-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .resize-faq-answer p {
+            margin: 0;
+        }
+        .resize-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Privacy --- */
+        .resize-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .resize-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .resize-privacy-section p,
+        .resize-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .resize-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .resize-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .resize-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        /* --- Related Tools --- */
+        .resize-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .resize-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .resize-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .resize-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .resize-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .resize-related-card:hover {
+            background: #06b6d4;
+            color: white;
+            border-color: #06b6d4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6,182,212,0.3);
+        }
+        .resize-related-card .resize-related-icon {
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .resize-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .resize-formats-grid { grid-template-columns: repeat(2, 1fr); }
+            .resize-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .resize-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .resize-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .resize-content-wrapper { padding: 0 16px; }
+            .resize-intro-title { font-size: 2.2rem; }
+            .resize-howto-steps { grid-template-columns: 1fr; }
+            .resize-benefit-grid { grid-template-columns: 1fr; }
+            .resize-formats-grid { grid-template-columns: 1fr; }
+            .resize-compare-grid { grid-template-columns: 1fr; }
+            .resize-dimensions-grid { grid-template-columns: 1fr; }
+            .resize-usecases-grid { grid-template-columns: 1fr; }
+            .resize-practices-list { grid-template-columns: 1fr; }
+            .resize-checklist-list { grid-template-columns: 1fr; }
+            .resize-related-grid { grid-template-columns: 1fr 1fr; }
+            .resize-about-list { grid-template-columns: 1fr; }
+            .resize-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .resize-intro-title { font-size: 1.8rem; }
+            .resize-related-grid { grid-template-columns: 1fr; }
+        }
+
 </style>
 </head>
 <body>
@@ -827,6 +1558,594 @@
 <div id="toast" class="toast"></div>
     
 
+
+    <div class="resize-content-wrapper">
+
+        <!-- ============================================ -->
+        <!-- IMAGE RESIZER INFORMATIONAL CONTENT           -->
+        <!-- ============================================ -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="resize-intro-section" id="resize-intro">
+            <h1 class="resize-intro-title">Free Online Image Resizer</h1>
+            <p class="resize-intro-text">
+                An <strong>image resizer</strong> is a tool that adjusts the dimensions of an image — width and height — while preserving or altering its aspect ratio. Whether you need smaller images for web optimization or larger ones for print, resizing is essential for any digital workflow.
+            </p>
+            <p class="resize-intro-text">
+                Our <strong>free online image resizer</strong> makes it easy to resize images for social media, websites, email, and print. Simply upload your image, enter your desired dimensions, and download the optimized result. Maintain quality, choose your format, and resize in seconds.
+            </p>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 2. WHAT IS IMAGE RESIZING? -->
+        <section class="resize-about-section" id="resize-about">
+            <h2 class="resize-about-title">What Is Image Resizing?</h2>
+            <p class="resize-about-text">
+                Image resizing is the process of changing the dimensions of an image. This can be done for various reasons: to fit specific platform requirements, reduce file size, improve loading speed, or prepare images for print.
+            </p>
+            <p class="resize-about-text">Key aspects of image resizing include:</p>
+            <ul class="resize-about-list">
+                <li><strong>Width &amp; Height</strong> — Adjust dimensions in pixels or percentages</li>
+                <li><strong>Aspect Ratio</strong> — Maintain proportional relationships</li>
+                <li><strong>Resolution</strong> — Change DPI for print or digital use</li>
+                <li><strong>Quality</strong> — Preserve image clarity during resizing</li>
+                <li><strong>File Format</strong> — Output in JPG, PNG, WebP, or other formats</li>
+            </ul>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 3. HOW TO RESIZE AN IMAGE -->
+        <section class="resize-howto-section" id="resize-how-to-use">
+            <h2 class="resize-howto-title">How to Resize an Image</h2>
+            <div class="resize-howto-steps">
+                <div class="resize-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select the image you want to resize from your device.</p>
+                </div>
+                <div class="resize-howto-step">
+                    <h3>Enter New Dimensions</h3>
+                    <p>Set the desired width and height, or use preset sizes.</p>
+                </div>
+                <div class="resize-howto-step">
+                    <h3>Maintain Aspect Ratio</h3>
+                    <p>Lock the aspect ratio to prevent distortion automatically.</p>
+                </div>
+                <div class="resize-howto-step">
+                    <h3>Choose Format &amp; Quality</h3>
+                    <p>Select output format and adjust quality settings.</p>
+                </div>
+                <div class="resize-howto-step">
+                    <h3>Download Your Image</h3>
+                    <p>Save your resized image in high quality instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 4. WHY RESIZE IMAGES? -->
+        <section class="resize-benefits-section" id="resize-benefits">
+            <h2 class="resize-benefits-title">Why Resize Your Images?</h2>
+            <div class="resize-benefit-grid">
+                <div class="resize-benefit-card">
+                    <span class="resize-benefit-icon">🚀</span>
+                    <h3>Faster Loading</h3>
+                    <p>Smaller images load faster on websites and apps.</p>
+                </div>
+                <div class="resize-benefit-card">
+                    <span class="resize-benefit-icon">📱</span>
+                    <h3>Platform Optimization</h3>
+                    <p>Match size requirements for social media platforms.</p>
+                </div>
+                <div class="resize-benefit-card">
+                    <span class="resize-benefit-icon">💾</span>
+                    <h3>Save Storage</h3>
+                    <p>Reduce file size to save disk space and bandwidth.</p>
+                </div>
+                <div class="resize-benefit-card">
+                    <span class="resize-benefit-icon">🖨️</span>
+                    <h3>Print Ready</h3>
+                    <p>Prepare images for high-quality print output.</p>
+                </div>
+                <div class="resize-benefit-card">
+                    <span class="resize-benefit-icon">🎨</span>
+                    <h3>Consistent Design</h3>
+                    <p>Maintain uniform sizes across your content.</p>
+                </div>
+                <div class="resize-benefit-card">
+                    <span class="resize-benefit-icon">📧</span>
+                    <h3>Email-Friendly</h3>
+                    <p>Resize images to fit email attachment limits.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 5. SUPPORTED FORMATS -->
+        <section class="resize-formats-section">
+            <h2 class="resize-formats-title">Supported Image Formats</h2>
+            <div class="resize-formats-grid">
+                <div class="resize-format-card">
+                    <span class="resize-format-icon">🖼️</span>
+                    <h3>JPG / JPEG</h3>
+                    <p>Best for photographs and complex images.</p>
+                </div>
+                <div class="resize-format-card">
+                    <span class="resize-format-icon">🖼️</span>
+                    <h3>PNG</h3>
+                    <p>Best for graphics with transparency.</p>
+                </div>
+                <div class="resize-format-card">
+                    <span class="resize-format-icon">🖼️</span>
+                    <h3>WebP</h3>
+                    <p>Modern format with superior compression.</p>
+                </div>
+                <div class="resize-format-card">
+                    <span class="resize-format-icon">🖼️</span>
+                    <h3>GIF</h3>
+                    <p>Best for simple animations and graphics.</p>
+                </div>
+                <div class="resize-format-card">
+                    <span class="resize-format-icon">🖼️</span>
+                    <h3>SVG</h3>
+                    <p>Scalable vector graphics for logos and icons.</p>
+                </div>
+                <div class="resize-format-card">
+                    <span class="resize-format-icon">🖼️</span>
+                    <h3>BMP</h3>
+                    <p>Uncompressed format for high-quality needs.</p>
+                </div>
+                <div class="resize-format-card">
+                    <span class="resize-format-icon">🖼️</span>
+                    <h3>TIFF</h3>
+                    <p>Professional format for print and photography.</p>
+                </div>
+                <div class="resize-format-card">
+                    <span class="resize-format-icon">🖼️</span>
+                    <h3>HEIC</h3>
+                    <p>Apple's efficient image format.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 6. ASPECT RATIO VS STRETCH -->
+        <section class="resize-compare-section">
+            <h2 class="resize-compare-title">Maintain Aspect Ratio vs Stretch</h2>
+            <div class="resize-compare-grid">
+                <div class="resize-compare-card">
+                    <h3>🔄 Maintain Aspect Ratio</h3>
+                    <p>Preserves the proportional relationship between width and height. The image resizes without distortion, keeping its original shape. Best for photos and most graphics.</p>
+                </div>
+                <div class="resize-compare-card">
+                    <h3>📏 Stretch / Squeeze</h3>
+                    <p>Forces the image into new dimensions regardless of proportion. Can cause distortion but is useful when exact dimensions are required for specific layouts.</p>
+                </div>
+            </div>
+            <p class="resize-compare-text">Always use "Maintain Aspect Ratio" for photos and graphics you want to keep looking natural. Stretching is best for backgrounds or placeholders where visual accuracy is less critical.</p>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 7. DIMENSION PRESETS -->
+        <section class="resize-dimensions-section">
+            <h2 class="resize-dimensions-title">Dimension Presets for Every Platform</h2>
+            <div class="resize-dimensions-grid">
+                <div class="resize-dimensions-card">
+                    <span class="resize-dimension-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Instagram: 1080×1080, Facebook: 1200×630, Twitter: 1200×675</p>
+                </div>
+                <div class="resize-dimensions-card">
+                    <span class="resize-dimension-icon">🌐</span>
+                    <h3>Web &amp; Blog</h3>
+                    <p>Header: 1200×400, Feature: 800×600, Thumbnail: 300×300</p>
+                </div>
+                <div class="resize-dimensions-card">
+                    <span class="resize-dimension-icon">📧</span>
+                    <h3>Email &amp; Marketing</h3>
+                    <p>Banner: 600×300, Logo: 200×200, Button: 150×50</p>
+                </div>
+                <div class="resize-dimensions-card">
+                    <span class="resize-dimension-icon">🖨️</span>
+                    <h3>Print</h3>
+                    <p>A4: 2480×3508, Letter: 2550×3300, Business Card: 1050×600</p>
+                </div>
+                <div class="resize-dimensions-card">
+                    <span class="resize-dimension-icon">📱</span>
+                    <h3>Mobile Apps</h3>
+                    <p>App Icon: 1024×1024, Splash: 2048×2732, Banner: 1200×600</p>
+                </div>
+                <div class="resize-dimensions-card">
+                    <span class="resize-dimension-icon">🛍️</span>
+                    <h3>E-commerce</h3>
+                    <p>Product: 1200×1200, Gallery: 800×800, Thumbnail: 150×150</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="resize-practices-section">
+            <h2 class="resize-practices-title">Image Resizing Best Practices</h2>
+            <ul class="resize-practices-list">
+                <li>Always keep a backup of your original image</li>
+                <li>Maintain aspect ratio for natural-looking results</li>
+                <li>Export in the appropriate format for your use case</li>
+                <li>Use high-quality interpolation for better results</li>
+                <li>Resize down rather than up to preserve quality</li>
+                <li>Consider file size vs quality trade-offs</li>
+                <li>Test images at different screen sizes</li>
+                <li>Use responsive images for web development</li>
+                <li>Optimize for quick loading without sacrificing quality</li>
+                <li>Check color profiles for print accuracy</li>
+            </ul>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="resize-usecases-section">
+            <h2 class="resize-usecases-title">Image Resizing Use Cases</h2>
+            <div class="resize-usecases-grid">
+                <div class="resize-usecase-card">
+                    <span class="resize-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Prepare photos for web galleries and print.</p>
+                </div>
+                <div class="resize-usecase-card">
+                    <span class="resize-usecase-icon">🌐</span>
+                    <h3>Web Design</h3>
+                    <p>Create responsive images for websites.</p>
+                </div>
+                <div class="resize-usecase-card">
+                    <span class="resize-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Optimize images for platform requirements.</p>
+                </div>
+                <div class="resize-usecase-card">
+                    <span class="resize-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Standardize product images for online stores.</p>
+                </div>
+                <div class="resize-usecase-card">
+                    <span class="resize-usecase-icon">📧</span>
+                    <h3>Email Marketing</h3>
+                    <p>Resize images for faster email delivery.</p>
+                </div>
+                <div class="resize-usecase-card">
+                    <span class="resize-usecase-icon">🖨️</span>
+                    <h3>Print Media</h3>
+                    <p>Prepare high-resolution images for print.</p>
+                </div>
+                <div class="resize-usecase-card">
+                    <span class="resize-usecase-icon">🎨</span>
+                    <h3>Digital Art</h3>
+                    <p>Adjust artwork for different display sizes.</p>
+                </div>
+                <div class="resize-usecase-card">
+                    <span class="resize-usecase-icon">📊</span>
+                    <h3>Presentations</h3>
+                    <p>Size images for professional slideshows.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 10. RESIZING QUALITY CHECKLIST -->
+        <section class="resize-checklist-section" id="resize-checklist">
+            <h2 class="resize-checklist-title">Before Downloading Your Resized Image</h2>
+            <ul class="resize-checklist-list">
+                <li>Are the dimensions correct for your use case?</li>
+                <li>Is the aspect ratio maintained (if needed)?</li>
+                <li>Is the image quality acceptable?</li>
+                <li>Is the format appropriate for your platform?</li>
+                <li>Is the file size suitable for your needs?</li>
+                <li>Does the image display correctly at the new size?</li>
+                <li>Have you kept the original image?</li>
+                <li>Are colors and details preserved?</li>
+            </ul>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="resize-faq-section" id="resize-faq">
+            <h2 class="resize-faq-title">Frequently Asked Questions</h2>
+            <div class="resize-faq-accordion">
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        What is image resizing?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Image resizing is the process of changing an image's dimensions (width and height) to fit specific requirements.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        Will resizing reduce image quality?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Resizing down typically maintains quality. Resizing up can cause pixelation. Our tool uses high-quality algorithms to minimize quality loss.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        What is aspect ratio?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Aspect ratio is the proportional relationship between an image's width and height. Maintaining it prevents distortion.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        Can I resize images for free?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Yes, our image resizer is completely free to use with no limits on file size or number of images.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        What formats can I output?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>You can output in JPG, PNG, WebP, GIF, SVG, BMP, TIFF, and HEIC formats.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>We accept images up to 50MB in size for processing.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        Can I resize multiple images at once?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Yes, you can batch resize multiple images by uploading several files at once.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        What is the difference between resizing and cropping?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Resizing changes the dimensions of the entire image. Cropping removes parts of the image to change its composition.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        Can I resize images for print?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Yes, you can set dimensions in inches or centimeters and adjust DPI for print-ready images.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        What does DPI mean?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>DPI (Dots Per Inch) measures image resolution for print. Higher DPI means better print quality but larger file sizes.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        Is my image data secure?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed securely and are automatically deleted from our servers after processing.</p>
+                    </div>
+                </div>
+                <div class="resize-faq-item">
+                    <button class="resize-faq-question" aria-expanded="false">
+                        Can I resize images to exact dimensions?
+                        <span class="resize-faq-icon">+</span>
+                    </button>
+                    <div class="resize-faq-answer" style="display:none;">
+                        <p>Yes, you can enter specific width and height values to resize your image exactly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="resize-privacy-section">
+            <h2 class="resize-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy is important to us. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> Images are processed locally in your browser.</li>
+                <li><strong>☁️ Temporary server upload:</strong> Images may be temporarily uploaded for processing.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="resize-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="resize-related-section" id="resize-related-tools">
+            <h2 class="resize-related-title">Related Tools</h2>
+            <div class="resize-related-grid">
+                <a href="#" class="resize-related-card">
+                    <span class="resize-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="resize-related-card">
+                    <span class="resize-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="resize-related-card">
+                    <span class="resize-related-icon">🖼️</span> Image Converter
+                </a>
+                <a href="#" class="resize-related-card">
+                    <span class="resize-related-icon">🔄</span> Image Rotator
+                </a>
+                <a href="#" class="resize-related-card">
+                    <span class="resize-related-icon">🎨</span> Image Editor
+                </a>
+                <a href="#" class="resize-related-card">
+                    <span class="resize-related-icon">📐</span> Aspect Ratio Calculator
+                </a>
+                <a href="#" class="resize-related-card">
+                    <span class="resize-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="resize-related-card">
+                    <span class="resize-related-icon">🔍</span> Image Viewer
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is image resizing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Image resizing is the process of changing an image's dimensions (width and height) to fit specific requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will resizing reduce image quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Resizing down typically maintains quality. Resizing up can cause pixelation. Our tool uses high-quality algorithms to minimize quality loss."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is aspect ratio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aspect ratio is the proportional relationship between an image's width and height. Maintaining it prevents distortion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I resize images for free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image resizer is completely free to use with no limits on file size or number of images."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What formats can I output?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can output in JPG, PNG, WebP, GIF, SVG, BMP, TIFF, and HEIC formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept images up to 50MB in size for processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I resize multiple images at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can batch resize multiple images by uploading several files at once."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between resizing and cropping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Resizing changes the dimensions of the entire image. Cropping removes parts of the image to change its composition."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I resize images for print?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can set dimensions in inches or centimeters and adjust DPI for print-ready images."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does DPI mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DPI (Dots Per Inch) measures image resolution for print. Higher DPI means better print quality but larger file sizes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed securely and are automatically deleted from our servers after processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I resize images to exact dimensions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can enter specific width and height values to resize your image exactly."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.resize-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

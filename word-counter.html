@@ -553,6 +553,662 @@
     }
 
   /* End Page style goes here....................*/
+          .wcount-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .wcount-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .wcount-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .wcount-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .wcount-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .wcount-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .wcount-intro-text strong {
+            color: #1e293b;
+        }
+
+        .wcount-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .wcount-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-about-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .wcount-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .wcount-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .wcount-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .wcount-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .wcount-howto-section {
+            margin: 2.5rem 0;
+        }
+        .wcount-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .wcount-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .wcount-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .wcount-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .wcount-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .wcount-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .wcount-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .wcount-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .wcount-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .wcount-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .wcount-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .wcount-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .wcount-benefit-card .wcount-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .wcount-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .wcount-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wcount-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .wcount-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .wcount-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .wcount-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .wcount-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .wcount-feature-card .wcount-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .wcount-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .wcount-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wcount-metrics-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .wcount-metrics-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-metrics-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .wcount-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .wcount-metric-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .wcount-metric-card .wcount-metric-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .wcount-metric-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .wcount-metric-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wcount-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .wcount-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .wcount-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .wcount-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .wcount-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .wcount-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .wcount-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .wcount-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .wcount-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .wcount-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .wcount-usecase-card .wcount-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .wcount-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .wcount-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .wcount-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .wcount-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .wcount-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .wcount-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .wcount-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .wcount-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .wcount-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .wcount-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .wcount-faq-item:last-child {
+            border-bottom: none;
+        }
+        .wcount-faq-item:hover {
+            background: #f8fafc;
+        }
+        .wcount-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .wcount-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .wcount-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .wcount-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .wcount-faq-question[aria-expanded="true"] .wcount-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .wcount-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .wcount-faq-answer p {
+            margin: 0;
+        }
+        .wcount-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .wcount-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .wcount-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .wcount-privacy-section p,
+        .wcount-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .wcount-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .wcount-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .wcount-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .wcount-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .wcount-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wcount-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .wcount-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .wcount-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .wcount-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .wcount-related-card .wcount-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .wcount-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .wcount-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .wcount-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .wcount-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .wcount-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .wcount-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .wcount-content-wrapper { padding: 0 16px; }
+            .wcount-intro-title { font-size: 2.2rem; }
+            .wcount-howto-steps { grid-template-columns: 1fr; }
+            .wcount-benefit-grid { grid-template-columns: 1fr; }
+            .wcount-features-grid { grid-template-columns: 1fr; }
+            .wcount-metrics-grid { grid-template-columns: 1fr; }
+            .wcount-usecases-grid { grid-template-columns: 1fr; }
+            .wcount-tips-list { grid-template-columns: 1fr; }
+            .wcount-checklist-list { grid-template-columns: 1fr; }
+            .wcount-related-grid { grid-template-columns: 1fr 1fr; }
+            .wcount-about-list { grid-template-columns: 1fr; }
+            .wcount-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .wcount-intro-title { font-size: 1.8rem; }
+            .wcount-related-grid { grid-template-columns: 1fr; }
+        }
+        
 </style>
 </head>
 <body>
@@ -894,6 +1550,580 @@
 </div>
 
 
+    <div class="wcount-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="wcount-intro-section" id="wcount-intro">
+            <h1 class="wcount-intro-title">Free Online Word Counter</h1>
+            <p class="wcount-intro-text">
+                A <strong>word counter</strong> is an essential tool that counts the number of words, characters, sentences, and paragraphs in any text. Whether you're a writer, student, blogger, or SEO professional, our tool provides instant, accurate metrics to help you stay within limits and optimize your content.
+            </p>
+            <p class="wcount-intro-text">
+                Our <strong>free online word counter</strong> offers real-time counting, character analysis, and readability insights. Perfect for essays, articles, social media posts, and more. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 2. WHAT IS A WORD COUNTER? -->
+        <section class="wcount-about-section" id="wcount-about">
+            <h2 class="wcount-about-title">What Is a Word Counter?</h2>
+            <p class="wcount-about-text">
+                A word counter is a tool that analyzes text and provides various metrics such as word count, character count, sentence count, paragraph count, and more. It's essential for meeting word limits, optimizing content, and improving readability.
+            </p>
+            <p class="wcount-about-text">Key metrics include:</p>
+            <ul class="wcount-about-list">
+                <li><strong>Word Count</strong> — Total number of words</li>
+                <li><strong>Character Count</strong> — Total characters (with and without spaces)</li>
+                <li><strong>Sentence Count</strong> — Number of sentences</li>
+                <li><strong>Paragraph Count</strong> — Number of paragraphs</li>
+                <li><strong>Reading Time</strong> — Estimated reading duration</li>
+            </ul>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 3. HOW TO USE THE WORD COUNTER -->
+        <section class="wcount-howto-section" id="wcount-how-to-use">
+            <h2 class="wcount-howto-title">How to Use the Word Counter</h2>
+            <div class="wcount-howto-steps">
+                <div class="wcount-howto-step">
+                    <h3>Type or Paste Text</h3>
+                    <p>Enter your text in the input area by typing or pasting.</p>
+                </div>
+                <div class="wcount-howto-step">
+                    <h3>Real-Time Analysis</h3>
+                    <p>See instant metrics update as you type.</p>
+                </div>
+                <div class="wcount-howto-step">
+                    <h3>Review Results</h3>
+                    <p>Check word count, characters, sentences, and more.</p>
+                </div>
+                <div class="wcount-howto-step">
+                    <h3>Copy or Clear</h3>
+                    <p>Copy your text or clear the input with one click.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 4. WHY USE A WORD COUNTER? -->
+        <section class="wcount-benefits-section" id="wcount-benefits">
+            <h2 class="wcount-benefits-title">Why Use a Word Counter?</h2>
+            <div class="wcount-benefit-grid">
+                <div class="wcount-benefit-card">
+                    <span class="wcount-benefit-icon">📝</span>
+                    <h3>Stay Within Limits</h3>
+                    <p>Meet word count requirements.</p>
+                </div>
+                <div class="wcount-benefit-card">
+                    <span class="wcount-benefit-icon">📊</span>
+                    <h3>Optimize Content</h3>
+                    <p>Improve SEO and readability.</p>
+                </div>
+                <div class="wcount-benefit-card">
+                    <span class="wcount-benefit-icon">⏱️</span>
+                    <h3>Time Management</h3>
+                    <p>Know reading and speaking times.</p>
+                </div>
+                <div class="wcount-benefit-card">
+                    <span class="wcount-benefit-icon">🎯</span>
+                    <h3>Accuracy</h3>
+                    <p>Get precise text analysis.</p>
+                </div>
+                <div class="wcount-benefit-card">
+                    <span class="wcount-benefit-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on mobile and desktop.</p>
+                </div>
+                <div class="wcount-benefit-card">
+                    <span class="wcount-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Count words in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 5. WORD COUNTER FEATURES -->
+        <section class="wcount-features-section">
+            <h2 class="wcount-features-title">Word Counter Features</h2>
+            <div class="wcount-features-grid">
+                <div class="wcount-feature-card">
+                    <span class="wcount-feature-icon">📝</span>
+                    <h3>Word Count</h3>
+                    <p>Total word count.</p>
+                </div>
+                <div class="wcount-feature-card">
+                    <span class="wcount-feature-icon">🔤</span>
+                    <h3>Character Count</h3>
+                    <p>With and without spaces.</p>
+                </div>
+                <div class="wcount-feature-card">
+                    <span class="wcount-feature-icon">📄</span>
+                    <h3>Sentence Count</h3>
+                    <p>Number of sentences.</p>
+                </div>
+                <div class="wcount-feature-card">
+                    <span class="wcount-feature-icon">📋</span>
+                    <h3>Paragraph Count</h3>
+                    <p>Number of paragraphs.</p>
+                </div>
+                <div class="wcount-feature-card">
+                    <span class="wcount-feature-icon">⏱️</span>
+                    <h3>Reading Time</h3>
+                    <p>Estimated reading duration.</p>
+                </div>
+                <div class="wcount-feature-card">
+                    <span class="wcount-feature-icon">📊</span>
+                    <h3>Real-Time Updates</h3>
+                    <p>Count as you type.</p>
+                </div>
+                <div class="wcount-feature-card">
+                    <span class="wcount-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy text management.</p>
+                </div>
+                <div class="wcount-feature-card">
+                    <span class="wcount-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your text is safe.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 6. KEY METRICS -->
+        <section class="wcount-metrics-section">
+            <h2 class="wcount-metrics-title">Key Metrics You'll Get</h2>
+            <div class="wcount-metrics-grid">
+                <div class="wcount-metric-card">
+                    <span class="wcount-metric-icon">📝</span>
+                    <h3>Words</h3>
+                    <p>Total number of words in your text, including all content.</p>
+                </div>
+                <div class="wcount-metric-card">
+                    <span class="wcount-metric-icon">🔤</span>
+                    <h3>Characters</h3>
+                    <p>Total characters with spaces (and without spaces separately).</p>
+                </div>
+                <div class="wcount-metric-card">
+                    <span class="wcount-metric-icon">📄</span>
+                    <h3>Sentences</h3>
+                    <p>Number of sentences based on punctuation.</p>
+                </div>
+                <div class="wcount-metric-card">
+                    <span class="wcount-metric-icon">📋</span>
+                    <h3>Paragraphs</h3>
+                    <p>Number of paragraphs based on line breaks.</p>
+                </div>
+                <div class="wcount-metric-card">
+                    <span class="wcount-metric-icon">⏱️</span>
+                    <h3>Reading Time</h3>
+                    <p>Estimated time to read your text (based on average reading speed).</p>
+                </div>
+                <div class="wcount-metric-card">
+                    <span class="wcount-metric-icon">🗣️</span>
+                    <h3>Speaking Time</h3>
+                    <p>Estimated time to speak your text aloud.</p>
+                </div>
+                <div class="wcount-metric-card">
+                    <span class="wcount-metric-icon">📊</span>
+                    <h3>Average Length</h3>
+                    <p>Average word and sentence length.</p>
+                </div>
+                <div class="wcount-metric-card">
+                    <span class="wcount-metric-icon">📈</span>
+                    <h3>Readability</h3>
+                    <p>Simple readability assessment.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="wcount-tips-section">
+            <h2 class="wcount-tips-title">Word Counting Best Practices</h2>
+            <ul class="wcount-tips-list">
+                <li>Check word count for assignment requirements</li>
+                <li>Use character count for social media posts</li>
+                <li>Monitor reading time for blog posts</li>
+                <li>Use speaking time for presentations</li>
+                <li>Count paragraphs to check structure</li>
+                <li>Check sentence length for readability</li>
+                <li>Use the tool for SEO content optimization</li>
+                <li>Save and edit text for future use</li>
+                <li>Clear the text area before new analysis</li>
+                <li>Copy results for sharing or documentation</li>
+            </ul>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="wcount-usecases-section">
+            <h2 class="wcount-usecases-title">Word Counter Use Cases</h2>
+            <div class="wcount-usecases-grid">
+                <div class="wcount-usecase-card">
+                    <span class="wcount-usecase-icon">📝</span>
+                    <h3>Writers &amp; Authors</h3>
+                    <p>Track word count progress.</p>
+                </div>
+                <div class="wcount-usecase-card">
+                    <span class="wcount-usecase-icon">🎓</span>
+                    <h3>Students</h3>
+                    <p>Meet essay requirements.</p>
+                </div>
+                <div class="wcount-usecase-card">
+                    <span class="wcount-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Stay within character limits.</p>
+                </div>
+                <div class="wcount-usecase-card">
+                    <span class="wcount-usecase-icon">🔍</span>
+                    <h3>SEO Professionals</h3>
+                    <p>Optimize content length.</p>
+                </div>
+                <div class="wcount-usecase-card">
+                    <span class="wcount-usecase-icon">📊</span>
+                    <h3>Marketers</h3>
+                    <p>Create effective copy.</p>
+                </div>
+                <div class="wcount-usecase-card">
+                    <span class="wcount-usecase-icon">🎤</span>
+                    <h3>Public Speakers</h3>
+                    <p>Prepare speeches.</p>
+                </div>
+                <div class="wcount-usecase-card">
+                    <span class="wcount-usecase-icon">📧</span>
+                    <h3>Email Marketing</h3>
+                    <p>Optimize email length.</p>
+                </div>
+                <div class="wcount-usecase-card">
+                    <span class="wcount-usecase-icon">📚</span>
+                    <h3>Content Creators</h3>
+                    <p>Plan and structure content.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="wcount-checklist-section" id="wcount-checklist">
+            <h2 class="wcount-checklist-title">Before Finalizing Your Text</h2>
+            <ul class="wcount-checklist-list">
+                <li>Is the word count within your target range?</li>
+                <li>Is the character count suitable for your platform?</li>
+                <li>Are sentences well-structured and clear?</li>
+                <li>Is the reading time appropriate for your audience?</li>
+                <li>Are paragraphs well-organized?</li>
+                <li>Is the content optimized for your purpose?</li>
+                <li>Have you proofread your text?</li>
+                <li>Is the text formatted correctly?</li>
+                <li>Have you saved your final version?</li>
+                <li>Is the text ready for sharing or publication?</li>
+            </ul>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="wcount-faq-section" id="wcount-faq">
+            <h2 class="wcount-faq-title">Frequently Asked Questions</h2>
+            <div class="wcount-faq-accordion">
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        What is a word counter?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>A word counter is a tool that counts the number of words, characters, sentences, and paragraphs in any text.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        Is the word counter free?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>Yes, our word counter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        What metrics does the word counter provide?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>It provides word count, character count (with and without spaces), sentence count, paragraph count, reading time, and more.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        How accurate is the word counter?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>Our word counter is highly accurate and counts words, characters, and other metrics precisely.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        Can I paste text into the word counter?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>Yes, you can paste any text into the input area for instant analysis.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        Is my text saved or stored?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>No, your text is not saved or stored. It's processed locally in your browser and automatically cleared.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        Can I use the word counter for social media?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>Yes, you can use it to check character limits for platforms like Twitter, LinkedIn, and more.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        Does the word counter count words in real-time?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>Yes, the word counter updates metrics in real-time as you type or paste text.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        Can I use the word counter for SEO?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>Yes, the word counter helps optimize content length for SEO and readability.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        Is the word counter mobile-friendly?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>Yes, our word counter works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        How is reading time calculated?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>Reading time is calculated based on the average reading speed of about 200-250 words per minute.</p>
+                    </div>
+                </div>
+                <div class="wcount-faq-item">
+                    <button class="wcount-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="wcount-faq-icon">+</span>
+                    </button>
+                    <div class="wcount-faq-answer" style="display:none;">
+                        <p>No, you can use the word counter without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="wcount-privacy-section">
+            <h2 class="wcount-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your text is handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All text analysis happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your text is never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your text after analysis.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your text is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="wcount-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="wcount-related-section" id="wcount-related-tools">
+            <h2 class="wcount-related-title">Related Tools</h2>
+            <div class="wcount-related-grid">
+                <a href="#" class="wcount-related-card">
+                    <span class="wcount-related-icon">📝</span> Character Counter
+                </a>
+                <a href="#" class="wcount-related-card">
+                    <span class="wcount-related-icon">📄</span> Paragraph Counter
+                </a>
+                <a href="#" class="wcount-related-card">
+                    <span class="wcount-related-icon">⏱️</span> Reading Time Calculator
+                </a>
+                <a href="#" class="wcount-related-card">
+                    <span class="wcount-related-icon">📊</span> Keyword Density Checker
+                </a>
+                <a href="#" class="wcount-related-card">
+                    <span class="wcount-related-icon">📋</span> Copywriting Assistant
+                </a>
+                <a href="#" class="wcount-related-card">
+                    <span class="wcount-related-icon">📝</span> Essay Word Counter
+                </a>
+                <a href="#" class="wcount-related-card">
+                    <span class="wcount-related-icon">📱</span> Social Media Counter
+                </a>
+                <a href="#" class="wcount-related-card">
+                    <span class="wcount-related-icon">📊</span> Readability Checker
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a word counter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A word counter is a tool that counts the number of words, characters, sentences, and paragraphs in any text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the word counter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our word counter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What metrics does the word counter provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It provides word count, character count (with and without spaces), sentence count, paragraph count, reading time, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the word counter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our word counter is highly accurate and counts words, characters, and other metrics precisely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I paste text into the word counter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can paste any text into the input area for instant analysis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my text saved or stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, your text is not saved or stored. It's processed locally in your browser and automatically cleared."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the word counter for social media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use it to check character limits for platforms like Twitter, LinkedIn, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the word counter count words in real-time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the word counter updates metrics in real-time as you type or paste text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the word counter for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the word counter helps optimize content length for SEO and readability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the word counter mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our word counter works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is reading time calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reading time is calculated based on the average reading speed of about 200-250 words per minute."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the word counter without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.wcount-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

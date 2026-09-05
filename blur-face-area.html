@@ -396,6 +396,662 @@
     .bapp-status { background: #e4ebf5; border-radius: 40px; padding: 6px 16px; font-size: 0.8rem; }
 
   /* End Page style goes here....................*/
+          .blur-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .blur-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .blur-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .blur-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .blur-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .blur-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .blur-intro-text strong {
+            color: #1e293b;
+        }
+
+        .blur-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .blur-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-about-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .blur-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .blur-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .blur-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .blur-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .blur-howto-section {
+            margin: 2.5rem 0;
+        }
+        .blur-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .blur-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .blur-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .blur-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .blur-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .blur-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .blur-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .blur-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .blur-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .blur-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .blur-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .blur-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .blur-benefit-card .blur-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .blur-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .blur-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .blur-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .blur-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .blur-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .blur-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .blur-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .blur-feature-card .blur-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .blur-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .blur-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .blur-options-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .blur-options-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-options-title::before {
+            content: '🎨';
+            font-size: 1.8rem;
+        }
+        .blur-options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .blur-option-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .blur-option-card .blur-option-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .blur-option-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .blur-option-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .blur-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .blur-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .blur-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .blur-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .blur-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .blur-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .blur-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .blur-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .blur-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .blur-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .blur-usecase-card .blur-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .blur-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .blur-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .blur-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .blur-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .blur-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .blur-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .blur-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .blur-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .blur-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .blur-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .blur-faq-item:last-child {
+            border-bottom: none;
+        }
+        .blur-faq-item:hover {
+            background: #f8fafc;
+        }
+        .blur-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .blur-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .blur-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .blur-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .blur-faq-question[aria-expanded="true"] .blur-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .blur-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .blur-faq-answer p {
+            margin: 0;
+        }
+        .blur-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .blur-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .blur-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .blur-privacy-section p,
+        .blur-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .blur-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .blur-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .blur-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .blur-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .blur-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .blur-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .blur-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .blur-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .blur-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .blur-related-card .blur-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .blur-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .blur-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .blur-options-grid { grid-template-columns: repeat(2, 1fr); }
+            .blur-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .blur-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .blur-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .blur-content-wrapper { padding: 0 16px; }
+            .blur-intro-title { font-size: 2.2rem; }
+            .blur-howto-steps { grid-template-columns: 1fr; }
+            .blur-benefit-grid { grid-template-columns: 1fr; }
+            .blur-features-grid { grid-template-columns: 1fr; }
+            .blur-options-grid { grid-template-columns: 1fr; }
+            .blur-usecases-grid { grid-template-columns: 1fr; }
+            .blur-tips-list { grid-template-columns: 1fr; }
+            .blur-checklist-list { grid-template-columns: 1fr; }
+            .blur-related-grid { grid-template-columns: 1fr 1fr; }
+            .blur-about-list { grid-template-columns: 1fr; }
+            .blur-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .blur-intro-title { font-size: 1.8rem; }
+            .blur-related-grid { grid-template-columns: 1fr; }
+        }
+        
 </style>
 </head>
 <body>
@@ -780,6 +1436,555 @@
 </div>   
 
 
+    <div class="blur-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="blur-intro-section" id="blur-intro">
+            <h1 class="blur-intro-title">Free Online Image Blur Tool</h1>
+            <p class="blur-intro-text">
+                An <strong>image blur tool</strong> is an essential privacy tool that allows you to blur faces, text, license plates, and other sensitive areas in images. Whether you're sharing photos online, publishing content, or protecting privacy, our tool makes it easy to hide sensitive information.
+            </p>
+            <p class="blur-intro-text">
+                Our <strong>free online image blur tool</strong> allows you to select and blur any area of an image with adjustable blur intensity. Perfect for privacy protection, content moderation, and professional publishing. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 2. WHAT IS AN IMAGE BLUR TOOL? -->
+        <section class="blur-about-section" id="blur-about">
+            <h2 class="blur-about-title">What Is an Image Blur Tool?</h2>
+            <p class="blur-about-text">
+                An image blur tool is a utility that applies a blur effect to specific areas of an image. It allows you to select regions and apply Gaussian or pixelated blur to hide sensitive information.
+            </p>
+            <p class="blur-about-text">Key features include:</p>
+            <ul class="blur-about-list">
+                <li><strong>Blur Faces</strong> — Hide people's identities</li>
+                <li><strong>Blur Text</strong> — Hide sensitive information</li>
+                <li><strong>Adjustable Intensity</strong> — Control blur strength</li>
+                <li><strong>Selective Blurring</strong> — Choose specific areas</li>
+                <li><strong>Quick Processing</strong> — Instant results</li>
+            </ul>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 3. HOW TO BLUR AN IMAGE -->
+        <section class="blur-howto-section" id="blur-how-to-use">
+            <h2 class="blur-howto-title">How to Blur an Image</h2>
+            <div class="blur-howto-steps">
+                <div class="blur-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select the image you want to blur.</p>
+                </div>
+                <div class="blur-howto-step">
+                    <h3>Select Area to Blur</h3>
+                    <p>Click and drag to select the region.</p>
+                </div>
+                <div class="blur-howto-step">
+                    <h3>Adjust Blur Intensity</h3>
+                    <p>Set the blur strength level.</p>
+                </div>
+                <div class="blur-howto-step">
+                    <h3>Preview &amp; Download</h3>
+                    <p>See the result and save your image.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 4. WHY BLUR IMAGES? -->
+        <section class="blur-benefits-section" id="blur-benefits">
+            <h2 class="blur-benefits-title">Why Blur Images?</h2>
+            <div class="blur-benefit-grid">
+                <div class="blur-benefit-card">
+                    <span class="blur-benefit-icon">🔒</span>
+                    <h3>Privacy Protection</h3>
+                    <p>Hide faces and identities.</p>
+                </div>
+                <div class="blur-benefit-card">
+                    <span class="blur-benefit-icon">📝</span>
+                    <h3>Hide Sensitive Info</h3>
+                    <p>Blur text and data.</p>
+                </div>
+                <div class="blur-benefit-card">
+                    <span class="blur-benefit-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Share safely online.</p>
+                </div>
+                <div class="blur-benefit-card">
+                    <span class="blur-benefit-icon">🏢</span>
+                    <h3>Professional Use</h3>
+                    <p>Protect client privacy.</p>
+                </div>
+                <div class="blur-benefit-card">
+                    <span class="blur-benefit-icon">🎨</span>
+                    <h3>Creative Effects</h3>
+                    <p>Add artistic blur effects.</p>
+                </div>
+                <div class="blur-benefit-card">
+                    <span class="blur-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Blur images instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 5. FEATURES -->
+        <section class="blur-features-section">
+            <h2 class="blur-features-title">Blur Image Features</h2>
+            <div class="blur-features-grid">
+                <div class="blur-feature-card">
+                    <span class="blur-feature-icon">🔒</span>
+                    <h3>Blur Faces</h3>
+                    <p>Hide identities.</p>
+                </div>
+                <div class="blur-feature-card">
+                    <span class="blur-feature-icon">📝</span>
+                    <h3>Blur Text</h3>
+                    <p>Hide sensitive information.</p>
+                </div>
+                <div class="blur-feature-card">
+                    <span class="blur-feature-icon">🎯</span>
+                    <h3>Selective Blur</h3>
+                    <p>Choose specific areas.</p>
+                </div>
+                <div class="blur-feature-card">
+                    <span class="blur-feature-icon">📊</span>
+                    <h3>Adjustable Intensity</h3>
+                    <p>Control blur strength.</p>
+                </div>
+                <div class="blur-feature-card">
+                    <span class="blur-feature-icon">⚡</span>
+                    <h3>Instant Processing</h3>
+                    <p>Get results immediately.</p>
+                </div>
+                <div class="blur-feature-card">
+                    <span class="blur-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy image management.</p>
+                </div>
+                <div class="blur-feature-card">
+                    <span class="blur-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your images are safe.</p>
+                </div>
+                <div class="blur-feature-card">
+                    <span class="blur-feature-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 6. BLUR OPTIONS -->
+        <section class="blur-options-section">
+            <h2 class="blur-options-title">Blur Options</h2>
+            <div class="blur-options-grid">
+                <div class="blur-option-card">
+                    <span class="blur-option-icon">🔒</span>
+                    <h3>Face Blur</h3>
+                    <p>Perfect for hiding people's identities in photos. Ideal for social media and public sharing.</p>
+                </div>
+                <div class="blur-option-card">
+                    <span class="blur-option-icon">📝</span>
+                    <h3>Text Blur</h3>
+                    <p>Hide sensitive information like addresses, phone numbers, and personal data.</p>
+                </div>
+                <div class="blur-option-card">
+                    <span class="blur-option-icon">🎨</span>
+                    <h3>Custom Area Blur</h3>
+                    <p>Select any area of the image to blur. Perfect for creative effects and focused privacy.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="blur-tips-section">
+            <h2 class="blur-tips-title">Best Practices for Blurring Images</h2>
+            <ul class="blur-tips-list">
+                <li>Use face blur for privacy protection</li>
+                <li>Use text blur for sensitive information</li>
+                <li>Adjust intensity for desired effect</li>
+                <li>Preview your image before downloading</li>
+                <li>Keep a backup of your original image</li>
+                <li>Use for social media privacy</li>
+                <li>Protect client and customer privacy</li>
+                <li>Use for content moderation</li>
+                <li>Consider the blur effect on image quality</li>
+                <li>Test different blur intensities</li>
+            </ul>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="blur-usecases-section">
+            <h2 class="blur-usecases-title">Blur Image Use Cases</h2>
+            <div class="blur-usecases-grid">
+                <div class="blur-usecase-card">
+                    <span class="blur-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Protect privacy online.</p>
+                </div>
+                <div class="blur-usecase-card">
+                    <span class="blur-usecase-icon">🏢</span>
+                    <h3>Business</h3>
+                    <p>Protect client identities.</p>
+                </div>
+                <div class="blur-usecase-card">
+                    <span class="blur-usecase-icon">📝</span>
+                    <h3>Content Moderation</h3>
+                    <p>Hide sensitive content.</p>
+                </div>
+                <div class="blur-usecase-card">
+                    <span class="blur-usecase-icon">🎨</span>
+                    <h3>Design &amp; Art</h3>
+                    <p>Create artistic effects.</p>
+                </div>
+                <div class="blur-usecase-card">
+                    <span class="blur-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Protect student privacy.</p>
+                </div>
+                <div class="blur-usecase-card">
+                    <span class="blur-usecase-icon">📊</span>
+                    <h3>Data Visualization</h3>
+                    <p>Hide confidential data.</p>
+                </div>
+                <div class="blur-usecase-card">
+                    <span class="blur-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Protect customer images.</p>
+                </div>
+                <div class="blur-usecase-card">
+                    <span class="blur-usecase-icon">📧</span>
+                    <h3>Email Marketing</h3>
+                    <p>Hide sensitive content.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="blur-checklist-section" id="blur-checklist">
+            <h2 class="blur-checklist-title">Before Downloading Your Blurred Image</h2>
+            <ul class="blur-checklist-list">
+                <li>Is the correct area blurred?</li>
+                <li>Is the blur intensity appropriate?</li>
+                <li>Is the sensitive information hidden?</li>
+                <li>Is the image quality acceptable?</li>
+                <li>Have you previewed the result?</li>
+                <li>Is the image ready for sharing?</li>
+                <li>Have you kept your original image?</li>
+                <li>Is the image suitable for its purpose?</li>
+                <li>Is the blur applied correctly?</li>
+                <li>Have you saved your final version?</li>
+            </ul>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="blur-faq-section" id="blur-faq">
+            <h2 class="blur-faq-title">Frequently Asked Questions</h2>
+            <div class="blur-faq-accordion">
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        What is an image blur tool?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>An image blur tool applies a blur effect to specific areas of an image to hide sensitive information.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        Is the image blur tool free?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>Yes, our image blur tool is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        What can I blur in an image?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>You can blur faces, text, license plates, and any other area you select.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        How do I blur an image?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>Upload your image, select the area to blur, adjust the intensity, and download.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        Can I adjust the blur intensity?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>Yes, you can adjust the blur strength from subtle to heavy.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        Is my image data secure?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed locally in your browser and are never sent to any server.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        What image formats are supported?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>We support JPG, PNG, GIF, BMP, WebP, and more formats.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>We accept images up to 50MB in size for processing.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        Is the tool mobile-friendly?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>Yes, our image blur tool works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        Can I blur multiple areas in one image?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>Yes, you can select and blur multiple areas in a single image.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        What is the difference between blur and pixelation?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>Blur creates a smooth, out-of-focus effect. Pixelation creates a blocky, mosaic effect.</p>
+                    </div>
+                </div>
+                <div class="blur-faq-item">
+                    <button class="blur-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="blur-faq-icon">+</span>
+                    </button>
+                    <div class="blur-faq-answer" style="display:none;">
+                        <p>No, you can use the image blur tool without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="blur-privacy-section">
+            <h2 class="blur-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All image processing happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your images are never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images after processing.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your data is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="blur-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="blur-related-section" id="blur-related-tools">
+            <h2 class="blur-related-title">Related Tools</h2>
+            <div class="blur-related-grid">
+                <a href="#" class="blur-related-card">
+                    <span class="blur-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="blur-related-card">
+                    <span class="blur-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="blur-related-card">
+                    <span class="blur-related-icon">🔄</span> Image Rotator
+                </a>
+                <a href="#" class="blur-related-card">
+                    <span class="blur-related-icon">🪞</span> Image Flipper
+                </a>
+                <a href="#" class="blur-related-card">
+                    <span class="blur-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="blur-related-card">
+                    <span class="blur-related-icon">🎨</span> Image Enhancer
+                </a>
+                <a href="#" class="blur-related-card">
+                    <span class="blur-related-icon">🏷️</span> Image Watermark
+                </a>
+                <a href="#" class="blur-related-card">
+                    <span class="blur-related-icon">🖼️</span> Image Compressor
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an image blur tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An image blur tool applies a blur effect to specific areas of an image to hide sensitive information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the image blur tool free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image blur tool is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can I blur in an image?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can blur faces, text, license plates, and any other area you select."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I blur an image?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Upload your image, select the area to blur, adjust the intensity, and download."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I adjust the blur intensity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can adjust the blur strength from subtle to heavy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed locally in your browser and are never sent to any server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What image formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support JPG, PNG, GIF, BMP, WebP, and more formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept images up to 50MB in size for processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tool mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image blur tool works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I blur multiple areas in one image?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can select and blur multiple areas in a single image."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between blur and pixelation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Blur creates a smooth, out-of-focus effect. Pixelation creates a blocky, mosaic effect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the image blur tool without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.blur-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

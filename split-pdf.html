@@ -641,6 +641,662 @@
 
 
   /* End Page style goes here....................*/
+
+          .split-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .split-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .split-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .split-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            border-radius: 2px;
+        }
+        .split-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .split-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .split-intro-text strong {
+            color: #1e293b;
+        }
+
+        .split-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfeff, #cffafe);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .split-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-about-title::before {
+            content: '✂️';
+            font-size: 1.8rem;
+        }
+        .split-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .split-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .split-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .split-about-list li::before {
+            content: '✓';
+            color: #06b6d4;
+            font-weight: 700;
+        }
+
+        .split-howto-section {
+            margin: 2.5rem 0;
+        }
+        .split-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .split-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .split-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .split-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .split-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .split-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .split-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .split-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .split-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .split-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .split-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .split-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .split-benefit-card .split-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .split-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .split-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .split-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .split-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .split-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .split-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .split-feature-card:hover {
+            border-color: #06b6d4;
+            background: #ecfeff;
+        }
+        .split-feature-card .split-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .split-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .split-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .split-methods-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .split-methods-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-methods-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .split-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .split-method-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .split-method-card .split-method-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .split-method-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .split-method-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .split-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .split-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .split-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .split-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .split-tips-list li::before {
+            content: '●';
+            color: #06b6d4;
+        }
+
+        .split-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .split-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .split-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .split-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .split-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .split-usecase-card .split-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .split-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .split-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .split-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .split-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .split-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .split-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .split-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .split-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .split-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .split-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .split-faq-item:last-child {
+            border-bottom: none;
+        }
+        .split-faq-item:hover {
+            background: #f8fafc;
+        }
+        .split-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .split-faq-question:hover {
+            color: #06b6d4;
+        }
+        .split-faq-question:focus {
+            outline: 2px solid #06b6d4;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .split-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .split-faq-question[aria-expanded="true"] .split-faq-icon {
+            transform: rotate(45deg);
+            color: #06b6d4;
+        }
+        .split-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .split-faq-answer p {
+            margin: 0;
+        }
+        .split-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .split-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .split-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .split-privacy-section p,
+        .split-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .split-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .split-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .split-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .split-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .split-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .split-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .split-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .split-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .split-related-card:hover {
+            background: #06b6d4;
+            color: white;
+            border-color: #06b6d4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6,182,212,0.3);
+        }
+        .split-related-card .split-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .split-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .split-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .split-methods-grid { grid-template-columns: repeat(2, 1fr); }
+            .split-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .split-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .split-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .split-content-wrapper { padding: 0 16px; }
+            .split-intro-title { font-size: 2.2rem; }
+            .split-howto-steps { grid-template-columns: 1fr; }
+            .split-benefit-grid { grid-template-columns: 1fr; }
+            .split-features-grid { grid-template-columns: 1fr; }
+            .split-methods-grid { grid-template-columns: 1fr; }
+            .split-usecases-grid { grid-template-columns: 1fr; }
+            .split-tips-list { grid-template-columns: 1fr; }
+            .split-checklist-list { grid-template-columns: 1fr; }
+            .split-related-grid { grid-template-columns: 1fr 1fr; }
+            .split-about-list { grid-template-columns: 1fr; }
+            .split-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .split-intro-title { font-size: 1.8rem; }
+            .split-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1007,6 +1663,562 @@
   <div id="toast" class="toast"></div>
 </div>
 
+
+
+    <div class="split-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="split-intro-section" id="split-intro">
+            <h1 class="split-intro-title">Free PDF Splitter</h1>
+            <p class="split-intro-text">
+                A <strong>PDF splitter</strong> is a tool that extracts specific pages from a PDF document and saves them as separate PDF files. Whether you need to split a large document into smaller files, extract specific pages, or separate every page, our tool makes it quick and easy.
+            </p>
+            <p class="split-intro-text">
+                Our <strong>free online PDF splitter</strong> allows you to split PDFs by page ranges, extract specific pages, or separate every page into individual PDFs. No registration, no watermarks, and no limits. Perfect for business, education, and personal use.
+            </p>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 2. WHAT IS PDF SPLITTING? -->
+        <section class="split-about-section" id="split-about">
+            <h2 class="split-about-title">What Is PDF Splitting?</h2>
+            <p class="split-about-text">
+                PDF splitting is the process of dividing a multi-page PDF document into smaller PDF files. You can split by page ranges, extract specific pages, or separate every page into its own PDF document.
+            </p>
+            <p class="split-about-text">Key features include:</p>
+            <ul class="split-about-list">
+                <li><strong>Split by Page Ranges</strong> — Extract specific page groups</li>
+                <li><strong>Extract Specific Pages</strong> — Choose individual pages</li>
+                <li><strong>Split All Pages</strong> — Separate every page</li>
+                <li><strong>Preserve Formatting</strong> — Maintain original layout</li>
+                <li><strong>Quick Download</strong> — Get your split PDFs instantly</li>
+            </ul>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 3. HOW TO SPLIT A PDF FILE -->
+        <section class="split-howto-section" id="split-how-to-use">
+            <h2 class="split-howto-title">How to Split a PDF File</h2>
+            <div class="split-howto-steps">
+                <div class="split-howto-step">
+                    <h3>Upload Your PDF</h3>
+                    <p>Select the PDF file you want to split from your device.</p>
+                </div>
+                <div class="split-howto-step">
+                    <h3>Choose Split Method</h3>
+                    <p>Select by page range, specific pages, or split all pages.</p>
+                </div>
+                <div class="split-howto-step">
+                    <h3>Select Pages</h3>
+                    <p>Enter the page numbers or ranges you want to extract.</p>
+                </div>
+                <div class="split-howto-step">
+                    <h3>Preview Selection</h3>
+                    <p>Check the pages you've selected for extraction.</p>
+                </div>
+                <div class="split-howto-step">
+                    <h3>Download Split PDFs</h3>
+                    <p>Save your split PDF files individually or as a ZIP.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 4. WHY SPLIT PDF FILES? -->
+        <section class="split-benefits-section" id="split-benefits">
+            <h2 class="split-benefits-title">Why Split PDF Files?</h2>
+            <div class="split-benefit-grid">
+                <div class="split-benefit-card">
+                    <span class="split-benefit-icon">✂️</span>
+                    <h3>Smaller Files</h3>
+                    <p>Break large PDFs into manageable files.</p>
+                </div>
+                <div class="split-benefit-card">
+                    <span class="split-benefit-icon">📎</span>
+                    <h3>Share Specific Pages</h3>
+                    <p>Send only the pages you need.</p>
+                </div>
+                <div class="split-benefit-card">
+                    <span class="split-benefit-icon">📁</span>
+                    <h3>Better Organization</h3>
+                    <p>Separate chapters or sections.</p>
+                </div>
+                <div class="split-benefit-card">
+                    <span class="split-benefit-icon">📱</span>
+                    <h3>Easy Mobile Viewing</h3>
+                    <p>Smaller files load faster on mobile.</p>
+                </div>
+                <div class="split-benefit-card">
+                    <span class="split-benefit-icon">🖨️</span>
+                    <h3>Selective Printing</h3>
+                    <p>Print only the pages you need.</p>
+                </div>
+                <div class="split-benefit-card">
+                    <span class="split-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Split PDFs in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 5. PDF SPLITTING FEATURES -->
+        <section class="split-features-section">
+            <h2 class="split-features-title">PDF Splitting Features</h2>
+            <div class="split-features-grid">
+                <div class="split-feature-card">
+                    <span class="split-feature-icon">📄</span>
+                    <h3>Page Range Split</h3>
+                    <p>Extract pages 1-5, 6-10, etc.</p>
+                </div>
+                <div class="split-feature-card">
+                    <span class="split-feature-icon">📌</span>
+                    <h3>Specific Pages</h3>
+                    <p>Extract pages 3, 7, 12, etc.</p>
+                </div>
+                <div class="split-feature-card">
+                    <span class="split-feature-icon">📋</span>
+                    <h3>Split All Pages</h3>
+                    <p>Separate every page individually.</p>
+                </div>
+                <div class="split-feature-card">
+                    <span class="split-feature-icon">👁️</span>
+                    <h3>Page Preview</h3>
+                    <p>See pages before splitting.</p>
+                </div>
+                <div class="split-feature-card">
+                    <span class="split-feature-icon">📁</span>
+                    <h3>ZIP Download</h3>
+                    <p>Download all split files as ZIP.</p>
+                </div>
+                <div class="split-feature-card">
+                    <span class="split-feature-icon">⚡</span>
+                    <h3>Fast Processing</h3>
+                    <p>Quick splitting for any PDF.</p>
+                </div>
+                <div class="split-feature-card">
+                    <span class="split-feature-icon">🔒</span>
+                    <h3>Secure Splitting</h3>
+                    <p>Your files are handled securely.</p>
+                </div>
+                <div class="split-feature-card">
+                    <span class="split-feature-icon">📱</span>
+                    <h3>Works on Mobile</h3>
+                    <p>Split PDFs on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 6. SPLITTING METHODS -->
+        <section class="split-methods-section">
+            <h2 class="split-methods-title">How to Split Your PDF</h2>
+            <div class="split-methods-grid">
+                <div class="split-method-card">
+                    <span class="split-method-icon">📊</span>
+                    <h3>By Page Range</h3>
+                    <p>Split pages 1-10, 11-20, etc. Perfect for chapters, sections, or parts of a document.</p>
+                </div>
+                <div class="split-method-card">
+                    <span class="split-method-icon">📌</span>
+                    <h3>Extract Specific Pages</h3>
+                    <p>Select individual pages like 1, 5, 12, 20. Ideal for extracting specific pages from a document.</p>
+                </div>
+                <div class="split-method-card">
+                    <span class="split-method-icon">📄</span>
+                    <h3>Split All Pages</h3>
+                    <p>Separate every page into its own PDF file. Perfect for individual page files.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="split-tips-section">
+            <h2 class="split-tips-title">PDF Splitting Best Practices</h2>
+            <ul class="split-tips-list">
+                <li>Know exactly which pages you want to extract</li>
+                <li>Use page ranges for logical sections (chapters, parts)</li>
+                <li>Preview pages before splitting to ensure accuracy</li>
+                <li>Choose descriptive names for split files</li>
+                <li>Consider using ZIP download for multiple files</li>
+                <li>Keep a backup of your original PDF</li>
+                <li>Verify the split files after downloading</li>
+                <li>Use split all pages for individual page documents</li>
+                <li>Check file sizes after splitting</li>
+                <li>Ensure you have the rights to split the document</li>
+            </ul>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="split-usecases-section">
+            <h2 class="split-usecases-title">PDF Splitting Use Cases</h2>
+            <div class="split-usecases-grid">
+                <div class="split-usecase-card">
+                    <span class="split-usecase-icon">📊</span>
+                    <h3>Business Reports</h3>
+                    <p>Split reports by chapter or section.</p>
+                </div>
+                <div class="split-usecase-card">
+                    <span class="split-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Extract assignments or chapters.</p>
+                </div>
+                <div class="split-usecase-card">
+                    <span class="split-usecase-icon">🏢</span>
+                    <h3>Legal Documents</h3>
+                    <p>Separate sections of legal agreements.</p>
+                </div>
+                <div class="split-usecase-card">
+                    <span class="split-usecase-icon">📧</span>
+                    <h3>Email Attachments</h3>
+                    <p>Send only relevant pages via email.</p>
+                </div>
+                <div class="split-usecase-card">
+                    <span class="split-usecase-icon">🖨️</span>
+                    <h3>Selective Printing</h3>
+                    <p>Print only the pages you need.</p>
+                </div>
+                <div class="split-usecase-card">
+                    <span class="split-usecase-icon">📱</span>
+                    <h3>Mobile Viewing</h3>
+                    <p>Create smaller files for mobile.</p>
+                </div>
+                <div class="split-usecase-card">
+                    <span class="split-usecase-icon">📁</span>
+                    <h3>File Organization</h3>
+                    <p>Organize documents by section.</p>
+                </div>
+                <div class="split-usecase-card">
+                    <span class="split-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Extract specific photo pages.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 9. SPLITTING QUALITY CHECKLIST -->
+        <section class="split-checklist-section" id="split-checklist">
+            <h2 class="split-checklist-title">Before Downloading Your Split PDFs</h2>
+            <ul class="split-checklist-list">
+                <li>Are the page ranges correct?</li>
+                <li>Are all the necessary pages included?</li>
+                <li>Is the split method appropriate for your needs?</li>
+                <li>Are the file sizes manageable?</li>
+                <li>Is the formatting preserved?</li>
+                <li>Have you previewed the split files?</li>
+                <li>Are the files ready for sharing?</li>
+                <li>Have you kept your original PDF?</li>
+                <li>Are the files named appropriately?</li>
+                <li>Is the ZIP file organized correctly?</li>
+            </ul>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="split-faq-section" id="split-faq">
+            <h2 class="split-faq-title">Frequently Asked Questions</h2>
+            <div class="split-faq-accordion">
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        What is a PDF splitter?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>A PDF splitter divides a multi-page PDF document into smaller PDF files based on page ranges, specific pages, or individual pages.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        Is the PDF splitter free?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Yes, our PDF splitter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        How can I split a PDF file?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Upload your PDF, choose a split method (page range, specific pages, or split all), and download the resulting files.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        Can I extract specific pages from a PDF?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Yes, you can select specific page numbers to extract as separate PDF files.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>We accept PDFs up to 50MB in size for splitting.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        Can I split a PDF into individual pages?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Yes, the "Split All Pages" option separates every page into its own PDF file.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        Can I split password-protected PDFs?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Currently, we only support splitting password-protected PDFs if you provide the password during upload.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        Is my data secure when splitting PDFs?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Yes, your PDFs are processed securely and automatically deleted after splitting. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        Can I split a PDF on mobile?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Yes, our PDF splitter works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        What is the difference between splitting by range and extracting specific pages?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Splitting by range divides the PDF into sections (e.g., pages 1-5, 6-10). Extracting specific pages selects only the pages you choose (e.g., pages 3, 7, 12).</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        Can I preview pages before splitting?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>Yes, you can preview the pages of your PDF to ensure you're splitting the correct pages.</p>
+                    </div>
+                </div>
+                <div class="split-faq-item">
+                    <button class="split-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="split-faq-icon">+</span>
+                    </button>
+                    <div class="split-faq-answer" style="display:none;">
+                        <p>No, you can split PDFs without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="split-privacy-section">
+            <h2 class="split-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your PDFs are handled:</p>
+            <ul>
+                <li><strong>☁️ Temporary processing:</strong> PDFs are temporarily uploaded for splitting.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your PDFs after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>🖥️ No client-side storage:</strong> Your files are never stored on your device without your consent.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="split-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="split-related-section" id="split-related-tools">
+            <h2 class="split-related-title">Related Tools</h2>
+            <div class="split-related-grid">
+                <a href="#" class="split-related-card">
+                    <span class="split-related-icon">📄</span> Merge PDF
+                </a>
+                <a href="#" class="split-related-card">
+                    <span class="split-related-icon">🔄</span> PDF to Image
+                </a>
+                <a href="#" class="split-related-card">
+                    <span class="split-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="split-related-card">
+                    <span class="split-related-icon">🗜️</span> Compress PDF
+                </a>
+                <a href="#" class="split-related-card">
+                    <span class="split-related-icon">🔒</span> PDF Security
+                </a>
+                <a href="#" class="split-related-card">
+                    <span class="split-related-icon">📐</span> PDF to JPG
+                </a>
+                <a href="#" class="split-related-card">
+                    <span class="split-related-icon">📄</span> JPG to PDF
+                </a>
+                <a href="#" class="split-related-card">
+                    <span class="split-related-icon">📄</span> PNG to PDF
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PDF splitter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PDF splitter divides a multi-page PDF document into smaller PDF files based on page ranges, specific pages, or individual pages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the PDF splitter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF splitter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I split a PDF file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Upload your PDF, choose a split method (page range, specific pages, or split all), and download the resulting files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extract specific pages from a PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can select specific page numbers to extract as separate PDF files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept PDFs up to 50MB in size for splitting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I split a PDF into individual pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the 'Split All Pages' option separates every page into its own PDF file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I split password-protected PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, we only support splitting password-protected PDFs if you provide the password during upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure when splitting PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your PDFs are processed securely and automatically deleted after splitting. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I split a PDF on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF splitter works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between splitting by range and extracting specific pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Splitting by range divides the PDF into sections (e.g., pages 1-5, 6-10). Extracting specific pages selects only the pages you choose (e.g., pages 3, 7, 12)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I preview pages before splitting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can preview the pages of your PDF to ensure you're splitting the correct pages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can split PDFs without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.split-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

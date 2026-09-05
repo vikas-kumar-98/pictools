@@ -739,6 +739,662 @@
     }
 
   /* End Page style goes here....................*/
+
+          .merge-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .merge-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .merge-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .merge-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+            border-radius: 2px;
+        }
+        .merge-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .merge-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .merge-intro-text strong {
+            color: #1e293b;
+        }
+
+        .merge-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .merge-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-about-title::before {
+            content: '📄';
+            font-size: 1.8rem;
+        }
+        .merge-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .merge-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .merge-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .merge-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .merge-howto-section {
+            margin: 2.5rem 0;
+        }
+        .merge-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .merge-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .merge-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .merge-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .merge-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .merge-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .merge-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .merge-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .merge-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .merge-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .merge-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .merge-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .merge-benefit-card .merge-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .merge-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .merge-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .merge-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .merge-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .merge-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .merge-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .merge-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .merge-feature-card .merge-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .merge-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .merge-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .merge-use-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 16px;
+        }
+        .merge-use-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-use-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .merge-use-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .merge-use-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .merge-use-card .merge-use-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .merge-use-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .merge-use-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .merge-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .merge-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .merge-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .merge-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .merge-tips-list li::before {
+            content: '●';
+            color: #8b5cf6;
+        }
+
+        .merge-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .merge-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .merge-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .merge-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .merge-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .merge-usecase-card .merge-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .merge-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .merge-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .merge-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .merge-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .merge-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .merge-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .merge-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .merge-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .merge-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .merge-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .merge-faq-item:last-child {
+            border-bottom: none;
+        }
+        .merge-faq-item:hover {
+            background: #f8fafc;
+        }
+        .merge-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .merge-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .merge-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .merge-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .merge-faq-question[aria-expanded="true"] .merge-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .merge-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .merge-faq-answer p {
+            margin: 0;
+        }
+        .merge-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .merge-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .merge-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .merge-privacy-section p,
+        .merge-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .merge-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .merge-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .merge-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .merge-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .merge-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .merge-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .merge-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .merge-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .merge-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .merge-related-card .merge-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .merge-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .merge-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .merge-use-grid { grid-template-columns: repeat(2, 1fr); }
+            .merge-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .merge-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .merge-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .merge-content-wrapper { padding: 0 16px; }
+            .merge-intro-title { font-size: 2.2rem; }
+            .merge-howto-steps { grid-template-columns: 1fr; }
+            .merge-benefit-grid { grid-template-columns: 1fr; }
+            .merge-features-grid { grid-template-columns: 1fr; }
+            .merge-use-grid { grid-template-columns: 1fr; }
+            .merge-usecases-grid { grid-template-columns: 1fr; }
+            .merge-tips-list { grid-template-columns: 1fr; }
+            .merge-checklist-list { grid-template-columns: 1fr; }
+            .merge-related-grid { grid-template-columns: 1fr 1fr; }
+            .merge-about-list { grid-template-columns: 1fr; }
+            .merge-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .merge-intro-title { font-size: 1.8rem; }
+            .merge-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1086,6 +1742,575 @@
 <div class="toast-container" id="toastContainer"></div>
 
 
+    <div class="merge-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="merge-intro-section" id="merge-intro">
+            <h1 class="merge-intro-title">Free PDF Merger</h1>
+            <p class="merge-intro-text">
+                A <strong>PDF merger</strong> is a tool that combines multiple PDF documents into a single, unified PDF file. Whether you need to merge invoices, combine reports, or compile multiple documents into one, our tool makes it quick and easy.
+            </p>
+            <p class="merge-intro-text">
+                Our <strong>free online PDF merger</strong> allows you to upload multiple PDFs, reorder them as needed, and merge them into one document. No registration, no watermarks, and no limits. Perfect for business, education, and personal use.
+            </p>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 2. WHAT IS PDF MERGING? -->
+        <section class="merge-about-section" id="merge-about">
+            <h2 class="merge-about-title">What Is PDF Merging?</h2>
+            <p class="merge-about-text">
+                PDF merging is the process of combining multiple PDF files into a single document. This creates a unified file with all the pages from the original PDFs in the order you specify.
+            </p>
+            <p class="merge-about-text">Key features include:</p>
+            <ul class="merge-about-list">
+                <li><strong>Combine Multiple PDFs</strong> — Merge any number of files</li>
+                <li><strong>Page Reordering</strong> — Arrange files in any order</li>
+                <li><strong>Batch Processing</strong> — Merge all files at once</li>
+                <li><strong>Preserve Formatting</strong> — Maintain original layout</li>
+                <li><strong>Quick Download</strong> — Get your merged PDF instantly</li>
+            </ul>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 3. HOW TO MERGE PDF FILES -->
+        <section class="merge-howto-section" id="merge-how-to-use">
+            <h2 class="merge-howto-title">How to Merge PDF Files</h2>
+            <div class="merge-howto-steps">
+                <div class="merge-howto-step">
+                    <h3>Upload PDF Files</h3>
+                    <p>Select multiple PDF files from your device.</p>
+                </div>
+                <div class="merge-howto-step">
+                    <h3>Arrange File Order</h3>
+                    <p>Drag and drop files to set the desired order.</p>
+                </div>
+                <div class="merge-howto-step">
+                    <h3>Preview Pages</h3>
+                    <p>Check the pages in each PDF before merging.</p>
+                </div>
+                <div class="merge-howto-step">
+                    <h3>Merge PDFs</h3>
+                    <p>Click merge to combine all files into one document.</p>
+                </div>
+                <div class="merge-howto-step">
+                    <h3>Download Your PDF</h3>
+                    <p>Save your merged PDF instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 4. WHY MERGE PDF FILES? -->
+        <section class="merge-benefits-section" id="merge-benefits">
+            <h2 class="merge-benefits-title">Why Merge PDF Files?</h2>
+            <div class="merge-benefit-grid">
+                <div class="merge-benefit-card">
+                    <span class="merge-benefit-icon">📄</span>
+                    <h3>Single Document</h3>
+                    <p>Combine multiple files into one.</p>
+                </div>
+                <div class="merge-benefit-card">
+                    <span class="merge-benefit-icon">📦</span>
+                    <h3>Organized Files</h3>
+                    <p>Keep related documents together.</p>
+                </div>
+                <div class="merge-benefit-card">
+                    <span class="merge-benefit-icon">🔒</span>
+                    <h3>Easy Sharing</h3>
+                    <p>Share one file instead of many.</p>
+                </div>
+                <div class="merge-benefit-card">
+                    <span class="merge-benefit-icon">📱</span>
+                    <h3>Save Space</h3>
+                    <p>Reduce file clutter and storage.</p>
+                </div>
+                <div class="merge-benefit-card">
+                    <span class="merge-benefit-icon">🖨️</span>
+                    <h3>Print Efficiently</h3>
+                    <p>Print one document instead of many.</p>
+                </div>
+                <div class="merge-benefit-card">
+                    <span class="merge-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Merge PDFs in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 5. PDF MERGING FEATURES -->
+        <section class="merge-features-section">
+            <h2 class="merge-features-title">PDF Merging Features</h2>
+            <div class="merge-features-grid">
+                <div class="merge-feature-card">
+                    <span class="merge-feature-icon">📁</span>
+                    <h3>Multiple Uploads</h3>
+                    <p>Upload as many PDFs as you need.</p>
+                </div>
+                <div class="merge-feature-card">
+                    <span class="merge-feature-icon">🔄</span>
+                    <h3>File Reordering</h3>
+                    <p>Arrange files in any order.</p>
+                </div>
+                <div class="merge-feature-card">
+                    <span class="merge-feature-icon">👁️</span>
+                    <h3>Page Preview</h3>
+                    <p>See pages before merging.</p>
+                </div>
+                <div class="merge-feature-card">
+                    <span class="merge-feature-icon">🗑️</span>
+                    <h3>Remove Files</h3>
+                    <p>Remove files from the merge list.</p>
+                </div>
+                <div class="merge-feature-card">
+                    <span class="merge-feature-icon">📄</span>
+                    <h3>Combine All</h3>
+                    <p>Merge all files into one PDF.</p>
+                </div>
+                <div class="merge-feature-card">
+                    <span class="merge-feature-icon">⚡</span>
+                    <h3>Fast Processing</h3>
+                    <p>Quick merging for all PDFs.</p>
+                </div>
+                <div class="merge-feature-card">
+                    <span class="merge-feature-icon">🔒</span>
+                    <h3>Secure Merging</h3>
+                    <p>Your files are handled securely.</p>
+                </div>
+                <div class="merge-feature-card">
+                    <span class="merge-feature-icon">📱</span>
+                    <h3>Works on Mobile</h3>
+                    <p>Merge PDFs on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 6. COMMON USE CASES -->
+        <section class="merge-use-section">
+            <h2 class="merge-use-title">Common Use Cases</h2>
+            <div class="merge-use-grid">
+                <div class="merge-use-card">
+                    <span class="merge-use-icon">📊</span>
+                    <h3>Business Documents</h3>
+                    <p>Merge invoices, contracts, and reports into one file for easy distribution and archiving.</p>
+                </div>
+                <div class="merge-use-card">
+                    <span class="merge-use-icon">📚</span>
+                    <h3>Educational Materials</h3>
+                    <p>Combine lecture notes, assignments, and resources into a single course document.</p>
+                </div>
+                <div class="merge-use-card">
+                    <span class="merge-use-icon">🏢</span>
+                    <h3>Legal Documents</h3>
+                    <p>Merge legal agreements, exhibits, and supporting documents for case files.</p>
+                </div>
+                <div class="merge-use-card">
+                    <span class="merge-use-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Combine multiple image PDFs into a single photo book or portfolio.</p>
+                </div>
+                <div class="merge-use-card">
+                    <span class="merge-use-icon">📱</span>
+                    <h3>Personal Documents</h3>
+                    <p>Merge personal records, statements, and important documents for easy access.</p>
+                </div>
+                <div class="merge-use-card">
+                    <span class="merge-use-icon">📧</span>
+                    <h3>Email Sharing</h3>
+                    <p>Send one comprehensive PDF instead of multiple attachments.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="merge-tips-section">
+            <h2 class="merge-tips-title">PDF Merging Best Practices</h2>
+            <ul class="merge-tips-list">
+                <li>Organize files in the desired order before uploading</li>
+                <li>Use descriptive file names to identify documents</li>
+                <li>Check page preview to ensure correct file selection</li>
+                <li>Remove any blank or unwanted pages before merging</li>
+                <li>Verify that all files are complete and finalized</li>
+                <li>Consider compressing the final PDF if it's too large</li>
+                <li>Keep a backup of your original files</li>
+                <li>Preview the merged document before sharing</li>
+                <li>Use appropriate file names for the final merged PDF</li>
+                <li>Ensure you have the necessary permissions to merge documents</li>
+            </ul>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="merge-usecases-section">
+            <h2 class="merge-usecases-title">PDF Merging Use Cases</h2>
+            <div class="merge-usecases-grid">
+                <div class="merge-usecase-card">
+                    <span class="merge-usecase-icon">🏢</span>
+                    <h3>Office Work</h3>
+                    <p>Combine reports and presentations.</p>
+                </div>
+                <div class="merge-usecase-card">
+                    <span class="merge-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Merge lecture materials and notes.</p>
+                </div>
+                <div class="merge-usecase-card">
+                    <span class="merge-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Create photo books and portfolios.</p>
+                </div>
+                <div class="merge-usecase-card">
+                    <span class="merge-usecase-icon">📧</span>
+                    <h3>Email Attachments</h3>
+                    <p>Send one PDF instead of many.</p>
+                </div>
+                <div class="merge-usecase-card">
+                    <span class="merge-usecase-icon">🖨️</span>
+                    <h3>Printing</h3>
+                    <p>Print a single document efficiently.</p>
+                </div>
+                <div class="merge-usecase-card">
+                    <span class="merge-usecase-icon">📊</span>
+                    <h3>Business Reports</h3>
+                    <p>Combine data and analysis reports.</p>
+                </div>
+                <div class="merge-usecase-card">
+                    <span class="merge-usecase-icon">🏡</span>
+                    <h3>Personal Records</h3>
+                    <p>Organize personal documents and statements.</p>
+                </div>
+                <div class="merge-usecase-card">
+                    <span class="merge-usecase-icon">📱</span>
+                    <h3>Mobile Sharing</h3>
+                    <p>Share merged PDFs on mobile devices.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 9. MERGING QUALITY CHECKLIST -->
+        <section class="merge-checklist-section" id="merge-checklist">
+            <h2 class="merge-checklist-title">Before Downloading Your Merged PDF</h2>
+            <ul class="merge-checklist-list">
+                <li>Are all files in the correct order?</li>
+                <li>Are all the necessary files included?</li>
+                <li>Is the merged document complete?</li>
+                <li>Is the file size reasonable?</li>
+                <li>Are the pages correctly aligned?</li>
+                <li>Is the formatting preserved?</li>
+                <li>Have you previewed the merged document?</li>
+                <li>Is the document ready for sharing?</li>
+                <li>Have you kept your original files?</li>
+                <li>Is the file named appropriately?</li>
+            </ul>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="merge-faq-section" id="merge-faq">
+            <h2 class="merge-faq-title">Frequently Asked Questions</h2>
+            <div class="merge-faq-accordion">
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        What is a PDF merger?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>A PDF merger combines multiple PDF files into a single document, preserving the original formatting and layout.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Is the PDF merger free?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>Yes, our PDF merger is completely free with no limits on the number of files you can merge.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Can I reorder the files before merging?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>Yes, you can drag and drop files to arrange them in any order before merging.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        How many PDFs can I merge at once?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>You can merge as many PDFs as you need, subject to the maximum file size limit.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>We accept individual PDFs up to 50MB and total uploads up to 200MB.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Does merging reduce PDF quality?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>No, our merger preserves the original quality and formatting of each PDF file.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Can I merge password-protected PDFs?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>Currently, we only support merging password-protected PDFs if you provide the password during upload.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Is my data secure when merging PDFs?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>Yes, your PDFs are processed securely and automatically deleted after merging. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Can I remove a file from the merge list?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>Yes, you can remove any file from the list before merging by clicking the remove button.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Can I preview pages before merging?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>Yes, you can preview the pages of each PDF to ensure you're merging the correct documents.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Can I merge PDFs on mobile?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>Yes, our PDF merger works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="merge-faq-item">
+                    <button class="merge-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="merge-faq-icon">+</span>
+                    </button>
+                    <div class="merge-faq-answer" style="display:none;">
+                        <p>No, you can merge PDFs without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="merge-privacy-section">
+            <h2 class="merge-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your PDFs are handled:</p>
+            <ul>
+                <li><strong>☁️ Temporary processing:</strong> PDFs are temporarily uploaded for merging.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your PDFs after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>🖥️ No client-side storage:</strong> Your files are never stored on your device without your consent.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="merge-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="merge-related-section" id="merge-related-tools">
+            <h2 class="merge-related-title">Related Tools</h2>
+            <div class="merge-related-grid">
+                <a href="#" class="merge-related-card">
+                    <span class="merge-related-icon">✂️</span> Split PDF
+                </a>
+                <a href="#" class="merge-related-card">
+                    <span class="merge-related-icon">🔄</span> PDF to Image
+                </a>
+                <a href="#" class="merge-related-card">
+                    <span class="merge-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="merge-related-card">
+                    <span class="merge-related-icon">🗜️</span> Compress PDF
+                </a>
+                <a href="#" class="merge-related-card">
+                    <span class="merge-related-icon">🔒</span> PDF Security
+                </a>
+                <a href="#" class="merge-related-card">
+                    <span class="merge-related-icon">📐</span> PDF to JPG
+                </a>
+                <a href="#" class="merge-related-card">
+                    <span class="merge-related-icon">📄</span> JPG to PDF
+                </a>
+                <a href="#" class="merge-related-card">
+                    <span class="merge-related-icon">📄</span> PNG to PDF
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PDF merger?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PDF merger combines multiple PDF files into a single document, preserving the original formatting and layout."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the PDF merger free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF merger is completely free with no limits on the number of files you can merge."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I reorder the files before merging?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can drag and drop files to arrange them in any order before merging."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many PDFs can I merge at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can merge as many PDFs as you need, subject to the maximum file size limit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept individual PDFs up to 50MB and total uploads up to 200MB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does merging reduce PDF quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, our merger preserves the original quality and formatting of each PDF file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I merge password-protected PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, we only support merging password-protected PDFs if you provide the password during upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure when merging PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your PDFs are processed securely and automatically deleted after merging. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I remove a file from the merge list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can remove any file from the list before merging by clicking the remove button."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I preview pages before merging?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can preview the pages of each PDF to ensure you're merging the correct documents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I merge PDFs on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF merger works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can merge PDFs without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.merge-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

@@ -601,6 +601,661 @@
     }
 
   /* End Page style goes here....................*/
+          .res-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .res-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .res-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .res-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .res-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .res-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .res-intro-text strong {
+            color: #1e293b;
+        }
+
+        .res-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .res-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-about-title::before {
+            content: '🧹';
+            font-size: 1.8rem;
+        }
+        .res-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .res-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .res-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .res-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .res-howto-section {
+            margin: 2.5rem 0;
+        }
+        .res-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .res-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .res-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .res-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .res-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .res-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .res-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .res-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .res-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .res-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .res-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .res-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .res-benefit-card .res-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .res-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .res-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .res-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .res-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .res-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .res-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .res-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .res-feature-card .res-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .res-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .res-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .res-options-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .res-options-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-options-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .res-options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .res-option-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .res-option-card .res-option-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .res-option-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .res-option-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .res-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .res-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .res-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .res-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .res-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .res-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .res-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .res-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .res-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .res-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .res-usecase-card .res-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .res-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .res-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .res-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .res-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .res-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .res-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .res-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .res-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .res-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .res-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .res-faq-item:last-child {
+            border-bottom: none;
+        }
+        .res-faq-item:hover {
+            background: #f8fafc;
+        }
+        .res-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .res-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .res-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .res-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .res-faq-question[aria-expanded="true"] .res-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .res-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .res-faq-answer p {
+            margin: 0;
+        }
+        .res-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .res-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .res-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .res-privacy-section p,
+        .res-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .res-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .res-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .res-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .res-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .res-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .res-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .res-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .res-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .res-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .res-related-card .res-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .res-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .res-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .res-options-grid { grid-template-columns: repeat(2, 1fr); }
+            .res-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .res-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .res-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .res-content-wrapper { padding: 0 16px; }
+            .res-intro-title { font-size: 2.2rem; }
+            .res-howto-steps { grid-template-columns: 1fr; }
+            .res-benefit-grid { grid-template-columns: 1fr; }
+            .res-features-grid { grid-template-columns: 1fr; }
+            .res-options-grid { grid-template-columns: 1fr; }
+            .res-usecases-grid { grid-template-columns: 1fr; }
+            .res-tips-list { grid-template-columns: 1fr; }
+            .res-checklist-list { grid-template-columns: 1fr; }
+            .res-related-grid { grid-template-columns: 1fr 1fr; }
+            .res-about-list { grid-template-columns: 1fr; }
+            .res-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .res-intro-title { font-size: 1.8rem; }
+            .res-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -986,6 +1641,559 @@
 </div> 
 
 
+    <div class="res-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="res-intro-section" id="res-intro">
+            <h1 class="res-intro-title">Free Online Remove Extra Spaces</h1>
+            <p class="res-intro-text">
+                A <strong>remove extra spaces tool</strong> is an essential utility that cleans up your text by eliminating unnecessary spaces. Whether you have double spaces, leading/trailing spaces, or irregular spacing, our tool helps you create clean, well-formatted text.
+            </p>
+            <p class="res-intro-text">
+                Our <strong>free online remove extra spaces tool</strong> offers instant processing with multiple cleaning options. Perfect for editing, formatting, and preparing text for publication. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 2. WHAT IS A REMOVE EXTRA SPACES TOOL? -->
+        <section class="res-about-section" id="res-about">
+            <h2 class="res-about-title">What Is a Remove Extra Spaces Tool?</h2>
+            <p class="res-about-text">
+                A remove extra spaces tool is a utility that identifies and removes unnecessary spaces from text. It can eliminate double spaces, trim leading and trailing spaces, and clean up irregular spacing patterns.
+            </p>
+            <p class="res-about-text">Key features include:</p>
+            <ul class="res-about-list">
+                <li><strong>Remove Double Spaces</strong> — Convert multiple spaces to single</li>
+                <li><strong>Trim Leading Spaces</strong> — Remove spaces at start</li>
+                <li><strong>Trim Trailing Spaces</strong> — Remove spaces at end</li>
+                <li><strong>Remove All Spaces</strong> — Complete space removal</li>
+                <li><strong>Quick Processing</strong> — Instant results</li>
+            </ul>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 3. HOW TO REMOVE EXTRA SPACES -->
+        <section class="res-howto-section" id="res-how-to-use">
+            <h2 class="res-howto-title">How to Remove Extra Spaces</h2>
+            <div class="res-howto-steps">
+                <div class="res-howto-step">
+                    <h3>Paste Your Text</h3>
+                    <p>Enter your text with extra spaces.</p>
+                </div>
+                <div class="res-howto-step">
+                    <h3>Choose Options</h3>
+                    <p>Select which spaces to remove.</p>
+                </div>
+                <div class="res-howto-step">
+                    <h3>Process Text</h3>
+                    <p>Click to clean your text.</p>
+                </div>
+                <div class="res-howto-step">
+                    <h3>View Results</h3>
+                    <p>See your cleaned text instantly.</p>
+                </div>
+                <div class="res-howto-step">
+                    <h3>Copy or Download</h3>
+                    <p>Save your cleaned text.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 4. WHY REMOVE EXTRA SPACES? -->
+        <section class="res-benefits-section" id="res-benefits">
+            <h2 class="res-benefits-title">Why Remove Extra Spaces?</h2>
+            <div class="res-benefit-grid">
+                <div class="res-benefit-card">
+                    <span class="res-benefit-icon">🧹</span>
+                    <h3>Clean Text</h3>
+                    <p>Remove unnecessary spaces.</p>
+                </div>
+                <div class="res-benefit-card">
+                    <span class="res-benefit-icon">📊</span>
+                    <h3>Better Formatting</h3>
+                    <p>Improve text appearance.</p>
+                </div>
+                <div class="res-benefit-card">
+                    <span class="res-benefit-icon">⏱️</span>
+                    <h3>Save Time</h3>
+                    <p>Process text instantly.</p>
+                </div>
+                <div class="res-benefit-card">
+                    <span class="res-benefit-icon">📋</span>
+                    <h3>Professional Look</h3>
+                    <p>Create polished content.</p>
+                </div>
+                <div class="res-benefit-card">
+                    <span class="res-benefit-icon">🎯</span>
+                    <h3>Accuracy</h3>
+                    <p>Get precise results.</p>
+                </div>
+                <div class="res-benefit-card">
+                    <span class="res-benefit-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on mobile and desktop.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 5. FEATURES -->
+        <section class="res-features-section">
+            <h2 class="res-features-title">Remove Extra Spaces Features</h2>
+            <div class="res-features-grid">
+                <div class="res-feature-card">
+                    <span class="res-feature-icon">🧹</span>
+                    <h3>Remove Double Spaces</h3>
+                    <p>Convert multiple spaces to single.</p>
+                </div>
+                <div class="res-feature-card">
+                    <span class="res-feature-icon">📏</span>
+                    <h3>Trim Leading Spaces</h3>
+                    <p>Remove spaces at start.</p>
+                </div>
+                <div class="res-feature-card">
+                    <span class="res-feature-icon">📏</span>
+                    <h3>Trim Trailing Spaces</h3>
+                    <p>Remove spaces at end.</p>
+                </div>
+                <div class="res-feature-card">
+                    <span class="res-feature-icon">🚫</span>
+                    <h3>Remove All Spaces</h3>
+                    <p>Complete space removal.</p>
+                </div>
+                <div class="res-feature-card">
+                    <span class="res-feature-icon">⚡</span>
+                    <h3>Instant Processing</h3>
+                    <p>Get results immediately.</p>
+                </div>
+                <div class="res-feature-card">
+                    <span class="res-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy text management.</p>
+                </div>
+                <div class="res-feature-card">
+                    <span class="res-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your text is safe.</p>
+                </div>
+                <div class="res-feature-card">
+                    <span class="res-feature-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 6. OPTIONS -->
+        <section class="res-options-section">
+            <h2 class="res-options-title">Cleaning Options</h2>
+            <div class="res-options-grid">
+                <div class="res-option-card">
+                    <span class="res-option-icon">🧹</span>
+                    <h3>Remove Double Spaces</h3>
+                    <p>Converts two or more spaces into a single space. Perfect for cleaning up messy text.</p>
+                </div>
+                <div class="res-option-card">
+                    <span class="res-option-icon">📏</span>
+                    <h3>Trim Leading/Trailing Spaces</h3>
+                    <p>Removes spaces at the beginning and end of your text. Creates clean, professional formatting.</p>
+                </div>
+                <div class="res-option-card">
+                    <span class="res-option-icon">🚫</span>
+                    <h3>Remove All Spaces</h3>
+                    <p>Removes every space in your text. Useful for specific formatting needs and data processing.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="res-tips-section">
+            <h2 class="res-tips-title">Best Practices for Removing Extra Spaces</h2>
+            <ul class="res-tips-list">
+                <li>Choose the right option for your needs</li>
+                <li>Preview your text before and after</li>
+                <li>Keep a backup of your original text</li>
+                <li>Use for formatting documents</li>
+                <li>Clean up copied text from websites</li>
+                <li>Remove double spaces in data sets</li>
+                <li>Trim spaces for clean output</li>
+                <li>Use all spaces removal for specific needs</li>
+                <li>Check results before saving</li>
+                <li>Use for preparing text for publication</li>
+            </ul>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="res-usecases-section">
+            <h2 class="res-usecases-title">Use Cases</h2>
+            <div class="res-usecases-grid">
+                <div class="res-usecase-card">
+                    <span class="res-usecase-icon">📝</span>
+                    <h3>Content Editing</h3>
+                    <p>Clean up article text.</p>
+                </div>
+                <div class="res-usecase-card">
+                    <span class="res-usecase-icon">📊</span>
+                    <h3>Data Cleaning</h3>
+                    <p>Clean CSV and data sets.</p>
+                </div>
+                <div class="res-usecase-card">
+                    <span class="res-usecase-icon">📧</span>
+                    <h3>Email Formatting</h3>
+                    <p>Clean email content.</p>
+                </div>
+                <div class="res-usecase-card">
+                    <span class="res-usecase-icon">🏢</span>
+                    <h3>Business Documents</h3>
+                    <p>Prepare professional documents.</p>
+                </div>
+                <div class="res-usecase-card">
+                    <span class="res-usecase-icon">📚</span>
+                    <h3>Academic Work</h3>
+                    <p>Clean research papers.</p>
+                </div>
+                <div class="res-usecase-card">
+                    <span class="res-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Clean posts and captions.</p>
+                </div>
+                <div class="res-usecase-card">
+                    <span class="res-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Clean product descriptions.</p>
+                </div>
+                <div class="res-usecase-card">
+                    <span class="res-usecase-icon">📋</span>
+                    <h3>List Management</h3>
+                    <p>Clean and format lists.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="res-checklist-section" id="res-checklist">
+            <h2 class="res-checklist-title">Before Using Your Cleaned Text</h2>
+            <ul class="res-checklist-list">
+                <li>Are all extra spaces removed?</li>
+                <li>Is the text formatted correctly?</li>
+                <li>Are there any unwanted spaces left?</li>
+                <li>Is the text ready for use?</li>
+                <li>Have you previewed the result?</li>
+                <li>Is the text formatting correct?</li>
+                <li>Have you saved your final version?</li>
+                <li>Is the text ready for sharing?</li>
+                <li>Have you kept your original text?</li>
+                <li>Is the cleaning accurate?</li>
+            </ul>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="res-faq-section" id="res-faq">
+            <h2 class="res-faq-title">Frequently Asked Questions</h2>
+            <div class="res-faq-accordion">
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        What is a remove extra spaces tool?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>A remove extra spaces tool identifies and removes unnecessary spaces from text, including double spaces and leading/trailing spaces.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Is the remove extra spaces tool free?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>Yes, our remove extra spaces tool is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        What options are available?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>You can remove double spaces, trim leading/trailing spaces, or remove all spaces.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Does the tool preserve line breaks?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>Yes, line breaks are preserved while spaces between words and at line ends are cleaned.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Can I paste text into the tool?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>Yes, you can paste any text into the input area for instant processing.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Is my text saved or stored?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>No, your text is not saved or stored. It's processed locally in your browser and automatically cleared.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Can I use the tool for large text?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>Yes, the tool can handle large text inputs efficiently.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        What is the difference between trimming and removing double spaces?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>Trimming removes spaces at the start and end. Removing double spaces converts multiple spaces between words to single spaces.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Does the tool remove spaces between words?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>Only if you choose "Remove All Spaces". Otherwise, it preserves single spaces between words.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Is the tool mobile-friendly?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>Yes, our remove extra spaces tool works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Can I use the tool for formatting documents?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>Yes, this tool is perfect for cleaning and formatting text for documents and publication.</p>
+                    </div>
+                </div>
+                <div class="res-faq-item">
+                    <button class="res-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="res-faq-icon">+</span>
+                    </button>
+                    <div class="res-faq-answer" style="display:none;">
+                        <p>No, you can use the remove extra spaces tool without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="res-privacy-section">
+            <h2 class="res-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your text is handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All text analysis happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your text is never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your text after analysis.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your text is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="res-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="res-related-section" id="res-related-tools">
+            <h2 class="res-related-title">Related Tools</h2>
+            <div class="res-related-grid">
+                <a href="#" class="res-related-card">
+                    <span class="res-related-icon">📝</span> Word Counter
+                </a>
+                <a href="#" class="res-related-card">
+                    <span class="res-related-icon">🔢</span> Character Counter
+                </a>
+                <a href="#" class="res-related-card">
+                    <span class="res-related-icon">🔤</span> Case Converter
+                </a>
+                <a href="#" class="res-related-card">
+                    <span class="res-related-icon">🧹</span> Remove Duplicate Lines
+                </a>
+                <a href="#" class="res-related-card">
+                    <span class="res-related-icon">📋</span> Sort Lines
+                </a>
+                <a href="#" class="res-related-card">
+                    <span class="res-related-icon">📝</span> Text Cleaner
+                </a>
+                <a href="#" class="res-related-card">
+                    <span class="res-related-icon">📱</span> Social Media Counter
+                </a>
+                <a href="#" class="res-related-card">
+                    <span class="res-related-icon">📊</span> Readability Checker
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a remove extra spaces tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A remove extra spaces tool identifies and removes unnecessary spaces from text, including double spaces and leading/trailing spaces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the remove extra spaces tool free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our remove extra spaces tool is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What options are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can remove double spaces, trim leading/trailing spaces, or remove all spaces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the tool preserve line breaks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, line breaks are preserved while spaces between words and at line ends are cleaned."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I paste text into the tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can paste any text into the input area for instant processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my text saved or stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, your text is not saved or stored. It's processed locally in your browser and automatically cleared."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the tool for large text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the tool can handle large text inputs efficiently."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between trimming and removing double spaces?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trimming removes spaces at the start and end. Removing double spaces converts multiple spaces between words to single spaces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the tool remove spaces between words?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you choose 'Remove All Spaces'. Otherwise, it preserves single spaces between words."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tool mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our remove extra spaces tool works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the tool for formatting documents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this tool is perfect for cleaning and formatting text for documents and publication."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the remove extra spaces tool without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.res-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

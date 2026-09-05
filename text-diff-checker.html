@@ -624,6 +624,661 @@
     .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; }
 
   /* End Page style goes here....................*/
+          .tdiff-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .tdiff-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .tdiff-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .tdiff-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .tdiff-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .tdiff-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .tdiff-intro-text strong {
+            color: #1e293b;
+        }
+
+        .tdiff-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .tdiff-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-about-title::before {
+            content: '🔍';
+            font-size: 1.8rem;
+        }
+        .tdiff-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .tdiff-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .tdiff-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tdiff-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .tdiff-howto-section {
+            margin: 2.5rem 0;
+        }
+        .tdiff-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .tdiff-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .tdiff-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .tdiff-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .tdiff-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .tdiff-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .tdiff-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .tdiff-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .tdiff-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .tdiff-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .tdiff-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .tdiff-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .tdiff-benefit-card .tdiff-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .tdiff-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .tdiff-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .tdiff-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .tdiff-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .tdiff-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .tdiff-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .tdiff-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .tdiff-feature-card .tdiff-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .tdiff-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .tdiff-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .tdiff-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .tdiff-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-compare-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .tdiff-compare-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .tdiff-compare-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .tdiff-compare-card .tdiff-compare-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .tdiff-compare-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .tdiff-compare-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .tdiff-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .tdiff-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .tdiff-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .tdiff-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tdiff-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .tdiff-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .tdiff-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .tdiff-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .tdiff-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .tdiff-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .tdiff-usecase-card .tdiff-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .tdiff-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .tdiff-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .tdiff-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .tdiff-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .tdiff-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .tdiff-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tdiff-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .tdiff-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .tdiff-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .tdiff-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .tdiff-faq-item:last-child {
+            border-bottom: none;
+        }
+        .tdiff-faq-item:hover {
+            background: #f8fafc;
+        }
+        .tdiff-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .tdiff-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .tdiff-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .tdiff-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .tdiff-faq-question[aria-expanded="true"] .tdiff-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .tdiff-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .tdiff-faq-answer p {
+            margin: 0;
+        }
+        .tdiff-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .tdiff-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .tdiff-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .tdiff-privacy-section p,
+        .tdiff-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .tdiff-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .tdiff-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .tdiff-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .tdiff-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .tdiff-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tdiff-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .tdiff-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .tdiff-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .tdiff-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .tdiff-related-card .tdiff-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .tdiff-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .tdiff-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .tdiff-compare-grid { grid-template-columns: repeat(2, 1fr); }
+            .tdiff-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .tdiff-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .tdiff-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .tdiff-content-wrapper { padding: 0 16px; }
+            .tdiff-intro-title { font-size: 2.2rem; }
+            .tdiff-howto-steps { grid-template-columns: 1fr; }
+            .tdiff-benefit-grid { grid-template-columns: 1fr; }
+            .tdiff-features-grid { grid-template-columns: 1fr; }
+            .tdiff-compare-grid { grid-template-columns: 1fr; }
+            .tdiff-usecases-grid { grid-template-columns: 1fr; }
+            .tdiff-tips-list { grid-template-columns: 1fr; }
+            .tdiff-checklist-list { grid-template-columns: 1fr; }
+            .tdiff-related-grid { grid-template-columns: 1fr 1fr; }
+            .tdiff-about-list { grid-template-columns: 1fr; }
+            .tdiff-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .tdiff-intro-title { font-size: 1.8rem; }
+            .tdiff-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -973,6 +1628,559 @@
 
 
 
+    <div class="tdiff-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="tdiff-intro-section" id="tdiff-intro">
+            <h1 class="tdiff-intro-title">Free Online Text Diff Checker</h1>
+            <p class="tdiff-intro-text">
+                A <strong>text diff checker</strong> is an essential tool that compares two texts and highlights the differences between them. Whether you're comparing documents, tracking changes, or checking for plagiarism, our tool makes it easy to see exactly what's different.
+            </p>
+            <p class="tdiff-intro-text">
+                Our <strong>free online text diff checker</strong> offers instant comparison with clear visual highlighting of additions, deletions, and modifications. Perfect for writers, editors, developers, and students. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 2. WHAT IS A TEXT DIFF CHECKER? -->
+        <section class="tdiff-about-section" id="tdiff-about">
+            <h2 class="tdiff-about-title">What Is a Text Diff Checker?</h2>
+            <p class="tdiff-about-text">
+                A text diff checker is a utility that compares two texts and identifies differences. It highlights additions, deletions, and modifications, making it easy to see what's been changed between versions.
+            </p>
+            <p class="tdiff-about-text">Key features include:</p>
+            <ul class="tdiff-about-list">
+                <li><strong>Compare Two Texts</strong> — Side-by-side comparison</li>
+                <li><strong>Highlight Changes</strong> — Visual difference indicators</li>
+                <li><strong>Detect Additions</strong> — See new content</li>
+                <li><strong>Detect Deletions</strong> — See removed content</li>
+                <li><strong>Quick Processing</strong> — Instant results</li>
+            </ul>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 3. HOW TO COMPARE TEXT -->
+        <section class="tdiff-howto-section" id="tdiff-how-to-use">
+            <h2 class="tdiff-howto-title">How to Compare Text</h2>
+            <div class="tdiff-howto-steps">
+                <div class="tdiff-howto-step">
+                    <h3>Enter First Text</h3>
+                    <p>Type or paste the original text.</p>
+                </div>
+                <div class="tdiff-howto-step">
+                    <h3>Enter Second Text</h3>
+                    <p>Type or paste the modified text.</p>
+                </div>
+                <div class="tdiff-howto-step">
+                    <h3>Compare Texts</h3>
+                    <p>Click to see the differences.</p>
+                </div>
+                <div class="tdiff-howto-step">
+                    <h3>View Results</h3>
+                    <p>See highlighted differences instantly.</p>
+                </div>
+                <div class="tdiff-howto-step">
+                    <h3>Copy or Download</h3>
+                    <p>Save your comparison results.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 4. WHY USE A TEXT DIFF CHECKER? -->
+        <section class="tdiff-benefits-section" id="tdiff-benefits">
+            <h2 class="tdiff-benefits-title">Why Use a Text Diff Checker?</h2>
+            <div class="tdiff-benefit-grid">
+                <div class="tdiff-benefit-card">
+                    <span class="tdiff-benefit-icon">🔍</span>
+                    <h3>Quick Comparison</h3>
+                    <p>Compare texts instantly.</p>
+                </div>
+                <div class="tdiff-benefit-card">
+                    <span class="tdiff-benefit-icon">📝</span>
+                    <h3>Track Changes</h3>
+                    <p>See what's been changed.</p>
+                </div>
+                <div class="tdiff-benefit-card">
+                    <span class="tdiff-benefit-icon">⏱️</span>
+                    <h3>Save Time</h3>
+                    <p>Find differences quickly.</p>
+                </div>
+                <div class="tdiff-benefit-card">
+                    <span class="tdiff-benefit-icon">📋</span>
+                    <h3>Accuracy</h3>
+                    <p>Get precise comparisons.</p>
+                </div>
+                <div class="tdiff-benefit-card">
+                    <span class="tdiff-benefit-icon">🎯</span>
+                    <h3>Visual Highlighting</h3>
+                    <p>Easy to see differences.</p>
+                </div>
+                <div class="tdiff-benefit-card">
+                    <span class="tdiff-benefit-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on mobile and desktop.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 5. FEATURES -->
+        <section class="tdiff-features-section">
+            <h2 class="tdiff-features-title">Text Diff Checker Features</h2>
+            <div class="tdiff-features-grid">
+                <div class="tdiff-feature-card">
+                    <span class="tdiff-feature-icon">🔍</span>
+                    <h3>Text Comparison</h3>
+                    <p>Compare two texts.</p>
+                </div>
+                <div class="tdiff-feature-card">
+                    <span class="tdiff-feature-icon">🎨</span>
+                    <h3>Visual Highlighting</h3>
+                    <p>Clear difference indicators.</p>
+                </div>
+                <div class="tdiff-feature-card">
+                    <span class="tdiff-feature-icon">📝</span>
+                    <h3>Additions Detection</h3>
+                    <p>See new content.</p>
+                </div>
+                <div class="tdiff-feature-card">
+                    <span class="tdiff-feature-icon">❌</span>
+                    <h3>Deletions Detection</h3>
+                    <p>See removed content.</p>
+                </div>
+                <div class="tdiff-feature-card">
+                    <span class="tdiff-feature-icon">⚡</span>
+                    <h3>Instant Processing</h3>
+                    <p>Get results immediately.</p>
+                </div>
+                <div class="tdiff-feature-card">
+                    <span class="tdiff-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy text management.</p>
+                </div>
+                <div class="tdiff-feature-card">
+                    <span class="tdiff-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your text is safe.</p>
+                </div>
+                <div class="tdiff-feature-card">
+                    <span class="tdiff-feature-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 6. COMPARISON TYPES -->
+        <section class="tdiff-compare-section">
+            <h2 class="tdiff-compare-title">Comparison Features</h2>
+            <div class="tdiff-compare-grid">
+                <div class="tdiff-compare-card">
+                    <span class="tdiff-compare-icon">📝</span>
+                    <h3>Character-Level Diff</h3>
+                    <p>Shows differences at the character level. Perfect for spotting small changes in text.</p>
+                </div>
+                <div class="tdiff-compare-card">
+                    <span class="tdiff-compare-icon">📄</span>
+                    <h3>Word-Level Diff</h3>
+                    <p>Shows differences at the word level. Ideal for comparing sentences and paragraphs.</p>
+                </div>
+                <div class="tdiff-compare-card">
+                    <span class="tdiff-compare-icon">📊</span>
+                    <h3>Line-Level Diff</h3>
+                    <p>Shows differences at the line level. Perfect for comparing code, lists, and structured text.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="tdiff-tips-section">
+            <h2 class="tdiff-tips-title">Best Practices for Comparing Text</h2>
+            <ul class="tdiff-tips-list">
+                <li>Use for comparing document versions</li>
+                <li>Check for plagiarism and copying</li>
+                <li>Track edits and revisions</li>
+                <li>Compare code snippets</li>
+                <li>Review content changes</li>
+                <li>Check for consistency across documents</li>
+                <li>Use for academic writing comparison</li>
+                <li>Check for data accuracy</li>
+                <li>Review translation accuracy</li>
+                <li>Verify content updates</li>
+            </ul>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="tdiff-usecases-section">
+            <h2 class="tdiff-usecases-title">Text Diff Checker Use Cases</h2>
+            <div class="tdiff-usecases-grid">
+                <div class="tdiff-usecase-card">
+                    <span class="tdiff-usecase-icon">📝</span>
+                    <h3>Document Editing</h3>
+                    <p>Track document changes.</p>
+                </div>
+                <div class="tdiff-usecase-card">
+                    <span class="tdiff-usecase-icon">📚</span>
+                    <h3>Academic Work</h3>
+                    <p>Compare paper versions.</p>
+                </div>
+                <div class="tdiff-usecase-card">
+                    <span class="tdiff-usecase-icon">💻</span>
+                    <h3>Code Review</h3>
+                    <p>Compare code changes.</p>
+                </div>
+                <div class="tdiff-usecase-card">
+                    <span class="tdiff-usecase-icon">📧</span>
+                    <h3>Email Comparison</h3>
+                    <p>Compare email versions.</p>
+                </div>
+                <div class="tdiff-usecase-card">
+                    <span class="tdiff-usecase-icon">📊</span>
+                    <h3>Data Verification</h3>
+                    <p>Verify data accuracy.</p>
+                </div>
+                <div class="tdiff-usecase-card">
+                    <span class="tdiff-usecase-icon">🌐</span>
+                    <h3>Translation Review</h3>
+                    <p>Check translation accuracy.</p>
+                </div>
+                <div class="tdiff-usecase-card">
+                    <span class="tdiff-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Compare post versions.</p>
+                </div>
+                <div class="tdiff-usecase-card">
+                    <span class="tdiff-usecase-icon">📋</span>
+                    <h3>Content Management</h3>
+                    <p>Track content changes.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="tdiff-checklist-section" id="tdiff-checklist">
+            <h2 class="tdiff-checklist-title">Before Using Your Comparison Results</h2>
+            <ul class="tdiff-checklist-list">
+                <li>Are the texts compared correctly?</li>
+                <li>Are the differences highlighted clearly?</li>
+                <li>Is the comparison accurate?</li>
+                <li>Have you reviewed all changes?</li>
+                <li>Is the result ready for use?</li>
+                <li>Have you saved your final version?</li>
+                <li>Is the comparison suitable for its purpose?</li>
+                <li>Have you kept your original texts?</li>
+                <li>Is the comparison format appropriate?</li>
+                <li>Are the changes accurately identified?</li>
+            </ul>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="tdiff-faq-section" id="tdiff-faq">
+            <h2 class="tdiff-faq-title">Frequently Asked Questions</h2>
+            <div class="tdiff-faq-accordion">
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        What is a text diff checker?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>A text diff checker compares two texts and highlights the differences between them.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        Is the text diff checker free?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>Yes, our text diff checker is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        What level of comparison is available?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>You can compare at character, word, or line level depending on your needs.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        How are differences highlighted?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>Additions are highlighted in green, deletions in red, and modifications in yellow.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        Can I paste text into the tool?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>Yes, you can paste any text into both input areas for instant comparison.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        Is my text saved or stored?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>No, your text is not saved or stored. It's processed locally in your browser and automatically cleared.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        Can I use the tool for plagiarism detection?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>Yes, the text diff checker can help identify similarities and differences between two texts.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        What is the difference between character, word, and line level comparison?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>Character-level shows individual character changes. Word-level shows word changes. Line-level shows whole line changes.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        Is the tool mobile-friendly?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>Yes, our text diff checker works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        Can I use the tool for code comparison?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>Yes, the line-level comparison is perfect for comparing code snippets and programming files.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        Does the tool support large texts?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>Yes, the tool can handle large text inputs efficiently.</p>
+                    </div>
+                </div>
+                <div class="tdiff-faq-item">
+                    <button class="tdiff-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="tdiff-faq-icon">+</span>
+                    </button>
+                    <div class="tdiff-faq-answer" style="display:none;">
+                        <p>No, you can use the text diff checker without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="tdiff-privacy-section">
+            <h2 class="tdiff-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your text is handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All text processing happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your text is never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your text after processing.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your text is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="tdiff-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="tdiff-related-section" id="tdiff-related-tools">
+            <h2 class="tdiff-related-title">Related Tools</h2>
+            <div class="tdiff-related-grid">
+                <a href="#" class="tdiff-related-card">
+                    <span class="tdiff-related-icon">📝</span> Word Counter
+                </a>
+                <a href="#" class="tdiff-related-card">
+                    <span class="tdiff-related-icon">🔢</span> Character Counter
+                </a>
+                <a href="#" class="tdiff-related-card">
+                    <span class="tdiff-related-icon">🔤</span> Case Converter
+                </a>
+                <a href="#" class="tdiff-related-card">
+                    <span class="tdiff-related-icon">🧹</span> Remove Duplicate Lines
+                </a>
+                <a href="#" class="tdiff-related-card">
+                    <span class="tdiff-related-icon">📊</span> Text Sorter
+                </a>
+                <a href="#" class="tdiff-related-card">
+                    <span class="tdiff-related-icon">🔄</span> Text Reverser
+                </a>
+                <a href="#" class="tdiff-related-card">
+                    <span class="tdiff-related-icon">🔗</span> Text to Slug
+                </a>
+                <a href="#" class="tdiff-related-card">
+                    <span class="tdiff-related-icon">📱</span> Social Media Counter
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a text diff checker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A text diff checker compares two texts and highlights the differences between them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the text diff checker free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our text diff checker is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What level of comparison is available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can compare at character, word, or line level depending on your needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are differences highlighted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Additions are highlighted in green, deletions in red, and modifications in yellow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I paste text into the tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can paste any text into both input areas for instant comparison."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my text saved or stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, your text is not saved or stored. It's processed locally in your browser and automatically cleared."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the tool for plagiarism detection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the text diff checker can help identify similarities and differences between two texts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between character, word, and line level comparison?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Character-level shows individual character changes. Word-level shows word changes. Line-level shows whole line changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tool mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our text diff checker works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the tool for code comparison?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the line-level comparison is perfect for comparing code snippets and programming files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the tool support large texts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the tool can handle large text inputs efficiently."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the text diff checker without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.tdiff-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 </main>
 

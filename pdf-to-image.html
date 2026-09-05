@@ -482,6 +482,711 @@
     @media (max-width: 480px) { .card { padding: 1rem; } .settings-grid { grid-template-columns: 1fr; } }
 
   /* End Page style goes here....................*/
+
+          .pdfimg-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .pdfimg-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .pdfimg-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .pdfimg-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #ec4899);
+            border-radius: 2px;
+        }
+        .pdfimg-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .pdfimg-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .pdfimg-intro-text strong {
+            color: #1e293b;
+        }
+
+        .pdfimg-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .pdfimg-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-about-title::before {
+            content: '📄';
+            font-size: 1.8rem;
+        }
+        .pdfimg-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .pdfimg-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .pdfimg-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #ec4899;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pdfimg-about-list li::before {
+            content: '✓';
+            color: #ec4899;
+            font-weight: 700;
+        }
+
+        .pdfimg-howto-section {
+            margin: 2.5rem 0;
+        }
+        .pdfimg-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .pdfimg-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .pdfimg-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .pdfimg-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .pdfimg-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #ec4899);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .pdfimg-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .pdfimg-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .pdfimg-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .pdfimg-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .pdfimg-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .pdfimg-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .pdfimg-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .pdfimg-benefit-card .pdfimg-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .pdfimg-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .pdfimg-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .pdfimg-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .pdfimg-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .pdfimg-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .pdfimg-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .pdfimg-feature-card:hover {
+            border-color: #ec4899;
+            background: #fce7f3;
+        }
+        .pdfimg-feature-card .pdfimg-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .pdfimg-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .pdfimg-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .pdfimg-formats-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 16px;
+        }
+        .pdfimg-formats-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-formats-title::before {
+            content: '🖼️';
+            font-size: 1.8rem;
+        }
+        .pdfimg-formats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .pdfimg-format-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .pdfimg-format-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .pdfimg-format-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .pdfimg-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .pdfimg-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .pdfimg-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .pdfimg-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .pdfimg-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .pdfimg-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .pdfimg-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .pdfimg-practices-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .pdfimg-practices-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-practices-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .pdfimg-practices-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .pdfimg-practices-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #ec4899;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pdfimg-practices-list li::before {
+            content: '●';
+            color: #ec4899;
+        }
+
+        .pdfimg-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .pdfimg-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .pdfimg-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .pdfimg-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .pdfimg-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .pdfimg-usecase-card .pdfimg-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .pdfimg-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .pdfimg-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .pdfimg-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .pdfimg-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .pdfimg-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .pdfimg-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pdfimg-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .pdfimg-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .pdfimg-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .pdfimg-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .pdfimg-faq-item:last-child {
+            border-bottom: none;
+        }
+        .pdfimg-faq-item:hover {
+            background: #f8fafc;
+        }
+        .pdfimg-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .pdfimg-faq-question:hover {
+            color: #ec4899;
+        }
+        .pdfimg-faq-question:focus {
+            outline: 2px solid #ec4899;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .pdfimg-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .pdfimg-faq-question[aria-expanded="true"] .pdfimg-faq-icon {
+            transform: rotate(45deg);
+            color: #ec4899;
+        }
+        .pdfimg-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .pdfimg-faq-answer p {
+            margin: 0;
+        }
+        .pdfimg-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .pdfimg-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .pdfimg-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .pdfimg-privacy-section p,
+        .pdfimg-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .pdfimg-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .pdfimg-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .pdfimg-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .pdfimg-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .pdfimg-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .pdfimg-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .pdfimg-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .pdfimg-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .pdfimg-related-card:hover {
+            background: #ec4899;
+            color: white;
+            border-color: #ec4899;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236,72,153,0.3);
+        }
+        .pdfimg-related-card .pdfimg-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .pdfimg-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .pdfimg-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .pdfimg-formats-grid { grid-template-columns: repeat(2, 1fr); }
+            .pdfimg-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .pdfimg-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .pdfimg-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .pdfimg-content-wrapper { padding: 0 16px; }
+            .pdfimg-intro-title { font-size: 2.2rem; }
+            .pdfimg-howto-steps { grid-template-columns: 1fr; }
+            .pdfimg-benefit-grid { grid-template-columns: 1fr; }
+            .pdfimg-features-grid { grid-template-columns: 1fr; }
+            .pdfimg-formats-grid { grid-template-columns: 1fr; }
+            .pdfimg-compare-grid { grid-template-columns: 1fr; }
+            .pdfimg-usecases-grid { grid-template-columns: 1fr; }
+            .pdfimg-practices-list { grid-template-columns: 1fr; }
+            .pdfimg-checklist-list { grid-template-columns: 1fr; }
+            .pdfimg-related-grid { grid-template-columns: 1fr 1fr; }
+            .pdfimg-about-list { grid-template-columns: 1fr; }
+            .pdfimg-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .pdfimg-intro-title { font-size: 1.8rem; }
+            .pdfimg-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -849,6 +1554,575 @@
 </div>
 
 
+    <div class="pdfimg-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="pdfimg-intro-section" id="pdfimg-intro">
+            <h1 class="pdfimg-intro-title">Free PDF to Image Converter</h1>
+            <p class="pdfimg-intro-text">
+                A <strong>PDF to image converter</strong> is a tool that extracts pages from PDF documents and converts them into individual image files. Whether you need to create previews, share specific pages, or use PDF content in presentations, our tool makes it simple.
+            </p>
+            <p class="pdfimg-intro-text">
+                Our <strong>free online PDF to image converter</strong> allows you to convert entire PDFs or specific pages into high-quality JPG or PNG images. Batch convert all pages at once and download them as a ZIP file. Perfect for previews, sharing, and archiving.
+            </p>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 2. WHAT IS PDF TO IMAGE CONVERSION? -->
+        <section class="pdfimg-about-section" id="pdfimg-about">
+            <h2 class="pdfimg-about-title">What Is PDF to Image Conversion?</h2>
+            <p class="pdfimg-about-text">
+                PDF to image conversion is the process of extracting each page of a PDF document and saving it as a separate image file (JPG or PNG). This creates individual, shareable images from multi-page documents.
+            </p>
+            <p class="pdfimg-about-text">Key features include:</p>
+            <ul class="pdfimg-about-list">
+                <li><strong>Full PDF Conversion</strong> — Extract all pages</li>
+                <li><strong>Page Selection</strong> — Choose specific pages</li>
+                <li><strong>Image Formats</strong> — JPG or PNG output</li>
+                <li><strong>High Quality</strong> — Preserve image clarity</li>
+                <li><strong>Batch Download</strong> — Save as ZIP file</li>
+            </ul>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 3. HOW TO CONVERT PDF TO IMAGE -->
+        <section class="pdfimg-howto-section" id="pdfimg-how-to-use">
+            <h2 class="pdfimg-howto-title">How to Convert PDF to Image</h2>
+            <div class="pdfimg-howto-steps">
+                <div class="pdfimg-howto-step">
+                    <h3>Upload Your PDF</h3>
+                    <p>Select the PDF file you want to convert.</p>
+                </div>
+                <div class="pdfimg-howto-step">
+                    <h3>Choose Output Format</h3>
+                    <p>Select JPG or PNG as your image format.</p>
+                </div>
+                <div class="pdfimg-howto-step">
+                    <h3>Select Pages</h3>
+                    <p>Choose all pages or specific page ranges.</p>
+                </div>
+                <div class="pdfimg-howto-step">
+                    <h3>Adjust Quality</h3>
+                    <p>Set image quality and resolution.</p>
+                </div>
+                <div class="pdfimg-howto-step">
+                    <h3>Download Your Images</h3>
+                    <p>Save your images individually or as a ZIP file.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 4. WHY CONVERT PDF TO IMAGE? -->
+        <section class="pdfimg-benefits-section" id="pdfimg-benefits">
+            <h2 class="pdfimg-benefits-title">Why Convert PDF to Image?</h2>
+            <div class="pdfimg-benefit-grid">
+                <div class="pdfimg-benefit-card">
+                    <span class="pdfimg-benefit-icon">🖼️</span>
+                    <h3>Easy Sharing</h3>
+                    <p>Share individual pages as images.</p>
+                </div>
+                <div class="pdfimg-benefit-card">
+                    <span class="pdfimg-benefit-icon">📱</span>
+                    <h3>Mobile Friendly</h3>
+                    <p>View PDF content on any device.</p>
+                </div>
+                <div class="pdfimg-benefit-card">
+                    <span class="pdfimg-benefit-icon">🎨</span>
+                    <h3>Use in Presentations</h3>
+                    <p>Insert PDF pages into slideshows.</p>
+                </div>
+                <div class="pdfimg-benefit-card">
+                    <span class="pdfimg-benefit-icon">📊</span>
+                    <h3>Preview Content</h3>
+                    <p>Create visual previews of documents.</p>
+                </div>
+                <div class="pdfimg-benefit-card">
+                    <span class="pdfimg-benefit-icon">🖨️</span>
+                    <h3>Print Specific Pages</h3>
+                    <p>Print only the pages you need.</p>
+                </div>
+                <div class="pdfimg-benefit-card">
+                    <span class="pdfimg-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Convert PDFs in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 5. PDF TO IMAGE FEATURES -->
+        <section class="pdfimg-features-section">
+            <h2 class="pdfimg-features-title">PDF to Image Features</h2>
+            <div class="pdfimg-features-grid">
+                <div class="pdfimg-feature-card">
+                    <span class="pdfimg-feature-icon">📄</span>
+                    <h3>All Pages</h3>
+                    <p>Convert every page in your PDF.</p>
+                </div>
+                <div class="pdfimg-feature-card">
+                    <span class="pdfimg-feature-icon">📌</span>
+                    <h3>Page Selection</h3>
+                    <p>Choose specific pages to convert.</p>
+                </div>
+                <div class="pdfimg-feature-card">
+                    <span class="pdfimg-feature-icon">🖼️</span>
+                    <h3>JPG Output</h3>
+                    <p>Save as JPG image format.</p>
+                </div>
+                <div class="pdfimg-feature-card">
+                    <span class="pdfimg-feature-icon">🖼️</span>
+                    <h3>PNG Output</h3>
+                    <p>Save as PNG with transparency.</p>
+                </div>
+                <div class="pdfimg-feature-card">
+                    <span class="pdfimg-feature-icon">📊</span>
+                    <h3>Quality Control</h3>
+                    <p>Adjust image quality and resolution.</p>
+                </div>
+                <div class="pdfimg-feature-card">
+                    <span class="pdfimg-feature-icon">📁</span>
+                    <h3>ZIP Download</h3>
+                    <p>Download all images as a ZIP file.</p>
+                </div>
+                <div class="pdfimg-feature-card">
+                    <span class="pdfimg-feature-icon">🔒</span>
+                    <h3>Secure Processing</h3>
+                    <p>Your files are handled securely.</p>
+                </div>
+                <div class="pdfimg-feature-card">
+                    <span class="pdfimg-feature-icon">⚡</span>
+                    <h3>Fast Conversion</h3>
+                    <p>Quick processing for all PDFs.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 6. OUTPUT FORMATS -->
+        <section class="pdfimg-formats-section">
+            <h2 class="pdfimg-formats-title">Available Output Formats</h2>
+            <div class="pdfimg-formats-grid">
+                <div class="pdfimg-format-card">
+                    <h3>📸 JPG</h3>
+                    <p>Best for photographs and general use. Smaller file size with good quality. Ideal for web and sharing.</p>
+                </div>
+                <div class="pdfimg-format-card">
+                    <h3>🖼️ PNG</h3>
+                    <p>Best for graphics with text, logos, and images requiring transparency. Lossless quality with larger file size.</p>
+                </div>
+                <div class="pdfimg-format-card">
+                    <h3>📊 High Quality</h3>
+                    <p>Both formats offer adjustable quality settings. Choose higher quality for sharp text and details.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 7. JPG VS PNG FOR PDF EXPORT -->
+        <section class="pdfimg-compare-section">
+            <h2 class="pdfimg-compare-title">JPG vs PNG for PDF Export</h2>
+            <div class="pdfimg-compare-grid">
+                <div class="pdfimg-compare-card">
+                    <h3>📸 JPG Export</h3>
+                    <p>Best for PDFs with photographs, gradients, and complex images. Smaller file size with adjustable compression. Ideal for web and social media sharing.</p>
+                </div>
+                <div class="pdfimg-compare-card">
+                    <h3>🖼️ PNG Export</h3>
+                    <p>Best for PDFs with text, logos, diagrams, and images requiring transparency. Lossless quality ensures sharp text and clean edges. Larger file size.</p>
+                </div>
+            </div>
+            <p class="pdfimg-compare-text">Choose JPG for photo-heavy PDFs and smaller file sizes. Choose PNG for documents with text, graphics, or when you need transparency support.</p>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="pdfimg-practices-section">
+            <h2 class="pdfimg-practices-title">PDF to Image Best Practices</h2>
+            <ul class="pdfimg-practices-list">
+                <li>Use high-quality PDFs for best results</li>
+                <li>Choose JPG for photo-heavy documents</li>
+                <li>Choose PNG for text and graphics</li>
+                <li>Select specific pages to save time</li>
+                <li>Adjust quality settings based on your needs</li>
+                <li>Download as ZIP for multiple pages</li>
+                <li>Check image resolution for your use case</li>
+                <li>Preview images before final download</li>
+                <li>Keep original PDF as backup</li>
+                <li>Use appropriate image format for your platform</li>
+            </ul>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="pdfimg-usecases-section">
+            <h2 class="pdfimg-usecases-title">PDF to Image Use Cases</h2>
+            <div class="pdfimg-usecases-grid">
+                <div class="pdfimg-usecase-card">
+                    <span class="pdfimg-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Share PDF content on social platforms.</p>
+                </div>
+                <div class="pdfimg-usecase-card">
+                    <span class="pdfimg-usecase-icon">📊</span>
+                    <h3>Presentations</h3>
+                    <p>Insert PDF pages into slideshows.</p>
+                </div>
+                <div class="pdfimg-usecase-card">
+                    <span class="pdfimg-usecase-icon">📧</span>
+                    <h3>Email Sharing</h3>
+                    <p>Send specific pages via email.</p>
+                </div>
+                <div class="pdfimg-usecase-card">
+                    <span class="pdfimg-usecase-icon">🌐</span>
+                    <h3>Web Publishing</h3>
+                    <p>Display PDF content on websites.</p>
+                </div>
+                <div class="pdfimg-usecase-card">
+                    <span class="pdfimg-usecase-icon">🖨️</span>
+                    <h3>Selective Printing</h3>
+                    <p>Print only the pages you need.</p>
+                </div>
+                <div class="pdfimg-usecase-card">
+                    <span class="pdfimg-usecase-icon">📚</span>
+                    <h3>Archiving</h3>
+                    <p>Store PDF pages as images.</p>
+                </div>
+                <div class="pdfimg-usecase-card">
+                    <span class="pdfimg-usecase-icon">🎨</span>
+                    <h3>Design</h3>
+                    <p>Use PDF content in creative projects.</p>
+                </div>
+                <div class="pdfimg-usecase-card">
+                    <span class="pdfimg-usecase-icon">📱</span>
+                    <h3>Mobile Viewing</h3>
+                    <p>View PDF content on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 10. PDF TO IMAGE QUALITY CHECKLIST -->
+        <section class="pdfimg-checklist-section" id="pdfimg-checklist">
+            <h2 class="pdfimg-checklist-title">Before Downloading Your PDF Images</h2>
+            <ul class="pdfimg-checklist-list">
+                <li>Is the image format correct for your use?</li>
+                <li>Is the quality appropriate for your needs?</li>
+                <li>Are all the pages you need selected?</li>
+                <li>Is the resolution sufficient?</li>
+                <li>Are images clear and readable?</li>
+                <li>Is the file size acceptable?</li>
+                <li>Have you previewed the images?</li>
+                <li>Are the images ready for sharing?</li>
+                <li>Have you kept the original PDF?</li>
+                <li>Is the ZIP file organized correctly?</li>
+            </ul>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="pdfimg-faq-section" id="pdfimg-faq">
+            <h2 class="pdfimg-faq-title">Frequently Asked Questions</h2>
+            <div class="pdfimg-faq-accordion">
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        What is a PDF to image converter?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>A PDF to image converter extracts pages from PDF documents and saves them as individual image files (JPG or PNG).</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        Is the PDF to image converter free?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>Yes, our PDF to image converter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        What output formats are available?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>You can convert PDF pages to JPG or PNG formats.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        Can I convert specific pages?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>Yes, you can select specific pages or page ranges to convert instead of the entire PDF.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        Can I convert multiple PDFs at once?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>Yes, you can upload and convert multiple PDF files simultaneously.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>We accept PDFs up to 50MB in size for conversion.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        Can I download images as a ZIP file?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>Yes, when converting multiple pages, you can download all images as a single ZIP file.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        What quality settings are available?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>You can adjust image quality and resolution settings for optimal output.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        Is my PDF data secure?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>Yes, your PDFs are processed securely and automatically deleted after conversion. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        Can I convert password-protected PDFs?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>Currently, we only support password-protected PDFs if you provide the password during upload.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        What image resolution will I get?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>Images are exported at 150-300 DPI depending on your quality selection, preserving the original PDF's resolution.</p>
+                    </div>
+                </div>
+                <div class="pdfimg-faq-item">
+                    <button class="pdfimg-faq-question" aria-expanded="false">
+                        Can I use this tool on mobile?
+                        <span class="pdfimg-faq-icon">+</span>
+                    </button>
+                    <div class="pdfimg-faq-answer" style="display:none;">
+                        <p>Yes, our tool works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="pdfimg-privacy-section">
+            <h2 class="pdfimg-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your PDFs are handled:</p>
+            <ul>
+                <li><strong>☁️ Temporary processing:</strong> PDFs are temporarily uploaded for conversion.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your PDFs or images after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>🖥️ No client-side storage:</strong> Your files are never stored on your device without your consent.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="pdfimg-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="pdfimg-related-section" id="pdfimg-related-tools">
+            <h2 class="pdfimg-related-title">Related Tools</h2>
+            <div class="pdfimg-related-grid">
+                <a href="#" class="pdfimg-related-card">
+                    <span class="pdfimg-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="pdfimg-related-card">
+                    <span class="pdfimg-related-icon">📄</span> JPG to PDF
+                </a>
+                <a href="#" class="pdfimg-related-card">
+                    <span class="pdfimg-related-icon">📄</span> PNG to PDF
+                </a>
+                <a href="#" class="pdfimg-related-card">
+                    <span class="pdfimg-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="pdfimg-related-card">
+                    <span class="pdfimg-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="pdfimg-related-card">
+                    <span class="pdfimg-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="pdfimg-related-card">
+                    <span class="pdfimg-related-icon">✨</span> Image Enhancer
+                </a>
+                <a href="#" class="pdfimg-related-card">
+                    <span class="pdfimg-related-icon">📱</span> Social Media Resizer
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PDF to image converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PDF to image converter extracts pages from PDF documents and saves them as individual image files (JPG or PNG)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the PDF to image converter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF to image converter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What output formats are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can convert PDF pages to JPG or PNG formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert specific pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can select specific pages or page ranges to convert instead of the entire PDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert multiple PDFs at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can upload and convert multiple PDF files simultaneously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept PDFs up to 50MB in size for conversion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I download images as a ZIP file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, when converting multiple pages, you can download all images as a single ZIP file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What quality settings are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can adjust image quality and resolution settings for optimal output."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my PDF data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your PDFs are processed securely and automatically deleted after conversion. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert password-protected PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, we only support password-protected PDFs if you provide the password during upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What image resolution will I get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Images are exported at 150-300 DPI depending on your quality selection, preserving the original PDF's resolution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this tool on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our tool works on all devices including smartphones and tablets."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.pdfimg-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

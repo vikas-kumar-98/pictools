@@ -743,6 +743,661 @@
 
 
   /* End Page style goes here....................*/
+        .seo-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .seo-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .seo-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .seo-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .seo-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .seo-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .seo-intro-text strong {
+            color: #1e293b;
+        }
+
+        .seo-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .seo-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-about-title::before {
+            content: '🔍';
+            font-size: 1.8rem;
+        }
+        .seo-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .seo-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .seo-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .seo-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .seo-howto-section {
+            margin: 2.5rem 0;
+        }
+        .seo-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .seo-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .seo-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .seo-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .seo-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .seo-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .seo-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .seo-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .seo-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .seo-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .seo-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .seo-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .seo-benefit-card .seo-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .seo-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .seo-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .seo-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .seo-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .seo-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .seo-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .seo-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .seo-feature-card .seo-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .seo-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .seo-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .seo-preview-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .seo-preview-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-preview-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .seo-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .seo-preview-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .seo-preview-card .seo-preview-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .seo-preview-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .seo-preview-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .seo-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .seo-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .seo-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .seo-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .seo-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .seo-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .seo-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .seo-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .seo-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .seo-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .seo-usecase-card .seo-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .seo-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .seo-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .seo-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .seo-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .seo-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .seo-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .seo-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .seo-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .seo-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .seo-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .seo-faq-item:last-child {
+            border-bottom: none;
+        }
+        .seo-faq-item:hover {
+            background: #f8fafc;
+        }
+        .seo-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .seo-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .seo-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .seo-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .seo-faq-question[aria-expanded="true"] .seo-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .seo-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .seo-faq-answer p {
+            margin: 0;
+        }
+        .seo-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .seo-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .seo-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .seo-privacy-section p,
+        .seo-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .seo-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .seo-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .seo-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .seo-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .seo-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .seo-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .seo-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .seo-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .seo-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .seo-related-card .seo-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .seo-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .seo-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .seo-preview-grid { grid-template-columns: repeat(2, 1fr); }
+            .seo-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .seo-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .seo-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .seo-content-wrapper { padding: 0 16px; }
+            .seo-intro-title { font-size: 2.2rem; }
+            .seo-howto-steps { grid-template-columns: 1fr; }
+            .seo-benefit-grid { grid-template-columns: 1fr; }
+            .seo-features-grid { grid-template-columns: 1fr; }
+            .seo-preview-grid { grid-template-columns: 1fr; }
+            .seo-usecases-grid { grid-template-columns: 1fr; }
+            .seo-tips-list { grid-template-columns: 1fr; }
+            .seo-checklist-list { grid-template-columns: 1fr; }
+            .seo-related-grid { grid-template-columns: 1fr 1fr; }
+            .seo-about-list { grid-template-columns: 1fr; }
+            .seo-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .seo-intro-title { font-size: 1.8rem; }
+            .seo-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1105,7 +1760,555 @@
   </div>
 </div>
 
+    <div class="seo-content-wrapper">
 
+        <!-- 1. INTRODUCTION -->
+        <section class="seo-intro-section" id="seo-intro">
+            <h1 class="seo-intro-title">Free SEO Snippet Editor &amp; Google SERP Preview</h1>
+            <p class="seo-intro-text">
+                An <strong>SEO snippet editor</strong> is a tool that helps you optimize how your pages appear in search engine results. By previewing your meta title, description, and URL, you can see exactly how your page will look in Google's search results before publishing.
+            </p>
+            <p class="seo-intro-text">
+                Our <strong>free SEO snippet editor &amp; Google SERP preview tool</strong> allows you to test and optimize your meta titles and descriptions in real-time. Perfect for SEO professionals, content creators, and website owners. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 2. WHAT IS AN SEO SNIPPET EDITOR? -->
+        <section class="seo-about-section" id="seo-about">
+            <h2 class="seo-about-title">What Is an SEO Snippet Editor?</h2>
+            <p class="seo-about-text">
+                An SEO snippet editor is a tool that allows you to preview and optimize how your page appears in search engine results pages (SERPs). It helps you craft effective meta titles and descriptions that attract clicks and improve rankings.
+            </p>
+            <p class="seo-about-text">Key features include:</p>
+            <ul class="seo-about-list">
+                <li><strong>Meta Title Preview</strong> — See how titles appear</li>
+                <li><strong>Meta Description Preview</strong> — Preview description length</li>
+                <li><strong>URL Display</strong> — Show breadcrumb URLs</li>
+                <li><strong>Character Count</strong> — Track length limits</li>
+                <li><strong>Real-Time Updates</strong> — Instant preview changes</li>
+            </ul>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 3. HOW TO USE THE SEO SNIPPET EDITOR -->
+        <section class="seo-howto-section" id="seo-how-to-use">
+            <h2 class="seo-howto-title">How to Use the SEO Snippet Editor</h2>
+            <div class="seo-howto-steps">
+                <div class="seo-howto-step">
+                    <h3>Enter Your Title</h3>
+                    <p>Type your page title (50-60 characters recommended).</p>
+                </div>
+                <div class="seo-howto-step">
+                    <h3>Enter Your Description</h3>
+                    <p>Type your meta description (150-160 characters recommended).</p>
+                </div>
+                <div class="seo-howto-step">
+                    <h3>Enter Your URL</h3>
+                    <p>Add your page URL for the full preview.</p>
+                </div>
+                <div class="seo-howto-step">
+                    <h3>Preview &amp; Optimize</h3>
+                    <p>See your snippet in Google SERP style and adjust.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 4. WHY USE A SERP PREVIEW TOOL? -->
+        <section class="seo-benefits-section" id="seo-benefits">
+            <h2 class="seo-benefits-title">Why Use a SERP Preview Tool?</h2>
+            <div class="seo-benefit-grid">
+                <div class="seo-benefit-card">
+                    <span class="seo-benefit-icon">🔍</span>
+                    <h3>Visual Preview</h3>
+                    <p>See your snippet in Google style.</p>
+                </div>
+                <div class="seo-benefit-card">
+                    <span class="seo-benefit-icon">📊</span>
+                    <h3>Character Limits</h3>
+                    <p>Track length for optimal display.</p>
+                </div>
+                <div class="seo-benefit-card">
+                    <span class="seo-benefit-icon">⚡</span>
+                    <h3>Real-Time Editing</h3>
+                    <p>See changes instantly.</p>
+                </div>
+                <div class="seo-benefit-card">
+                    <span class="seo-benefit-icon">📈</span>
+                    <h3>Better CTR</h3>
+                    <p>Optimize for click-through rates.</p>
+                </div>
+                <div class="seo-benefit-card">
+                    <span class="seo-benefit-icon">🎯</span>
+                    <h3>Keyword Placement</h3>
+                    <p>Check keyword positions.</p>
+                </div>
+                <div class="seo-benefit-card">
+                    <span class="seo-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Preview instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 5. FEATURES -->
+        <section class="seo-features-section">
+            <h2 class="seo-features-title">SEO Snippet Editor Features</h2>
+            <div class="seo-features-grid">
+                <div class="seo-feature-card">
+                    <span class="seo-feature-icon">📝</span>
+                    <h3>Title Preview</h3>
+                    <p>Google-style title display.</p>
+                </div>
+                <div class="seo-feature-card">
+                    <span class="seo-feature-icon">📄</span>
+                    <h3>Description Preview</h3>
+                    <p>Full meta description preview.</p>
+                </div>
+                <div class="seo-feature-card">
+                    <span class="seo-feature-icon">🔗</span>
+                    <h3>URL Preview</h3>
+                    <p>Breadcrumb URL display.</p>
+                </div>
+                <div class="seo-feature-card">
+                    <span class="seo-feature-icon">📊</span>
+                    <h3>Character Counter</h3>
+                    <p>Track title and description length.</p>
+                </div>
+                <div class="seo-feature-card">
+                    <span class="seo-feature-icon">⚡</span>
+                    <h3>Real-Time Preview</h3>
+                    <p>Update as you type.</p>
+                </div>
+                <div class="seo-feature-card">
+                    <span class="seo-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Copy optimized snippets.</p>
+                </div>
+                <div class="seo-feature-card">
+                    <span class="seo-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your data is safe.</p>
+                </div>
+                <div class="seo-feature-card">
+                    <span class="seo-feature-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 6. PREVIEW ELEMENTS -->
+        <section class="seo-preview-section">
+            <h2 class="seo-preview-title">What You Can Preview</h2>
+            <div class="seo-preview-grid">
+                <div class="seo-preview-card">
+                    <span class="seo-preview-icon">📝</span>
+                    <h3>Meta Title</h3>
+                    <p>Preview your title tag as it appears in Google search results. Optimize length and keyword placement.</p>
+                </div>
+                <div class="seo-preview-card">
+                    <span class="seo-preview-icon">📄</span>
+                    <h3>Meta Description</h3>
+                    <p>Preview your description snippet. Ensure it's compelling and within character limits.</p>
+                </div>
+                <div class="seo-preview-card">
+                    <span class="seo-preview-icon">🔗</span>
+                    <h3>URL Structure</h3>
+                    <p>Preview how your URL appears in search results. Check breadcrumb display and readability.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="seo-tips-section">
+            <h2 class="seo-tips-title">SEO Snippet Best Practices</h2>
+            <ul class="seo-tips-list">
+                <li>Keep titles under 60 characters</li>
+                <li>Keep descriptions under 160 characters</li>
+                <li>Include primary keywords in title</li>
+                <li>Include keywords in description naturally</li>
+                <li>Use compelling, clickable language</li>
+                <li>Include your brand name where appropriate</li>
+                <li>Preview your snippet before publishing</li>
+                <li>Test different variations</li>
+                <li>Monitor click-through rates</li>
+                <li>Update snippets regularly</li>
+            </ul>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="seo-usecases-section">
+            <h2 class="seo-usecases-title">SEO Snippet Editor Use Cases</h2>
+            <div class="seo-usecases-grid">
+                <div class="seo-usecase-card">
+                    <span class="seo-usecase-icon">📊</span>
+                    <h3>SEO Optimization</h3>
+                    <p>Optimize meta tags.</p>
+                </div>
+                <div class="seo-usecase-card">
+                    <span class="seo-usecase-icon">📝</span>
+                    <h3>Content Writing</h3>
+                    <p>Craft compelling titles.</p>
+                </div>
+                <div class="seo-usecase-card">
+                    <span class="seo-usecase-icon">🏢</span>
+                    <h3>Marketing</h3>
+                    <p>Improve CTR for campaigns.</p>
+                </div>
+                <div class="seo-usecase-card">
+                    <span class="seo-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Learn SEO best practices.</p>
+                </div>
+                <div class="seo-usecase-card">
+                    <span class="seo-usecase-icon">🌐</span>
+                    <h3>Web Development</h3>
+                    <p>Implement SEO strategies.</p>
+                </div>
+                <div class="seo-usecase-card">
+                    <span class="seo-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Preview shared links.</p>
+                </div>
+                <div class="seo-usecase-card">
+                    <span class="seo-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Optimize product pages.</p>
+                </div>
+                <div class="seo-usecase-card">
+                    <span class="seo-usecase-icon">📋</span>
+                    <h3>Copywriting</h3>
+                    <p>Create compelling snippets.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="seo-checklist-section" id="seo-checklist">
+            <h2 class="seo-checklist-title">Before Publishing Your SEO Snippet</h2>
+            <ul class="seo-checklist-list">
+                <li>Is the title within 50-60 characters?</li>
+                <li>Is the description within 150-160 characters?</li>
+                <li>Are primary keywords included?</li>
+                <li>Is the snippet compelling and clickable?</li>
+                <li>Does the preview look good?</li>
+                <li>Is the URL clean and readable?</li>
+                <li>Is the brand name included?</li>
+                <li>Is the snippet ready for publishing?</li>
+                <li>Have you tested different variations?</li>
+                <li>Is the snippet suitable for its purpose?</li>
+            </ul>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="seo-faq-section" id="seo-faq">
+            <h2 class="seo-faq-title">Frequently Asked Questions</h2>
+            <div class="seo-faq-accordion">
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        What is an SEO snippet editor?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>An SEO snippet editor previews and optimizes how your page appears in search engine results.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        Is the SEO snippet editor free?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>Yes, our SEO snippet editor is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        What is the ideal title length?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>The ideal title length is 50-60 characters to ensure full display in search results.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        What is the ideal meta description length?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>The ideal meta description length is 150-160 characters for optimal display.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        Does the tool show a live preview?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>Yes, the preview updates in real-time as you type your title and description.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        Can I use the tool for multiple pages?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>Yes, you can optimize snippets for as many pages as you need.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        Why is the SERP preview important?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>It helps you see exactly how your page will appear in search results, allowing you to optimize for better click-through rates.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        Is the tool mobile-friendly?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>Yes, our SEO snippet editor works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        Can I copy the optimized snippet?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>Yes, you can copy the title and description for use in your CMS or website.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        What is a breadcrumb URL?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>A breadcrumb URL shows the path to your page (e.g., Home > Category > Page), making it easier for users to navigate.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        Can I preview mobile results?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>Currently, the tool shows the desktop SERP preview. Mobile preview functionality is coming soon.</p>
+                    </div>
+                </div>
+                <div class="seo-faq-item">
+                    <button class="seo-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="seo-faq-icon">+</span>
+                    </button>
+                    <div class="seo-faq-answer" style="display:none;">
+                        <p>No, you can use the SEO snippet editor without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="seo-privacy-section">
+            <h2 class="seo-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your data is handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All previews are generated locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your titles and descriptions are never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your data after processing.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your data is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="seo-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="seo-related-section" id="seo-related-tools">
+            <h2 class="seo-related-title">Related Tools</h2>
+            <div class="seo-related-grid">
+                <a href="#" class="seo-related-card">
+                    <span class="seo-related-icon">📝</span> Word Counter
+                </a>
+                <a href="#" class="seo-related-card">
+                    <span class="seo-related-icon">🔢</span> Character Counter
+                </a>
+                <a href="#" class="seo-related-card">
+                    <span class="seo-related-icon">🔤</span> Case Converter
+                </a>
+                <a href="#" class="seo-related-card">
+                    <span class="seo-related-icon">🔗</span> URL Shortener
+                </a>
+                <a href="#" class="seo-related-card">
+                    <span class="seo-related-icon">📊</span> Keyword Density Checker
+                </a>
+                <a href="#" class="seo-related-card">
+                    <span class="seo-related-icon">📋</span> Copywriting Assistant
+                </a>
+                <a href="#" class="seo-related-card">
+                    <span class="seo-related-icon">📱</span> Social Media Counter
+                </a>
+                <a href="#" class="seo-related-card">
+                    <span class="seo-related-icon">📊</span> Readability Checker
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an SEO snippet editor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An SEO snippet editor previews and optimizes how your page appears in search engine results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the SEO snippet editor free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our SEO snippet editor is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the ideal title length?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The ideal title length is 50-60 characters to ensure full display in search results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the ideal meta description length?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The ideal meta description length is 150-160 characters for optimal display."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the tool show a live preview?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the preview updates in real-time as you type your title and description."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the tool for multiple pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can optimize snippets for as many pages as you need."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is the SERP preview important?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It helps you see exactly how your page will appear in search results, allowing you to optimize for better click-through rates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tool mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our SEO snippet editor works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I copy the optimized snippet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can copy the title and description for use in your CMS or website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a breadcrumb URL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A breadcrumb URL shows the path to your page (e.g., Home > Category > Page), making it easier for users to navigate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I preview mobile results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, the tool shows the desktop SERP preview. Mobile preview functionality is coming soon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the SEO snippet editor without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.seo-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

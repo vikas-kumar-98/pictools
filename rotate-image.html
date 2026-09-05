@@ -525,6 +525,738 @@
     button:focus-visible, input:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
 
   /* End Page style goes here....................*/
+
+          /* ================================================== */
+        /* ADVANCED IMAGE ROTATOR - SCOPED STYLES             */
+        /* All selectors are scoped to .rotate-* classes      */
+        /* ================================================== */
+
+        /* --- Wrapper --- */
+        .rotate-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* --- Section Dividers --- */
+        .rotate-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        /* --- Intro Section --- */
+        .rotate-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .rotate-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            border-radius: 2px;
+        }
+        .rotate-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .rotate-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .rotate-intro-text strong {
+            color: #1e293b;
+        }
+
+        /* --- About Section --- */
+        .rotate-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .rotate-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-about-title::before {
+            content: '🔄';
+            font-size: 1.8rem;
+        }
+        .rotate-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .rotate-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .rotate-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #ec4899;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .rotate-about-list li::before {
+            content: '✓';
+            color: #ec4899;
+            font-weight: 700;
+        }
+
+        /* --- How-To Section --- */
+        .rotate-howto-section {
+            margin: 2.5rem 0;
+        }
+        .rotate-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .rotate-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .rotate-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .rotate-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .rotate-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .rotate-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .rotate-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Benefits Section --- */
+        .rotate-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .rotate-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .rotate-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .rotate-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .rotate-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .rotate-benefit-card .rotate-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .rotate-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .rotate-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Rotation Types --- */
+        .rotate-types-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .rotate-types-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-types-title::before {
+            content: '🔄';
+            font-size: 1.8rem;
+        }
+        .rotate-types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .rotate-type-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .rotate-type-card:hover {
+            border-color: #ec4899;
+            background: #fce7f3;
+        }
+        .rotate-type-card .rotate-type-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .rotate-type-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .rotate-type-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Flip vs Rotate --- */
+        .rotate-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .rotate-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .rotate-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .rotate-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .rotate-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .rotate-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .rotate-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        /* --- Angle Guide --- */
+        .rotate-angle-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .rotate-angle-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-angle-title::before {
+            content: '📐';
+            font-size: 1.8rem;
+        }
+        .rotate-angle-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .rotate-angle-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .rotate-angle-card .rotate-angle-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .rotate-angle-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .rotate-angle-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Best Practices --- */
+        .rotate-practices-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .rotate-practices-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-practices-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .rotate-practices-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .rotate-practices-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .rotate-practices-list li::before {
+            content: '●';
+            color: #8b5cf6;
+        }
+
+        /* --- Use Cases --- */
+        .rotate-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .rotate-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .rotate-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .rotate-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .rotate-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .rotate-usecase-card .rotate-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .rotate-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .rotate-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Quality Checklist --- */
+        .rotate-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .rotate-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .rotate-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .rotate-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .rotate-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        /* --- FAQ --- */
+        .rotate-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .rotate-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .rotate-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .rotate-faq-item:last-child {
+            border-bottom: none;
+        }
+        .rotate-faq-item:hover {
+            background: #f8fafc;
+        }
+        .rotate-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .rotate-faq-question:hover {
+            color: #ec4899;
+        }
+        .rotate-faq-question:focus {
+            outline: 2px solid #ec4899;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .rotate-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .rotate-faq-question[aria-expanded="true"] .rotate-faq-icon {
+            transform: rotate(45deg);
+            color: #ec4899;
+        }
+        .rotate-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .rotate-faq-answer p {
+            margin: 0;
+        }
+        .rotate-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Privacy --- */
+        .rotate-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .rotate-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .rotate-privacy-section p,
+        .rotate-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .rotate-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .rotate-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .rotate-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        /* --- Related Tools --- */
+        .rotate-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .rotate-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotate-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .rotate-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .rotate-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .rotate-related-card:hover {
+            background: #ec4899;
+            color: white;
+            border-color: #ec4899;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236,72,153,0.3);
+        }
+        .rotate-related-card .rotate-related-icon {
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .rotate-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotate-types-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotate-angle-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotate-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotate-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotate-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .rotate-content-wrapper { padding: 0 16px; }
+            .rotate-intro-title { font-size: 2.2rem; }
+            .rotate-howto-steps { grid-template-columns: 1fr; }
+            .rotate-benefit-grid { grid-template-columns: 1fr; }
+            .rotate-types-grid { grid-template-columns: 1fr; }
+            .rotate-compare-grid { grid-template-columns: 1fr; }
+            .rotate-angle-grid { grid-template-columns: 1fr; }
+            .rotate-usecases-grid { grid-template-columns: 1fr; }
+            .rotate-practices-list { grid-template-columns: 1fr; }
+            .rotate-checklist-list { grid-template-columns: 1fr; }
+            .rotate-related-grid { grid-template-columns: 1fr 1fr; }
+            .rotate-about-list { grid-template-columns: 1fr; }
+            .rotate-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .rotate-intro-title { font-size: 1.8rem; }
+            .rotate-related-grid { grid-template-columns: 1fr; }
+        }
+
 </style>
 </head>
 <body>
@@ -902,6 +1634,595 @@
 </div>
 <div class="toast" id="toast"></div>
 
+
+    <div class="rotate-content-wrapper">
+
+        <!-- ============================================ -->
+        <!-- IMAGE ROTATOR INFORMATIONAL CONTENT          -->
+        <!-- ============================================ -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="rotate-intro-section" id="rotate-intro">
+            <h1 class="rotate-intro-title">Free Online Image Rotator</h1>
+            <p class="rotate-intro-text">
+                An <strong>image rotator</strong> is a tool that allows you to change the orientation of an image by rotating it to any angle or flipping it horizontally or vertically. Whether you need to fix a sideways photo, create a mirrored effect, or adjust composition, our tool makes it easy.
+            </p>
+            <p class="rotate-intro-text">
+                Our <strong>free online image rotator</strong> lets you rotate images by 90°, 180°, 270°, or any custom angle. You can also flip images horizontally or vertically. Perfect for photographers, designers, and anyone who needs to fix image orientation quickly.
+            </p>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 2. WHAT IS IMAGE ROTATION? -->
+        <section class="rotate-about-section" id="rotate-about">
+            <h2 class="rotate-about-title">What Is Image Rotation?</h2>
+            <p class="rotate-about-text">
+                Image rotation is the process of turning an image around its center point to change its orientation. This can be done at fixed angles (90°, 180°, 270°) or custom angles (any degree between 0° and 360°).
+            </p>
+            <p class="rotate-about-text">Key aspects of image rotation include:</p>
+            <ul class="rotate-about-list">
+                <li><strong>Clockwise Rotation</strong> — Rotate right by 90°, 180°, or 270°</li>
+                <li><strong>Counter-Clockwise Rotation</strong> — Rotate left by 90°, 180°, or 270°</li>
+                <li><strong>Custom Angles</strong> — Rotate to any degree</li>
+                <li><strong>Horizontal Flip</strong> — Mirror the image left to right</li>
+                <li><strong>Vertical Flip</strong> — Mirror the image top to bottom</li>
+            </ul>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 3. HOW TO ROTATE AN IMAGE -->
+        <section class="rotate-howto-section" id="rotate-how-to-use">
+            <h2 class="rotate-howto-title">How to Rotate an Image</h2>
+            <div class="rotate-howto-steps">
+                <div class="rotate-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select the image you want to rotate from your device.</p>
+                </div>
+                <div class="rotate-howto-step">
+                    <h3>Choose Rotation Option</h3>
+                    <p>Select a preset angle (90°, 180°, 270°) or enter a custom angle.</p>
+                </div>
+                <div class="rotate-howto-step">
+                    <h3>Flip if Needed</h3>
+                    <p>Apply horizontal or vertical flip to mirror the image.</p>
+                </div>
+                <div class="rotate-howto-step">
+                    <h3>Preview &amp; Verify</h3>
+                    <p>Check the rotated image before downloading.</p>
+                </div>
+                <div class="rotate-howto-step">
+                    <h3>Download Your Image</h3>
+                    <p>Save your rotated image in high quality instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 4. WHY ROTATE IMAGES? -->
+        <section class="rotate-benefits-section" id="rotate-benefits">
+            <h2 class="rotate-benefits-title">Why Rotate Your Images?</h2>
+            <div class="rotate-benefit-grid">
+                <div class="rotate-benefit-card">
+                    <span class="rotate-benefit-icon">📱</span>
+                    <h3>Fix Orientation</h3>
+                    <p>Correct sideways or upside-down photos.</p>
+                </div>
+                <div class="rotate-benefit-card">
+                    <span class="rotate-benefit-icon">🎨</span>
+                    <h3>Creative Effects</h3>
+                    <p>Create artistic mirrored or rotated compositions.</p>
+                </div>
+                <div class="rotate-benefit-card">
+                    <span class="rotate-benefit-icon">📐</span>
+                    <h3>Better Framing</h3>
+                    <p>Adjust composition for more appealing visuals.</p>
+                </div>
+                <div class="rotate-benefit-card">
+                    <span class="rotate-benefit-icon">🖨️</span>
+                    <h3>Print Preparation</h3>
+                    <p>Ensure correct orientation for printing.</p>
+                </div>
+                <div class="rotate-benefit-card">
+                    <span class="rotate-benefit-icon">🌐</span>
+                    <h3>Web Optimization</h3>
+                    <p>Standardize image orientation for websites.</p>
+                </div>
+                <div class="rotate-benefit-card">
+                    <span class="rotate-benefit-icon">📧</span>
+                    <h3>Email &amp; Social</h3>
+                    <p>Make images look professional before sharing.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 5. ROTATION OPTIONS -->
+        <section class="rotate-types-section">
+            <h2 class="rotate-types-title">Rotation &amp; Flip Options</h2>
+            <div class="rotate-types-grid">
+                <div class="rotate-type-card">
+                    <span class="rotate-type-icon">↻</span>
+                    <h3>Rotate 90° Clockwise</h3>
+                    <p>Turn the image right by a quarter turn.</p>
+                </div>
+                <div class="rotate-type-card">
+                    <span class="rotate-type-icon">↺</span>
+                    <h3>Rotate 90° Counter-Clockwise</h3>
+                    <p>Turn the image left by a quarter turn.</p>
+                </div>
+                <div class="rotate-type-card">
+                    <span class="rotate-type-icon">↻</span>
+                    <h3>Rotate 180°</h3>
+                    <p>Turn the image upside down.</p>
+                </div>
+                <div class="rotate-type-card">
+                    <span class="rotate-type-icon">↔</span>
+                    <h3>Flip Horizontally</h3>
+                    <p>Mirror the image left to right.</p>
+                </div>
+                <div class="rotate-type-card">
+                    <span class="rotate-type-icon">↕</span>
+                    <h3>Flip Vertically</h3>
+                    <p>Mirror the image top to bottom.</p>
+                </div>
+                <div class="rotate-type-card">
+                    <span class="rotate-type-icon">🎯</span>
+                    <h3>Custom Angle</h3>
+                    <p>Rotate to any degree (0-360°).</p>
+                </div>
+                <div class="rotate-type-card">
+                    <span class="rotate-type-icon">🔄</span>
+                    <h3>Auto Rotate</h3>
+                    <p>Fix orientation based on EXIF data.</p>
+                </div>
+                <div class="rotate-type-card">
+                    <span class="rotate-type-icon">🔁</span>
+                    <h3>Reset to Original</h3>
+                    <p>Revert to the original orientation.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 6. ROTATE VS FLIP -->
+        <section class="rotate-compare-section">
+            <h2 class="rotate-compare-title">Rotation vs Flip</h2>
+            <div class="rotate-compare-grid">
+                <div class="rotate-compare-card">
+                    <h3>🔄 Rotation</h3>
+                    <p>Rotates the image around its center at any angle (0-360°). Changes the orientation but preserves the image content's layout.</p>
+                </div>
+                <div class="rotate-compare-card">
+                    <h3>🪞 Flip / Mirror</h3>
+                    <p>Creates a mirror image by reversing the image horizontally or vertically. Does not change the angle but reverses the image.</p>
+                </div>
+            </div>
+            <p class="rotate-compare-text">Rotation changes the angle, while flipping creates a mirror image. Both are useful for different purposes. Use rotation to fix tilted photos and flipping for creative mirrored effects.</p>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 7. ANGLE GUIDE -->
+        <section class="rotate-angle-section">
+            <h2 class="rotate-angle-title">Common Rotation Angles</h2>
+            <div class="rotate-angle-grid">
+                <div class="rotate-angle-card">
+                    <span class="rotate-angle-icon">📐</span>
+                    <h3>0° / 360°</h3>
+                    <p>Original orientation, no rotation.</p>
+                </div>
+                <div class="rotate-angle-card">
+                    <span class="rotate-angle-icon">📐</span>
+                    <h3>90°</h3>
+                    <p>Portrait to landscape or vice versa.</p>
+                </div>
+                <div class="rotate-angle-card">
+                    <span class="rotate-angle-icon">📐</span>
+                    <h3>180°</h3>
+                    <p>Upside down, often used for creative effects.</p>
+                </div>
+                <div class="rotate-angle-card">
+                    <span class="rotate-angle-icon">📐</span>
+                    <h3>270°</h3>
+                    <p>Landscape to portrait (counter-clockwise).</p>
+                </div>
+                <div class="rotate-angle-card">
+                    <span class="rotate-angle-icon">📐</span>
+                    <h3>15-45°</h3>
+                    <p>Subtle tilt for creative composition.</p>
+                </div>
+                <div class="rotate-angle-card">
+                    <span class="rotate-angle-icon">📐</span>
+                    <h3>Custom Angle</h3>
+                    <p>Any degree between 0° and 360°.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="rotate-practices-section">
+            <h2 class="rotate-practices-title">Image Rotation Best Practices</h2>
+            <ul class="rotate-practices-list">
+                <li>Always keep a backup of your original image</li>
+                <li>Use EXIF data for auto-rotation when possible</li>
+                <li>Check the image after rotation for any quality loss</li>
+                <li>Consider the composition after rotation</li>
+                <li>Use 90° increments for standard orientations</li>
+                <li>Use custom angles for creative effects</li>
+                <li>Flip images for mirrored creative compositions</li>
+                <li>Test images across different viewing platforms</li>
+                <li>Save in lossless formats if editing repeatedly</li>
+                <li>Preview before final download</li>
+            </ul>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="rotate-usecases-section">
+            <h2 class="rotate-usecases-title">Image Rotation Use Cases</h2>
+            <div class="rotate-usecases-grid">
+                <div class="rotate-usecase-card">
+                    <span class="rotate-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Fix horizon and orientation issues.</p>
+                </div>
+                <div class="rotate-usecase-card">
+                    <span class="rotate-usecase-icon">🌐</span>
+                    <h3>Web Design</h3>
+                    <p>Standardize image orientations for websites.</p>
+                </div>
+                <div class="rotate-usecase-card">
+                    <span class="rotate-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Ensure images are correctly oriented.</p>
+                </div>
+                <div class="rotate-usecase-card">
+                    <span class="rotate-usecase-icon">🖨️</span>
+                    <h3>Print Media</h3>
+                    <p>Prepare images for correct print orientation.</p>
+                </div>
+                <div class="rotate-usecase-card">
+                    <span class="rotate-usecase-icon">🎨</span>
+                    <h3>Graphic Design</h3>
+                    <p>Create mirrored or rotated compositions.</p>
+                </div>
+                <div class="rotate-usecase-card">
+                    <span class="rotate-usecase-icon">📧</span>
+                    <h3>Email Marketing</h3>
+                    <p>Fix image orientation for emails.</p>
+                </div>
+                <div class="rotate-usecase-card">
+                    <span class="rotate-usecase-icon">📊</span>
+                    <h3>Presentations</h3>
+                    <p>Align images correctly in slides.</p>
+                </div>
+                <div class="rotate-usecase-card">
+                    <span class="rotate-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Standardize product image orientation.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 10. ROTATION QUALITY CHECKLIST -->
+        <section class="rotate-checklist-section" id="rotate-checklist">
+            <h2 class="rotate-checklist-title">Before Downloading Your Rotated Image</h2>
+            <ul class="rotate-checklist-list">
+                <li>Is the rotation angle correct?</li>
+                <li>Is the image properly oriented?</li>
+                <li>Is the composition improved after rotation?</li>
+                <li>Is the image quality preserved?</li>
+                <li>Does the flipped image look natural (if applicable)?</li>
+                <li>Is the image optimized for its intended use?</li>
+                <li>Have you kept the original image?</li>
+                <li>Does the image display correctly?</li>
+            </ul>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="rotate-faq-section" id="rotate-faq">
+            <h2 class="rotate-faq-title">Frequently Asked Questions</h2>
+            <div class="rotate-faq-accordion">
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        What is image rotation?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>Image rotation is the process of turning an image around its center to change its orientation.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        What angles can I rotate to?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>You can rotate to 90°, 180°, 270°, or any custom angle between 0° and 360°.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        What is the difference between rotating and flipping?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>Rotation turns the image at an angle, while flipping creates a mirror image horizontally or vertically.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        Is the image rotator free?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>Yes, our image rotator is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        Does rotation affect image quality?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>Rotation at 90° increments preserves quality perfectly. Custom angles may cause minimal quality loss due to interpolation.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        Can I rotate multiple images at once?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>Yes, you can batch rotate multiple images simultaneously.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        What formats are supported?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>We support JPG, PNG, WebP, GIF, SVG, BMP, TIFF, and HEIC formats.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>We accept images up to 50MB in size for rotation.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        Can I fix a tilted photo?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>Yes, you can use custom angle rotation to fix tilted photos.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        What is EXIF-based auto-rotation?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>Auto-rotation uses the orientation data stored in the image's EXIF metadata to automatically correct its orientation.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        Is my image data secure?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed securely and automatically deleted after processing.</p>
+                    </div>
+                </div>
+                <div class="rotate-faq-item">
+                    <button class="rotate-faq-question" aria-expanded="false">
+                        Can I undo a rotation?
+                        <span class="rotate-faq-icon">+</span>
+                    </button>
+                    <div class="rotate-faq-answer" style="display:none;">
+                        <p>You can use the reset option or rotate back to 0° to undo the rotation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="rotate-privacy-section">
+            <h2 class="rotate-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> Images are processed locally in your browser where possible.</li>
+                <li><strong>☁️ Temporary server upload:</strong> Images may be temporarily uploaded for processing.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images after rotation.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="rotate-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="rotate-related-section" id="rotate-related-tools">
+            <h2 class="rotate-related-title">Related Tools</h2>
+            <div class="rotate-related-grid">
+                <a href="#" class="rotate-related-card">
+                    <span class="rotate-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="rotate-related-card">
+                    <span class="rotate-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="rotate-related-card">
+                    <span class="rotate-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="rotate-related-card">
+                    <span class="rotate-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="rotate-related-card">
+                    <span class="rotate-related-icon">🎨</span> Image Editor
+                </a>
+                <a href="#" class="rotate-related-card">
+                    <span class="rotate-related-icon">🔍</span> Image Viewer
+                </a>
+                <a href="#" class="rotate-related-card">
+                    <span class="rotate-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="rotate-related-card">
+                    <span class="rotate-related-icon">🖼️</span> Image Watermark
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is image rotation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Image rotation is the process of turning an image around its center to change its orientation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What angles can I rotate to?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can rotate to 90°, 180°, 270°, or any custom angle between 0° and 360°."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between rotating and flipping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rotation turns the image at an angle, while flipping creates a mirror image horizontally or vertically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the image rotator free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image rotator is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does rotation affect image quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rotation at 90° increments preserves quality perfectly. Custom angles may cause minimal quality loss due to interpolation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I rotate multiple images at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can batch rotate multiple images simultaneously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support JPG, PNG, WebP, GIF, SVG, BMP, TIFF, and HEIC formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept images up to 50MB in size for rotation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I fix a tilted photo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use custom angle rotation to fix tilted photos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is EXIF-based auto-rotation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Auto-rotation uses the orientation data stored in the image's EXIF metadata to automatically correct its orientation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed securely and automatically deleted after processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I undo a rotation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can use the reset option or rotate back to 0° to undo the rotation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.rotate-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

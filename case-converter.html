@@ -719,6 +719,662 @@
 
 
   /* End Page style goes here....................*/
+
+          .ccase-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .ccase-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .ccase-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .ccase-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .ccase-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .ccase-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .ccase-intro-text strong {
+            color: #1e293b;
+        }
+
+        .ccase-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .ccase-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-about-title::before {
+            content: '🔤';
+            font-size: 1.8rem;
+        }
+        .ccase-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .ccase-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .ccase-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ccase-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .ccase-howto-section {
+            margin: 2.5rem 0;
+        }
+        .ccase-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .ccase-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .ccase-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .ccase-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .ccase-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .ccase-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .ccase-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .ccase-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .ccase-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .ccase-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .ccase-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .ccase-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .ccase-benefit-card .ccase-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .ccase-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .ccase-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ccase-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .ccase-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .ccase-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .ccase-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .ccase-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .ccase-feature-card .ccase-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .ccase-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .ccase-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ccase-types-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .ccase-types-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-types-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .ccase-types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .ccase-type-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .ccase-type-card .ccase-type-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .ccase-type-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .ccase-type-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ccase-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .ccase-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .ccase-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .ccase-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ccase-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .ccase-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .ccase-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .ccase-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .ccase-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .ccase-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .ccase-usecase-card .ccase-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .ccase-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .ccase-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ccase-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .ccase-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .ccase-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .ccase-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ccase-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .ccase-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .ccase-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .ccase-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .ccase-faq-item:last-child {
+            border-bottom: none;
+        }
+        .ccase-faq-item:hover {
+            background: #f8fafc;
+        }
+        .ccase-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .ccase-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .ccase-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .ccase-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .ccase-faq-question[aria-expanded="true"] .ccase-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .ccase-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .ccase-faq-answer p {
+            margin: 0;
+        }
+        .ccase-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .ccase-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .ccase-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .ccase-privacy-section p,
+        .ccase-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .ccase-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .ccase-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .ccase-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .ccase-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .ccase-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .ccase-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .ccase-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .ccase-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .ccase-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .ccase-related-card .ccase-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .ccase-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccase-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccase-types-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccase-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccase-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .ccase-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .ccase-content-wrapper { padding: 0 16px; }
+            .ccase-intro-title { font-size: 2.2rem; }
+            .ccase-howto-steps { grid-template-columns: 1fr; }
+            .ccase-benefit-grid { grid-template-columns: 1fr; }
+            .ccase-features-grid { grid-template-columns: 1fr; }
+            .ccase-types-grid { grid-template-columns: 1fr; }
+            .ccase-usecases-grid { grid-template-columns: 1fr; }
+            .ccase-tips-list { grid-template-columns: 1fr; }
+            .ccase-checklist-list { grid-template-columns: 1fr; }
+            .ccase-related-grid { grid-template-columns: 1fr 1fr; }
+            .ccase-about-list { grid-template-columns: 1fr; }
+            .ccase-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .ccase-intro-title { font-size: 1.8rem; }
+            .ccase-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1138,7 +1794,570 @@
 </div>
 
 
+    <div class="ccase-content-wrapper">
 
+        <!-- 1. INTRODUCTION -->
+        <section class="ccase-intro-section" id="ccase-intro">
+            <h1 class="ccase-intro-title">Free Online Case Converter</h1>
+            <p class="ccase-intro-text">
+                A <strong>case converter</strong> is an essential tool that transforms text between different letter cases. Whether you need to convert text to UPPERCASE, lowercase, Title Case, Sentence case, or other formats, our tool provides instant, accurate conversion.
+            </p>
+            <p class="ccase-intro-text">
+                Our <strong>free online case converter</strong> offers real-time case conversion with multiple options. Perfect for writers, editors, students, and anyone who needs to format text quickly. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 2. WHAT IS A CASE CONVERTER? -->
+        <section class="ccase-about-section" id="ccase-about">
+            <h2 class="ccase-about-title">What Is a Case Converter?</h2>
+            <p class="ccase-about-text">
+                A case converter is a tool that changes the capitalization of text. It can convert text to various formats including UPPERCASE, lowercase, Title Case, Sentence case, and more. It's essential for formatting text consistently across documents and platforms.
+            </p>
+            <p class="ccase-about-text">Common case types include:</p>
+            <ul class="ccase-about-list">
+                <li><strong>UPPERCASE</strong> — ALL LETTERS CAPITALIZED</li>
+                <li><strong>lowercase</strong> — all letters lowercase</li>
+                <li><strong>Title Case</strong> — Every Word Capitalized</li>
+                <li><strong>Sentence case</strong> — First letter capitalized</li>
+                <li><strong>camelCase</strong> — lowerStart then uppercase</li>
+            </ul>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 3. HOW TO USE THE CASE CONVERTER -->
+        <section class="ccase-howto-section" id="ccase-how-to-use">
+            <h2 class="ccase-howto-title">How to Use the Case Converter</h2>
+            <div class="ccase-howto-steps">
+                <div class="ccase-howto-step">
+                    <h3>Type or Paste Text</h3>
+                    <p>Enter your text in the input area by typing or pasting.</p>
+                </div>
+                <div class="ccase-howto-step">
+                    <h3>Choose Case Type</h3>
+                    <p>Select from UPPERCASE, lowercase, Title Case, and more.</p>
+                </div>
+                <div class="ccase-howto-step">
+                    <h3>View Converted Text</h3>
+                    <p>See your text transformed instantly.</p>
+                </div>
+                <div class="ccase-howto-step">
+                    <h3>Copy or Clear</h3>
+                    <p>Copy your converted text or clear the input.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 4. WHY USE A CASE CONVERTER? -->
+        <section class="ccase-benefits-section" id="ccase-benefits">
+            <h2 class="ccase-benefits-title">Why Use a Case Converter?</h2>
+            <div class="ccase-benefit-grid">
+                <div class="ccase-benefit-card">
+                    <span class="ccase-benefit-icon">🔤</span>
+                    <h3>Quick Formatting</h3>
+                    <p>Format text instantly.</p>
+                </div>
+                <div class="ccase-benefit-card">
+                    <span class="ccase-benefit-icon">📝</span>
+                    <h3>Writing Precision</h3>
+                    <p>Ensure consistent capitalization.</p>
+                </div>
+                <div class="ccase-benefit-card">
+                    <span class="ccase-benefit-icon">📊</span>
+                    <h3>Professional Presentation</h3>
+                    <p>Create polished documents.</p>
+                </div>
+                <div class="ccase-benefit-card">
+                    <span class="ccase-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Convert text in seconds.</p>
+                </div>
+                <div class="ccase-benefit-card">
+                    <span class="ccase-benefit-icon">🎯</span>
+                    <h3>Accuracy</h3>
+                    <p>Get precise conversions.</p>
+                </div>
+                <div class="ccase-benefit-card">
+                    <span class="ccase-benefit-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on mobile and desktop.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 5. CASE CONVERTER FEATURES -->
+        <section class="ccase-features-section">
+            <h2 class="ccase-features-title">Case Converter Features</h2>
+            <div class="ccase-features-grid">
+                <div class="ccase-feature-card">
+                    <span class="ccase-feature-icon">🔤</span>
+                    <h3>UPPERCASE</h3>
+                    <p>Convert to all caps.</p>
+                </div>
+                <div class="ccase-feature-card">
+                    <span class="ccase-feature-icon">🔤</span>
+                    <h3>lowercase</h3>
+                    <p>Convert to all lower.</p>
+                </div>
+                <div class="ccase-feature-card">
+                    <span class="ccase-feature-icon">📝</span>
+                    <h3>Title Case</h3>
+                    <p>Capitalize every word.</p>
+                </div>
+                <div class="ccase-feature-card">
+                    <span class="ccase-feature-icon">📄</span>
+                    <h3>Sentence case</h3>
+                    <p>Capitalize first letter.</p>
+                </div>
+                <div class="ccase-feature-card">
+                    <span class="ccase-feature-icon">📋</span>
+                    <h3>camelCase</h3>
+                    <p>Lower then uppercase.</p>
+                </div>
+                <div class="ccase-feature-card">
+                    <span class="ccase-feature-icon">📊</span>
+                    <h3>Real-Time Updates</h3>
+                    <p>Convert as you type.</p>
+                </div>
+                <div class="ccase-feature-card">
+                    <span class="ccase-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy text management.</p>
+                </div>
+                <div class="ccase-feature-card">
+                    <span class="ccase-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your text is safe.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 6. CASE TYPES -->
+        <section class="ccase-types-section">
+            <h2 class="ccase-types-title">Available Case Types</h2>
+            <div class="ccase-types-grid">
+                <div class="ccase-type-card">
+                    <span class="ccase-type-icon">🔤</span>
+                    <h3>UPPERCASE</h3>
+                    <p>Converts all letters to uppercase. Example: "hello world" → "HELLO WORLD". Used for emphasis and headings.</p>
+                </div>
+                <div class="ccase-type-card">
+                    <span class="ccase-type-icon">🔤</span>
+                    <h3>lowercase</h3>
+                    <p>Converts all letters to lowercase. Example: "HELLO WORLD" → "hello world". Used for body text and readability.</p>
+                </div>
+                <div class="ccase-type-card">
+                    <span class="ccase-type-icon">📝</span>
+                    <h3>Title Case</h3>
+                    <p>Capitalizes the first letter of every word. Example: "hello world" → "Hello World". Used for titles and headings.</p>
+                </div>
+                <div class="ccase-type-card">
+                    <span class="ccase-type-icon">📄</span>
+                    <h3>Sentence case</h3>
+                    <p>Capitalizes the first letter of the first word. Example: "hello world" → "Hello world". Used in sentences.</p>
+                </div>
+                <div class="ccase-type-card">
+                    <span class="ccase-type-icon">📋</span>
+                    <h3>camelCase</h3>
+                    <p>Lowercase first word, uppercase subsequent words. Example: "hello world" → "helloWorld". Used in programming.</p>
+                </div>
+                <div class="ccase-type-card">
+                    <span class="ccase-type-icon">📊</span>
+                    <h3>Inverted Case</h3>
+                    <p>Swaps case: uppercase ↔ lowercase. Example: "Hello" → "hELLO". Useful for creative formatting.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="ccase-tips-section">
+            <h2 class="ccase-tips-title">Case Conversion Best Practices</h2>
+            <ul class="ccase-tips-list">
+                <li>Use UPPERCASE for headings and emphasis</li>
+                <li>Use lowercase for readability in body text</li>
+                <li>Use Title Case for article and book titles</li>
+                <li>Use Sentence case for standard sentences</li>
+                <li>Use camelCase for programming variables</li>
+                <li>Check consistency across your document</li>
+                <li>Preview your text before copying</li>
+                <li>Use the tool for formatting social media posts</li>
+                <li>Clear the input before starting new text</li>
+                <li>Copy results for sharing or documentation</li>
+            </ul>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="ccase-usecases-section">
+            <h2 class="ccase-usecases-title">Case Converter Use Cases</h2>
+            <div class="ccase-usecases-grid">
+                <div class="ccase-usecase-card">
+                    <span class="ccase-usecase-icon">📝</span>
+                    <h3>Writers &amp; Authors</h3>
+                    <p>Format titles and headings.</p>
+                </div>
+                <div class="ccase-usecase-card">
+                    <span class="ccase-usecase-icon">🎓</span>
+                    <h3>Students</h3>
+                    <p>Format essays and assignments.</p>
+                </div>
+                <div class="ccase-usecase-card">
+                    <span class="ccase-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Format posts for impact.</p>
+                </div>
+                <div class="ccase-usecase-card">
+                    <span class="ccase-usecase-icon">💻</span>
+                    <h3>Developers</h3>
+                    <p>Format code and variables.</p>
+                </div>
+                <div class="ccase-usecase-card">
+                    <span class="ccase-usecase-icon">📊</span>
+                    <h3>Marketers</h3>
+                    <p>Create compelling copy.</p>
+                </div>
+                <div class="ccase-usecase-card">
+                    <span class="ccase-usecase-icon">📧</span>
+                    <h3>Email Marketing</h3>
+                    <p>Format subject lines.</p>
+                </div>
+                <div class="ccase-usecase-card">
+                    <span class="ccase-usecase-icon">🎤</span>
+                    <h3>Public Speakers</h3>
+                    <p>Format presentation slides.</p>
+                </div>
+                <div class="ccase-usecase-card">
+                    <span class="ccase-usecase-icon">📚</span>
+                    <h3>Content Creators</h3>
+                    <p>Format content consistently.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="ccase-checklist-section" id="ccase-checklist">
+            <h2 class="ccase-checklist-title">Before Finalizing Your Text</h2>
+            <ul class="ccase-checklist-list">
+                <li>Is the case type correct for your purpose?</li>
+                <li>Is the text formatted consistently?</li>
+                <li>Are headings properly capitalized?</li>
+                <li>Is the content ready for its platform?</li>
+                <li>Have you proofread the converted text?</li>
+                <li>Is the text formatted correctly?</li>
+                <li>Have you saved your final version?</li>
+                <li>Is the text ready for sharing or publication?</li>
+                <li>Have you checked for any formatting errors?</li>
+                <li>Is the conversion accurate?</li>
+            </ul>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="ccase-faq-section" id="ccase-faq">
+            <h2 class="ccase-faq-title">Frequently Asked Questions</h2>
+            <div class="ccase-faq-accordion">
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        What is a case converter?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>A case converter is a tool that changes the capitalization of text between different formats like UPPERCASE, lowercase, Title Case, and more.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        Is the case converter free?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>Yes, our case converter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        What case types are available?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>We offer UPPERCASE, lowercase, Title Case, Sentence case, camelCase, and Inverted Case.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        Does the case converter work in real-time?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>Yes, the case converter updates the output in real-time as you type or paste text.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        Can I paste text into the case converter?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>Yes, you can paste any text into the input area for instant conversion.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        Is my text saved or stored?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>No, your text is not saved or stored. It's processed locally in your browser and automatically cleared.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        Can I use the case converter for social media?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>Yes, you can use it to format social media posts, headlines, and captions.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        What is the difference between Title Case and Sentence case?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>Title Case capitalizes every word. Sentence case only capitalizes the first word of the sentence.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        What is camelCase used for?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>camelCase is commonly used in programming for variable names and function names.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        Is the case converter mobile-friendly?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>Yes, our case converter works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        Can I convert text to multiple cases at once?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>You can select any case type to convert your text. You can also switch between case types to see different results.</p>
+                    </div>
+                </div>
+                <div class="ccase-faq-item">
+                    <button class="ccase-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="ccase-faq-icon">+</span>
+                    </button>
+                    <div class="ccase-faq-answer" style="display:none;">
+                        <p>No, you can use the case converter without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="ccase-privacy-section">
+            <h2 class="ccase-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your text is handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All text analysis happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your text is never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your text after analysis.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your text is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="ccase-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="ccase-related-section" id="ccase-related-tools">
+            <h2 class="ccase-related-title">Related Tools</h2>
+            <div class="ccase-related-grid">
+                <a href="#" class="ccase-related-card">
+                    <span class="ccase-related-icon">📝</span> Word Counter
+                </a>
+                <a href="#" class="ccase-related-card">
+                    <span class="ccase-related-icon">🔢</span> Character Counter
+                </a>
+                <a href="#" class="ccase-related-card">
+                    <span class="ccase-related-icon">📄</span> Paragraph Counter
+                </a>
+                <a href="#" class="ccase-related-card">
+                    <span class="ccase-related-icon">⏱️</span> Reading Time Calculator
+                </a>
+                <a href="#" class="ccase-related-card">
+                    <span class="ccase-related-icon">📊</span> Keyword Density Checker
+                </a>
+                <a href="#" class="ccase-related-card">
+                    <span class="ccase-related-icon">📋</span> Copywriting Assistant
+                </a>
+                <a href="#" class="ccase-related-card">
+                    <span class="ccase-related-icon">📝</span> Essay Word Counter
+                </a>
+                <a href="#" class="ccase-related-card">
+                    <span class="ccase-related-icon">📱</span> Social Media Counter
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a case converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A case converter is a tool that changes the capitalization of text between different formats like UPPERCASE, lowercase, Title Case, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the case converter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our case converter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What case types are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer UPPERCASE, lowercase, Title Case, Sentence case, camelCase, and Inverted Case."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the case converter work in real-time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the case converter updates the output in real-time as you type or paste text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I paste text into the case converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can paste any text into the input area for instant conversion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my text saved or stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, your text is not saved or stored. It's processed locally in your browser and automatically cleared."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the case converter for social media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use it to format social media posts, headlines, and captions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Title Case and Sentence case?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Title Case capitalizes every word. Sentence case only capitalizes the first word of the sentence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is camelCase used for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "camelCase is commonly used in programming for variable names and function names."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the case converter mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our case converter works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert text to multiple cases at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can select any case type to convert your text. You can also switch between case types to see different results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the case converter without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.ccase-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 </main>
 

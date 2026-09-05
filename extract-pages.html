@@ -779,6 +779,716 @@
         }
 
   /* End Page style goes here....................*/
+
+          .extract-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .extract-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .extract-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .extract-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            border-radius: 2px;
+        }
+        .extract-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .extract-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .extract-intro-text strong {
+            color: #1e293b;
+        }
+
+        .extract-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .extract-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-about-title::before {
+            content: '📄';
+            font-size: 1.8rem;
+        }
+        .extract-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .extract-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .extract-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #ec4899;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .extract-about-list li::before {
+            content: '✓';
+            color: #ec4899;
+            font-weight: 700;
+        }
+
+        .extract-howto-section {
+            margin: 2.5rem 0;
+        }
+        .extract-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .extract-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .extract-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .extract-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .extract-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .extract-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .extract-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .extract-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .extract-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .extract-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .extract-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .extract-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .extract-benefit-card .extract-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .extract-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .extract-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .extract-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .extract-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .extract-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .extract-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .extract-feature-card:hover {
+            border-color: #ec4899;
+            background: #fce7f3;
+        }
+        .extract-feature-card .extract-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .extract-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .extract-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .extract-methods-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 16px;
+        }
+        .extract-methods-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-methods-title::before {
+            content: '📌';
+            font-size: 1.8rem;
+        }
+        .extract-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .extract-method-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .extract-method-card .extract-method-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .extract-method-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .extract-method-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .extract-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .extract-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .extract-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .extract-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .extract-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .extract-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .extract-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .extract-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .extract-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .extract-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .extract-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #ec4899;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .extract-tips-list li::before {
+            content: '●';
+            color: #ec4899;
+        }
+
+        .extract-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .extract-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .extract-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .extract-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .extract-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .extract-usecase-card .extract-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .extract-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .extract-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .extract-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .extract-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .extract-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .extract-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .extract-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .extract-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .extract-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .extract-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .extract-faq-item:last-child {
+            border-bottom: none;
+        }
+        .extract-faq-item:hover {
+            background: #f8fafc;
+        }
+        .extract-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .extract-faq-question:hover {
+            color: #ec4899;
+        }
+        .extract-faq-question:focus {
+            outline: 2px solid #ec4899;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .extract-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .extract-faq-question[aria-expanded="true"] .extract-faq-icon {
+            transform: rotate(45deg);
+            color: #ec4899;
+        }
+        .extract-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .extract-faq-answer p {
+            margin: 0;
+        }
+        .extract-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .extract-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .extract-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .extract-privacy-section p,
+        .extract-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .extract-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .extract-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .extract-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .extract-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .extract-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .extract-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .extract-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .extract-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .extract-related-card:hover {
+            background: #ec4899;
+            color: white;
+            border-color: #ec4899;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236,72,153,0.3);
+        }
+        .extract-related-card .extract-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .extract-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .extract-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .extract-methods-grid { grid-template-columns: repeat(2, 1fr); }
+            .extract-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .extract-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .extract-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .extract-content-wrapper { padding: 0 16px; }
+            .extract-intro-title { font-size: 2.2rem; }
+            .extract-howto-steps { grid-template-columns: 1fr; }
+            .extract-benefit-grid { grid-template-columns: 1fr; }
+            .extract-features-grid { grid-template-columns: 1fr; }
+            .extract-methods-grid { grid-template-columns: 1fr; }
+            .extract-compare-grid { grid-template-columns: 1fr; }
+            .extract-usecases-grid { grid-template-columns: 1fr; }
+            .extract-tips-list { grid-template-columns: 1fr; }
+            .extract-checklist-list { grid-template-columns: 1fr; }
+            .extract-related-grid { grid-template-columns: 1fr 1fr; }
+            .extract-about-list { grid-template-columns: 1fr; }
+            .extract-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .extract-intro-title { font-size: 1.8rem; }
+            .extract-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1177,6 +1887,578 @@
 </div>
 
 
+    <div class="extract-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="extract-intro-section" id="extract-intro">
+            <h1 class="extract-intro-title">Free PDF Extractor</h1>
+            <p class="extract-intro-text">
+                A <strong>PDF extractor</strong> is a tool that extracts specific pages from a PDF document and saves them as separate PDF files. Whether you need to extract a single page, a range of pages, or multiple non-consecutive pages, our tool makes it quick and easy.
+            </p>
+            <p class="extract-intro-text">
+                Our <strong>free online PDF extractor</strong> allows you to select exactly the pages you need from any PDF file. Extract them as individual PDFs or combine them into one document. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 2. WHAT IS PDF EXTRACTION? -->
+        <section class="extract-about-section" id="extract-about">
+            <h2 class="extract-about-title">What Is PDF Page Extraction?</h2>
+            <p class="extract-about-text">
+                PDF page extraction is the process of selecting specific pages from a PDF document and saving them as separate PDF files. This allows you to isolate important pages, remove unwanted content, or create new documents from selected pages.
+            </p>
+            <p class="extract-about-text">Key features include:</p>
+            <ul class="extract-about-list">
+                <li><strong>Single Page Extraction</strong> — Extract one page</li>
+                <li><strong>Multiple Pages</strong> — Select multiple non-consecutive pages</li>
+                <li><strong>Page Range</strong> — Extract a range of pages</li>
+                <li><strong>Separate Files</strong> — Each page as its own PDF</li>
+                <li><strong>Merge Extracted Pages</strong> — Combine into one PDF</li>
+            </ul>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 3. HOW TO EXTRACT PAGES FROM A PDF -->
+        <section class="extract-howto-section" id="extract-how-to-use">
+            <h2 class="extract-howto-title">How to Extract Pages from a PDF</h2>
+            <div class="extract-howto-steps">
+                <div class="extract-howto-step">
+                    <h3>Upload Your PDF</h3>
+                    <p>Select the PDF file you want to extract pages from.</p>
+                </div>
+                <div class="extract-howto-step">
+                    <h3>Select Pages</h3>
+                    <p>Choose single pages, multiple pages, or a range.</p>
+                </div>
+                <div class="extract-howto-step">
+                    <h3>Preview Selection</h3>
+                    <p>Check the pages you've selected for extraction.</p>
+                </div>
+                <div class="extract-howto-step">
+                    <h3>Extract Pages</h3>
+                    <p>Click extract to create your new PDF files.</p>
+                </div>
+                <div class="extract-howto-step">
+                    <h3>Download Your PDFs</h3>
+                    <p>Save your extracted pages individually or as a ZIP.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 4. WHY EXTRACT PAGES FROM PDF? -->
+        <section class="extract-benefits-section" id="extract-benefits">
+            <h2 class="extract-benefits-title">Why Extract Pages from PDF?</h2>
+            <div class="extract-benefit-grid">
+                <div class="extract-benefit-card">
+                    <span class="extract-benefit-icon">📄</span>
+                    <h3>Isolate Important Pages</h3>
+                    <p>Extract only the pages you need.</p>
+                </div>
+                <div class="extract-benefit-card">
+                    <span class="extract-benefit-icon">📎</span>
+                    <h3>Share Specific Content</h3>
+                    <p>Share only relevant pages.</p>
+                </div>
+                <div class="extract-benefit-card">
+                    <span class="extract-benefit-icon">📁</span>
+                    <h3>Better Organization</h3>
+                    <p>Create focused documents.</p>
+                </div>
+                <div class="extract-benefit-card">
+                    <span class="extract-benefit-icon">📱</span>
+                    <h3>Smaller Files</h3>
+                    <p>Extract only essential pages.</p>
+                </div>
+                <div class="extract-benefit-card">
+                    <span class="extract-benefit-icon">🖨️</span>
+                    <h3>Selective Printing</h3>
+                    <p>Print only the pages you need.</p>
+                </div>
+                <div class="extract-benefit-card">
+                    <span class="extract-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Extract pages in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 5. EXTRACTION FEATURES -->
+        <section class="extract-features-section">
+            <h2 class="extract-features-title">PDF Extraction Features</h2>
+            <div class="extract-features-grid">
+                <div class="extract-feature-card">
+                    <span class="extract-feature-icon">📌</span>
+                    <h3>Single Page</h3>
+                    <p>Extract one specific page.</p>
+                </div>
+                <div class="extract-feature-card">
+                    <span class="extract-feature-icon">📋</span>
+                    <h3>Multiple Pages</h3>
+                    <p>Select non-consecutive pages.</p>
+                </div>
+                <div class="extract-feature-card">
+                    <span class="extract-feature-icon">📊</span>
+                    <h3>Page Range</h3>
+                    <p>Extract pages 1-10, 15-20, etc.</p>
+                </div>
+                <div class="extract-feature-card">
+                    <span class="extract-feature-icon">📁</span>
+                    <h3>Separate Files</h3>
+                    <p>Each page as its own PDF.</p>
+                </div>
+                <div class="extract-feature-card">
+                    <span class="extract-feature-icon">📄</span>
+                    <h3>Merge Extracted</h3>
+                    <p>Combine extracted pages into one PDF.</p>
+                </div>
+                <div class="extract-feature-card">
+                    <span class="extract-feature-icon">👁️</span>
+                    <h3>Page Preview</h3>
+                    <p>See pages before extracting.</p>
+                </div>
+                <div class="extract-feature-card">
+                    <span class="extract-feature-icon">⚡</span>
+                    <h3>Fast Processing</h3>
+                    <p>Quick extraction for any PDF.</p>
+                </div>
+                <div class="extract-feature-card">
+                    <span class="extract-feature-icon">🔒</span>
+                    <h3>Secure Extraction</h3>
+                    <p>Your files are handled securely.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 6. EXTRACTION METHODS -->
+        <section class="extract-methods-section">
+            <h2 class="extract-methods-title">How to Select Pages for Extraction</h2>
+            <div class="extract-methods-grid">
+                <div class="extract-method-card">
+                    <span class="extract-method-icon">📌</span>
+                    <h3>Single Page</h3>
+                    <p>Enter a single page number (e.g., 5). Ideal for extracting a specific page from a document.</p>
+                </div>
+                <div class="extract-method-card">
+                    <span class="extract-method-icon">📋</span>
+                    <h3>Multiple Pages</h3>
+                    <p>Enter multiple page numbers separated by commas (e.g., 1, 3, 5, 7). Perfect for selecting specific pages.</p>
+                </div>
+                <div class="extract-method-card">
+                    <span class="extract-method-icon">📊</span>
+                    <h3>Page Range</h3>
+                    <p>Enter a range (e.g., 1-10, 15-20). Great for extracting sections or chapters.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 7. EXTRACT VS SPLIT -->
+        <section class="extract-compare-section">
+            <h2 class="extract-compare-title">Extract vs Split: What's the Difference?</h2>
+            <div class="extract-compare-grid">
+                <div class="extract-compare-card">
+                    <h3>📌 Extract Pages</h3>
+                    <p>Select specific pages to create new PDF files. You choose exactly which pages to extract, skipping unwanted pages entirely.</p>
+                </div>
+                <div class="extract-compare-card">
+                    <h3>✂️ Split PDF</h3>
+                    <p>Divide the entire PDF into sections (e.g., pages 1-5, 6-10). All pages are included, just separated into groups.</p>
+                </div>
+            </div>
+            <p class="extract-compare-text">Use Extract when you only want specific pages. Use Split when you want to divide the entire document into parts. Extract is more selective, while Split is more comprehensive.</p>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="extract-tips-section">
+            <h2 class="extract-tips-title">PDF Extraction Best Practices</h2>
+            <ul class="extract-tips-list">
+                <li>Know exactly which pages you want to extract</li>
+                <li>Use page preview to verify selection</li>
+                <li>Choose separate files for individual pages</li>
+                <li>Choose merge for a combined document</li>
+                <li>Keep a backup of your original PDF</li>
+                <li>Preview extracted pages before downloading</li>
+                <li>Use descriptive file names for extracted PDFs</li>
+                <li>Consider file size when extracting many pages</li>
+                <li>Check the extracted PDFs for completeness</li>
+                <li>Use the appropriate selection method for your needs</li>
+            </ul>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="extract-usecases-section">
+            <h2 class="extract-usecases-title">PDF Extraction Use Cases</h2>
+            <div class="extract-usecases-grid">
+                <div class="extract-usecase-card">
+                    <span class="extract-usecase-icon">📊</span>
+                    <h3>Business Reports</h3>
+                    <p>Extract key pages from reports.</p>
+                </div>
+                <div class="extract-usecase-card">
+                    <span class="extract-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Extract assignments or chapters.</p>
+                </div>
+                <div class="extract-usecase-card">
+                    <span class="extract-usecase-icon">🏢</span>
+                    <h3>Legal Documents</h3>
+                    <p>Extract specific clauses or sections.</p>
+                </div>
+                <div class="extract-usecase-card">
+                    <span class="extract-usecase-icon">📧</span>
+                    <h3>Email Attachments</h3>
+                    <p>Send only relevant pages via email.</p>
+                </div>
+                <div class="extract-usecase-card">
+                    <span class="extract-usecase-icon">🖨️</span>
+                    <h3>Selective Printing</h3>
+                    <p>Print only the pages you need.</p>
+                </div>
+                <div class="extract-usecase-card">
+                    <span class="extract-usecase-icon">📱</span>
+                    <h3>Mobile Viewing</h3>
+                    <p>Extract essential pages for mobile.</p>
+                </div>
+                <div class="extract-usecase-card">
+                    <span class="extract-usecase-icon">📁</span>
+                    <h3>File Organization</h3>
+                    <p>Create focused documents.</p>
+                </div>
+                <div class="extract-usecase-card">
+                    <span class="extract-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Extract specific photo pages.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 10. EXTRACTION QUALITY CHECKLIST -->
+        <section class="extract-checklist-section" id="extract-checklist">
+            <h2 class="extract-checklist-title">Before Downloading Your Extracted Pages</h2>
+            <ul class="extract-checklist-list">
+                <li>Are the correct pages selected?</li>
+                <li>Are the extracted pages complete?</li>
+                <li>Is the formatting preserved?</li>
+                <li>Are the file sizes manageable?</li>
+                <li>Have you previewed the extracted pages?</li>
+                <li>Are the files ready for sharing?</li>
+                <li>Have you kept your original PDF?</li>
+                <li>Are the files named appropriately?</li>
+                <li>Is the ZIP file organized correctly?</li>
+                <li>Are the extracted pages suitable for your use?</li>
+            </ul>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="extract-faq-section" id="extract-faq">
+            <h2 class="extract-faq-title">Frequently Asked Questions</h2>
+            <div class="extract-faq-accordion">
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        What is a PDF extractor?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>A PDF extractor selects specific pages from a PDF document and saves them as separate PDF files.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        Is the PDF extractor free?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>Yes, our PDF extractor is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        What pages can I extract?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>You can extract single pages, multiple non-consecutive pages, or page ranges (e.g., 1-10, 15-20).</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        Can I extract multiple non-consecutive pages?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>Yes, you can select multiple pages by entering page numbers separated by commas (e.g., 1, 3, 5, 7).</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>We accept PDFs up to 50MB in size for extraction.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        Can I extract pages as separate PDFs?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>Yes, you can extract pages as separate PDF files. You can also choose to merge them into one PDF.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        Can I extract from password-protected PDFs?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>Currently, we only support extracting from password-protected PDFs if you provide the password during upload.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        Is my data secure when extracting pages?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>Yes, your PDFs are processed securely and automatically deleted after extraction. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        Can I extract pages on mobile?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>Yes, our PDF extractor works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        What is the difference between extract and split?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>Extract selects specific pages you want. Split divides the entire PDF into sections. Extract is more selective.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        Can I preview pages before extracting?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>Yes, you can preview the pages of your PDF to ensure you're extracting the correct pages.</p>
+                    </div>
+                </div>
+                <div class="extract-faq-item">
+                    <button class="extract-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="extract-faq-icon">+</span>
+                    </button>
+                    <div class="extract-faq-answer" style="display:none;">
+                        <p>No, you can extract pages from PDFs without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="extract-privacy-section">
+            <h2 class="extract-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your PDFs are handled:</p>
+            <ul>
+                <li><strong>☁️ Temporary processing:</strong> PDFs are temporarily uploaded for extraction.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your PDFs after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>🖥️ No client-side storage:</strong> Your files are never stored on your device without your consent.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="extract-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="extract-related-section" id="extract-related-tools">
+            <h2 class="extract-related-title">Related Tools</h2>
+            <div class="extract-related-grid">
+                <a href="#" class="extract-related-card">
+                    <span class="extract-related-icon">✂️</span> Split PDF
+                </a>
+                <a href="#" class="extract-related-card">
+                    <span class="extract-related-icon">📄</span> Merge PDF
+                </a>
+                <a href="#" class="extract-related-card">
+                    <span class="extract-related-icon">🔄</span> PDF to Image
+                </a>
+                <a href="#" class="extract-related-card">
+                    <span class="extract-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="extract-related-card">
+                    <span class="extract-related-icon">🗜️</span> Compress PDF
+                </a>
+                <a href="#" class="extract-related-card">
+                    <span class="extract-related-icon">🔒</span> PDF Security
+                </a>
+                <a href="#" class="extract-related-card">
+                    <span class="extract-related-icon">📐</span> PDF to JPG
+                </a>
+                <a href="#" class="extract-related-card">
+                    <span class="extract-related-icon">📄</span> JPG to PDF
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PDF extractor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PDF extractor selects specific pages from a PDF document and saves them as separate PDF files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the PDF extractor free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF extractor is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What pages can I extract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can extract single pages, multiple non-consecutive pages, or page ranges (e.g., 1-10, 15-20)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extract multiple non-consecutive pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can select multiple pages by entering page numbers separated by commas (e.g., 1, 3, 5, 7)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept PDFs up to 50MB in size for extraction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extract pages as separate PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can extract pages as separate PDF files. You can also choose to merge them into one PDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extract from password-protected PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, we only support extracting from password-protected PDFs if you provide the password during upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure when extracting pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your PDFs are processed securely and automatically deleted after extraction. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extract pages on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF extractor works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between extract and split?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Extract selects specific pages you want. Split divides the entire PDF into sections. Extract is more selective."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I preview pages before extracting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can preview the pages of your PDF to ensure you're extracting the correct pages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can extract pages from PDFs without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.extract-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

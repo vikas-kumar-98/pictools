@@ -666,6 +666,662 @@
     .icp-text-muted { color: #4b6589; font-size: 0.8rem; }
 
   /* End Page style goes here....................*/
+
+          .cpicker-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .cpicker-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .cpicker-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .cpicker-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .cpicker-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .cpicker-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .cpicker-intro-text strong {
+            color: #1e293b;
+        }
+
+        .cpicker-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .cpicker-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-about-title::before {
+            content: '🎨';
+            font-size: 1.8rem;
+        }
+        .cpicker-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .cpicker-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .cpicker-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cpicker-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .cpicker-howto-section {
+            margin: 2.5rem 0;
+        }
+        .cpicker-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .cpicker-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .cpicker-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .cpicker-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .cpicker-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .cpicker-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .cpicker-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .cpicker-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .cpicker-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .cpicker-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .cpicker-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .cpicker-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .cpicker-benefit-card .cpicker-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .cpicker-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .cpicker-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .cpicker-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .cpicker-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .cpicker-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .cpicker-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .cpicker-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .cpicker-feature-card .cpicker-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .cpicker-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .cpicker-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .cpicker-formats-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .cpicker-formats-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-formats-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .cpicker-formats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .cpicker-format-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .cpicker-format-card .cpicker-format-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .cpicker-format-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .cpicker-format-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .cpicker-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .cpicker-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .cpicker-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .cpicker-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cpicker-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .cpicker-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .cpicker-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .cpicker-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .cpicker-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .cpicker-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .cpicker-usecase-card .cpicker-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .cpicker-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .cpicker-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .cpicker-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .cpicker-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .cpicker-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .cpicker-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cpicker-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .cpicker-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .cpicker-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .cpicker-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .cpicker-faq-item:last-child {
+            border-bottom: none;
+        }
+        .cpicker-faq-item:hover {
+            background: #f8fafc;
+        }
+        .cpicker-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .cpicker-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .cpicker-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .cpicker-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .cpicker-faq-question[aria-expanded="true"] .cpicker-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .cpicker-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .cpicker-faq-answer p {
+            margin: 0;
+        }
+        .cpicker-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .cpicker-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .cpicker-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .cpicker-privacy-section p,
+        .cpicker-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .cpicker-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .cpicker-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .cpicker-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .cpicker-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .cpicker-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cpicker-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .cpicker-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .cpicker-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .cpicker-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .cpicker-related-card .cpicker-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .cpicker-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .cpicker-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .cpicker-formats-grid { grid-template-columns: repeat(2, 1fr); }
+            .cpicker-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .cpicker-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .cpicker-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .cpicker-content-wrapper { padding: 0 16px; }
+            .cpicker-intro-title { font-size: 2.2rem; }
+            .cpicker-howto-steps { grid-template-columns: 1fr; }
+            .cpicker-benefit-grid { grid-template-columns: 1fr; }
+            .cpicker-features-grid { grid-template-columns: 1fr; }
+            .cpicker-formats-grid { grid-template-columns: 1fr; }
+            .cpicker-usecases-grid { grid-template-columns: 1fr; }
+            .cpicker-tips-list { grid-template-columns: 1fr; }
+            .cpicker-checklist-list { grid-template-columns: 1fr; }
+            .cpicker-related-grid { grid-template-columns: 1fr 1fr; }
+            .cpicker-about-list { grid-template-columns: 1fr; }
+            .cpicker-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .cpicker-intro-title { font-size: 1.8rem; }
+            .cpicker-related-grid { grid-template-columns: 1fr; }
+        }
 </style>
 </head>
 <body>
@@ -1062,6 +1718,555 @@
  
 
 
+    <div class="cpicker-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="cpicker-intro-section" id="cpicker-intro">
+            <h1 class="cpicker-intro-title">Free Online Image Color Picker</h1>
+            <p class="cpicker-intro-text">
+                An <strong>image color picker</strong> is an essential tool that extracts color codes from any image. Whether you're a designer, developer, or artist, our tool helps you capture exact colors from images for your projects.
+            </p>
+            <p class="cpicker-intro-text">
+                Our <strong>free online image color picker</strong> allows you to upload any image and pick colors with a single click. Get HEX, RGB, and HSL color codes instantly. Perfect for design work, web development, and creative projects. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 2. WHAT IS AN IMAGE COLOR PICKER? -->
+        <section class="cpicker-about-section" id="cpicker-about">
+            <h2 class="cpicker-about-title">What Is an Image Color Picker?</h2>
+            <p class="cpicker-about-text">
+                An image color picker is a utility that extracts color values from images. It allows you to click on any pixel in an image and instantly get its color code in various formats.
+            </p>
+            <p class="cpicker-about-text">Key features include:</p>
+            <ul class="cpicker-about-list">
+                <li><strong>Pick Colors</strong> — Click any pixel</li>
+                <li><strong>HEX Codes</strong> — #RRGGBB format</li>
+                <li><strong>RGB Values</strong> — Red, Green, Blue</li>
+                <li><strong>HSL Values</strong> — Hue, Saturation, Lightness</li>
+                <li><strong>Quick Processing</strong> — Instant results</li>
+            </ul>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 3. HOW TO PICK COLORS FROM AN IMAGE -->
+        <section class="cpicker-howto-section" id="cpicker-how-to-use">
+            <h2 class="cpicker-howto-title">How to Pick Colors from an Image</h2>
+            <div class="cpicker-howto-steps">
+                <div class="cpicker-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select the image you want to pick colors from.</p>
+                </div>
+                <div class="cpicker-howto-step">
+                    <h3>Click on Any Pixel</h3>
+                    <p>Click on the image to select a color.</p>
+                </div>
+                <div class="cpicker-howto-step">
+                    <h3>View Color Codes</h3>
+                    <p>See HEX, RGB, and HSL values instantly.</p>
+                </div>
+                <div class="cpicker-howto-step">
+                    <h3>Copy Your Color</h3>
+                    <p>Copy the color code to your clipboard.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 4. WHY USE AN IMAGE COLOR PICKER? -->
+        <section class="cpicker-benefits-section" id="cpicker-benefits">
+            <h2 class="cpicker-benefits-title">Why Use an Image Color Picker?</h2>
+            <div class="cpicker-benefit-grid">
+                <div class="cpicker-benefit-card">
+                    <span class="cpicker-benefit-icon">🎨</span>
+                    <h3>Exact Colors</h3>
+                    <p>Get precise color codes.</p>
+                </div>
+                <div class="cpicker-benefit-card">
+                    <span class="cpicker-benefit-icon">📝</span>
+                    <h3>Multiple Formats</h3>
+                    <p>HEX, RGB, HSL support.</p>
+                </div>
+                <div class="cpicker-benefit-card">
+                    <span class="cpicker-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Pick colors instantly.</p>
+                </div>
+                <div class="cpicker-benefit-card">
+                    <span class="cpicker-benefit-icon">📋</span>
+                    <h3>Copy to Clipboard</h3>
+                    <p>Easy color management.</p>
+                </div>
+                <div class="cpicker-benefit-card">
+                    <span class="cpicker-benefit-icon">🎯</span>
+                    <h3>Accurate</h3>
+                    <p>Get precise color values.</p>
+                </div>
+                <div class="cpicker-benefit-card">
+                    <span class="cpicker-benefit-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on mobile and desktop.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 5. FEATURES -->
+        <section class="cpicker-features-section">
+            <h2 class="cpicker-features-title">Image Color Picker Features</h2>
+            <div class="cpicker-features-grid">
+                <div class="cpicker-feature-card">
+                    <span class="cpicker-feature-icon">🎨</span>
+                    <h3>Color Picker</h3>
+                    <p>Click any pixel.</p>
+                </div>
+                <div class="cpicker-feature-card">
+                    <span class="cpicker-feature-icon">🔢</span>
+                    <h3>HEX Codes</h3>
+                    <p>#RRGGBB format.</p>
+                </div>
+                <div class="cpicker-feature-card">
+                    <span class="cpicker-feature-icon">🔢</span>
+                    <h3>RGB Values</h3>
+                    <p>Red, Green, Blue.</p>
+                </div>
+                <div class="cpicker-feature-card">
+                    <span class="cpicker-feature-icon">🔢</span>
+                    <h3>HSL Values</h3>
+                    <p>Hue, Saturation, Lightness.</p>
+                </div>
+                <div class="cpicker-feature-card">
+                    <span class="cpicker-feature-icon">📋</span>
+                    <h3>Copy to Clipboard</h3>
+                    <p>Copy color codes.</p>
+                </div>
+                <div class="cpicker-feature-card">
+                    <span class="cpicker-feature-icon">⚡</span>
+                    <h3>Instant Processing</h3>
+                    <p>Get results immediately.</p>
+                </div>
+                <div class="cpicker-feature-card">
+                    <span class="cpicker-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your images are safe.</p>
+                </div>
+                <div class="cpicker-feature-card">
+                    <span class="cpicker-feature-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 6. COLOR FORMATS -->
+        <section class="cpicker-formats-section">
+            <h2 class="cpicker-formats-title">Supported Color Formats</h2>
+            <div class="cpicker-formats-grid">
+                <div class="cpicker-format-card">
+                    <span class="cpicker-format-icon">🔢</span>
+                    <h3>HEX</h3>
+                    <p>Hexadecimal color codes. Example: #FF5733. Widely used in web design and CSS.</p>
+                </div>
+                <div class="cpicker-format-card">
+                    <span class="cpicker-format-icon">🔢</span>
+                    <h3>RGB</h3>
+                    <p>Red, Green, Blue values (0-255). Example: rgb(255, 87, 51). Used in design and development.</p>
+                </div>
+                <div class="cpicker-format-card">
+                    <span class="cpicker-format-icon">🔢</span>
+                    <h3>HSL</h3>
+                    <p>Hue, Saturation, Lightness. Example: hsl(11, 100%, 60%). Useful for color manipulation.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="cpicker-tips-section">
+            <h2 class="cpicker-tips-title">Best Practices for Picking Colors</h2>
+            <ul class="cpicker-tips-list">
+                <li>Use high-quality images for accurate colors</li>
+                <li>Click on the exact pixel you want</li>
+                <li>Use HEX for web design projects</li>
+                <li>Use RGB for digital design</li>
+                <li>Use HSL for color manipulation</li>
+                <li>Copy and save your color codes</li>
+                <li>Use for branding and design work</li>
+                <li>Match colors from existing designs</li>
+                <li>Create color palettes from images</li>
+                <li>Preview colors before using</li>
+            </ul>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="cpicker-usecases-section">
+            <h2 class="cpicker-usecases-title">Image Color Picker Use Cases</h2>
+            <div class="cpicker-usecases-grid">
+                <div class="cpicker-usecase-card">
+                    <span class="cpicker-usecase-icon">🎨</span>
+                    <h3>Graphic Design</h3>
+                    <p>Extract colors for designs.</p>
+                </div>
+                <div class="cpicker-usecase-card">
+                    <span class="cpicker-usecase-icon">🌐</span>
+                    <h3>Web Development</h3>
+                    <p>Get colors for CSS.</p>
+                </div>
+                <div class="cpicker-usecase-card">
+                    <span class="cpicker-usecase-icon">🏢</span>
+                    <h3>Branding</h3>
+                    <p>Match brand colors.</p>
+                </div>
+                <div class="cpicker-usecase-card">
+                    <span class="cpicker-usecase-icon">📱</span>
+                    <h3>App Design</h3>
+                    <p>Extract app colors.</p>
+                </div>
+                <div class="cpicker-usecase-card">
+                    <span class="cpicker-usecase-icon">🎨</span>
+                    <h3>Art &amp; Illustration</h3>
+                    <p>Create color palettes.</p>
+                </div>
+                <div class="cpicker-usecase-card">
+                    <span class="cpicker-usecase-icon">📊</span>
+                    <h3>Data Visualization</h3>
+                    <p>Match chart colors.</p>
+                </div>
+                <div class="cpicker-usecase-card">
+                    <span class="cpicker-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Match product colors.</p>
+                </div>
+                <div class="cpicker-usecase-card">
+                    <span class="cpicker-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Learn color theory.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="cpicker-checklist-section" id="cpicker-checklist">
+            <h2 class="cpicker-checklist-title">Before Using Your Color Codes</h2>
+            <ul class="cpicker-checklist-list">
+                <li>Is the color code accurate?</li>
+                <li>Is the format correct for your use?</li>
+                <li>Is the color suitable for your project?</li>
+                <li>Have you copied the correct value?</li>
+                <li>Is the color preview accurate?</li>
+                <li>Have you tested the color in context?</li>
+                <li>Is the image quality sufficient?</li>
+                <li>Have you saved your color codes?</li>
+                <li>Is the color ready for use?</li>
+                <li>Have you kept your original image?</li>
+            </ul>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="cpicker-faq-section" id="cpicker-faq">
+            <h2 class="cpicker-faq-title">Frequently Asked Questions</h2>
+            <div class="cpicker-faq-accordion">
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        What is an image color picker?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>An image color picker extracts color codes from images by clicking on any pixel.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        Is the image color picker free?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>Yes, our image color picker is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        What color formats are supported?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>We support HEX, RGB, and HSL color formats.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        How do I pick a color from an image?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>Upload your image, then click on any pixel to see its color code instantly.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        What image formats are supported?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>We support JPG, PNG, GIF, BMP, WebP, and more formats.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        Is my image data secure?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed locally in your browser and are never sent to any server.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>We accept images up to 50MB in size for processing.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        Is the tool mobile-friendly?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>Yes, our image color picker works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        Can I pick multiple colors from one image?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>Yes, you can pick as many colors as you need from any image.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        What is the difference between HEX, RGB, and HSL?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>HEX is a hexadecimal color code. RGB uses Red, Green, Blue values. HSL uses Hue, Saturation, Lightness.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        Can I copy the color code to my clipboard?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>Yes, you can click the copy button to copy any color code to your clipboard.</p>
+                    </div>
+                </div>
+                <div class="cpicker-faq-item">
+                    <button class="cpicker-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="cpicker-faq-icon">+</span>
+                    </button>
+                    <div class="cpicker-faq-answer" style="display:none;">
+                        <p>No, you can use the image color picker without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="cpicker-privacy-section">
+            <h2 class="cpicker-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All image processing happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your images are never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images after processing.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your data is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="cpicker-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="cpicker-related-section" id="cpicker-related-tools">
+            <h2 class="cpicker-related-title">Related Tools</h2>
+            <div class="cpicker-related-grid">
+                <a href="#" class="cpicker-related-card">
+                    <span class="cpicker-related-icon">🎨</span> Color Converter
+                </a>
+                <a href="#" class="cpicker-related-card">
+                    <span class="cpicker-related-icon">🖼️</span> Image Resizer
+                </a>
+                <a href="#" class="cpicker-related-card">
+                    <span class="cpicker-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="cpicker-related-card">
+                    <span class="cpicker-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="cpicker-related-card">
+                    <span class="cpicker-related-icon">🎨</span> Image Enhancer
+                </a>
+                <a href="#" class="cpicker-related-card">
+                    <span class="cpicker-related-icon">🏷️</span> Image Watermark
+                </a>
+                <a href="#" class="cpicker-related-card">
+                    <span class="cpicker-related-icon">🖼️</span> Add Border to Image
+                </a>
+                <a href="#" class="cpicker-related-card">
+                    <span class="cpicker-related-icon">🔄</span> Image to Base64
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an image color picker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An image color picker extracts color codes from images by clicking on any pixel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the image color picker free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image color picker is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What color formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support HEX, RGB, and HSL color formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I pick a color from an image?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Upload your image, then click on any pixel to see its color code instantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What image formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support JPG, PNG, GIF, BMP, WebP, and more formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed locally in your browser and are never sent to any server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept images up to 50MB in size for processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tool mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image color picker works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I pick multiple colors from one image?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can pick as many colors as you need from any image."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between HEX, RGB, and HSL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HEX is a hexadecimal color code. RGB uses Red, Green, Blue values. HSL uses Hue, Saturation, Lightness."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I copy the color code to my clipboard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can click the copy button to copy any color code to your clipboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can use the image color picker without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.cpicker-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

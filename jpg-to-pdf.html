@@ -751,6 +751,718 @@
       font-size: 0.9rem;
       padding: 10px 0;
     }
+/*End of style coce*/
+
+        /* ================================================== */
+        /* JPG TO PDF CONVERTER - SCOPED STYLES               */
+        /* All selectors are scoped to .jpgpdf-* classes      */
+        /* ================================================== */
+
+        .jpgpdf-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .jpgpdf-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .jpgpdf-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .jpgpdf-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #dc2626);
+            border-radius: 2px;
+        }
+        .jpgpdf-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .jpgpdf-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .jpgpdf-intro-text strong {
+            color: #1e293b;
+        }
+
+        .jpgpdf-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .jpgpdf-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-about-title::before {
+            content: '🖼️';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .jpgpdf-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .jpgpdf-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .jpgpdf-about-list li::before {
+            content: '✓';
+            color: #f59e0b;
+            font-weight: 700;
+        }
+
+        .jpgpdf-howto-section {
+            margin: 2.5rem 0;
+        }
+        .jpgpdf-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .jpgpdf-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .jpgpdf-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .jpgpdf-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #f59e0b, #dc2626);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .jpgpdf-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .jpgpdf-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .jpgpdf-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .jpgpdf-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .jpgpdf-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .jpgpdf-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .jpgpdf-benefit-card .jpgpdf-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .jpgpdf-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .jpgpdf-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .jpgpdf-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .jpgpdf-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .jpgpdf-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .jpgpdf-feature-card:hover {
+            border-color: #dc2626;
+            background: #fee2e2;
+        }
+        .jpgpdf-feature-card .jpgpdf-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .jpgpdf-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .jpgpdf-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .jpgpdf-sizes-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 16px;
+        }
+        .jpgpdf-sizes-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-sizes-title::before {
+            content: '📐';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-sizes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .jpgpdf-size-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .jpgpdf-size-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .jpgpdf-size-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .jpgpdf-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .jpgpdf-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .jpgpdf-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .jpgpdf-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .jpgpdf-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .jpgpdf-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .jpgpdf-practices-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .jpgpdf-practices-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-practices-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-practices-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .jpgpdf-practices-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .jpgpdf-practices-list li::before {
+            content: '●';
+            color: #dc2626;
+        }
+
+        .jpgpdf-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .jpgpdf-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .jpgpdf-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .jpgpdf-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .jpgpdf-usecase-card .jpgpdf-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .jpgpdf-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .jpgpdf-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .jpgpdf-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .jpgpdf-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .jpgpdf-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .jpgpdf-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .jpgpdf-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .jpgpdf-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .jpgpdf-faq-item:last-child {
+            border-bottom: none;
+        }
+        .jpgpdf-faq-item:hover {
+            background: #f8fafc;
+        }
+        .jpgpdf-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .jpgpdf-faq-question:hover {
+            color: #dc2626;
+        }
+        .jpgpdf-faq-question:focus {
+            outline: 2px solid #dc2626;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .jpgpdf-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .jpgpdf-faq-question[aria-expanded="true"] .jpgpdf-faq-icon {
+            transform: rotate(45deg);
+            color: #dc2626;
+        }
+        .jpgpdf-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .jpgpdf-faq-answer p {
+            margin: 0;
+        }
+        .jpgpdf-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .jpgpdf-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .jpgpdf-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-privacy-section p,
+        .jpgpdf-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .jpgpdf-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .jpgpdf-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .jpgpdf-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .jpgpdf-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .jpgpdf-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .jpgpdf-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .jpgpdf-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .jpgpdf-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .jpgpdf-related-card:hover {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220,38,38,0.3);
+        }
+        .jpgpdf-related-card .jpgpdf-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .jpgpdf-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .jpgpdf-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .jpgpdf-sizes-grid { grid-template-columns: repeat(2, 1fr); }
+            .jpgpdf-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .jpgpdf-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .jpgpdf-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .jpgpdf-content-wrapper { padding: 0 16px; }
+            .jpgpdf-intro-title { font-size: 2.2rem; }
+            .jpgpdf-howto-steps { grid-template-columns: 1fr; }
+            .jpgpdf-benefit-grid { grid-template-columns: 1fr; }
+            .jpgpdf-features-grid { grid-template-columns: 1fr; }
+            .jpgpdf-sizes-grid { grid-template-columns: 1fr; }
+            .jpgpdf-compare-grid { grid-template-columns: 1fr; }
+            .jpgpdf-usecases-grid { grid-template-columns: 1fr; }
+            .jpgpdf-practices-list { grid-template-columns: 1fr; }
+            .jpgpdf-checklist-list { grid-template-columns: 1fr; }
+            .jpgpdf-related-grid { grid-template-columns: 1fr 1fr; }
+            .jpgpdf-about-list { grid-template-columns: 1fr; }
+            .jpgpdf-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .jpgpdf-intro-title { font-size: 1.8rem; }
+            .jpgpdf-related-grid { grid-template-columns: 1fr; }
+        }
+    
 </style>
 </head>
 <body>
@@ -1117,7 +1829,595 @@
 <div class="jpgPdfToastContainer" id="jpgPdfToastContainer"></div>
 
 
+    <div class="jpgpdf-content-wrapper">
 
+        <!-- 1. INTRODUCTION -->
+        <section class="jpgpdf-intro-section" id="jpgpdf-intro">
+            <h1 class="jpgpdf-intro-title">Free JPG to PDF Converter</h1>
+            <p class="jpgpdf-intro-text">
+                A <strong>JPG to PDF converter</strong> is a specialized tool that transforms JPG image files into PDF documents. JPG (or JPEG) is the most common image format for photographs and web graphics, and converting them to PDF creates a professional, universally-compatible document.
+            </p>
+            <p class="jpgpdf-intro-text">
+                Our <strong>free online JPG to PDF converter</strong> allows you to convert single or multiple JPG images into a PDF file. You can choose page size, orientation, and merge all your images into one polished document. Perfect for business, education, and personal use.
+            </p>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 2. WHAT IS JPG TO PDF CONVERSION? -->
+        <section class="jpgpdf-about-section" id="jpgpdf-about">
+            <h2 class="jpgpdf-about-title">What Is JPG to PDF Conversion?</h2>
+            <p class="jpgpdf-about-text">
+                JPG to PDF conversion is the process of embedding JPG images into a PDF document. This creates a standardized, portable format that preserves image quality and can be shared universally across all devices.
+            </p>
+            <p class="jpgpdf-about-text">Key features include:</p>
+            <ul class="jpgpdf-about-list">
+                <li><strong>Single or Multiple JPGs</strong> — Convert one or many images</li>
+                <li><strong>Page Size Options</strong> — A4, Letter, Legal, and more</li>
+                <li><strong>Orientation Control</strong> — Portrait or landscape</li>
+                <li><strong>Image Quality Preservation</strong> — High-quality PDF output</li>
+                <li><strong>Merge Capability</strong> — Combine JPGs into one PDF</li>
+            </ul>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 3. HOW TO CONVERT JPG TO PDF -->
+        <section class="jpgpdf-howto-section" id="jpgpdf-how-to-use">
+            <h2 class="jpgpdf-howto-title">How to Convert JPG to PDF</h2>
+            <div class="jpgpdf-howto-steps">
+                <div class="jpgpdf-howto-step">
+                    <h3>Upload Your JPG Images</h3>
+                    <p>Select one or multiple JPG images from your device.</p>
+                </div>
+                <div class="jpgpdf-howto-step">
+                    <h3>Choose Page Settings</h3>
+                    <p>Select page size, orientation, and margins.</p>
+                </div>
+                <div class="jpgpdf-howto-step">
+                    <h3>Arrange Image Order</h3>
+                    <p>Drag and drop images to arrange them in the desired order.</p>
+                </div>
+                <div class="jpgpdf-howto-step">
+                    <h3>Preview Your PDF</h3>
+                    <p>Check how your PDF will look before downloading.</p>
+                </div>
+                <div class="jpgpdf-howto-step">
+                    <h3>Download Your PDF</h3>
+                    <p>Save your new PDF document instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 4. WHY CONVERT JPG TO PDF? -->
+        <section class="jpgpdf-benefits-section" id="jpgpdf-benefits">
+            <h2 class="jpgpdf-benefits-title">Why Convert JPG to PDF?</h2>
+            <div class="jpgpdf-benefit-grid">
+                <div class="jpgpdf-benefit-card">
+                    <span class="jpgpdf-benefit-icon">📄</span>
+                    <h3>Universal Format</h3>
+                    <p>PDFs work on any device and platform.</p>
+                </div>
+                <div class="jpgpdf-benefit-card">
+                    <span class="jpgpdf-benefit-icon">📦</span>
+                    <h3>Single File</h3>
+                    <p>Combine multiple JPGs into one document.</p>
+                </div>
+                <div class="jpgpdf-benefit-card">
+                    <span class="jpgpdf-benefit-icon">🔒</span>
+                    <h3>Professional Look</h3>
+                    <p>Create polished, professional documents.</p>
+                </div>
+                <div class="jpgpdf-benefit-card">
+                    <span class="jpgpdf-benefit-icon">📱</span>
+                    <h3>Easy Sharing</h3>
+                    <p>Share PDFs easily via email or cloud.</p>
+                </div>
+                <div class="jpgpdf-benefit-card">
+                    <span class="jpgpdf-benefit-icon">🖨️</span>
+                    <h3>Print Ready</h3>
+                    <p>PDFs are optimized for printing.</p>
+                </div>
+                <div class="jpgpdf-benefit-card">
+                    <span class="jpgpdf-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Convert JPGs in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 5. JPG TO PDF FEATURES -->
+        <section class="jpgpdf-features-section">
+            <h2 class="jpgpdf-features-title">JPG to PDF Features</h2>
+            <div class="jpgpdf-features-grid">
+                <div class="jpgpdf-feature-card">
+                    <span class="jpgpdf-feature-icon">📐</span>
+                    <h3>Page Size</h3>
+                    <p>Choose from A4, Letter, Legal, and more.</p>
+                </div>
+                <div class="jpgpdf-feature-card">
+                    <span class="jpgpdf-feature-icon">🔄</span>
+                    <h3>Orientation</h3>
+                    <p>Portrait or landscape mode.</p>
+                </div>
+                <div class="jpgpdf-feature-card">
+                    <span class="jpgpdf-feature-icon">📏</span>
+                    <h3>Margins</h3>
+                    <p>Adjustable page margins.</p>
+                </div>
+                <div class="jpgpdf-feature-card">
+                    <span class="jpgpdf-feature-icon">📋</span>
+                    <h3>Image Order</h3>
+                    <p>Arrange JPGs in any order.</p>
+                </div>
+                <div class="jpgpdf-feature-card">
+                    <span class="jpgpdf-feature-icon">🎨</span>
+                    <h3>Quality</h3>
+                    <p>High-quality PDF output.</p>
+                </div>
+                <div class="jpgpdf-feature-card">
+                    <span class="jpgpdf-feature-icon">📁</span>
+                    <h3>Batch Processing</h3>
+                    <p>Convert multiple JPGs at once.</p>
+                </div>
+                <div class="jpgpdf-feature-card">
+                    <span class="jpgpdf-feature-icon">🖼️</span>
+                    <h3>Image Fit</h3>
+                    <p>Auto-fit JPGs to page.</p>
+                </div>
+                <div class="jpgpdf-feature-card">
+                    <span class="jpgpdf-feature-icon">🔒</span>
+                    <h3>Secure Output</h3>
+                    <p>Your files are processed securely.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 6. PAGE SIZE GUIDE -->
+        <section class="jpgpdf-sizes-section">
+            <h2 class="jpgpdf-sizes-title">Available Page Sizes</h2>
+            <div class="jpgpdf-sizes-grid">
+                <div class="jpgpdf-size-card">
+                    <h3>A4</h3>
+                    <p>210 × 297 mm<br/>8.27 × 11.69 inches</p>
+                </div>
+                <div class="jpgpdf-size-card">
+                    <h3>Letter</h3>
+                    <p>215.9 × 279.4 mm<br/>8.5 × 11 inches</p>
+                </div>
+                <div class="jpgpdf-size-card">
+                    <h3>Legal</h3>
+                    <p>215.9 × 355.6 mm<br/>8.5 × 14 inches</p>
+                </div>
+                <div class="jpgpdf-size-card">
+                    <h3>A5</h3>
+                    <p>148 × 210 mm<br/>5.83 × 8.27 inches</p>
+                </div>
+                <div class="jpgpdf-size-card">
+                    <h3>A3</h3>
+                    <p>297 × 420 mm<br/>11.69 × 16.54 inches</p>
+                </div>
+                <div class="jpgpdf-size-card">
+                    <h3>Executive</h3>
+                    <p>184.2 × 266.7 mm<br/>7.25 × 10.5 inches</p>
+                </div>
+                <div class="jpgpdf-size-card">
+                    <h3>B5</h3>
+                    <p>176 × 250 mm<br/>6.93 × 9.84 inches</p>
+                </div>
+                <div class="jpgpdf-size-card">
+                    <h3>Custom</h3>
+                    <p>Set your own page dimensions</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 7. JPG VS OTHER FORMATS FOR PDF -->
+        <section class="jpgpdf-compare-section">
+            <h2 class="jpgpdf-compare-title">JPG vs Other Formats for PDF</h2>
+            <div class="jpgpdf-compare-grid">
+                <div class="jpgpdf-compare-card">
+                    <h3>🖼️ JPG to PDF</h3>
+                    <p>Best for photographs and complex images. JPG offers good compression with minimal quality loss for photos. Ideal for portfolios and image collections.</p>
+                </div>
+                <div class="jpgpdf-compare-card">
+                    <h3>📄 PNG to PDF</h3>
+                    <p>Best for graphics with transparency or text. PNG is lossless and preserves sharp edges. Better for logos, screenshots, and illustrations.</p>
+                </div>
+            </div>
+            <p class="jpgpdf-compare-text">JPG is the most common format for photos and web images. Converting JPG to PDF is ideal for creating photo portfolios, product catalogs, and image-based documents.</p>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="jpgpdf-practices-section">
+            <h2 class="jpgpdf-practices-title">JPG to PDF Best Practices</h2>
+            <ul class="jpgpdf-practices-list">
+                <li>Use high-resolution JPGs for best quality</li>
+                <li>Arrange images in logical order before converting</li>
+                <li>Choose the right page size for your content</li>
+                <li>Use portrait orientation for documents with vertical images</li>
+                <li>Use landscape for wide images and presentations</li>
+                <li>Check image alignment within the PDF</li>
+                <li>Keep file size reasonable for easy sharing</li>
+                <li>Add a cover page if needed</li>
+                <li>Use consistent page formatting</li>
+                <li>Preview your PDF before final download</li>
+            </ul>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="jpgpdf-usecases-section">
+            <h2 class="jpgpdf-usecases-title">JPG to PDF Use Cases</h2>
+            <div class="jpgpdf-usecases-grid">
+                <div class="jpgpdf-usecase-card">
+                    <span class="jpgpdf-usecase-icon">📂</span>
+                    <h3>Photo Portfolios</h3>
+                    <p>Create professional photography portfolios.</p>
+                </div>
+                <div class="jpgpdf-usecase-card">
+                    <span class="jpgpdf-usecase-icon">📊</span>
+                    <h3>Product Catalogs</h3>
+                    <p>Compile product images into catalogs.</p>
+                </div>
+                <div class="jpgpdf-usecase-card">
+                    <span class="jpgpdf-usecase-icon">📸</span>
+                    <h3>Photo Albums</h3>
+                    <p>Create digital photo albums for sharing.</p>
+                </div>
+                <div class="jpgpdf-usecase-card">
+                    <span class="jpgpdf-usecase-icon">📧</span>
+                    <h3>Email Attachments</h3>
+                    <p>Send multiple JPGs as a single PDF.</p>
+                </div>
+                <div class="jpgpdf-usecase-card">
+                    <span class="jpgpdf-usecase-icon">🖨️</span>
+                    <h3>Print Documents</h3>
+                    <p>Prepare JPGs for professional printing.</p>
+                </div>
+                <div class="jpgpdf-usecase-card">
+                    <span class="jpgpdf-usecase-icon">🏢</span>
+                    <h3>Business Presentations</h3>
+                    <p>Create professional presentation decks.</p>
+                </div>
+                <div class="jpgpdf-usecase-card">
+                    <span class="jpgpdf-usecase-icon">📚</span>
+                    <h3>Educational Materials</h3>
+                    <p>Compile image-based learning resources.</p>
+                </div>
+                <div class="jpgpdf-usecase-card">
+                    <span class="jpgpdf-usecase-icon">📱</span>
+                    <h3>Digital Sharing</h3>
+                    <p>Share image collections easily.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 10. JPG TO PDF QUALITY CHECKLIST -->
+        <section class="jpgpdf-checklist-section" id="jpgpdf-checklist">
+            <h2 class="jpgpdf-checklist-title">Before Downloading Your JPG to PDF</h2>
+            <ul class="jpgpdf-checklist-list">
+                <li>Is the page size appropriate for your content?</li>
+                <li>Is the orientation correct (portrait/landscape)?</li>
+                <li>Are the JPGs in the correct order?</li>
+                <li>Is the image quality acceptable?</li>
+                <li>Are the margins and spacing suitable?</li>
+                <li>Does the PDF look professional?</li>
+                <li>Is the file size reasonable?</li>
+                <li>Have you previewed the full document?</li>
+                <li>Is the PDF ready for its intended use?</li>
+                <li>Have you kept your original JPGs?</li>
+            </ul>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="jpgpdf-faq-section" id="jpgpdf-faq">
+            <h2 class="jpgpdf-faq-title">Frequently Asked Questions</h2>
+            <div class="jpgpdf-faq-accordion">
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        What is a JPG to PDF converter?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>A JPG to PDF converter transforms JPG image files into a PDF document for easy sharing and printing.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        Is the JPG to PDF converter free?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>Yes, our JPG to PDF converter is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        Can I convert multiple JPGs to one PDF?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can upload multiple JPGs and merge them into a single PDF document.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        What page sizes are available?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>We offer A4, Letter, Legal, A5, A3, Executive, B5, and custom page sizes.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        Does the conversion preserve JPG quality?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>Yes, we use high-quality settings to preserve image resolution and clarity in the PDF.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        Can I change the order of JPGs?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can drag and drop images to arrange them in any order before converting.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>We accept individual JPGs up to 50MB and total uploads up to 200MB.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        Can I convert JPG to PDF on mobile?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>Yes, our tool works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        What is the difference between JPG and PDF?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>JPG is an image format, while PDF is a document format. PDFs can contain multiple pages and are ideal for sharing and printing.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        Is my data secure?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>Yes, your JPGs are processed securely and automatically deleted after conversion. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        Can I convert a single JPG to PDF?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>Yes, you can convert a single JPG to a PDF page. Multiple JPGs will create a multi-page PDF.</p>
+                    </div>
+                </div>
+                <div class="jpgpdf-faq-item">
+                    <button class="jpgpdf-faq-question" aria-expanded="false">
+                        How long does the conversion take?
+                        <span class="jpgpdf-faq-icon">+</span>
+                    </button>
+                    <div class="jpgpdf-faq-answer" style="display:none;">
+                        <p>Conversion typically takes just a few seconds, depending on the number and size of JPGs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="jpgpdf-privacy-section">
+            <h2 class="jpgpdf-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your JPGs are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> Images are processed locally in your browser where possible.</li>
+                <li><strong>☁️ Temporary server upload:</strong> Images may be temporarily uploaded for PDF generation.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images or PDFs after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="jpgpdf-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="jpgpdf-related-section" id="jpgpdf-related-tools">
+            <h2 class="jpgpdf-related-title">Related Tools</h2>
+            <div class="jpgpdf-related-grid">
+                <a href="#" class="jpgpdf-related-card">
+                    <span class="jpgpdf-related-icon">📄</span> PNG to PDF
+                </a>
+                <a href="#" class="jpgpdf-related-card">
+                    <span class="jpgpdf-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="jpgpdf-related-card">
+                    <span class="jpgpdf-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="jpgpdf-related-card">
+                    <span class="jpgpdf-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="jpgpdf-related-card">
+                    <span class="jpgpdf-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="jpgpdf-related-card">
+                    <span class="jpgpdf-related-icon">🪞</span> Image Flipper
+                </a>
+                <a href="#" class="jpgpdf-related-card">
+                    <span class="jpgpdf-related-icon">🔄</span> Image Rotator
+                </a>
+                <a href="#" class="jpgpdf-related-card">
+                    <span class="jpgpdf-related-icon">✨</span> Image Enhancer
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a JPG to PDF converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A JPG to PDF converter transforms JPG image files into a PDF document for easy sharing and printing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the JPG to PDF converter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our JPG to PDF converter is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert multiple JPGs to one PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can upload multiple JPGs and merge them into a single PDF document."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What page sizes are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer A4, Letter, Legal, A5, A3, Executive, B5, and custom page sizes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the conversion preserve JPG quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we use high-quality settings to preserve image resolution and clarity in the PDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I change the order of JPGs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can drag and drop images to arrange them in any order before converting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept individual JPGs up to 50MB and total uploads up to 200MB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert JPG to PDF on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our tool works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between JPG and PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JPG is an image format, while PDF is a document format. PDFs can contain multiple pages and are ideal for sharing and printing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your JPGs are processed securely and automatically deleted after conversion. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert a single JPG to PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can convert a single JPG to a PDF page. Multiple JPGs will create a multi-page PDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does the conversion take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Conversion typically takes just a few seconds, depending on the number and size of JPGs."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.jpgpdf-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 </main>
 

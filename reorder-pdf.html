@@ -528,6 +528,718 @@
     .border-t { border-top: 1px solid #e9edf2; padding-top: 16px; }
 
   /* End Page style goes here....................*/
+
+          .rotatepdf-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .rotatepdf-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .rotatepdf-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .rotatepdf-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            border-radius: 2px;
+        }
+        .rotatepdf-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .rotatepdf-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .rotatepdf-intro-text strong {
+            color: #1e293b;
+        }
+
+        .rotatepdf-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfeff, #cffafe);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .rotatepdf-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-about-title::before {
+            content: '🔄';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .rotatepdf-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .rotatepdf-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .rotatepdf-about-list li::before {
+            content: '✓';
+            color: #06b6d4;
+            font-weight: 700;
+        }
+
+        .rotatepdf-howto-section {
+            margin: 2.5rem 0;
+        }
+        .rotatepdf-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .rotatepdf-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .rotatepdf-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .rotatepdf-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .rotatepdf-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .rotatepdf-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .rotatepdf-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .rotatepdf-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .rotatepdf-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .rotatepdf-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .rotatepdf-benefit-card .rotatepdf-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .rotatepdf-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .rotatepdf-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .rotatepdf-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .rotatepdf-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .rotatepdf-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .rotatepdf-feature-card:hover {
+            border-color: #06b6d4;
+            background: #ecfeff;
+        }
+        .rotatepdf-feature-card .rotatepdf-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .rotatepdf-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .rotatepdf-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .rotatepdf-angles-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .rotatepdf-angles-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-angles-title::before {
+            content: '📐';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-angles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .rotatepdf-angle-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .rotatepdf-angle-card .rotatepdf-angle-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .rotatepdf-angle-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .rotatepdf-angle-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .rotatepdf-compare-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .rotatepdf-compare-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-compare-title::before {
+            content: '⚖️';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .rotatepdf-compare-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+        .rotatepdf-compare-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .rotatepdf-compare-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+        }
+        .rotatepdf-compare-text {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.7;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .rotatepdf-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .rotatepdf-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .rotatepdf-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .rotatepdf-tips-list li::before {
+            content: '●';
+            color: #06b6d4;
+        }
+
+        .rotatepdf-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .rotatepdf-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .rotatepdf-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .rotatepdf-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .rotatepdf-usecase-card .rotatepdf-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .rotatepdf-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .rotatepdf-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .rotatepdf-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .rotatepdf-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .rotatepdf-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .rotatepdf-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .rotatepdf-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .rotatepdf-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .rotatepdf-faq-item:last-child {
+            border-bottom: none;
+        }
+        .rotatepdf-faq-item:hover {
+            background: #f8fafc;
+        }
+        .rotatepdf-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .rotatepdf-faq-question:hover {
+            color: #06b6d4;
+        }
+        .rotatepdf-faq-question:focus {
+            outline: 2px solid #06b6d4;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .rotatepdf-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .rotatepdf-faq-question[aria-expanded="true"] .rotatepdf-faq-icon {
+            transform: rotate(45deg);
+            color: #06b6d4;
+        }
+        .rotatepdf-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .rotatepdf-faq-answer p {
+            margin: 0;
+        }
+        .rotatepdf-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .rotatepdf-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .rotatepdf-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-privacy-section p,
+        .rotatepdf-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .rotatepdf-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .rotatepdf-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .rotatepdf-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .rotatepdf-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .rotatepdf-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .rotatepdf-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .rotatepdf-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .rotatepdf-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .rotatepdf-related-card:hover {
+            background: #06b6d4;
+            color: white;
+            border-color: #06b6d4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6,182,212,0.3);
+        }
+        .rotatepdf-related-card .rotatepdf-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .rotatepdf-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotatepdf-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotatepdf-angles-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotatepdf-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotatepdf-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .rotatepdf-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .rotatepdf-content-wrapper { padding: 0 16px; }
+            .rotatepdf-intro-title { font-size: 2.2rem; }
+            .rotatepdf-howto-steps { grid-template-columns: 1fr; }
+            .rotatepdf-benefit-grid { grid-template-columns: 1fr; }
+            .rotatepdf-features-grid { grid-template-columns: 1fr; }
+            .rotatepdf-angles-grid { grid-template-columns: 1fr; }
+            .rotatepdf-compare-grid { grid-template-columns: 1fr; }
+            .rotatepdf-usecases-grid { grid-template-columns: 1fr; }
+            .rotatepdf-tips-list { grid-template-columns: 1fr; }
+            .rotatepdf-checklist-list { grid-template-columns: 1fr; }
+            .rotatepdf-related-grid { grid-template-columns: 1fr 1fr; }
+            .rotatepdf-about-list { grid-template-columns: 1fr; }
+            .rotatepdf-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .rotatepdf-intro-title { font-size: 1.8rem; }
+            .rotatepdf-related-grid { grid-template-columns: 1fr; }
+        }
+
+        
 </style>
 </head>
 <body>
@@ -884,6 +1596,583 @@
 </div>
     
 
+    <div class="rotatepdf-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="rotatepdf-intro-section" id="rotatepdf-intro">
+            <h1 class="rotatepdf-intro-title">Free PDF Rotator</h1>
+            <p class="rotatepdf-intro-text">
+                A <strong>PDF rotator</strong> is a tool that permanently changes the orientation of pages in a PDF document. Whether you have scanned documents in the wrong orientation, need to correct page alignment, or want to adjust the view for better readability, our tool makes it simple.
+            </p>
+            <p class="rotatepdf-intro-text">
+                Our <strong>free online PDF rotator</strong> allows you to rotate pages by 90°, 180°, or 270° — clockwise or counter-clockwise. You can rotate single pages, a range of pages, or the entire document. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 2. WHAT IS PDF ROTATION? -->
+        <section class="rotatepdf-about-section" id="rotatepdf-about">
+            <h2 class="rotatepdf-about-title">What Is PDF Page Rotation?</h2>
+            <p class="rotatepdf-about-text">
+                PDF page rotation is the process of changing the orientation of pages in a PDF document. This permanently rotates the pages so they display correctly when opened.
+            </p>
+            <p class="rotatepdf-about-text">Key features include:</p>
+            <ul class="rotatepdf-about-list">
+                <li><strong>Rotate 90° Clockwise</strong> — Turn pages right</li>
+                <li><strong>Rotate 90° Counter-Clockwise</strong> — Turn pages left</li>
+                <li><strong>Rotate 180°</strong> — Turn pages upside down</li>
+                <li><strong>Single or Multiple Pages</strong> — Select which pages to rotate</li>
+                <li><strong>Entire Document</strong> — Rotate all pages</li>
+            </ul>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 3. HOW TO ROTATE A PDF -->
+        <section class="rotatepdf-howto-section" id="rotatepdf-how-to-use">
+            <h2 class="rotatepdf-howto-title">How to Rotate Pages in a PDF</h2>
+            <div class="rotatepdf-howto-steps">
+                <div class="rotatepdf-howto-step">
+                    <h3>Upload Your PDF</h3>
+                    <p>Select the PDF file you want to rotate.</p>
+                </div>
+                <div class="rotatepdf-howto-step">
+                    <h3>Choose Rotation Angle</h3>
+                    <p>Select 90°, 180°, or 270° clockwise or counter-clockwise.</p>
+                </div>
+                <div class="rotatepdf-howto-step">
+                    <h3>Select Pages</h3>
+                    <p>Choose specific pages, a range, or all pages.</p>
+                </div>
+                <div class="rotatepdf-howto-step">
+                    <h3>Preview Rotation</h3>
+                    <p>See how your pages will look after rotation.</p>
+                </div>
+                <div class="rotatepdf-howto-step">
+                    <h3>Download Your PDF</h3>
+                    <p>Save your rotated PDF instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 4. WHY ROTATE PDF PAGES? -->
+        <section class="rotatepdf-benefits-section" id="rotatepdf-benefits">
+            <h2 class="rotatepdf-benefits-title">Why Rotate PDF Pages?</h2>
+            <div class="rotatepdf-benefit-grid">
+                <div class="rotatepdf-benefit-card">
+                    <span class="rotatepdf-benefit-icon">📄</span>
+                    <h3>Correct Orientation</h3>
+                    <p>Fix upside-down or sideways pages.</p>
+                </div>
+                <div class="rotatepdf-benefit-card">
+                    <span class="rotatepdf-benefit-icon">📱</span>
+                    <h3>Better Viewing</h3>
+                    <p>Make documents easier to read.</p>
+                </div>
+                <div class="rotatepdf-benefit-card">
+                    <span class="rotatepdf-benefit-icon">🖨️</span>
+                    <h3>Print Preparation</h3>
+                    <p>Ensure correct printing orientation.</p>
+                </div>
+                <div class="rotatepdf-benefit-card">
+                    <span class="rotatepdf-benefit-icon">📊</span>
+                    <h3>Professional Look</h3>
+                    <p>Present documents professionally.</p>
+                </div>
+                <div class="rotatepdf-benefit-card">
+                    <span class="rotatepdf-benefit-icon">📧</span>
+                    <h3>Easy Sharing</h3>
+                    <p>Share correctly oriented documents.</p>
+                </div>
+                <div class="rotatepdf-benefit-card">
+                    <span class="rotatepdf-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Rotate pages in seconds.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 5. PDF ROTATION FEATURES -->
+        <section class="rotatepdf-features-section">
+            <h2 class="rotatepdf-features-title">PDF Rotation Features</h2>
+            <div class="rotatepdf-features-grid">
+                <div class="rotatepdf-feature-card">
+                    <span class="rotatepdf-feature-icon">↻</span>
+                    <h3>90° Clockwise</h3>
+                    <p>Rotate pages right.</p>
+                </div>
+                <div class="rotatepdf-feature-card">
+                    <span class="rotatepdf-feature-icon">↺</span>
+                    <h3>90° Counter-Clockwise</h3>
+                    <p>Rotate pages left.</p>
+                </div>
+                <div class="rotatepdf-feature-card">
+                    <span class="rotatepdf-feature-icon">↻</span>
+                    <h3>180° Rotation</h3>
+                    <p>Turn pages upside down.</p>
+                </div>
+                <div class="rotatepdf-feature-card">
+                    <span class="rotatepdf-feature-icon">📌</span>
+                    <h3>Specific Pages</h3>
+                    <p>Rotate selected pages only.</p>
+                </div>
+                <div class="rotatepdf-feature-card">
+                    <span class="rotatepdf-feature-icon">📊</span>
+                    <h3>Page Range</h3>
+                    <p>Rotate a range of pages.</p>
+                </div>
+                <div class="rotatepdf-feature-card">
+                    <span class="rotatepdf-feature-icon">📄</span>
+                    <h3>All Pages</h3>
+                    <p>Rotate the entire document.</p>
+                </div>
+                <div class="rotatepdf-feature-card">
+                    <span class="rotatepdf-feature-icon">⚡</span>
+                    <h3>Fast Processing</h3>
+                    <p>Quick rotation for any PDF.</p>
+                </div>
+                <div class="rotatepdf-feature-card">
+                    <span class="rotatepdf-feature-icon">🔒</span>
+                    <h3>Secure Rotation</h3>
+                    <p>Your files are handled securely.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 6. ROTATION ANGLES -->
+        <section class="rotatepdf-angles-section">
+            <h2 class="rotatepdf-angles-title">Available Rotation Angles</h2>
+            <div class="rotatepdf-angles-grid">
+                <div class="rotatepdf-angle-card">
+                    <span class="rotatepdf-angle-icon">↻</span>
+                    <h3>90° Clockwise</h3>
+                    <p>Rotates the page to the right by 90 degrees. Useful for correcting landscape/portrait issues.</p>
+                </div>
+                <div class="rotatepdf-angle-card">
+                    <span class="rotatepdf-angle-icon">↺</span>
+                    <h3>90° Counter-Clockwise</h3>
+                    <p>Rotates the page to the left by 90 degrees. Useful for correcting landscape/portrait issues.</p>
+                </div>
+                <div class="rotatepdf-angle-card">
+                    <span class="rotatepdf-angle-icon">↻</span>
+                    <h3>180° Rotation</h3>
+                    <p>Rotates the page upside down. Useful for correcting completely inverted pages.</p>
+                </div>
+                <div class="rotatepdf-angle-card">
+                    <span class="rotatepdf-angle-icon">🔄</span>
+                    <h3>270° Clockwise</h3>
+                    <p>Rotates the page three-quarters of a full turn. Equivalent to 90° counter-clockwise.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 7. ROTATE VS REORIENT -->
+        <section class="rotatepdf-compare-section">
+            <h2 class="rotatepdf-compare-title">Rotate vs Reorient: What's the Difference?</h2>
+            <div class="rotatepdf-compare-grid">
+                <div class="rotatepdf-compare-card">
+                    <h3>🔄 Rotate</h3>
+                    <p>Permanently changes the orientation of pages in the PDF. The rotation is saved in the file and will display correctly every time.</p>
+                </div>
+                <div class="rotatepdf-compare-card">
+                    <h3>👁️ Reorient (View Only)</h3>
+                    <p>Temporarily changes how you view the PDF in your reader. Other users will see the original orientation. Only useful for personal viewing.</p>
+                </div>
+            </div>
+            <p class="rotatepdf-compare-text">Use Rotate when you need to permanently fix the orientation for all users. Use Reorient when you just want to view the document differently yourself.</p>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="rotatepdf-tips-section">
+            <h2 class="rotatepdf-tips-title">PDF Rotation Best Practices</h2>
+            <ul class="rotatepdf-tips-list">
+                <li>Check page orientation before rotating</li>
+                <li>Use 90° rotations for landscape/portrait issues</li>
+                <li>Use 180° for upside-down pages</li>
+                <li>Preview pages to confirm the rotation</li>
+                <li>Select specific pages when only some need rotation</li>
+                <li>Keep a backup of your original PDF</li>
+                <li>Check the document after rotation</li>
+                <li>Consider the final use of the document</li>
+                <li>Ensure text readability after rotation</li>
+                <li>Use consistent rotation for all pages</li>
+            </ul>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="rotatepdf-usecases-section">
+            <h2 class="rotatepdf-usecases-title">PDF Rotation Use Cases</h2>
+            <div class="rotatepdf-usecases-grid">
+                <div class="rotatepdf-usecase-card">
+                    <span class="rotatepdf-usecase-icon">📄</span>
+                    <h3>Scanned Documents</h3>
+                    <p>Fix scanned pages with wrong orientation.</p>
+                </div>
+                <div class="rotatepdf-usecase-card">
+                    <span class="rotatepdf-usecase-icon">📱</span>
+                    <h3>Mobile Uploads</h3>
+                    <p>Correct photos uploaded from mobile.</p>
+                </div>
+                <div class="rotatepdf-usecase-card">
+                    <span class="rotatepdf-usecase-icon">🖨️</span>
+                    <h3>Print Preparation</h3>
+                    <p>Ensure correct printing orientation.</p>
+                </div>
+                <div class="rotatepdf-usecase-card">
+                    <span class="rotatepdf-usecase-icon">📊</span>
+                    <h3>Business Documents</h3>
+                    <p>Standardize document orientation.</p>
+                </div>
+                <div class="rotatepdf-usecase-card">
+                    <span class="rotatepdf-usecase-icon">📧</span>
+                    <h3>Email Sharing</h3>
+                    <p>Share correctly oriented documents.</p>
+                </div>
+                <div class="rotatepdf-usecase-card">
+                    <span class="rotatepdf-usecase-icon">📚</span>
+                    <h3>Education</h3>
+                    <p>Prepare study materials.</p>
+                </div>
+                <div class="rotatepdf-usecase-card">
+                    <span class="rotatepdf-usecase-icon">🏢</span>
+                    <h3>Legal Documents</h3>
+                    <p>Correct legal document orientation.</p>
+                </div>
+                <div class="rotatepdf-usecase-card">
+                    <span class="rotatepdf-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Prepare photo books and portfolios.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 10. ROTATION QUALITY CHECKLIST -->
+        <section class="rotatepdf-checklist-section" id="rotatepdf-checklist">
+            <h2 class="rotatepdf-checklist-title">Before Downloading Your Rotated PDF</h2>
+            <ul class="rotatepdf-checklist-list">
+                <li>Is the rotation angle correct?</li>
+                <li>Are the correct pages rotated?</li>
+                <li>Is the document properly oriented?</li>
+                <li>Is the formatting preserved?</li>
+                <li>Is the text readable?</li>
+                <li>Are images correctly oriented?</li>
+                <li>Have you previewed the rotated pages?</li>
+                <li>Is the PDF ready for sharing?</li>
+                <li>Have you kept your original PDF?</li>
+                <li>Is the document suitable for its intended use?</li>
+            </ul>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="rotatepdf-faq-section" id="rotatepdf-faq">
+            <h2 class="rotatepdf-faq-title">Frequently Asked Questions</h2>
+            <div class="rotatepdf-faq-accordion">
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        What is a PDF rotator?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>A PDF rotator permanently changes the orientation of pages in a PDF document by 90°, 180°, or 270°.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        Is the PDF rotator free?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>Yes, our PDF rotator is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        What angles can I rotate to?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>You can rotate pages to 90° clockwise, 90° counter-clockwise, 180°, and 270° clockwise.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        Can I rotate specific pages only?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>Yes, you can select specific pages, a range of pages, or all pages to rotate.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>We accept PDFs up to 50MB in size for rotation.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        Does rotation affect quality?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>No, rotation does not affect the quality of the PDF. The content is simply reoriented.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        Can I rotate password-protected PDFs?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>Currently, we only support rotating password-protected PDFs if you provide the password during upload.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        Is my data secure when rotating PDFs?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>Yes, your PDFs are processed securely and automatically deleted after rotation. We do not store your files.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        Can I rotate a PDF on mobile?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>Yes, our PDF rotator works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        What is the difference between rotate and view rotation?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>Rotate permanently changes the page orientation in the file. View rotation only changes how you see it temporarily.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        Can I preview the rotation?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>Yes, you can preview the rotation before downloading to ensure it's correct.</p>
+                    </div>
+                </div>
+                <div class="rotatepdf-faq-item">
+                    <button class="rotatepdf-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="rotatepdf-faq-icon">+</span>
+                    </button>
+                    <div class="rotatepdf-faq-answer" style="display:none;">
+                        <p>No, you can rotate PDFs without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="rotatepdf-privacy-section">
+            <h2 class="rotatepdf-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your PDFs are handled:</p>
+            <ul>
+                <li><strong>☁️ Temporary processing:</strong> PDFs are temporarily uploaded for rotation.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your PDFs after processing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>🖥️ No client-side storage:</strong> Your files are never stored on your device without your consent.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="rotatepdf-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="rotatepdf-related-section" id="rotatepdf-related-tools">
+            <h2 class="rotatepdf-related-title">Related Tools</h2>
+            <div class="rotatepdf-related-grid">
+                <a href="#" class="rotatepdf-related-card">
+                    <span class="rotatepdf-related-icon">📄</span> Merge PDF
+                </a>
+                <a href="#" class="rotatepdf-related-card">
+                    <span class="rotatepdf-related-icon">✂️</span> Split PDF
+                </a>
+                <a href="#" class="rotatepdf-related-card">
+                    <span class="rotatepdf-related-icon">📄</span> Extract Pages
+                </a>
+                <a href="#" class="rotatepdf-related-card">
+                    <span class="rotatepdf-related-icon">🗜️</span> Compress PDF
+                </a>
+                <a href="#" class="rotatepdf-related-card">
+                    <span class="rotatepdf-related-icon">🔄</span> PDF to Image
+                </a>
+                <a href="#" class="rotatepdf-related-card">
+                    <span class="rotatepdf-related-icon">📄</span> Image to PDF
+                </a>
+                <a href="#" class="rotatepdf-related-card">
+                    <span class="rotatepdf-related-icon">🔒</span> PDF Security
+                </a>
+                <a href="#" class="rotatepdf-related-card">
+                    <span class="rotatepdf-related-icon">📐</span> PDF to JPG
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PDF rotator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PDF rotator permanently changes the orientation of pages in a PDF document by 90°, 180°, or 270°."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the PDF rotator free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF rotator is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What angles can I rotate to?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can rotate pages to 90° clockwise, 90° counter-clockwise, 180°, and 270° clockwise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I rotate specific pages only?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can select specific pages, a range of pages, or all pages to rotate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept PDFs up to 50MB in size for rotation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does rotation affect quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, rotation does not affect the quality of the PDF. The content is simply reoriented."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I rotate password-protected PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, we only support rotating password-protected PDFs if you provide the password during upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data secure when rotating PDFs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your PDFs are processed securely and automatically deleted after rotation. We do not store your files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I rotate a PDF on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our PDF rotator works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between rotate and view rotation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rotate permanently changes the page orientation in the file. View rotation only changes how you see it temporarily."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I preview the rotation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can preview the rotation before downloading to ensure it's correct."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can rotate PDFs without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.rotatepdf-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 

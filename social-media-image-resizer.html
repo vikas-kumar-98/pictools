@@ -614,6 +614,729 @@
 
 
   /* End Page style goes here....................*/
+
+          /* --- Wrapper --- */
+        .social-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* --- Section Dividers --- */
+        .social-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        /* --- Intro Section --- */
+        .social-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .social-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            border-radius: 2px;
+        }
+        .social-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .social-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .social-intro-text strong {
+            color: #1e293b;
+        }
+
+        /* --- About Section --- */
+        .social-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .social-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-about-title::before {
+            content: '📱';
+            font-size: 1.8rem;
+        }
+        .social-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .social-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .social-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .social-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        /* --- How-To Section --- */
+        .social-howto-section {
+            margin: 2.5rem 0;
+        }
+        .social-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .social-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .social-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .social-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .social-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .social-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .social-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Benefits Section --- */
+        .social-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .social-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .social-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .social-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .social-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .social-benefit-card .social-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .social-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .social-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Platform Sizes Section --- */
+        .social-sizes-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .social-sizes-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-sizes-title::before {
+            content: '📐';
+            font-size: 1.8rem;
+        }
+        .social-sizes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .social-size-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .social-size-card:hover {
+            border-color: #8b5cf6;
+            background: #f5f3ff;
+        }
+        .social-size-card .social-size-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .social-size-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .social-size-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+        .social-size-card .social-size-dimension {
+            font-weight: 700;
+            color: #8b5cf6;
+            margin-top: 0.3rem;
+        }
+
+        /* --- Platform Guide --- */
+        .social-guide-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+            border-radius: 16px;
+        }
+        .social-guide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-guide-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .social-guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .social-guide-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .social-guide-card .social-guide-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .social-guide-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .social-guide-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Aspect Ratio Guide --- */
+        .social-ratio-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 16px;
+        }
+        .social-ratio-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-ratio-title::before {
+            content: '📊';
+            font-size: 1.8rem;
+        }
+        .social-ratio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .social-ratio-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .social-ratio-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .social-ratio-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Best Practices --- */
+        .social-practices-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .social-practices-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-practices-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .social-practices-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .social-practices-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .social-practices-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        /* --- Use Cases --- */
+        .social-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .social-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .social-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .social-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .social-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .social-usecase-card .social-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .social-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .social-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* --- Quality Checklist --- */
+        .social-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .social-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .social-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .social-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .social-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        /* --- FAQ --- */
+        .social-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .social-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .social-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .social-faq-item:last-child {
+            border-bottom: none;
+        }
+        .social-faq-item:hover {
+            background: #f8fafc;
+        }
+        .social-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .social-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .social-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .social-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .social-faq-question[aria-expanded="true"] .social-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .social-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .social-faq-answer p {
+            margin: 0;
+        }
+        .social-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Privacy --- */
+        .social-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .social-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .social-privacy-section p,
+        .social-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .social-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .social-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .social-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        /* --- Related Tools --- */
+        .social-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .social-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .social-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .social-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .social-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .social-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .social-related-card .social-related-icon {
+            font-size: 1.2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .social-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-sizes-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-guide-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-ratio-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .social-content-wrapper { padding: 0 16px; }
+            .social-intro-title { font-size: 2.2rem; }
+            .social-howto-steps { grid-template-columns: 1fr; }
+            .social-benefit-grid { grid-template-columns: 1fr; }
+            .social-sizes-grid { grid-template-columns: 1fr; }
+            .social-guide-grid { grid-template-columns: 1fr; }
+            .social-ratio-grid { grid-template-columns: 1fr; }
+            .social-usecases-grid { grid-template-columns: 1fr; }
+            .social-practices-list { grid-template-columns: 1fr; }
+            .social-checklist-list { grid-template-columns: 1fr; }
+            .social-related-grid { grid-template-columns: 1fr 1fr; }
+            .social-about-list { grid-template-columns: 1fr; }
+            .social-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .social-intro-title { font-size: 1.8rem; }
+            .social-related-grid { grid-template-columns: 1fr; }
+        }
+
 </style>
 </head>
 <body>
@@ -1020,6 +1743,628 @@
   </div>
 </div>
 
+
+    <div class="social-content-wrapper">
+
+        <!-- ============================================ -->
+        <!-- SOCIAL MEDIA IMAGE RESIZER CONTENT           -->
+        <!-- ============================================ -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="social-intro-section" id="social-intro">
+            <h1 class="social-intro-title">Free Social Media Image Resizer</h1>
+            <p class="social-intro-text">
+                A <strong>social media image resizer</strong> is a specialized tool that optimizes images for different social media platforms. Each platform has unique image size requirements — using the wrong size can result in cropped, stretched, or low-quality images that harm your brand's professional appearance.
+            </p>
+            <p class="social-intro-text">
+                Our <strong>free social media image resizer</strong> provides presets for Instagram, Facebook, Twitter, LinkedIn, Pinterest, YouTube, TikTok, and more. Upload your image, select your platform, and download perfectly sized images in seconds.
+            </p>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 2. WHAT IS SOCIAL MEDIA IMAGE RESIZING? -->
+        <section class="social-about-section" id="social-about">
+            <h2 class="social-about-title">What Is Social Media Image Resizing?</h2>
+            <p class="social-about-text">
+                Social media image resizing is the process of adjusting image dimensions to meet the specific requirements of different social media platforms. Each platform has optimal sizes for profile pictures, cover images, post images, stories, and more.
+            </p>
+            <p class="social-about-text">Key aspects include:</p>
+            <ul class="social-about-list">
+                <li><strong>Platform-Specific Sizes</strong> — Optimized for each network</li>
+                <li><strong>Aspect Ratio Maintenance</strong> — Preserve image proportions</li>
+                <li><strong>Quality Preservation</strong> — Maintain image clarity</li>
+                <li><strong>Batch Processing</strong> — Resize multiple images at once</li>
+                <li><strong>One-Click Presets</strong> — Instant platform optimization</li>
+            </ul>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 3. HOW TO RESIZE FOR SOCIAL MEDIA -->
+        <section class="social-howto-section" id="social-how-to-use">
+            <h2 class="social-howto-title">How to Resize Images for Social Media</h2>
+            <div class="social-howto-steps">
+                <div class="social-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select the image you want to optimize for social media.</p>
+                </div>
+                <div class="social-howto-step">
+                    <h3>Choose Your Platform</h3>
+                    <p>Select from Instagram, Facebook, Twitter, LinkedIn, and more.</p>
+                </div>
+                <div class="social-howto-step">
+                    <h3>Select Image Type</h3>
+                    <p>Choose between post, story, profile, cover, or thumbnail sizes.</p>
+                </div>
+                <div class="social-howto-step">
+                    <h3>Preview &amp; Adjust</h3>
+                    <p>See how your image will look on each platform.</p>
+                </div>
+                <div class="social-howto-step">
+                    <h3>Download &amp; Share</h3>
+                    <p>Save your perfectly sized image instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 4. WHY USE A SOCIAL MEDIA IMAGE RESIZER? -->
+        <section class="social-benefits-section" id="social-benefits">
+            <h2 class="social-benefits-title">Why Use a Social Media Image Resizer?</h2>
+            <div class="social-benefit-grid">
+                <div class="social-benefit-card">
+                    <span class="social-benefit-icon">📱</span>
+                    <h3>Perfect Sizing</h3>
+                    <p>Never worry about image dimensions again.</p>
+                </div>
+                <div class="social-benefit-card">
+                    <span class="social-benefit-icon">🚀</span>
+                    <h3>Better Engagement</h3>
+                    <p>Optimized images perform better on social media.</p>
+                </div>
+                <div class="social-benefit-card">
+                    <span class="social-benefit-icon">🎨</span>
+                    <h3>Professional Look</h3>
+                    <p>Maintain a consistent and polished brand image.</p>
+                </div>
+                <div class="social-benefit-card">
+                    <span class="social-benefit-icon">⏱️</span>
+                    <h3>Save Time</h3>
+                    <p>Resize images instantly with one-click presets.</p>
+                </div>
+                <div class="social-benefit-card">
+                    <span class="social-benefit-icon">📊</span>
+                    <h3>Consistency</h3>
+                    <p>Ensure all your images look cohesive across platforms.</p>
+                </div>
+                <div class="social-benefit-card">
+                    <span class="social-benefit-icon">🔄</span>
+                    <h3>Versatility</h3>
+                    <p>Resize for any platform with ease.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 5. PLATFORM SIZE GUIDE -->
+        <section class="social-sizes-section">
+            <h2 class="social-sizes-title">Social Media Image Size Guide</h2>
+            <div class="social-sizes-grid">
+                <div class="social-size-card">
+                    <span class="social-size-icon">📷</span>
+                    <h3>Instagram Post</h3>
+                    <p>Square: 1080×1080<br/>Portrait: 1080×1350<br/>Landscape: 1080×566</p>
+                    <div class="social-size-dimension">Ratio: 1:1, 4:5, 1.91:1</div>
+                </div>
+                <div class="social-size-card">
+                    <span class="social-size-icon">📱</span>
+                    <h3>Instagram Story</h3>
+                    <p>1080×1920 pixels</p>
+                    <div class="social-size-dimension">Ratio: 9:16</div>
+                </div>
+                <div class="social-size-card">
+                    <span class="social-size-icon">📘</span>
+                    <h3>Facebook Post</h3>
+                    <p>1200×630 pixels</p>
+                    <div class="social-size-dimension">Ratio: 1.91:1</div>
+                </div>
+                <div class="social-size-card">
+                    <span class="social-size-icon">🐦</span>
+                    <h3>Twitter Post</h3>
+                    <p>1200×675 pixels</p>
+                    <div class="social-size-dimension">Ratio: 16:9</div>
+                </div>
+                <div class="social-size-card">
+                    <span class="social-size-icon">💼</span>
+                    <h3>LinkedIn Post</h3>
+                    <p>1200×627 pixels</p>
+                    <div class="social-size-dimension">Ratio: 1.91:1</div>
+                </div>
+                <div class="social-size-card">
+                    <span class="social-size-icon">📌</span>
+                    <h3>Pinterest Pin</h3>
+                    <p>1000×1500 pixels</p>
+                    <div class="social-size-dimension">Ratio: 2:3</div>
+                </div>
+                <div class="social-size-card">
+                    <span class="social-size-icon">▶️</span>
+                    <h3>YouTube Thumbnail</h3>
+                    <p>1280×720 pixels</p>
+                    <div class="social-size-dimension">Ratio: 16:9</div>
+                </div>
+                <div class="social-size-card">
+                    <span class="social-size-icon">🎵</span>
+                    <h3>TikTok Video</h3>
+                    <p>1080×1920 pixels</p>
+                    <div class="social-size-dimension">Ratio: 9:16</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 6. PLATFORM-SPECIFIC GUIDE -->
+        <section class="social-guide-section">
+            <h2 class="social-guide-title">Platform-Specific Image Guide</h2>
+            <div class="social-guide-grid">
+                <div class="social-guide-card">
+                    <span class="social-guide-icon">📷</span>
+                    <h3>Instagram</h3>
+                    <p>Square, portrait, and landscape options. Stories are vertical. Reels use 1080×1920.</p>
+                </div>
+                <div class="social-guide-card">
+                    <span class="social-guide-icon">📘</span>
+                    <h3>Facebook</h3>
+                    <p>Wide landscape works best for feeds. Square images perform well too.</p>
+                </div>
+                <div class="social-guide-card">
+                    <span class="social-guide-icon">🐦</span>
+                    <h3>Twitter</h3>
+                    <p>Landscape orientation is standard. Vertical images may be cropped.</p>
+                </div>
+                <div class="social-guide-card">
+                    <span class="social-guide-icon">💼</span>
+                    <h3>LinkedIn</h3>
+                    <p>Professional landscape images perform best. Avoid excessive text.</p>
+                </div>
+                <div class="social-guide-card">
+                    <span class="social-guide-icon">📌</span>
+                    <h3>Pinterest</h3>
+                    <p>Vertical pins get the most engagement. Use tall aspect ratios.</p>
+                </div>
+                <div class="social-guide-card">
+                    <span class="social-guide-icon">▶️</span>
+                    <h3>YouTube</h3>
+                    <p>Thumbnails should be high-contrast and readable at small sizes.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 7. ASPECT RATIO GUIDE -->
+        <section class="social-ratio-section">
+            <h2 class="social-ratio-title">Understanding Aspect Ratios</h2>
+            <div class="social-ratio-grid">
+                <div class="social-ratio-card">
+                    <h3>1:1</h3>
+                    <p>Perfect square. Ideal for Instagram posts and profile pictures.</p>
+                </div>
+                <div class="social-ratio-card">
+                    <h3>4:5</h3>
+                    <p>Tall portrait. Popular for Instagram and Pinterest.</p>
+                </div>
+                <div class="social-ratio-card">
+                    <h3>16:9</h3>
+                    <p>Wide landscape. Standard for YouTube, Twitter, and videos.</p>
+                </div>
+                <div class="social-ratio-card">
+                    <h3>9:16</h3>
+                    <p>Vertical portrait. Perfect for stories, Reels, and TikTok.</p>
+                </div>
+                <div class="social-ratio-card">
+                    <h3>1.91:1</h3>
+                    <p>Facebook and LinkedIn standard post format.</p>
+                </div>
+                <div class="social-ratio-card">
+                    <h3>2:3</h3>
+                    <p>Pinterest's preferred aspect ratio for pins.</p>
+                </div>
+                <div class="social-ratio-card">
+                    <h3>21:9</h3>
+                    <p>Ultrawide for cinematic shots and some social media.</p>
+                </div>
+                <div class="social-ratio-card">
+                    <h3>5:4</h3>
+                    <p>Classic photo format, good for prints and some platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 8. BEST PRACTICES -->
+        <section class="social-practices-section">
+            <h2 class="social-practices-title">Social Media Image Best Practices</h2>
+            <ul class="social-practices-list">
+                <li>Always use high-quality source images</li>
+                <li>Keep important content in the center of the image</li>
+                <li>Test images on mobile devices before posting</li>
+                <li>Use consistent branding across all platforms</li>
+                <li>Optimize file size without sacrificing quality</li>
+                <li>Use platform-specific dimensions for best results</li>
+                <li>Consider the layout of different platforms</li>
+                <li>Use high contrast for readability on thumbnails</li>
+                <li>Maintain consistent colors and style</li>
+                <li>Preview images in context before publishing</li>
+            </ul>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 9. USE CASES -->
+        <section class="social-usecases-section">
+            <h2 class="social-usecases-title">Social Media Image Resizing Use Cases</h2>
+            <div class="social-usecases-grid">
+                <div class="social-usecase-card">
+                    <span class="social-usecase-icon">📸</span>
+                    <h3>Content Creators</h3>
+                    <p>Optimize images for multiple platforms.</p>
+                </div>
+                <div class="social-usecase-card">
+                    <span class="social-usecase-icon">🏢</span>
+                    <h3>Brands &amp; Businesses</h3>
+                    <p>Maintain consistent brand imagery.</p>
+                </div>
+                <div class="social-usecase-card">
+                    <span class="social-usecase-icon">📱</span>
+                    <h3>Social Media Managers</h3>
+                    <p>Efficiently resize images for campaigns.</p>
+                </div>
+                <div class="social-usecase-card">
+                    <span class="social-usecase-icon">🎨</span>
+                    <h3>Graphic Designers</h3>
+                    <p>Prepare assets for social media.</p>
+                </div>
+                <div class="social-usecase-card">
+                    <span class="social-usecase-icon">📊</span>
+                    <h3>Marketers</h3>
+                    <p>Optimize content for better engagement.</p>
+                </div>
+                <div class="social-usecase-card">
+                    <span class="social-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Showcase products effectively.</p>
+                </div>
+                <div class="social-usecase-card">
+                    <span class="social-usecase-icon">✍️</span>
+                    <h3>Bloggers</h3>
+                    <p>Share content across platforms.</p>
+                </div>
+                <div class="social-usecase-card">
+                    <span class="social-usecase-icon">📈</span>
+                    <h3>Agencies</h3>
+                    <p>Manage client social media assets.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 10. QUALITY CHECKLIST -->
+        <section class="social-checklist-section" id="social-checklist">
+            <h2 class="social-checklist-title">Before Posting Your Social Media Image</h2>
+            <ul class="social-checklist-list">
+                <li>Is the image size correct for the platform?</li>
+                <li>Is the image aspect ratio suitable?</li>
+                <li>Is the image quality high enough?</li>
+                <li>Is the branding consistent with your brand?</li>
+                <li>Is important content within the safe zone?</li>
+                <li>Is the text readable on mobile devices?</li>
+                <li>Is the file size optimized?</li>
+                <li>Does the image look good in preview?</li>
+                <li>Have you tested it on different devices?</li>
+                <li>Is it optimized for your target audience?</li>
+            </ul>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 11. FREQUENTLY ASKED QUESTIONS -->
+        <section class="social-faq-section" id="social-faq">
+            <h2 class="social-faq-title">Frequently Asked Questions</h2>
+            <div class="social-faq-accordion">
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        What is a social media image resizer?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>A social media image resizer is a tool that optimizes images for specific social media platforms with one-click presets.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        What are the best image sizes for Instagram?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>Instagram posts: 1080×1080 (square), 1080×1350 (portrait), 1080×566 (landscape). Stories: 1080×1920.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        What size should I use for Facebook posts?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>The recommended size for Facebook feed posts is 1200×630 pixels (1.91:1 aspect ratio).</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        What are the best sizes for Twitter images?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>Twitter posts: 1200×675 pixels (16:9 aspect ratio). Profile photo: 400×400, Header: 1500×500.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        What size is best for LinkedIn posts?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>LinkedIn feed posts: 1200×627 pixels (1.91:1 aspect ratio).</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        What is the best size for Pinterest pins?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>The recommended size is 1000×1500 pixels (2:3 aspect ratio) for optimal engagement.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        Is the social media image resizer free?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>Yes, our tool is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        What formats are supported?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>We support JPG, PNG, WebP, GIF, and BMP formats.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        Can I resize multiple images at once?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>Yes, you can batch resize multiple images simultaneously.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>We accept images up to 50MB in size for processing.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        Is my image data secure?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed securely and automatically deleted after processing.</p>
+                    </div>
+                </div>
+                <div class="social-faq-item">
+                    <button class="social-faq-question" aria-expanded="false">
+                        Can I resize for YouTube thumbnails?
+                        <span class="social-faq-icon">+</span>
+                    </button>
+                    <div class="social-faq-answer" style="display:none;">
+                        <p>Yes, we offer presets for YouTube thumbnails at 1280×720 pixels.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 12. PRIVACY AND DATA HANDLING -->
+        <section class="social-privacy-section">
+            <h2 class="social-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> Images are processed locally in your browser where possible.</li>
+                <li><strong>☁️ Temporary server upload:</strong> Images may be temporarily uploaded for processing.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images after resizing.</li>
+                <li><strong>🔒 Secure transfer:</strong> All data transfer is encrypted with SSL.</li>
+                <li><strong>⏱️ Auto-delete:</strong> Uploaded files are automatically deleted within 24 hours.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="social-section-divider"></div>
+
+        <!-- 13. RELATED TOOLS -->
+        <section class="social-related-section" id="social-related-tools">
+            <h2 class="social-related-title">Related Tools</h2>
+            <div class="social-related-grid">
+                <a href="#" class="social-related-card">
+                    <span class="social-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="social-related-card">
+                    <span class="social-related-icon">✂️</span> Image Cropper
+                </a>
+                <a href="#" class="social-related-card">
+                    <span class="social-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="social-related-card">
+                    <span class="social-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="social-related-card">
+                    <span class="social-related-icon">🎨</span> Image Editor
+                </a>
+                <a href="#" class="social-related-card">
+                    <span class="social-related-icon">🪞</span> Image Flipper
+                </a>
+                <a href="#" class="social-related-card">
+                    <span class="social-related-icon">🔄</span> Image Rotator
+                </a>
+                <a href="#" class="social-related-card">
+                    <span class="social-related-icon">📄</span> Image to PDF
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a social media image resizer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A social media image resizer is a tool that optimizes images for specific social media platforms with one-click presets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the best image sizes for Instagram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Instagram posts: 1080×1080 (square), 1080×1350 (portrait), 1080×566 (landscape). Stories: 1080×1920."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What size should I use for Facebook posts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The recommended size for Facebook feed posts is 1200×630 pixels (1.91:1 aspect ratio)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the best sizes for Twitter images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Twitter posts: 1200×675 pixels (16:9 aspect ratio). Profile photo: 400×400, Header: 1500×500."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What size is best for LinkedIn posts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LinkedIn feed posts: 1200×627 pixels (1.91:1 aspect ratio)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best size for Pinterest pins?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The recommended size is 1000×1500 pixels (2:3 aspect ratio) for optimal engagement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the social media image resizer free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our tool is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support JPG, PNG, WebP, GIF, and BMP formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I resize multiple images at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can batch resize multiple images simultaneously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept images up to 50MB in size for processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed securely and automatically deleted after processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I resize for YouTube thumbnails?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we offer presets for YouTube thumbnails at 1280×720 pixels."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.social-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </main>

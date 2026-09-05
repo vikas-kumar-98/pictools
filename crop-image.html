@@ -252,54 +252,25 @@
 </script>
 
 <!-- SCHEMA 7: FAQPage (Specific to Crop Image) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can I crop images to specific aspect ratios?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, you can choose from preset aspect ratios like Square (1:1), 4:3, 16:9, 3:2, and custom dimensions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What image formats are supported?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Supported input formats include JPG, PNG, WebP, and BMP. Output formats include JPG, PNG, and WebP."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this tool free to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, this tool is 100% free to use. No sign-up, no hidden charges, and no limits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you store my images?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. All uploaded images are automatically deleted from our servers within 1 hour of processing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I undo or reset the crop?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, you can reset the crop area at any time before applying it. After cropping, you can upload the original image again to start over."
-      }
-    }
-  ]
-}
-</script>
+  <!-- JSON‑LD FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What is an image cropper?","acceptedAnswer":{"@type":"Answer","text":"An online image cropper lets you remove unwanted edges from a photo, keeping only the area you need."}},
+      {"@type":"Question","name":"How do I crop an image online?","acceptedAnswer":{"@type":"Answer","text":"Upload your image, drag the crop handles to select the area you want, then preview and download the result."}},
+      {"@type":"Question","name":"Can I crop JPG images?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool supports JPG, PNG, and WebP formats."}},
+      {"@type":"Question","name":"Can I crop PNG images?","acceptedAnswer":{"@type":"Answer","text":"Absolutely – PNG files with transparency are fully supported."}},
+      {"@type":"Question","name":"Can I crop WebP images?","acceptedAnswer":{"@type":"Answer","text":"Yes, WebP images are supported. Crop and download in WebP or other formats."}},
+      {"@type":"Question","name":"Can I crop an image on a mobile phone?","acceptedAnswer":{"@type":"Answer","text":"Yes, the interface is fully responsive and touch‑friendly for phones and tablets."}},
+      {"@type":"Question","name":"Does cropping change image dimensions?","acceptedAnswer":{"@type":"Answer","text":"Cropping reduces the visible area, so the dimensions (width & height) change to reflect the selected portion."}},
+      {"@type":"Question","name":"What is the difference between cropping and resizing?","acceptedAnswer":{"@type":"Answer","text":"Cropping removes outer parts; resizing changes the overall dimensions without removing content."}},
+      {"@type":"Question","name":"Which aspect ratio should I use?","acceptedAnswer":{"@type":"Answer","text":"Choose based on your destination: 1:1 for profile pictures, 16:9 for widescreen, 9:16 for mobile stories, etc."}},
+      {"@type":"Question","name":"Does cropping reduce image quality?","acceptedAnswer":{"@type":"Answer","text":"Cropping itself does not reduce quality – it just selects a portion. Download at original quality."}}
+    ]
+  }
+  </script>
     
     <!-- ============================================================ -->
     <!-- 11. PERFORMANCE (Preload & Preconnect)                       -->
@@ -598,6 +569,662 @@
             background-color: rgba(0, 0, 0, 0.25) !important;
         }
         /*End ..............*/
+        .crop-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .crop-section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+        }
+
+        .crop-intro-section {
+            margin: 2rem 0 3rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+        .crop-intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .crop-intro-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #1e293b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .crop-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            max-width: 75ch;
+            margin-bottom: 1rem;
+        }
+        .crop-intro-text strong {
+            color: #1e293b;
+        }
+
+        .crop-about-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .crop-about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-about-title::before {
+            content: '✂️';
+            font-size: 1.8rem;
+        }
+        .crop-about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .crop-about-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .crop-about-list li {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .crop-about-list li::before {
+            content: '✓';
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        .crop-howto-section {
+            margin: 2.5rem 0;
+        }
+        .crop-howto-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-howto-title::before {
+            content: '📋';
+            font-size: 1.8rem;
+        }
+        .crop-howto-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            counter-reset: step-counter;
+        }
+        .crop-howto-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .crop-howto-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.15);
+        }
+        .crop-howto-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .crop-howto-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .crop-howto-step p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .crop-benefits-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 16px;
+        }
+        .crop-benefits-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-benefits-title::before {
+            content: '⭐';
+            font-size: 1.8rem;
+        }
+        .crop-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .crop-benefit-card {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .crop-benefit-card:hover {
+            transform: scale(1.02);
+        }
+        .crop-benefit-card .crop-benefit-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .crop-benefit-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .crop-benefit-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .crop-features-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .crop-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-features-title::before {
+            content: '⚙️';
+            font-size: 1.8rem;
+        }
+        .crop-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .crop-feature-card {
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+        .crop-feature-card:hover {
+            border-color: #8b5cf6;
+            background: #ede9fe;
+        }
+        .crop-feature-card .crop-feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .crop-feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .crop-feature-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .crop-ratios-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 16px;
+        }
+        .crop-ratios-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-ratios-title::before {
+            content: '📐';
+            font-size: 1.8rem;
+        }
+        .crop-ratios-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .crop-ratio-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .crop-ratio-card .crop-ratio-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .crop-ratio-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.3rem;
+        }
+        .crop-ratio-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .crop-tips-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .crop-tips-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-tips-title::before {
+            content: '💡';
+            font-size: 1.8rem;
+        }
+        .crop-tips-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .crop-tips-list li {
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .crop-tips-list li::before {
+            content: '●';
+            color: #3b82f6;
+        }
+
+        .crop-usecases-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef2f2, #fefce8);
+            border-radius: 16px;
+        }
+        .crop-usecases-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-usecases-title::before {
+            content: '🎯';
+            font-size: 1.8rem;
+        }
+        .crop-usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .crop-usecase-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .crop-usecase-card:hover {
+            transform: translateY(-4px);
+        }
+        .crop-usecase-card .crop-usecase-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .crop-usecase-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0 0 0.2rem;
+        }
+        .crop-usecase-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .crop-checklist-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 16px;
+        }
+        .crop-checklist-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-checklist-title::before {
+            content: '✅';
+            font-size: 1.8rem;
+        }
+        .crop-checklist-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .crop-checklist-list li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .crop-checklist-list li::before {
+            content: '☑';
+            color: #059669;
+            font-size: 1.2rem;
+        }
+
+        .crop-faq-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .crop-faq-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-faq-title::before {
+            content: '❓';
+            font-size: 1.8rem;
+        }
+        .crop-faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+        .crop-faq-item:last-child {
+            border-bottom: none;
+        }
+        .crop-faq-item:hover {
+            background: #f8fafc;
+        }
+        .crop-faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+        .crop-faq-question:hover {
+            color: #8b5cf6;
+        }
+        .crop-faq-question:focus {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .crop-faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .crop-faq-question[aria-expanded="true"] .crop-faq-icon {
+            transform: rotate(45deg);
+            color: #8b5cf6;
+        }
+        .crop-faq-answer {
+            padding: 0 0.5rem 1.2rem 0.5rem;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .crop-faq-answer p {
+            margin: 0;
+        }
+        .crop-faq-answer p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .crop-privacy-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+        .crop-privacy-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-privacy-title::before {
+            content: '🔒';
+            font-size: 1.8rem;
+        }
+        .crop-privacy-section p,
+        .crop-privacy-section ul {
+            font-size: 1rem;
+            color: #334155;
+            line-height: 1.8;
+        }
+        .crop-privacy-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .crop-privacy-section ul li {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+            color: #334155;
+        }
+        .crop-privacy-section ul li strong {
+            color: #0f172a;
+        }
+
+        .crop-related-section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 16px;
+        }
+        .crop-related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .crop-related-title::before {
+            content: '🔧';
+            font-size: 1.8rem;
+        }
+        .crop-related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .crop-related-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .crop-related-card:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.3);
+        }
+        .crop-related-card .crop-related-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .crop-benefit-grid { grid-template-columns: repeat(2, 1fr); }
+            .crop-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .crop-ratios-grid { grid-template-columns: repeat(2, 1fr); }
+            .crop-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+            .crop-related-grid { grid-template-columns: repeat(2, 1fr); }
+            .crop-howto-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .crop-content-wrapper { padding: 0 16px; }
+            .crop-intro-title { font-size: 2.2rem; }
+            .crop-howto-steps { grid-template-columns: 1fr; }
+            .crop-benefit-grid { grid-template-columns: 1fr; }
+            .crop-features-grid { grid-template-columns: 1fr; }
+            .crop-ratios-grid { grid-template-columns: 1fr; }
+            .crop-usecases-grid { grid-template-columns: 1fr; }
+            .crop-tips-list { grid-template-columns: 1fr; }
+            .crop-checklist-list { grid-template-columns: 1fr; }
+            .crop-related-grid { grid-template-columns: 1fr 1fr; }
+            .crop-about-list { grid-template-columns: 1fr; }
+            .crop-privacy-section ul { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .crop-intro-title { font-size: 1.8rem; }
+            .crop-related-grid { grid-template-columns: 1fr; }
+        }
+
 </style>
 </head>
 <body>
@@ -939,6 +1566,580 @@
         </div>
     </div>
 
+    <div class="crop-content-wrapper">
+
+        <!-- 1. INTRODUCTION -->
+        <section class="crop-intro-section" id="crop-intro">
+            <h1 class="crop-intro-title">Free Online Image Cropper</h1>
+            <p class="crop-intro-text">
+                An <strong>image cropper</strong> is a tool that allows you to remove unwanted parts of an image and select a specific area to keep. Whether you need to resize for social media, improve composition, or focus on a specific subject, cropping is an essential editing technique.
+            </p>
+            <p class="crop-intro-text">
+                Our <strong>free online image cropper</strong> allows you to upload any image and crop it to any size or aspect ratio. Perfect for social media, design projects, and photography. No registration, no watermarks, and no limits.
+            </p>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 2. WHAT IS IMAGE CROPPING? -->
+        <section class="crop-about-section" id="crop-about">
+            <h2 class="crop-about-title">What Is Image Cropping?</h2>
+            <p class="crop-about-text">
+                Image cropping is the process of removing unwanted outer areas of an image to improve framing, composition, or focus on a specific subject. It allows you to change the aspect ratio and remove distracting elements.
+            </p>
+            <p class="crop-about-text">Key features include:</p>
+            <ul class="crop-about-list">
+                <li><strong>Remove Unwanted Areas</strong> — Focus on the subject</li>
+                <li><strong>Change Aspect Ratio</strong> — Fit specific dimensions</li>
+                <li><strong>Improve Composition</strong> — Apply the rule of thirds</li>
+                <li><strong>Multiple Formats</strong> — JPG, PNG, and more</li>
+                <li><strong>Quick Processing</strong> — Instant results</li>
+            </ul>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 3. HOW TO CROP AN IMAGE -->
+        <section class="crop-howto-section" id="crop-how-to-use">
+            <h2 class="crop-howto-title">How to Crop an Image</h2>
+            <div class="crop-howto-steps">
+                <div class="crop-howto-step">
+                    <h3>Upload Your Image</h3>
+                    <p>Select the image you want to crop.</p>
+                </div>
+                <div class="crop-howto-step">
+                    <h3>Select Crop Area</h3>
+                    <p>Drag to select the area to keep.</p>
+                </div>
+                <div class="crop-howto-step">
+                    <h3>Choose Aspect Ratio</h3>
+                    <p>Select from presets or custom size.</p>
+                </div>
+                <div class="crop-howto-step">
+                    <h3>Download Your Image</h3>
+                    <p>Save your cropped image instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 4. WHY CROP IMAGES? -->
+        <section class="crop-benefits-section" id="crop-benefits">
+            <h2 class="crop-benefits-title">Why Crop Images?</h2>
+            <div class="crop-benefit-grid">
+                <div class="crop-benefit-card">
+                    <span class="crop-benefit-icon">✂️</span>
+                    <h3>Focus on Subject</h3>
+                    <p>Remove distracting elements.</p>
+                </div>
+                <div class="crop-benefit-card">
+                    <span class="crop-benefit-icon">📐</span>
+                    <h3>Aspect Ratio</h3>
+                    <p>Fit specific dimensions.</p>
+                </div>
+                <div class="crop-benefit-card">
+                    <span class="crop-benefit-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Perfect for all platforms.</p>
+                </div>
+                <div class="crop-benefit-card">
+                    <span class="crop-benefit-icon">🎨</span>
+                    <h3>Better Composition</h3>
+                    <p>Improve visual appeal.</p>
+                </div>
+                <div class="crop-benefit-card">
+                    <span class="crop-benefit-icon">📊</span>
+                    <h3>Professional Look</h3>
+                    <p>Create polished images.</p>
+                </div>
+                <div class="crop-benefit-card">
+                    <span class="crop-benefit-icon">⏱️</span>
+                    <h3>Quick &amp; Easy</h3>
+                    <p>Crop instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 5. FEATURES -->
+        <section class="crop-features-section">
+            <h2 class="crop-features-title">Image Cropper Features</h2>
+            <div class="crop-features-grid">
+                <div class="crop-feature-card">
+                    <span class="crop-feature-icon">✂️</span>
+                    <h3>Free Crop</h3>
+                    <p>Crop to any size.</p>
+                </div>
+                <div class="crop-feature-card">
+                    <span class="crop-feature-icon">📐</span>
+                    <h3>Preset Ratios</h3>
+                    <p>1:1, 4:3, 16:9, etc.</p>
+                </div>
+                <div class="crop-feature-card">
+                    <span class="crop-feature-icon">🔄</span>
+                    <h3>Custom Ratio</h3>
+                    <p>Enter your own dimensions.</p>
+                </div>
+                <div class="crop-feature-card">
+                    <span class="crop-feature-icon">📱</span>
+                    <h3>Social Media Sizes</h3>
+                    <p>Instagram, Facebook, etc.</p>
+                </div>
+                <div class="crop-feature-card">
+                    <span class="crop-feature-icon">⚡</span>
+                    <h3>Instant Processing</h3>
+                    <p>Get results immediately.</p>
+                </div>
+                <div class="crop-feature-card">
+                    <span class="crop-feature-icon">📋</span>
+                    <h3>Copy/Paste</h3>
+                    <p>Easy image management.</p>
+                </div>
+                <div class="crop-feature-card">
+                    <span class="crop-feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Your images are safe.</p>
+                </div>
+                <div class="crop-feature-card">
+                    <span class="crop-feature-icon">📱</span>
+                    <h3>All Devices</h3>
+                    <p>Works on any device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 6. ASPECT RATIOS -->
+        <section class="crop-ratios-section">
+            <h2 class="crop-ratios-title">Aspect Ratios</h2>
+            <div class="crop-ratios-grid">
+                <div class="crop-ratio-card">
+                    <span class="crop-ratio-icon">⬜</span>
+                    <h3>1:1</h3>
+                    <p>Perfect for Instagram posts and profile pictures. Square format for social media.</p>
+                </div>
+                <div class="crop-ratio-card">
+                    <span class="crop-ratio-icon">📱</span>
+                    <h3>4:3</h3>
+                    <p>Classic photo ratio. Ideal for standard photography and most digital cameras.</p>
+                </div>
+                <div class="crop-ratio-card">
+                    <span class="crop-ratio-icon">📺</span>
+                    <h3>16:9</h3>
+                    <p>Widescreen format. Perfect for YouTube thumbnails, videos, and presentations.</p>
+                </div>
+                <div class="crop-ratio-card">
+                    <span class="crop-ratio-icon">📱</span>
+                    <h3>9:16</h3>
+                    <p>Vertical format. Ideal for Instagram Stories, TikTok, and mobile content.</p>
+                </div>
+                <div class="crop-ratio-card">
+                    <span class="crop-ratio-icon">🖼️</span>
+                    <h3>3:2</h3>
+                    <p>Standard DSLR photo ratio. Great for photography and print.</p>
+                </div>
+                <div class="crop-ratio-card">
+                    <span class="crop-ratio-icon">🖼️</span>
+                    <h3>5:4</h3>
+                    <p>Classic photo print ratio. Perfect for traditional photo frames.</p>
+                </div>
+                <div class="crop-ratio-card">
+                    <span class="crop-ratio-icon">🔄</span>
+                    <h3>Freeform</h3>
+                    <p>Custom crop to any size. Total freedom to crop as you like.</p>
+                </div>
+                <div class="crop-ratio-card">
+                    <span class="crop-ratio-icon">📐</span>
+                    <h3>Custom</h3>
+                    <p>Enter your own width and height. Perfect for specific requirements.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 7. BEST PRACTICES -->
+        <section class="crop-tips-section">
+            <h2 class="crop-tips-title">Best Practices for Cropping</h2>
+            <ul class="crop-tips-list">
+                <li>Follow the rule of thirds for better composition</li>
+                <li>Keep important elements centered</li>
+                <li>Choose the right aspect ratio for your platform</li>
+                <li>Preview your crop before applying</li>
+                <li>Keep a backup of your original image</li>
+                <li>Use social media presets for easy sharing</li>
+                <li>Crop to remove distracting elements</li>
+                <li>Use freeform for custom shapes</li>
+                <li>Check the image quality after cropping</li>
+                <li>Experiment with different compositions</li>
+            </ul>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 8. USE CASES -->
+        <section class="crop-usecases-section">
+            <h2 class="crop-usecases-title">Image Cropping Use Cases</h2>
+            <div class="crop-usecases-grid">
+                <div class="crop-usecase-card">
+                    <span class="crop-usecase-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Crop for Instagram, Facebook, etc.</p>
+                </div>
+                <div class="crop-usecase-card">
+                    <span class="crop-usecase-icon">📸</span>
+                    <h3>Photography</h3>
+                    <p>Improve photo composition.</p>
+                </div>
+                <div class="crop-usecase-card">
+                    <span class="crop-usecase-icon">🎨</span>
+                    <h3>Design</h3>
+                    <p>Crop for design projects.</p>
+                </div>
+                <div class="crop-usecase-card">
+                    <span class="crop-usecase-icon">🛒</span>
+                    <h3>E-commerce</h3>
+                    <p>Crop product images.</p>
+                </div>
+                <div class="crop-usecase-card">
+                    <span class="crop-usecase-icon">📊</span>
+                    <h3>Presentations</h3>
+                    <p>Optimize presentation images.</p>
+                </div>
+                <div class="crop-usecase-card">
+                    <span class="crop-usecase-icon">📧</span>
+                    <h3>Email Marketing</h3>
+                    <p>Crop images for emails.</p>
+                </div>
+                <div class="crop-usecase-card">
+                    <span class="crop-usecase-icon">📚</span>
+                    <h3>Digital Publishing</h3>
+                    <p>Crop for publications.</p>
+                </div>
+                <div class="crop-usecase-card">
+                    <span class="crop-usecase-icon">🖼️</span>
+                    <h3>Print</h3>
+                    <p>Prepare images for print.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 9. CHECKLIST -->
+        <section class="crop-checklist-section" id="crop-checklist">
+            <h2 class="crop-checklist-title">Before Downloading Your Cropped Image</h2>
+            <ul class="crop-checklist-list">
+                <li>Is the crop area correct?</li>
+                <li>Is the aspect ratio appropriate?</li>
+                <li>Is the composition improved?</li>
+                <li>Is the subject properly framed?</li>
+                <li>Is the image quality preserved?</li>
+                <li>Is the image ready for sharing?</li>
+                <li>Have you kept your original image?</li>
+                <li>Is the image suitable for its purpose?</li>
+                <li>Is the crop accurate?</li>
+                <li>Have you saved your final version?</li>
+            </ul>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+        <section class="crop-faq-section" id="crop-faq">
+            <h2 class="crop-faq-title">Frequently Asked Questions</h2>
+            <div class="crop-faq-accordion">
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        What is an image cropper?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>An image cropper allows you to remove unwanted parts of an image and select a specific area to keep.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        Is the image cropper free?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>Yes, our image cropper is completely free with no limits on usage.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        What aspect ratios are available?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>We offer 1:1, 4:3, 16:9, 9:16, 3:2, 5:4, freeform, and custom ratios.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        Can I crop to a custom size?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>Yes, you can enter custom width and height values for precise cropping.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        What image formats are supported?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>We support JPG, PNG, GIF, BMP, WebP, and more formats.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        Is my image data secure?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>Yes, your images are processed locally in your browser and are never sent to any server.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        What is the maximum file size?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>We accept images up to 50MB in size for cropping.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        Is the tool mobile-friendly?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>Yes, our image cropper works on all devices including smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        Can I crop multiple images?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>Yes, you can crop as many images as you need with no limits.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        What is the rule of thirds?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>The rule of thirds is a composition guideline that divides an image into nine equal parts, helping you place key elements for better visual appeal.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        Can I crop images for social media?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>Yes, our cropper includes presets for Instagram, Facebook, Twitter, and other social platforms.</p>
+                    </div>
+                </div>
+                <div class="crop-faq-item">
+                    <button class="crop-faq-question" aria-expanded="false">
+                        Do I need to create an account?
+                        <span class="crop-faq-icon">+</span>
+                    </button>
+                    <div class="crop-faq-answer" style="display:none;">
+                        <p>No, you can crop images without any registration or account creation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 11. PRIVACY AND DATA HANDLING -->
+        <section class="crop-privacy-section">
+            <h2 class="crop-privacy-title">Privacy and Data Handling</h2>
+            <p>Your privacy and data security are our priority. Here's how your images are handled:</p>
+            <ul>
+                <li><strong>🖥️ Client-side processing:</strong> All image processing happens locally in your browser.</li>
+                <li><strong>🔒 No data transmission:</strong> Your images are never sent to any server.</li>
+                <li><strong>🗑️ No permanent storage:</strong> We do not store your images after processing.</li>
+                <li><strong>📊 No data collection:</strong> We do not collect or share your data with third parties.</li>
+                <li><strong>⏱️ Auto-clear:</strong> Your data is automatically cleared when you refresh the page.</li>
+            </ul>
+            <p>For full details, please refer to our Privacy Policy.</p>
+        </section>
+
+        <div class="crop-section-divider"></div>
+
+        <!-- 12. RELATED TOOLS -->
+        <section class="crop-related-section" id="crop-related-tools">
+            <h2 class="crop-related-title">Related Tools</h2>
+            <div class="crop-related-grid">
+                <a href="#" class="crop-related-card">
+                    <span class="crop-related-icon">📐</span> Image Resizer
+                </a>
+                <a href="#" class="crop-related-card">
+                    <span class="crop-related-icon">🔄</span> Image Rotator
+                </a>
+                <a href="#" class="crop-related-card">
+                    <span class="crop-related-icon">🪞</span> Image Flipper
+                </a>
+                <a href="#" class="crop-related-card">
+                    <span class="crop-related-icon">🔄</span> Image Converter
+                </a>
+                <a href="#" class="crop-related-card">
+                    <span class="crop-related-icon">🗜️</span> Image Compressor
+                </a>
+                <a href="#" class="crop-related-card">
+                    <span class="crop-related-icon">🎨</span> Image Enhancer
+                </a>
+                <a href="#" class="crop-related-card">
+                    <span class="crop-related-icon">🏷️</span> Image Watermark
+                </a>
+                <a href="#" class="crop-related-card">
+                    <span class="crop-related-icon">🖼️</span> Add Border to Image
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- FAQ SCHEMA (JSON-LD)                                -->
+    <!-- ================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an image cropper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An image cropper allows you to remove unwanted parts of an image and select a specific area to keep."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the image cropper free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image cropper is completely free with no limits on usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What aspect ratios are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer 1:1, 4:3, 16:9, 9:16, 3:2, 5:4, freeform, and custom ratios."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I crop to a custom size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can enter custom width and height values for precise cropping."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What image formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support JPG, PNG, GIF, BMP, WebP, and more formats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your images are processed locally in your browser and are never sent to any server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept images up to 50MB in size for cropping."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tool mobile-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our image cropper works on all devices including smartphones and tablets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I crop multiple images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can crop as many images as you need with no limits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the rule of thirds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The rule of thirds is a composition guideline that divides an image into nine equal parts, helping you place key elements for better visual appeal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I crop images for social media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our cropper includes presets for Instagram, Facebook, Twitter, and other social platforms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, you can crop images without any registration or account creation."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ================================================== -->
+    <!-- FAQ ACCORDION JAVASCRIPT (ISOLATED)                -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('.crop-faq-question');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    if (answer) {
+                        answer.style.display = isExpanded ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 
 
