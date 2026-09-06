@@ -321,517 +321,577 @@
 
   /*Page style goes here....................*/
 
-    /* dark mode (light/dark toggle) */
-    body.vta-urlshort-dark-mode {
-      background: #0b1120;
-      color: #e2e8f0;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-app-shell {
-      background: #1e293b;
-      border-color: #334155;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-input-field,
-    body.vta-urlshort-dark-mode .vta-urlshort-select-input,
-    body.vta-urlshort-dark-mode .vta-urlshort-advanced-panel {
-      background: #0f172a;
-      color: #f1f5f9;
-      border-color: #334155;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-result-card {
-      background: #0f172a;
-      border-color: #334155;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-stat-card {
-      background: #0f172a;
-      border-color: #2d3a4f;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-table-wrap table {
-      color: #e2e8f0;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-table-wrap td,
-    body.vta-urlshort-dark-mode .vta-urlshort-table-wrap th {
-      border-color: #334155;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-qr-wrapper {
-      background: #0f172a;
-      border-color: #334155;
-    }
-    /* main app container - namespaced */
-    .vta-urlshort-app-shell {
-      max-width: 1280px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 2rem;
-      padding: 2rem 2rem 2.5rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.03);
-      border: 1px solid #eef2f6;
-      transition: background 0.2s, border 0.2s;
-    }
-    /* NO HEADER, NO NAV, NO FOOTER — only hero and content */
-    .vta-urlshort-hero-section {
-      margin-bottom: 2.2rem;
-    }
-    .vta-urlshort-hero-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(145deg, #0b1e33, #1f4b7a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: inline-block;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-hero-title {
-      background: linear-gradient(145deg, #b6d4f0, #7aa9e6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .vta-urlshort-hero-sub {
-      font-size: 1.1rem;
-      color: #2d3a4f;
-      max-width: 680px;
-      margin-top: 0.4rem;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-hero-sub {
-      color: #b9c7dd;
-    }
-    .vta-urlshort-trust-badge {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin-top: 0.8rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #1f4b7a;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-trust-badge {
-      color: #8bb3e0;
-    }
-    .vta-urlshort-trust-badge span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    /* main shortener workspace */
-    .vta-urlshort-shortener-workspace {
-      background: #f1f5f9;
-      border-radius: 1.8rem;
-      padding: 1.8rem 1.8rem 2rem;
-      transition: background 0.2s;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-shortener-workspace {
-      background: #1e2a3a;
-    }
-    .vta-urlshort-url-input-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.6rem;
-      background: white;
-      border-radius: 60px;
-      padding: 0.2rem 0.2rem 0.2rem 1.2rem;
-      border: 1px solid #dde3ea;
-      transition: box-shadow 0.15s, border 0.15s;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-url-input-group {
-      background: #0f172a;
-      border-color: #334155;
-    }
-    .vta-urlshort-url-input-group:focus-within {
-      border-color: #2d6bb8;
-      box-shadow: 0 0 0 3px rgba(45, 107, 184, 0.15);
-    }
-    .vta-urlshort-url-icon {
-      font-size: 1.3rem;
-      opacity: 0.6;
-    }
-    .vta-urlshort-input-field {
-      flex: 1;
-      min-width: 180px;
-      padding: 0.9rem 0.4rem;
-      font-size: 1rem;
-      border: none;
-      background: transparent;
-      outline: none;
-      font-weight: 450;
-    }
-    .vta-urlshort-input-field::placeholder {
-      color: #8e9eb0;
-      font-weight: 400;
-    }
-    .vta-urlshort-input-actions {
-      display: flex;
-      gap: 0.4rem;
-      align-items: center;
-    }
-    .vta-urlshort-action-btn-icon {
-      background: transparent;
-      border: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 0.4rem 0.6rem;
-      border-radius: 40px;
-      transition: background 0.1s;
-      color: #1f4b7a;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-action-btn-icon {
-      color: #b0cae5;
-    }
-    .vta-urlshort-action-btn-icon:hover {
-      background: #e2e9f2;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-action-btn-icon:hover {
-      background: #2b3c54;
-    }
-    .vta-urlshort-char-counter {
-      font-size: 0.7rem;
-      color: #6a7b8f;
-      padding-right: 0.2rem;
-      min-width: 2.5rem;
-      text-align: right;
-    }
-    .vta-urlshort-shorten-btn {
-      background: #1f4b7a;
-      border: none;
-      color: white;
-      font-weight: 600;
-      padding: 0.9rem 2.2rem;
-      border-radius: 60px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.15s;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      border: 1px solid #1f4b7a;
-      letter-spacing: 0.3px;
-    }
-    .vta-urlshort-shorten-btn:hover {
-      background: #123a60;
-      transform: scale(0.98);
-    }
-    .vta-urlshort-shorten-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-shorten-btn {
-      background: #2d6bb8;
-      border-color: #2d6bb8;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-shorten-btn:hover {
-      background: #1f5297;
-    }
-    /* result card */
-    .vta-urlshort-result-card {
-      margin-top: 1.8rem;
-      background: white;
-      border-radius: 1.6rem;
-      padding: 1.6rem 1.8rem;
-      border: 1px solid #e6edf4;
-      display: none;
-    }
-    .vta-urlshort-result-card.vta-urlshort-result-visible {
-      display: block;
-    }
-    .vta-urlshort-result-label {
-      font-weight: 600;
-      color: #1e2a3a;
-      font-size: 0.9rem;
-      letter-spacing: 0.3px;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-result-label {
-      color: #dce5f0;
-    }
-    .vta-urlshort-short-url-display {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.2rem;
-      margin: 0.5rem 0 0.8rem;
-    }
-    .vta-urlshort-short-url-text {
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: #0b1e33;
-      word-break: break-all;
-      background: #f1f5f9;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      border: 1px solid #dde3ea;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-short-url-text {
-      background: #0f172a;
-      color: #eef4fc;
-      border-color: #334155;
-    }
-    .vta-urlshort-result-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.8rem;
-      align-items: center;
-    }
-    .vta-urlshort-action-pill {
-      background: #f1f5f9;
-      border: none;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 500;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: 0.1s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      border: 1px solid transparent;
-    }
-    .vta-urlshort-action-pill:hover {
-      background: #e2e9f2;
-      border-color: #bcc9da;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-action-pill {
-      background: #1e2a3a;
-      color: #d6e2f0;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-action-pill:hover {
-      background: #2b3c54;
-    }
-    .vta-urlshort-success-badge {
-      color: #0f7b3a;
-      font-weight: 500;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.2rem;
-    }
-    /* custom alias + advanced */
-    .vta-urlshort-advanced-toggle {
-      margin-top: 1.2rem;
-      background: transparent;
-      border: none;
-      font-weight: 500;
-      color: #1f4b7a;
-      cursor: pointer;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-advanced-toggle {
-      color: #79a9e0;
-    }
-    .vta-urlshort-advanced-panel {
-      background: white;
-      border-radius: 1.4rem;
-      padding: 1.4rem 1.6rem;
-      margin-top: 1rem;
-      border: 1px solid #e2e9f2;
-      display: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem 2rem;
-    }
-    .vta-urlshort-advanced-panel.vta-urlshort-advanced-open {
-      display: grid;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-advanced-panel {
-      background: #0f172a;
-      border-color: #2d3a4f;
-    }
-    .vta-urlshort-adv-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    .vta-urlshort-adv-label {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #1e2a3a;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-adv-label {
-      color: #cbd8e8;
-    }
-    .vta-urlshort-input-field,
-    .vta-urlshort-select-input {
-      padding: 0.6rem 0.9rem;
-      border-radius: 40px;
-      border: 1px solid #dde3ea;
-      background: white;
-      font-size: 0.95rem;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-select-input {
-      background: #0f172a;
-      color: #f1f5f9;
-      border-color: #334155;
-    }
-    .vta-urlshort-alias-status {
-      font-size: 0.8rem;
-      margin-top: 0.2rem;
-      min-height: 1.2rem;
-    }
-    .vta-urlshort-alias-available {
-      color: #0f7b3a;
-    }
-    .vta-urlshort-alias-unavailable {
-      color: #b22234;
-    }
-    .vta-urlshort-utm-builder {
-      grid-column: 1 / -1;
-      border-top: 1px solid #e2e9f2;
-      padding-top: 1rem;
-      margin-top: 0.4rem;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-utm-builder {
-      border-color: #2d3a4f;
-    }
-    .vta-urlshort-utm-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
-      gap: 0.8rem;
-      margin-top: 0.6rem;
-    }
-    .vta-urlshort-utm-grid input {
-      padding: 0.4rem 0.8rem;
-      border-radius: 40px;
-      border: 1px solid #dde3ea;
-      background: white;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-utm-grid input {
-      background: #0f172a;
-      color: #f1f5f9;
-      border-color: #334155;
-    }
-    /* qr, analytics, link management – simplified sections */
-    .vta-urlshort-qr-wrapper {
-      margin-top: 1.8rem;
-      background: white;
-      border-radius: 1.6rem;
-      padding: 1.2rem 1.6rem;
-      border: 1px solid #e6edf4;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.2rem 2rem;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-qr-wrapper {
-      background: #0f172a;
-      border-color: #2d3a4f;
-    }
-    .vta-urlshort-qr-canvas-wrap {
-      display: flex;
-      gap: 0.6rem;
-      align-items: center;
-    }
-    .vta-urlshort-qr-canvas-wrap canvas {
-      border-radius: 12px;
-      background: white;
-      padding: 4px;
-      max-width: 100px;
-      height: auto;
-    }
-    .vta-urlshort-stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
-      gap: 0.8rem;
-      margin: 1.2rem 0 0.8rem;
-    }
-    .vta-urlshort-stat-card {
-      background: white;
-      padding: 0.8rem 0.8rem 0.6rem;
-      border-radius: 1.2rem;
-      border: 1px solid #e6edf4;
-      text-align: center;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-stat-card {
-      background: #0f172a;
-      border-color: #2d3a4f;
-    }
-    .vta-urlshort-stat-number {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #0b1e33;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-stat-number {
-      color: #e8eff8;
-    }
-    .vta-urlshort-stat-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: #5f738b;
-      letter-spacing: 0.3px;
-    }
-    .vta-urlshort-table-wrap {
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-    .vta-urlshort-table-wrap table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-    .vta-urlshort-table-wrap th {
-      text-align: left;
-      padding: 0.6rem 0.2rem;
-      border-bottom: 2px solid #dde3ea;
-      font-weight: 600;
-    }
-    .vta-urlshort-table-wrap td {
-      padding: 0.6rem 0.2rem;
-      border-bottom: 1px solid #e6edf4;
-    }
-    .vta-urlshort-bulk-area {
-      margin-top: 1.6rem;
-      background: #f1f5f9;
-      border-radius: 1.4rem;
-      padding: 1.2rem 1.6rem;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-bulk-area {
-      background: #1e2a3a;
-    }
-    .vta-urlshort-bulk-textarea {
-      width: 100%;
-      min-height: 80px;
-      border-radius: 1rem;
-      padding: 0.8rem;
-      border: 1px solid #dde3ea;
-      background: white;
-      font-family: monospace;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-bulk-textarea {
-      background: #0f172a;
-      color: #e2e8f0;
-      border-color: #334155;
-    }
-    .vta-urlshort-toggle-dark {
-      background: transparent;
-      border: 1px solid #cbd5e1;
-      border-radius: 40px;
-      padding: 0.3rem 0.9rem;
-      font-size: 0.8rem;
-      cursor: pointer;
-      float: right;
-      margin-top: -0.4rem;
-    }
-    body.vta-urlshort-dark-mode .vta-urlshort-toggle-dark {
-      border-color: #475569;
-      color: #d6e2f0;
-    }
-    /* responsive */
-    @media (max-width: 700px) {
-      .vta-urlshort-app-shell { padding: 1rem; }
-      .vta-urlshort-url-input-group { flex-wrap: wrap; background: transparent; border: none; padding: 0; border-radius: 0; gap: 0.5rem; }
-      .vta-urlshort-input-field { background: white; border-radius: 60px; padding: 0.8rem 1.2rem; border: 1px solid #dde3ea; width: 100%; }
-      body.vta-urlshort-dark-mode .vta-urlshort-input-field { background: #0f172a; }
-      .vta-urlshort-shorten-btn { width: 100%; justify-content: center; }
-      .vta-urlshort-advanced-panel { grid-template-columns: 1fr; }
-      .vta-urlshort-hero-title { font-size: 1.8rem; }
-    }
-    @media (max-width: 480px) {
-      .vta-urlshort-hero-title { font-size: 1.5rem; }
-    }
-    .vta-urlshort-hidden { display: none; }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
 
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0a2a4a, #1b4c7c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-top: 0.25rem;
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2rem 2.2rem;
+            box-shadow: 0 20px 48px -16px rgba(0, 20, 60, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 24px 56px -20px rgba(0, 20, 60, 0.25);
+        }
+
+        /* ===== INPUT GROUP ===== */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .input-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .input-row input {
+            flex: 1 1 240px;
+            padding: 0.95rem 1.4rem;
+            border: 2px solid #e2eaf2;
+            border-radius: 60px;
+            font-size: 1rem;
+            background: #fbfdff;
+            transition: all 0.25s;
+            outline: none;
+            font-weight: 500;
+            color: #0b1a2b;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-row input::placeholder {
+            color: #8a9fb0;
+            font-weight: 400;
+        }
+
+        .input-row input:focus {
+            border-color: #2a7de1;
+            box-shadow: 0 0 0 4px rgba(42, 125, 225, 0.12);
+            background: #ffffff;
+        }
+
+        .input-row input:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            padding: 0.95rem 2.2rem;
+            border: none;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #1a5fb4;
+            color: white;
+            box-shadow: 0 4px 14px rgba(26, 95, 180, 0.3);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #124a8f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 95, 180, 0.35);
+        }
+
+        .btn-primary:active:not(:disabled) {
+            transform: translateY(0px);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 1.1rem;
+            font-size: 0.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            background: #eaf0f8;
+            border: 1px solid #cbdae8;
+            color: #0f293f;
+            cursor: pointer;
+            transition: all 0.15s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-sm:hover {
+            background: #d4e2f2;
+            border-color: #8aa9c9;
+            transform: scale(0.97);
+        }
+
+        .btn-sm:active {
+            transform: scale(0.95);
+        }
+
+        .btn-copy {
+            background: #e2ecf9;
+        }
+
+        .btn-copy:hover {
+            background: #c7dbf0;
+        }
+
+        .btn-open {
+            background: #d9e9fa;
+        }
+
+        .btn-open:hover {
+            background: #bfd8f0;
+        }
+
+        .btn-delete {
+            background: #fee9e7;
+            border-color: #f5c2bc;
+            color: #a33a34;
+        }
+
+        .btn-delete:hover {
+            background: #fdd5d0;
+            border-color: #e8a89e;
+        }
+
+        /* ===== LOADING ===== */
+        .loading {
+            display: none;
+            align-items: center;
+            gap: 0.6rem;
+            color: #1a5fb4;
+            font-weight: 500;
+            padding: 0.3rem 0;
+        }
+
+        .loading.visible {
+            display: flex;
+        }
+
+        .spinner {
+            width: 22px;
+            height: 22px;
+            border: 3px solid #d0def0;
+            border-top: 3px solid #1a5fb4;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== MESSAGES ===== */
+        .msg {
+            padding: 0.65rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .msg.error {
+            background: #fee9e7;
+            color: #b33a34;
+            display: block;
+        }
+
+        .msg.success {
+            background: #e1f3e8;
+            color: #0f6b3a;
+            display: block;
+        }
+
+        .msg.info {
+            background: #e3edfa;
+            color: #1a4f7a;
+            display: block;
+        }
+
+        /* ===== RESULT BOX ===== */
+        .result-box {
+            margin-top: 1.8rem;
+            padding: 1.5rem 1.5rem 1.2rem;
+            background: #f2f8ff;
+            border-radius: 24px;
+            border-left: 6px solid #1a5fb4;
+            display: none;
+            flex-direction: column;
+            gap: 0.8rem;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-box.visible {
+            display: flex;
+        }
+
+        .result-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 1rem;
+            word-break: break-all;
+        }
+
+        .result-item .label {
+            font-weight: 600;
+            color: #1f3a57;
+            min-width: 90px;
+            font-size: 0.95rem;
+        }
+
+        .result-item .value {
+            background: white;
+            padding: 0.45rem 1.1rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            border: 1px solid #d6e3f0;
+            flex: 1;
+            min-width: 160px;
+            color: #0b1a2b;
+        }
+
+        .result-item .value.short-link {
+            color: #1a5fb4;
+            font-weight: 500;
+        }
+
+        .result-item .actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .result-stats {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: #3a5a7a;
+            padding-top: 0.5rem;
+            border-top: 1px solid #dce6f0;
+            margin-top: 0.25rem;
+        }
+
+        .result-stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* ===== URL LIST ===== */
+        .url-list-section {
+            margin-top: 2.5rem;
+        }
+
+        .url-list-section h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0b1a2b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .url-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .url-item {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem 1.25rem;
+            border: 1px solid #eef3f9;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
+            transition: border-color 0.2s;
+        }
+
+        .url-item:hover {
+            border-color: #c5d6e8;
+        }
+
+        .url-item .url-original {
+            flex: 1;
+            min-width: 150px;
+            font-size: 0.9rem;
+            color: #1f3a57;
+            word-break: break-all;
+        }
+
+        .url-item .url-short {
+            font-weight: 500;
+            color: #1a5fb4;
+            font-size: 0.9rem;
+            cursor: pointer;
+            word-break: break-all;
+        }
+
+        .url-item .url-short:hover {
+            text-decoration: underline;
+        }
+
+        .url-item .url-clicks {
+            font-size: 0.8rem;
+            color: #5a7a9a;
+            background: #eef4fa;
+            padding: 0.15rem 0.7rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .url-item .url-actions {
+            display: flex;
+            gap: 0.4rem;
+            margin-left: auto;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: #5a7a9a;
+            background: white;
+            border-radius: 20px;
+            border: 2px dashed #dce6f0;
+        }
+
+        .empty-state .emoji {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== INFO GRID ===== */
+        .info-grid {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem 1.3rem;
+            border: 1px solid #eef3f9;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 20, 40, 0.06);
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #0b1a2b;
+        }
+
+        .info-card p,
+        .info-card li {
+            font-size: 0.95rem;
+            color: #1f3a57;
+            line-height: 1.6;
+        }
+
+        .info-card ul {
+            padding-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        .info-card ul li {
+            margin-bottom: 0.2rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-links {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            justify-content: center;
+            border-top: 1px solid #dce6f0;
+            padding-top: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #1f4e7a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #0a2a4a;
+            text-decoration: underline;
+        }
+
+        .badge {
+            background: #d4e2f5;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #123a66;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 0rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 2.1rem;
+            }
+
+            .input-row input {
+                flex: 1 1 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .result-item {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .result-item .actions {
+                margin-left: 0;
+                justify-content: flex-start;
+            }
+
+            .result-stats {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .url-item {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .url-item .url-actions {
+                margin-left: 0;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.7rem;
+            }
+
+            .card {
+                padding: 0.5rem;
+                border-radius: 20px;
+            }
+
+            .result-box {
+                padding: 1rem;
+            }
+        }
+
+        /* ===== TOAST NOTIFICATION ===== */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a2a3a;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
   /* End Page style goes here....................*/
 
         .short-content-wrapper {
@@ -1779,143 +1839,582 @@
 <main class="wrap demo-hero">
 
 
-   <div class="vta-urlshort-app-shell" id="vta-urlshort-app-shell">
-  <!-- dark toggle -->
-  <button class="vta-urlshort-toggle-dark" id="vta-urlshort-toggle-dark" aria-label="toggle dark mode">🌓 Dark</button>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <h1>🔗 URL Shortener</h1>
+            <p>Shorten long links, share smarter — completely free</p>
+        </header>
 
-  <!-- hero -->
-  <div class="vta-urlshort-hero-section">
-    <h1 class="vta-urlshort-hero-title">URL Shortener</h1>
-    <div class="vta-urlshort-hero-sub">Create short, clean, shareable links in seconds with powerful tracking and customization options.</div>
-    <div class="vta-urlshort-trust-badge">
-      <span>⚡ Fast</span> <span>🔒 Secure</span> <span>📊 Analytics Ready</span>
-    </div>
-  </div>
+        <!-- ===== MAIN CARD ===== -->
+        <div class="card">
+            <div class="input-group">
+                <div class="input-row">
+                    <input type="url" id="longUrlInput" 
+                           placeholder="https://example.com/very/long/url/page?id=12345" 
+                           value="https://example.com/products/category/this-is-a-very-long-page-name?id=12345">
+                    <button class="btn btn-primary" id="shortenBtn">✂️ Shorten URL</button>
+                </div>
+                <div class="loading" id="loadingIndicator">
+                    <span class="spinner"></span> Generating short link…
+                </div>
+                <div class="msg" id="messageArea"></div>
+            </div>
 
-  <!-- workspace -->
-  <div class="vta-urlshort-shortener-workspace">
-    <div class="vta-urlshort-url-input-group">
-      <span class="vta-urlshort-url-icon">🔗</span>
-      <input type="url" class="vta-urlshort-input-field" id="vta-urlshort-long-url" placeholder="Paste your long URL here…" autofocus>
-      <div class="vta-urlshort-input-actions">
-        <button class="vta-urlshort-action-btn-icon" id="vta-urlshort-paste-btn" aria-label="paste">📋</button>
-        <button class="vta-urlshort-action-btn-icon" id="vta-urlshort-clear-btn" aria-label="clear">✕</button>
-        <span class="vta-urlshort-char-counter" id="vta-urlshort-char-counter">0</span>
-      </div>
-      <button class="vta-urlshort-shorten-btn" id="vta-urlshort-shorten-btn">Shorten URL</button>
-    </div>
-
-    <!-- result card -->
-    <div class="vta-urlshort-result-card" id="vta-urlshort-result-card">
-      <div class="vta-urlshort-result-label">Your Short URL</div>
-      <div class="vta-urlshort-short-url-display">
-        <span class="vta-urlshort-short-url-text" id="vta-urlshort-short-url-text">https://yourdomain.com/abc123</span>
-        <span class="vta-urlshort-success-badge">✓ URL shortened successfully</span>
-      </div>
-      <div class="vta-urlshort-result-actions">
-        <button class="vta-urlshort-action-pill" data-action="copy">📄 Copy</button>
-        <button class="vta-urlshort-action-pill" data-action="open">↗ Open</button>
-        <button class="vta-urlshort-action-pill" data-action="qr">📱 QR</button>
-        <button class="vta-urlshort-action-pill" data-action="share">📤 Share</button>
-        <button class="vta-urlshort-action-pill" data-action="download-qr">⬇ Download QR</button>
-        <button class="vta-urlshort-action-pill" data-action="edit">✎ Edit</button>
-        <button class="vta-urlshort-action-pill" data-action="analytics">📊 Analytics</button>
-      </div>
-    </div>
-
-    <!-- advanced toggle + panel -->
-    <button class="vta-urlshort-advanced-toggle" id="vta-urlshort-advanced-toggle">⚙ Advanced Options ▾</button>
-    <div class="vta-urlshort-advanced-panel" id="vta-urlshort-advanced-panel">
-      <div class="vta-urlshort-adv-group">
-        <label class="vta-urlshort-adv-label" for="vta-urlshort-custom-alias">Custom Alias</label>
-        <input class="vta-urlshort-input-field" id="vta-urlshort-custom-alias" placeholder="my-link" maxlength="50">
-        <div class="vta-urlshort-alias-status" id="vta-urlshort-alias-status"></div>
-      </div>
-      <div class="vta-urlshort-adv-group">
-        <label class="vta-urlshort-adv-label" for="vta-urlshort-expiration">Expiration</label>
-        <select class="vta-urlshort-select-input" id="vta-urlshort-expiration">
-          <option value="never">Never</option>
-          <option value="1 hour">1 hour</option>
-          <option value="1 day">1 day</option>
-          <option value="7 days">7 days</option>
-          <option value="30 days">30 days</option>
-          <option value="90 days">90 days</option>
-        </select>
-      </div>
-      <div class="vta-urlshort-adv-group">
-        <label class="vta-urlshort-adv-label" for="vta-urlshort-password">Password (optional)</label>
-        <input class="vta-urlshort-input-field" id="vta-urlshort-password" type="password" placeholder="protect with password">
-      </div>
-      <div class="vta-urlshort-adv-group">
-        <label class="vta-urlshort-adv-label" for="vta-urlshort-max-clicks">Max Clicks</label>
-        <select class="vta-urlshort-select-input" id="vta-urlshort-max-clicks">
-          <option value="0">Unlimited</option>
-          <option value="10">10</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-          <option value="500">500</option>
-        </select>
-      </div>
-      <div class="vta-urlshort-utm-builder">
-        <div class="vta-urlshort-adv-label">UTM Tracking</div>
-        <div class="vta-urlshort-utm-grid">
-          <input placeholder="Source" id="vta-urlshort-utm-source">
-          <input placeholder="Medium" id="vta-urlshort-utm-medium">
-          <input placeholder="Campaign" id="vta-urlshort-utm-campaign">
-          <input placeholder="Term" id="vta-urlshort-utm-term">
-          <input placeholder="Content" id="vta-urlshort-utm-content">
+            <!-- Result -->
+            <div class="result-box" id="resultBox">
+                <div class="result-item">
+                    <span class="label">🔗 Original</span>
+                    <span class="value" id="originalDisplay">—</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">✂️ Short URL</span>
+                    <span class="value short-link" id="shortDisplay">—</span>
+                    <div class="actions">
+                        <button class="btn-sm btn-copy" id="copyBtn">📋 Copy</button>
+                        <button class="btn-sm btn-open" id="openBtn">↗️ Open</button>
+                    </div>
+                </div>
+                <div class="result-stats">
+                    <span>🖱️ <span id="clickCountDisplay">0</span> clicks</span>
+                    <span>📅 <span id="createdDisplay">—</span></span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- QR -->
-    <div class="vta-urlshort-qr-wrapper" id="vta-urlshort-qr-wrapper">
-      <span class="vta-urlshort-adv-label">QR Code</span>
-      <div class="vta-urlshort-qr-canvas-wrap">
-        <canvas id="vta-urlshort-qr-canvas" width="120" height="120"></canvas>
-        <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
-          <button class="vta-urlshort-action-pill" id="vta-urlshort-qr-download-png">PNG</button>
-          <button class="vta-urlshort-action-pill" id="vta-urlshort-qr-download-svg">SVG</button>
-          <button class="vta-urlshort-action-pill" id="vta-urlshort-qr-print">🖨 Print</button>
+        <!-- ===== URL LIST ===== -->
+        <div class="url-list-section">
+            <h2>📋 Your Shortened URLs</h2>
+            <div id="urlListContainer">
+                <!-- Dynamic content -->
+            </div>
         </div>
-      </div>
+
+        <!-- ===== INFO GRID ===== -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📌 What is a URL shortener?</h3>
+                <p>Converts long web addresses into short, shareable links. Perfect for social media, emails, and SMS.</p>
+            </div>
+            <div class="info-card">
+                <h3>⚡ How to shorten a URL</h3>
+                <p>Paste your long link above, click "Shorten URL", copy the new short link and share it anywhere.</p>
+            </div>
+            <div class="info-card">
+                <h3>✅ Benefits of short URLs</h3>
+                <ul>
+                    <li>Cleaner &amp; more memorable</li>
+                    <li>Track clicks (basic analytics)</li>
+                    <li>Better for character-limited platforms</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>🔄 How redirection works</h3>
+                <p>When someone visits your short link, the system looks up the original URL and redirects instantly.</p>
+            </div>
+            <div class="info-card">
+                <h3>❓ Is it free?</h3>
+                <p>Yes — this service is completely free with no hidden limits. All data is stored locally.</p>
+            </div>
+            <div class="info-card">
+                <h3>📱 Social media ready</h3>
+                <p>Shortened URLs work everywhere: Twitter, LinkedIn, Instagram, SMS, and more.</p>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="footer-links">
+            <a href="#" onclick="showPage('privacy'); return false;">Privacy Policy</a>
+            <a href="#" onclick="showPage('terms'); return false;">Terms of Service</a>
+            <a href="#" onclick="showPage('about'); return false;">About</a>
+            <a href="#" onclick="showPage('contact'); return false;">Contact</a>
+            <span class="badge">⚡ Pure HTML · CSS · JS</span>
+        </div>
     </div>
 
-    <!-- stats cards (demo) -->
-    <div class="vta-urlshort-stat-grid">
-      <div class="vta-urlshort-stat-card"><div class="vta-urlshort-stat-number" id="vta-urlshort-total-links">0</div><div class="vta-urlshort-stat-label">Total Links</div></div>
-      <div class="vta-urlshort-stat-card"><div class="vta-urlshort-stat-number" id="vta-urlshort-active-links">0</div><div class="vta-urlshort-stat-label">Active</div></div>
-      <div class="vta-urlshort-stat-card"><div class="vta-urlshort-stat-number" id="vta-urlshort-total-clicks">0</div><div class="vta-urlshort-stat-label">Clicks</div></div>
-    </div>
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"></div>
 
-    <!-- link management (mock) -->
-    <div style="margin-top:1.8rem;">
-      <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
-        <span class="vta-urlshort-adv-label">My Short Links</span>
-        <div><input class="vta-urlshort-input-field" style="width:160px; padding:0.3rem 0.8rem;" placeholder="Search…" id="vta-urlshort-link-search"></div>
-      </div>
-      <div class="vta-urlshort-table-wrap">
-        <table>
-          <thead><tr><th>Short URL</th><th>Original</th><th>Clicks</th><th>Status</th><th>Actions</th></tr></thead>
-          <tbody id="vta-urlshort-link-table-body">
-            <tr><td colspan="5" style="text-align:center; color:#6a7b8f;">No links yet. Create your first!</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <script>
+        // ============================================================
+        //  URL SHORTENER - COMPLETE CLIENT-SIDE APPLICATION
+        //  Uses localStorage as the database
+        //  Works with: https://tryalltools.com/url-shortener.html
+        // ============================================================
 
-    <!-- bulk shortener -->
-    <div class="vta-urlshort-bulk-area">
-      <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
-        <span class="vta-urlshort-adv-label">Bulk Shortener</span>
-        <div><button class="vta-urlshort-action-pill" id="vta-urlshort-bulk-shorten">Shorten All</button></div>
-      </div>
-      <textarea class="vta-urlshort-bulk-textarea" id="vta-urlshort-bulk-text" placeholder="https://example.com/page-one&#10;https://example.com/page-two"></textarea>
-      <div id="vta-urlshort-bulk-results" style="margin-top:0.8rem; font-size:0.9rem;"></div>
-    </div>
-  </div>
-</div> 
+        (function() {
+            'use strict';
 
+            // ===== DOM REFERENCES =====
+            const longUrlInput = document.getElementById('longUrlInput');
+            const shortenBtn = document.getElementById('shortenBtn');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const messageArea = document.getElementById('messageArea');
+            const resultBox = document.getElementById('resultBox');
+            const originalDisplay = document.getElementById('originalDisplay');
+            const shortDisplay = document.getElementById('shortDisplay');
+            const clickCountDisplay = document.getElementById('clickCountDisplay');
+            const createdDisplay = document.getElementById('createdDisplay');
+            const copyBtn = document.getElementById('copyBtn');
+            const openBtn = document.getElementById('openBtn');
+            const urlListContainer = document.getElementById('urlListContainer');
+            const toast = document.getElementById('toast');
+
+            // ===== STORAGE KEY =====
+            const STORAGE_KEY = 'urlShortener_data';
+
+            // ===== BASE URL =====
+            const BASE_URL = 'https://tryalltools.com/url-shortener.html';
+
+            // ===== DATA STRUCTURE =====
+            // {
+            //   shortCode: {
+            //     originalUrl: string,
+            //     clickCount: number,
+            //     createdAt: ISO string,
+            //     updatedAt: ISO string
+            //   }
+            // }
+
+            // ===== HELPERS =====
+
+            // Get all URLs from localStorage
+            function getUrls() {
+                try {
+                    const data = localStorage.getItem(STORAGE_KEY);
+                    return data ? JSON.parse(data) : {};
+                } catch {
+                    return {};
+                }
+            }
+
+            // Save URLs to localStorage
+            function saveUrls(urls) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(urls));
+            }
+
+            // Generate random short code (6 characters)
+            function generateShortCode(length = 6) {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let code = '';
+                for (let i = 0; i < length; i++) {
+                    code += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return code;
+            }
+
+            // Generate unique short code
+            function generateUniqueCode(urls) {
+                let code = generateShortCode();
+                let attempts = 0;
+                const maxAttempts = 30;
+                while (urls[code] && attempts < maxAttempts) {
+                    code = generateShortCode();
+                    attempts++;
+                }
+                return code;
+            }
+
+            // Validate URL (HTTP/HTTPS only)
+            function isValidUrl(string) {
+                try {
+                    const url = new URL(string);
+                    return url.protocol === 'http:' || url.protocol === 'https:';
+                } catch {
+                    return false;
+                }
+            }
+
+            // Format date
+            function formatDate(dateString) {
+                try {
+                    const date = new Date(dateString);
+                    return date.toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                } catch {
+                    return dateString;
+                }
+            }
+
+            // Show toast notification
+            function showToast(message, duration = 2500) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                clearTimeout(toast._timeout);
+                toast._timeout = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, duration);
+            }
+
+            // ===== UI HELPERS =====
+
+            function showMessage(text, type = 'info') {
+                messageArea.textContent = text;
+                messageArea.className = 'msg ' + type;
+                messageArea.style.display = 'block';
+            }
+
+            function hideMessage() {
+                messageArea.style.display = 'none';
+                messageArea.className = 'msg';
+            }
+
+            function showLoading(show) {
+                if (show) {
+                    loadingIndicator.classList.add('visible');
+                    shortenBtn.disabled = true;
+                    longUrlInput.disabled = true;
+                } else {
+                    loadingIndicator.classList.remove('visible');
+                    shortenBtn.disabled = false;
+                    longUrlInput.disabled = false;
+                }
+            }
+
+            function showResult(urlData, shortCode) {
+                const shortUrl = BASE_URL + '#' + shortCode;
+
+                originalDisplay.textContent = urlData.originalUrl;
+                shortDisplay.textContent = shortUrl;
+                clickCountDisplay.textContent = urlData.clickCount || 0;
+                createdDisplay.textContent = formatDate(urlData.createdAt);
+
+                resultBox.classList.add('visible');
+                resultBox.dataset.shortCode = shortCode;
+                resultBox.dataset.shortUrl = shortUrl;
+                resultBox.dataset.originalUrl = urlData.originalUrl;
+            }
+
+            function hideResult() {
+                resultBox.classList.remove('visible');
+            }
+
+            // ===== REDIRECT HANDLER =====
+            function handleRedirect() {
+                const hash = window.location.hash.substring(1);
+                if (!hash) return false;
+
+                const urls = getUrls();
+                const urlData = urls[hash];
+
+                if (urlData) {
+                    // Increment click count
+                    urlData.clickCount = (urlData.clickCount || 0) + 1;
+                    urlData.updatedAt = new Date().toISOString();
+                    saveUrls(urls);
+
+                    // Redirect to original URL
+                    window.location.href = urlData.originalUrl;
+                    return true;
+                } else {
+                    // Show 404 page
+                    show404Page(hash);
+                    return true;
+                }
+            }
+
+            // ===== 404 PAGE =====
+            function show404Page(shortCode) {
+                document.body.innerHTML = `
+                    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;font-family:'Inter',sans-serif;text-align:center;padding:1.5rem;background:#f8faff;">
+                        <div style="font-size:4.5rem;margin-bottom:1rem;">🔍</div>
+                        <h1 style="font-size:3rem;font-weight:700;color:#1f3a57;margin-bottom:0.5rem;">404</h1>
+                        <p style="font-size:1.3rem;color:#2e4b6b;margin-bottom:0.5rem;">Short URL not found</p>
+                        <p style="color:#5b7a96;margin-bottom:1.5rem;">The link <strong style="color:#1a5fb4;">/${shortCode}</strong> does not exist.</p>
+                        <a href="${BASE_URL}" style="background:#1a5fb4;color:white;padding:0.8rem 2.4rem;border-radius:60px;text-decoration:none;font-weight:600;transition:background 0.2s;">Go to Homepage</a>
+                        <p style="margin-top:2rem;color:#8a9fb0;font-size:0.85rem;">URL Shortener · Pure HTML/CSS/JS</p>
+                    </div>
+                `;
+            }
+
+            // ===== SHORTEN URL =====
+            function shortenUrl() {
+                hideMessage();
+                const originalUrl = longUrlInput.value.trim();
+
+                if (!originalUrl) {
+                    showMessage('Please enter a URL.', 'error');
+                    return;
+                }
+
+                if (!isValidUrl(originalUrl)) {
+                    showMessage('Invalid URL. Only HTTP and HTTPS are allowed.', 'error');
+                    return;
+                }
+
+                showLoading(true);
+
+                // Simulate async operation
+                setTimeout(() => {
+                    try {
+                        const urls = getUrls();
+
+                        // Check if URL already exists
+                        let existingCode = null;
+                        for (const [code, data] of Object.entries(urls)) {
+                            if (data.originalUrl === originalUrl) {
+                                existingCode = code;
+                                break;
+                            }
+                        }
+
+                        if (existingCode) {
+                            const urlData = urls[existingCode];
+                            showResult(urlData, existingCode);
+                            showMessage('✅ This URL is already shortened!', 'success');
+                            showLoading(false);
+                            renderUrlList();
+                            return;
+                        }
+
+                        // Generate unique code
+                        const shortCode = generateUniqueCode(urls);
+
+                        if (!shortCode) {
+                            showMessage('Could not generate a unique code. Please try again.', 'error');
+                            showLoading(false);
+                            return;
+                        }
+
+                        // Save
+                        const newUrlData = {
+                            originalUrl: originalUrl,
+                            clickCount: 0,
+                            createdAt: new Date().toISOString(),
+                            updatedAt: new Date().toISOString()
+                        };
+
+                        urls[shortCode] = newUrlData;
+                        saveUrls(urls);
+
+                        // Show result
+                        showResult(newUrlData, shortCode);
+                        showMessage('✅ Short URL created successfully!', 'success');
+                        renderUrlList();
+                        showToast('✨ Short URL created!');
+
+                    } catch (error) {
+                        showMessage('An error occurred. Please try again.', 'error');
+                        console.error('Shorten error:', error);
+                    }
+
+                    showLoading(false);
+                }, 600);
+            }
+
+            // ===== RENDER URL LIST =====
+            function renderUrlList() {
+                const urls = getUrls();
+                const entries = Object.entries(urls);
+
+                if (entries.length === 0) {
+                    urlListContainer.innerHTML = `
+                        <div class="empty-state">
+                            <span class="emoji">📭</span>
+                            <p>No URLs shortened yet.<br>Paste a link above to get started!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Sort by createdAt (newest first)
+                entries.sort((a, b) => {
+                    return new Date(b[1].createdAt) - new Date(a[1].createdAt);
+                });
+
+                let html = '<div class="url-list">';
+                for (const [code, data] of entries) {
+                    const shortUrl = BASE_URL + '#' + code;
+                    const createdAt = formatDate(data.createdAt);
+                    html += `
+                        <div class="url-item">
+                            <span class="url-original" title="${escapeHtml(data.originalUrl)}">${truncateText(data.originalUrl, 50)}</span>
+                            <span class="url-short" onclick="window.open('${shortUrl}', '_blank')">${shortUrl}</span>
+                            <span class="url-clicks">🖱️ ${data.clickCount || 0}</span>
+                            <span class="url-clicks" style="background:#e8edf4;">📅 ${createdAt}</span>
+                            <div class="url-actions">
+                                <button class="btn-sm btn-copy" onclick="copyToClipboard('${shortUrl}')">📋</button>
+                                <button class="btn-sm btn-open" onclick="window.open('${shortUrl}', '_blank')">↗️</button>
+                                <button class="btn-sm btn-delete" onclick="deleteUrl('${code}')">🗑️</button>
+                            </div>
+                        </div>
+                    `;
+                }
+                html += '</div>';
+                urlListContainer.innerHTML = html;
+            }
+
+            // ===== ESCAPE HTML =====
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            // ===== TRUNCATE TEXT =====
+            function truncateText(text, maxLength) {
+                if (text.length <= maxLength) return text;
+                return text.substring(0, maxLength) + '…';
+            }
+
+            // ===== COPY TO CLIPBOARD =====
+            function copyToClipboard(text) {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast('📋 Copied to clipboard!');
+                    }).catch(() => {
+                        fallbackCopy(text);
+                    });
+                } else {
+                    fallbackCopy(text);
+                }
+            }
+
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('📋 Copied!');
+            }
+
+            // ===== DELETE URL =====
+            function deleteUrl(shortCode) {
+                if (!confirm('Delete this shortened URL?')) return;
+
+                const urls = getUrls();
+                if (urls[shortCode]) {
+                    delete urls[shortCode];
+                    saveUrls(urls);
+
+                    // If the deleted URL is currently displayed, hide result
+                    if (resultBox.dataset.shortCode === shortCode) {
+                        hideResult();
+                    }
+
+                    renderUrlList();
+                    showToast('🗑️ URL deleted');
+                }
+            }
+
+            // ===== SHOW PAGE (Privacy, Terms, etc.) =====
+            function showPage(page) {
+                const pages = {
+                    privacy: `
+                        <h2>Privacy Policy</h2>
+                        <p>This URL Shortener service stores all data locally in your browser using localStorage. No data is sent to any server.</p>
+                        <p>We do not collect, store, or share any personal information.</p>
+                        <p>The shortened URLs you create are stored only on your device.</p>
+                        <p>Since this is a client-side application, your data never leaves your browser.</p>
+                    `,
+                    terms: `
+                        <h2>Terms of Service</h2>
+                        <p>This service is provided "as is" without any warranties.</p>
+                        <p>You are responsible for the content of the URLs you shorten.</p>
+                        <p>Do not use this service for illegal or malicious purposes.</p>
+                        <p>By using this service, you agree that you will not shorten URLs that contain:</p>
+                        <ul>
+                            <li>Malware or phishing content</li>
+                            <li>Illegal materials</li>
+                            <li>Hate speech or harassment</li>
+                        </ul>
+                    `,
+                    about: `
+                        <h2>About URL Shortener</h2>
+                        <p>A lightweight, client-side URL shortener built with HTML, CSS, and JavaScript.</p>
+                        <p>All data is stored locally in your browser - no servers, no tracking.</p>
+                        <p>Perfect for quickly sharing long URLs without relying on third-party services.</p>
+                        <p>This tool is completely free and open source.</p>
+                    `,
+                    contact: `
+                        <h2>Contact</h2>
+                        <p>This is a client-side application with no backend.</p>
+                        <p>For support or feedback, please refer to the source code.</p>
+                        <p>You can find the code on GitHub or contact the developer through the repository.</p>
+                        <p style="margin-top:1rem;">🔗 <a href="${BASE_URL}" style="color:#1a5fb4;text-decoration:none;font-weight:500;">← Back to Home</a></p>
+                    `
+                };
+
+                const content = pages[page] || '<p>Page not found.</p>';
+                const container = document.querySelector('.container');
+                container.innerHTML = `
+                    <div style="background:white;border-radius:28px;padding:2.5rem;max-width:700px;margin:2rem auto;box-shadow:0 20px 48px -16px rgba(0,20,60,0.15);">
+                        ${content}
+                        <p style="margin-top:1.5rem;"><a href="${BASE_URL}" style="color:#1a5fb4;text-decoration:none;font-weight:500;">← Back to Home</a></p>
+                    </div>
+                `;
+            }
+
+            // ===== EVENT LISTENERS =====
+
+            shortenBtn.addEventListener('click', shortenUrl);
+
+            longUrlInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    shortenUrl();
+                }
+            });
+
+            copyBtn.addEventListener('click', function() {
+                const shortUrl = resultBox.dataset.shortUrl;
+                if (!shortUrl) {
+                    showMessage('No URL to copy.', 'error');
+                    return;
+                }
+                copyToClipboard(shortUrl);
+            });
+
+            openBtn.addEventListener('click', function() {
+                const shortUrl = resultBox.dataset.shortUrl;
+                if (shortUrl) {
+                    window.open(shortUrl, '_blank');
+                }
+            });
+
+            // ===== HANDLE REDIRECT ON LOAD =====
+            const redirected = handleRedirect();
+
+            // ===== INITIALIZE UI =====
+            if (!redirected) {
+                renderUrlList();
+
+                // Check if there's a hash but no redirect (invalid code)
+                if (window.location.hash) {
+                    // 404 already shown by handleRedirect if not found
+                }
+            }
+
+            // ===== EXPOSE FUNCTIONS =====
+            window.copyToClipboard = copyToClipboard;
+            window.deleteUrl = deleteUrl;
+            window.showPage = showPage;
+            window.shortenUrl = shortenUrl;
+
+            // ===== KEYBOARD SHORTCUT =====
+            document.addEventListener('keydown', function(e) {
+                // Ctrl+Enter to shorten
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    shortenUrl();
+                }
+            });
+
+            console.log('🔗 URL Shortener loaded successfully!');
+            console.log('📌 Base URL:', BASE_URL);
+            console.log('💾 Storage key:', STORAGE_KEY);
+
+        })();
+    </script>
     <div class="short-content-wrapper">
 
         <!-- 1. INTRODUCTION -->
@@ -2596,289 +3095,6 @@
 
 
 <!-- PAge Script Herer-->
-<script>
-  (function(){
-    // ----- namespaced elements -----
-    const longUrlInput = document.getElementById('vta-urlshort-long-url');
-    const shortenBtn = document.getElementById('vta-urlshort-shorten-btn');
-    const resultCard = document.getElementById('vta-urlshort-result-card');
-    const shortUrlText = document.getElementById('vta-urlshort-short-url-text');
-    const charCounter = document.getElementById('vta-urlshort-char-counter');
-    const pasteBtn = document.getElementById('vta-urlshort-paste-btn');
-    const clearBtn = document.getElementById('vta-urlshort-clear-btn');
-    const advancedToggle = document.getElementById('vta-urlshort-advanced-toggle');
-    const advancedPanel = document.getElementById('vta-urlshort-advanced-panel');
-    const customAlias = document.getElementById('vta-urlshort-custom-alias');
-    const aliasStatus = document.getElementById('vta-urlshort-alias-status');
-    const qrCanvas = document.getElementById('vta-urlshort-qr-canvas');
-    const darkToggle = document.getElementById('vta-urlshort-toggle-dark');
-    const linkTableBody = document.getElementById('vta-urlshort-link-table-body');
-
-    // simple state
-    let currentShortCode = '';
-    let storedLinks = [];
-
-    // ---- helpers ----
-    function generateShortCode(len = 6) {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      let code = '';
-      for(let i=0;i<len;i++) code += chars.charAt(Math.floor(Math.random() * chars.length));
-      return code;
-    }
-
-    function isValidUrl(str) {
-      try {
-        const url = new URL(str);
-        return ['http:', 'https:'].includes(url.protocol);
-      } catch(e){ return false; }
-    }
-
-    function updateCharCounter() { charCounter.textContent = longUrlInput.value.length; }
-    longUrlInput.addEventListener('input', updateCharCounter);
-
-    pasteBtn.addEventListener('click', async ()=>{
-      try {
-        const text = await navigator.clipboard.readText();
-        if(text) longUrlInput.value = text;
-        updateCharCounter();
-      } catch(e){ alert('Unable to paste. Use Ctrl+V'); }
-    });
-    clearBtn.addEventListener('click', ()=>{ longUrlInput.value = ''; updateCharCounter(); });
-
-    // advanced toggle
-    advancedToggle.addEventListener('click', ()=>{
-      advancedPanel.classList.toggle('vta-urlshort-advanced-open');
-      advancedToggle.textContent = advancedPanel.classList.contains('vta-urlshort-advanced-open') ? '⚙ Advanced Options ▴' : '⚙ Advanced Options ▾';
-    });
-
-    // custom alias availability (mock)
-    customAlias.addEventListener('input', function(){
-      const val = this.value.trim();
-      if(!val) { aliasStatus.textContent = ''; return; }
-      if(!/^[a-zA-Z0-9_-]{3,50}$/.test(val)) {
-        aliasStatus.innerHTML = '✕ Alias must be 3-50 letters, numbers, _ or -';
-        aliasStatus.className = 'vta-urlshort-alias-status vta-urlshort-alias-unavailable';
-        return;
-      }
-      // mock check: reserved list
-      const reserved = ['admin','api','login','register','dashboard','analytics','settings','about','contact','help','qr','short','shorten'];
-      if(reserved.includes(val.toLowerCase())) {
-        aliasStatus.innerHTML = '✕ Alias reserved';
-        aliasStatus.className = 'vta-urlshort-alias-status vta-urlshort-alias-unavailable';
-        return;
-      }
-      // simulate AJAX check: assume available if not taken (mock)
-      aliasStatus.innerHTML = '✓ Alias available';
-      aliasStatus.className = 'vta-urlshort-alias-status vta-urlshort-alias-available';
-    });
-
-    // shorten action (mock backend simulation)
-    shortenBtn.addEventListener('click', function(){
-      const url = longUrlInput.value.trim();
-      if(!url || !isValidUrl(url)) {
-        alert('Please enter a valid URL (http/https).');
-        return;
-      }
-      // normalize
-      let finalUrl = url;
-      // mock UTM append
-      const utmSource = document.getElementById('vta-urlshort-utm-source').value.trim();
-      const utmMedium = document.getElementById('vta-urlshort-utm-medium').value.trim();
-      const utmCampaign = document.getElementById('vta-urlshort-utm-campaign').value.trim();
-      if(utmSource || utmMedium || utmCampaign) {
-        const urlObj = new URL(finalUrl);
-        if(utmSource) urlObj.searchParams.set('utm_source', utmSource);
-        if(utmMedium) urlObj.searchParams.set('utm_medium', utmMedium);
-        if(utmCampaign) urlObj.searchParams.set('utm_campaign', utmCampaign);
-        const term = document.getElementById('vta-urlshort-utm-term').value.trim();
-        const content = document.getElementById('vta-urlshort-utm-content').value.trim();
-        if(term) urlObj.searchParams.set('utm_term', term);
-        if(content) urlObj.searchParams.set('utm_content', content);
-        finalUrl = urlObj.toString();
-      }
-
-      // alias
-      let alias = customAlias.value.trim();
-      let code = alias || generateShortCode(6);
-      // if alias, check availability again
-      if(alias) {
-        const reserved = ['admin','api','login','register','dashboard','analytics','settings','about','contact','help','qr','short','shorten'];
-        if(reserved.includes(alias.toLowerCase())) {
-          alert('Alias reserved. Choose another.');
-          return;
-        }
-        // mock: check if already exists (in storedLinks)
-        const exists = storedLinks.some(l => l.alias === alias || l.shortCode === alias);
-        if(exists) { alert('Alias already taken.'); return; }
-      }
-
-      // store link
-      const newLink = {
-        id: Date.now(),
-        original: finalUrl,
-        shortCode: code,
-        alias: alias || '',
-        clicks: 0,
-        status: 'active',
-        created: new Date().toISOString().slice(0,10)
-      };
-      storedLinks.push(newLink);
-
-      // display result
-      const short = 'https://yourdomain.com/' + code;
-      shortUrlText.textContent = short;
-      resultCard.classList.add('vta-urlshort-result-visible');
-      currentShortCode = code;
-
-      // update stats
-      document.getElementById('vta-urlshort-total-links').textContent = storedLinks.length;
-      document.getElementById('vta-urlshort-active-links').textContent = storedLinks.filter(l=>l.status==='active').length;
-      document.getElementById('vta-urlshort-total-clicks').textContent = storedLinks.reduce((sum,l)=>sum+l.clicks,0);
-
-      // update table
-      renderLinkTable();
-
-      // generate QR (mock)
-      generateQR(short);
-
-      // reset alias status
-      aliasStatus.textContent = '';
-    });
-
-    function renderLinkTable() {
-      if(!linkTableBody) return;
-      if(storedLinks.length === 0) {
-        linkTableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#6a7b8f;">No links yet. Create your first!</td></tr>';
-        return;
-      }
-      let html = '';
-      storedLinks.slice().reverse().forEach(link => {
-        html += `<tr>
-          <td><a href="#" data-code="${link.shortCode}" class="vta-urlshort-link-open">https://yourdomain.com/${link.shortCode}</a></td>
-          <td style="max-width:120px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${link.original}</td>
-          <td>${link.clicks}</td>
-          <td>${link.status}</td>
-          <td>
-            <button class="vta-urlshort-action-pill" data-action="copy-link" data-code="${link.shortCode}">Copy</button>
-            <button class="vta-urlshort-action-pill" data-action="delete-link" data-id="${link.id}">Delete</button>
-          </td>
-        </tr>`;
-      });
-      linkTableBody.innerHTML = html;
-      // attach events
-      linkTableBody.querySelectorAll('[data-action="copy-link"]').forEach(btn => {
-        btn.addEventListener('click', function(e){
-          const code = this.dataset.code;
-          navigator.clipboard.writeText('https://yourdomain.com/'+code).then(()=> alert('Copied!'));
-        });
-      });
-      linkTableBody.querySelectorAll('[data-action="delete-link"]').forEach(btn => {
-        btn.addEventListener('click', function(e){
-          const id = Number(this.dataset.id);
-          if(confirm('Delete this short URL permanently? This cannot be undone.')){
-            storedLinks = storedLinks.filter(l => l.id !== id);
-            renderLinkTable();
-            document.getElementById('vta-urlshort-total-links').textContent = storedLinks.length;
-            document.getElementById('vta-urlshort-active-links').textContent = storedLinks.filter(l=>l.status==='active').length;
-          }
-        });
-      });
-    }
-
-    // QR generation (simple mock using canvas)
-    function generateQR(text) {
-      const ctx = qrCanvas.getContext('2d');
-      ctx.clearRect(0,0,120,120);
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0,0,120,120);
-      ctx.fillStyle = '#0b1e33';
-      ctx.font = '12px monospace';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('QR', 60, 50);
-      ctx.font = '8px monospace';
-      ctx.fillText(text.substring(0,18), 60, 80);
-    }
-
-    // result actions (copy, open, share)
-    document.querySelector('#vta-urlshort-result-card').addEventListener('click', function(e){
-      const target = e.target.closest('[data-action]');
-      if(!target) return;
-      const action = target.dataset.action;
-      const url = shortUrlText.textContent;
-      if(action === 'copy') { navigator.clipboard.writeText(url).then(()=> alert('Copied!')); }
-      else if(action === 'open') { window.open(url, '_blank'); }
-      else if(action === 'share') { if(navigator.share) navigator.share({title:'Short URL', url}); else alert('Share via: '+url); }
-      else if(action === 'qr') { alert('QR displayed above'); }
-      else if(action === 'download-qr') {
-        const link = document.createElement('a');
-        link.download = 'qr.png';
-        link.href = qrCanvas.toDataURL('image/png');
-        link.click();
-      }
-      else if(action === 'edit') { alert('Edit feature: change destination or alias (simulated)'); }
-      else if(action === 'analytics') { alert('Analytics: 0 clicks, no data yet.'); }
-    });
-
-    // bulk shorten
-    document.getElementById('vta-urlshort-bulk-shorten').addEventListener('click', function(){
-      const text = document.getElementById('vta-urlshort-bulk-text').value;
-      const lines = text.split('\n').map(s=>s.trim()).filter(Boolean);
-      if(!lines.length) { alert('Paste at least one URL.'); return; }
-      let results = '';
-      lines.forEach(ln => {
-        if(isValidUrl(ln)) {
-          const code = generateShortCode(6);
-          storedLinks.push({ id: Date.now()+Math.random(), original: ln, shortCode: code, alias: '', clicks:0, status:'active', created: new Date().toISOString().slice(0,10) });
-          results += `✓ ${ln} → https://yourdomain.com/${code}\n`;
-        } else {
-          results += `✕ invalid: ${ln}\n`;
-        }
-      });
-      document.getElementById('vta-urlshort-bulk-results').textContent = results;
-      renderLinkTable();
-      document.getElementById('vta-urlshort-total-links').textContent = storedLinks.length;
-      document.getElementById('vta-urlshort-active-links').textContent = storedLinks.filter(l=>l.status==='active').length;
-    });
-
-    // dark mode
-    darkToggle.addEventListener('click', function(){
-      document.body.classList.toggle('vta-urlshort-dark-mode');
-      localStorage.setItem('vta-urlshort-dark', document.body.classList.contains('vta-urlshort-dark-mode') ? 'true' : 'false');
-    });
-    if(localStorage.getItem('vta-urlshort-dark') === 'true') {
-      document.body.classList.add('vta-urlshort-dark-mode');
-    }
-
-    // init char counter
-    updateCharCounter();
-    // init QR with dummy
-    generateQR('https://yourdomain.com');
-    // add some demo links
-    storedLinks.push({ id: 1, original: 'https://example.com/demo', shortCode: 'demo1', alias: 'demo', clicks: 5, status:'active', created: '2025-03-20' });
-    storedLinks.push({ id: 2, original: 'https://google.com', shortCode: 'goog', alias: '', clicks: 12, status:'active', created: '2025-03-21' });
-    renderLinkTable();
-    document.getElementById('vta-urlshort-total-links').textContent = storedLinks.length;
-    document.getElementById('vta-urlshort-active-links').textContent = storedLinks.filter(l=>l.status==='active').length;
-    document.getElementById('vta-urlshort-total-clicks').textContent = storedLinks.reduce((sum,l)=>sum+l.clicks,0);
-
-    // link open simulation
-    document.addEventListener('click', function(e){
-      const link = e.target.closest('.vta-urlshort-link-open');
-      if(link) {
-        e.preventDefault();
-        const code = link.dataset.code;
-        const found = storedLinks.find(l => l.shortCode === code);
-        if(found) {
-          found.clicks = (found.clicks || 0) + 1;
-          document.getElementById('vta-urlshort-total-clicks').textContent = storedLinks.reduce((sum,l)=>sum+l.clicks,0);
-          alert('Redirect to: '+found.original);
-          renderLinkTable();
-        }
-      }
-    });
-  })();
-</script>
 
 <!--End page script-->
 
